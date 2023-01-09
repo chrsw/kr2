@@ -32,6 +32,7 @@ int getwordb(char *word, int lim);
 
 extern char buf[BUFSIZ];
 extern int bufp;
+char lbuf[BUFSIZ];
 size_t flen;
 
 int main(int argc, char *argv[])
@@ -57,15 +58,17 @@ int main(int argc, char *argv[])
     printf("WORDSIZE:    %d\n", WORDSIZE);
     printf("word length: %zu\n", sizeof(word));
     
-    while ((c = getchar()) != EOF)
-        ;
+
+    bufp = 0;
+    while ((c = getchar()) != EOF)                  /* read all input */
+        lbuf[bufp++] = c;                           /* into loca buffer */ 
     bufp = 0;
     while ((c = getchb()) != '\0');
         ;
    
-    bufp = 0;
-    while ((c = buf[bufp++]) != '\0');
-        ;
+    bufp = 0;                                       /* alternate method */
+    while ((c = buf[bufp++]) != '\0');              /* for getting buf */
+        ;                                           /* length */
     
     printf("bufp:        %d\n", bufp);
  

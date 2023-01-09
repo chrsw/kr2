@@ -1,11 +1,9 @@
 /* vim:ts=4:sw=4:et:
  *
- * getword.c
+ * ex6-1.c
  *
  * Description:
- *      Details
- *
- * Input:
+ *     Get words from input. 
  *
  */
 
