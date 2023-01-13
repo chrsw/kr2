@@ -6,10 +6,14 @@
  * Description:
  *      Details
  *
- * Build:
- *      gcc -o ckeywords ckeywords.c getword.c getch.c binsearch.c
  * Input:
  *      A valid C file.
+ *
+ * Build:
+ *      gcc -o ckeywords ckeywords.c getword.c getch.c binsearch.c
+ *
+ * Run:
+ *      ./ckeywords < <c_file.c>
  */
 
 
@@ -46,7 +50,7 @@ struct key keytab[] = {
     "int", 0,
     "long", 0,
     "retister", 0,
-    "return",0,
+    "return", 0,
     "short", 0,
     "signed", 0,
     "sizeof", 0,
@@ -60,6 +64,9 @@ struct key keytab[] = {
     "volatile", 0,
     "while", 0
 };
+// For keyword list size, do:
+// $ grep "^    \"[a-z]\{2,\}\", 0,*$" ckeywords.c | wc -l
+// TODO: find a programatic way of getting the keyword list size
 
 
 int main(int argc, char *argv[])

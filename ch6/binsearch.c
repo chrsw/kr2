@@ -33,3 +33,4 @@ int binsearch(char *word, struct key tab[], int n) {
 }
 
 /* test_break */
+/* test continue */

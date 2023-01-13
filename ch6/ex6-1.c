@@ -9,6 +9,8 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
 
 int getch(void);
 int getchb(void);
@@ -39,16 +41,20 @@ int getword(char *word, int lim) {
 
 }
 
-/* bgetword: Get next word or character from input.
- *           Better version, handles underscores.
+/* bgetword:    Get next word or character from input.
+ *              Better version, handles underscores.
+ *
+ * TODO:        Find out if we're in a comment or not.
  */
 int bgetword(char *word, int lim) {
 
     int c;
+    bool cmt[3] = {false, false, false};  /* track comment state */ 
     char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    
+    while (isspace(c = getch())) 
         ;
-    if (c != EOF)               /* still haven't reached EOF... */
+    if (c != EOF)                   /* still haven't reached EOF... */
         *w++ = c;
     if (!isalpha(c)) {
         *w = '\0';
@@ -58,7 +64,7 @@ int bgetword(char *word, int lim) {
         if (!isgraph(*w = getch())) {
             ungetch(*w);
             break;
-    }
+        }
     *w = '\0';
     return word[0];
 
