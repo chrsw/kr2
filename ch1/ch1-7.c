@@ -14,6 +14,6 @@
 
 int main(int argc, char *argv[])
 {
-    printf("The value of EOF: 0x%x\n", (unsigned int)EOF);
+    printf("The value of EOF: %d\n", EOF);
     return 0;
 }
