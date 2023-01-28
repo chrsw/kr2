@@ -1,12 +1,15 @@
 /* vim:ts=4:sw=4:et:
  *
  * ex7-1.c
- *      Write a program that converts upper case to lower or lower to upper
- *      depending on the name it is invoked with, as found in argv[0].
+ *      Write a program that converts upper case to lower or lower case 
+ *      to upper depending on the name it is invoked with.
  *
  * Description:
+ *      Uses standard library functions in string.h once the direction
+ *      of case conversion has been determined.
  *
  * Input:
+ *      Executable name.
  *
  * Returns:
  *      -1 Bad input
@@ -41,8 +44,8 @@ int main(int argc, char *argv[])
     if (argc != 1)
         return -1;
     
-    if (!strcmp(argv[0], "./upper"))        /* Find the program name */
-        conv_type = 1;
+    if (!strcmp(argv[0], "./upper"))        /* Find the program name  */
+        conv_type = 1;                      /* or quit if missing/bad */
     else if (!strcmp(argv[0], "./lower"))
         conv_type = 2;
     else
