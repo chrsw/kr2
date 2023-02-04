@@ -30,7 +30,7 @@ int main(void)
 
     /* iterate through the list of Celsius values and convert to Fahrenheit */
 	while (celsius <= upper) {
-		fahr = (9.0/5.0) * (celsius+32.0);
+		fahr = ((9.0/5.0) * celsius) +32.0;
 		printf("%3.0f %6.1f\n", celsius, fahr);
 		celsius = celsius + step;
 	}
