@@ -27,8 +27,8 @@
  *
  * Run:
  *      Run either hard link with the name of the conversion you want.
- *      ./upper < test.txt
- *      ./lower < test.txt
+ *      ./upper < test.txt      # for lower to upper conversion
+ *      ./lower < test.txt      # for upper to lower conversion
  *
  */
 
