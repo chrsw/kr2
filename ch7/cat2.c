@@ -7,7 +7,7 @@
  *      Copied from Chapter 7.6 of K&R2.
  *
  * Input:
- *      List of files.
+ *      List of 2 files. 
  *
  * Other info:
  * Returns, build, notes, etc. 
@@ -25,16 +25,17 @@ void filecopy(FILE *, FILE *);
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    char *prog = argv[0]; /* program name for errors */ 
-    if (argc == 1) /* no args: copy standard input */
+    char *prog = argv[0];               /* program name for errors */ 
+
+    if (argc == 1)                      /* no args: copy standard input */
         filecopy(stdin, stdout);
-    else
-        while (--argc > 0)
+    else                                /* iterate over input files */
+        while (--argc > 0)              /* open open file, write to stdout */
             if ((fp = fopen(*++argv, "r")) == NULL) {
                 fprintf(stderr, "%s: can't open %s\n", prog, *argv);
                 exit(1);
 
-            } else {
+            } else {                    /* file opened successfully */
                 filecopy(fp, stdout);
                 fclose(fp);
             }
