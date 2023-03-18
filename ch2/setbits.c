@@ -27,15 +27,15 @@ unsigned int setbits(unsigned int x, int p, int n, unsigned int y)
     y = y & ~(~0 << n);
     m = ~0;
     mp = ~0;
-    printf("setbits: y = %08X\n", y);
+    //printf("setbits: y = %08X\n", y);
     m = m & (y << p);
     m = m | ~(~0 << n);
     mp = mp << n;
     mp = mp | y;
     mp = mp << p;
     mp = mp | ~(~0 << p);
-    printf("setbits: m = %08X\n", m);
-    printf("setbits: mp = %08X\n", mp);
+    //printf("setbits: m = %08X\n", m);
+    //printf("setbits: mp = %08X\n", mp);
     return (x & mp);
 }
 
