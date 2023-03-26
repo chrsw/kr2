@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
   
     i = 0;
 
+    // read from stdin
+    // TBD: should a blank line be length '0' or '1'?
     while ((c = getchar()) != EOF) {
         ++i;
         if (c == '\n') {

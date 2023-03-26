@@ -1,0 +1,41 @@
+this
+is a test
+file for the
+linelen program
+developed
+as a work up to
+chapter 1, exercise 20
+the lengths
+of each
+of these
+lines
+are
+printed
+in
+2
+stdout
+this input comes from standard in
+is there a limit to the length of a line before the linelen program chokes? let's find out with this super long line as input. We've already gone over 80 characters which is the typical width of a terminal.
+now
+let's
+test
+short
+lines
+.
+here
+
+previous line was blank
+
+
+
+1
+		
+	
+^
+\t
+7
+11 11 22 
+ 
+4
+.
+
