@@ -1,15 +1,13 @@
 /* vim:ts=4:sw=4:et:
  *
  * tabcol.c
- *      Print the length of each line on standard input in units of
- *      tab widths (8).
+ *      Highlight colums that fall on tab colums with block character.
  *
  * Description:
  *      Helper code on the path to Chapter 1, Exercise 20.
  *      
  * Input:
  *      Text input with line breaks.
- *
  *
  */
 
@@ -26,11 +24,11 @@ int main(int argc, char *argv[])
     while ((c = getchar()) != EOF) {
         ++i;
         t = i % 8;
-        if (c == '\n') {
+        if (c == '\n') {            // rest tab count every line
             i = 0;
         }
-        if ((t == 0) && (i > 0))
-            printf("\u2588");
+        if ((t == 0) && (i > 0))    // if we're on a tab column,
+            printf("\u2588");       // substitute the block character
         else
             printf("%c",c);
     }
