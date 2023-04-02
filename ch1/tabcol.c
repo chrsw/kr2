@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
     while ((c = getchar()) != EOF) {
         ++i;
         t = i % 8;
-        if (c == '\n') {            // rest tab count every line
-            i = 0;
+        if (c == '\n') {                    // new count to next
+            i = 0;                          // tab every line
         }
-        if ((t == 0) && (i > 0))    // if we're on a tab column,
-            printf("\033[7m%c\033[m", c);
+        if ((t == 0) && (i > 0))            // highlight
+            printf("\033[7m%c\033[m", c);   // on a tab column
         else
             printf("%c",c);
     }
