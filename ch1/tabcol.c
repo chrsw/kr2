@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
             i = 0;
         }
         if ((t == 0) && (i > 0))    // if we're on a tab column,
-            printf("\u2588");       // substitute the block character
+            printf("\033[7m%c\033[m", c);
         else
             printf("%c",c);
     }
