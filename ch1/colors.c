@@ -2,6 +2,11 @@
  *
  * colors.c
  *      Print a short table of numbers sweeping through colors.
+ *      
+ * Description:
+ *      Uses terminal control strings to change the foreground
+ *      and background colors.
+ *      Sweeps through a list of numbers and colors.
  *
  * Input:
  *      None.
