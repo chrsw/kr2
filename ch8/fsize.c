@@ -6,13 +6,8 @@
  * Description:
  *      Excerpted from K&R2 chapter 8, section 6.
  *
- * Input:
- *      Describe the expected input.
- *
- * Other info:
- * Returns, build, notes, etc. 
- * 
- *
+ * Build: 
+ *  $ gcc -o fsize dirwalk.c fsize.c
  */
 
 
