@@ -1,4 +1,4 @@
-/* vim:ts=4:sw=4:et:
+/* vim:ts=4:sw=4:et:so=10:
  *
  * exCH-#.c
  *      A brief description of the file.
