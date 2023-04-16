@@ -28,26 +28,28 @@ void finfo(char *);
 /* print file sizes */
 int main(int argc, char *argv[])
 {
-    if (argc == 1)                      /* default: current directory */
+    printf("Links  Owner    Size Name\n");  /* output heading */
+    if (argc == 1)                          /* default: current directory */
         finfo(".");
     else
-        while (--argc > 0)              /* run on every dir passed in */
-            finfo(*++argv);             /* by command line */
+        while (--argc > 0)                  /* run on every dir passed in */
+            finfo(*++argv);                 /* by command line */
     return 0;
 }
 
 
-/* fsize: print the size of file "name" */
+/* finfo: print the number of links, owner and size of file "name" */
 void finfo(char *name) {
 
     struct stat stbuf;
 
-    if (stat(name, &stbuf) == -1) {
+    if (stat(name, &stbuf) == -1) {         /* read stat info into stbuf */
         fprintf(stderr, "fsize: can't access %s\n", name);
         return;
     }
-    if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
+    if ((stbuf.st_mode & S_IFMT) == S_IFDIR)        /* only run on dirs */
         dirwalk(name, finfo);
-    printf("%4lu%8u%8ld %s\n", stbuf.st_nlink, stbuf.st_uid, stbuf.st_size, name);
+    printf("%4lu%8u%8ld %s\n", stbuf.st_nlink,      /* print the stat info */
+            stbuf.st_uid, stbuf.st_size, name);
 
 }
