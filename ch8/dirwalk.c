@@ -8,6 +8,8 @@
  *
  *
  * $ gcc -c dirwalk.c
+ * -or-
+ * $ gcc -o fsize dirwalk.c fsize.c
  *
  */
 
