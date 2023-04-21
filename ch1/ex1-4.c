@@ -1,8 +1,8 @@
 /* vim:ts=4:sw=4:et:
  *
- * ex1-3.c	
+ * ex1-4.c	
  *      Write a program to print the corresponding Celsius to Fahrenheit
- *      table. (See ex1-3).
+ *      table. (See chapter 1, exercise 3).
  *
  */
 
@@ -34,5 +34,7 @@ int main(void)
 		printf("%3.0f %6.1f\n", celsius, fahr);
 		celsius = celsius + step;
 	}
+
+    return 0;
 
 }
