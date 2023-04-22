@@ -23,6 +23,7 @@
 #include <string.h>
 
 void expand1(char s1[], char s2[]);
+void expand2(char s1[], char s2[]);
 
 
 int main(int argc, char *argv[])
@@ -47,7 +48,9 @@ int main(int argc, char *argv[])
     else
         printf("s1: %s\n", s1_1); 
 
-
+    expand2("a-h", s2);
+    printf("expand(\"a-f\",s2)");
+    printf("\ns2: %s\n", s2);
     return 0;
 }
 
@@ -66,6 +69,24 @@ void expand1(char s1[], char s2[]) {
     if (strchr((const char *)s1, '-'))
         strcpy(s2,"compacted");
     else
-        *s2 = NULL;
+        s2 = NULL;
 
 }
+
+/* expand the simple case of '.-.' where . is any letter */
+void expand2(char s1[], char s2[]) {
+
+    char start;
+    char end;
+    char c;
+    int i = 0;
+    
+    start = s1[0];
+    end = s1[2];
+
+    for (c = start; c <= end; c++)
+       s2[i++] = c;
+   s2[i] = '\0';
+}
+
+
