@@ -56,39 +56,3 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-
-
-/*
- * This function will take a string s1 which must contain the compact range
- * operator '-'. (TODO: find the actual name for this symbol in this conext).
- * This will be exercise will be completed in parts, starting with this
- * function expand1() which will only return silently if the string s1
- * contains the '-' character in s1. If there is no '-' character in s1,
- * s2 will be set to NULL. s1 cannot be NULL.
- */
-void expand1(char s1[], char s2[]) {
-
-    if (strchr((const char *)s1, '-'))
-        strcpy(s2,"compacted");
-    else
-        s2 = NULL;
-
-}
-
-/* expand the simple case of '.-.' where . is any letter */
-void expand2(char s1[], char s2[]) {
-
-    char start;
-    char end;
-    char c;
-    int i = 0;
-    
-    start = s1[0];
-    end = s1[2];
-
-    for (c = start; c <= end; c++)
-       s2[i++] = c;
-   s2[i] = '\0';
-}
-
-
