@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <string.h>
 
+void expand(char s1[], char s2[]);
 void expand1(char s1[], char s2[]);
 void expand2(char s1[], char s2[]);
 
@@ -36,19 +37,20 @@ int main(int argc, char *argv[])
     char s2[100];
    
 
-    expand1(s1_1,s2);
+    printf("expand(%s,s2)",s1_1);
+    expand(s1_1,s2);
     if (*s2)
         printf("%s\n", s2); 
     else
         printf("s1: %s\n", s1_1); 
 
-    expand1(s1_2,s2);
+    expand(s1_2,s2);
     if (*s2)
         printf("%s\n", s2); 
     else
         printf("s1: %s\n", s1_1); 
 
-    expand2("a-h", s2);
+    expand("a-h", s2);
     printf("expand(\"a-f\",s2)");
     printf("\ns2: %s\n", s2);
     return 0;
