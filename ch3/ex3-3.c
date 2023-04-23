@@ -47,8 +47,9 @@ int main(int argc, char *argv[])
         printf("s2: %s\n", s2); 
    
      
-    printf("\nexpand(\"%s\",s2)\n", s1);
-    expand("a-h", s2);
+    printf("\nexpand(\"a-h-\",s2)\n");
+    //expand("-a-h", s2);
+    expand("a-h-", s2);
     if (s2[0] == '\0')
         printf("s1: %s\n", s1); 
     else

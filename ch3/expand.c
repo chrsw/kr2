@@ -33,6 +33,10 @@ void expand(char s1[], char s2[]) {
    
     /* stop if there are no chars to expand */ 
     if (strchr(s1,'-')) {
+        if (s1[0] == '-') {
+            s2[0] = (char)'-';
+            i++;
+        }
     }
     else {
         printf("expand: no range operator found\n"); 
@@ -40,12 +44,17 @@ void expand(char s1[], char s2[]) {
         return;
     }
 
-    start = s1[0];
-    end = s1[2];
+    /* asume the format m-n, where m < n and both are printable characters */
+    start = s1[0+i];
+    end = s1[2+i];
 
     for (c = start; c <= end; c++)      /* walk through every letter between */
        s2[i++] = c;                     /* start and end chars inclusive */
                                         /* copying every char to the destin- */
-    s2[i] = '\0';                       /* ation string */
+                                        /* ation string. */
+    if (s1[strlen(s1)-1] == '-') {      /* look for training - */
+       s2[i++] = (char)'-';
+    }
+    s2[i] = '\0';
 
 }
