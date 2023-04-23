@@ -11,11 +11,11 @@
  *      or training - is taken literally.
  *
  *      For simplicity, this exercise can be done in multiple parts.
+ *      See history of expand.c for various solutions.
  *
  * Input:
  *      A string s1 in compact notation using the range symbol '-'.
  *      An empty string s2 in which to put the expanded s1.
- *
  *
  */
 
@@ -23,36 +23,43 @@
 #include <string.h>
 
 void expand(char s1[], char s2[]);
-void expand1(char s1[], char s2[]);
-void expand2(char s1[], char s2[]);
-
 
 int main(int argc, char *argv[])
 {
-    (void)argc;
-    (void)argv;
+    (void)argc;         /* get rid of warnings about */
+    (void)argv;         /* unused args */
 
-    char s1_1[] = "already expanded";
-    char s1_2[] = "a-z";
+    char s1[10] = "a-z";       /* test strings */
     char s2[100];
+
+  
+    s2[0] = '\0';
+    printf("s1: %s\n", s1);
+    printf("s2: %s\n", s2);
+
+
+    /* run tests with different input strings */
+    printf("\nexpand(%s,s2)\n",s1);
+    expand(s1,s2);
+    if (s2[0] == '\0')
+        printf("s1: %s\n", s1); 
+    else
+        printf("s2: %s\n", s2); 
    
-
-    printf("expand(%s,s2)",s1_1);
-    expand(s1_1,s2);
-    if (*s2)
-        printf("%s\n", s2); 
-    else
-        printf("s1: %s\n", s1_1); 
-
-    expand(s1_2,s2);
-    if (*s2)
-        printf("%s\n", s2); 
-    else
-        printf("s1: %s\n", s1_1); 
-
+     
+    printf("\nexpand(\"%s\",s2)\n", s1);
     expand("a-h", s2);
-    printf("expand(\"a-f\",s2)");
-    printf("\ns2: %s\n", s2);
+    if (s2[0] == '\0')
+        printf("s1: %s\n", s1); 
+    else
+        printf("s2: %s\n", s2);
+
+    printf("\nexpand(\"already expanded\",s2)\n");
+    expand("already expanded", s2);
+    if (s2[0] == '\0')
+        printf("s1: %s\n", "already expanded"); 
+    else
+        printf("s2: %s\n", s2); 
     return 0;
 }
 

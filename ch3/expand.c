@@ -19,6 +19,7 @@
  */
 
 #include <string.h>
+#include <stdio.h>
 
 void expand(char s1[], char s2[]);
 
@@ -29,13 +30,22 @@ void expand(char s1[], char s2[]) {
     char end;
     char c;
     int i = 0;
-    
+   
+    /* stop if there are no chars to expand */ 
+    if (strchr(s1,'-')) {
+    }
+    else {
+        printf("expand: no range operator found\n"); 
+        s2[0] = '\0';
+        return;
+    }
+
     start = s1[0];
     end = s1[2];
 
     for (c = start; c <= end; c++)      /* walk through every letter between */
        s2[i++] = c;                     /* start and end chars inclusive */
                                         /* copying every char to the destin- */
-   s2[i] = '\0';                        /* ation string */
+    s2[i] = '\0';                       /* ation string */
 
 }
