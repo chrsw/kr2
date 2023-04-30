@@ -32,7 +32,7 @@ int getwordb(char *word, int lim);
 
 extern char buf[BUFSIZ];
 extern int bufp;
-char lbuf[BUFSIZ];
+//char lbuf[BUFSIZ];
 size_t flen;
 
 int main(int argc, char *argv[])
@@ -60,8 +60,9 @@ int main(int argc, char *argv[])
     
 
     bufp = 0;
-    while ((c = getchar()) != EOF)                  /* read all input */
-        lbuf[bufp++] = c;                           /* into loca buffer */ 
+ //   while ((c = getchar()) != EOF)                  /* read all input */
+ //       lbuf[bufp++] = c;                           /* into local buffer */ 
+
     bufp = 0;
     while ((c = getchb()) != '\0');
         ;

@@ -16,7 +16,7 @@
 int getch(void);
 void ungetch(int);
 
-/* bgetword: get next word or character from input better version */
+/* bgetword: get next word or character from input, better version */
 int bgetword(char *word, int lim)
 {
     int c;
