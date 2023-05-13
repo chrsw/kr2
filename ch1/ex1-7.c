@@ -9,6 +9,7 @@
 
 int main(void) {
 
-    printf("EOF = %u\n", EOF);
+    printf("EOF = %#x (unsigned)\n", EOF);
+    printf("EOF = %d (signed)\n", EOF);
     return 0;
 }
