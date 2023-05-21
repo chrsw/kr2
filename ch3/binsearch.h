@@ -1,1 +1,2 @@
-int binsearch(int x, int v[], int n);
+int binsearch(int x, volatile int v[], int n);
+

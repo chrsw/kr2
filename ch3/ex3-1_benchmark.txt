@@ -1,0 +1,22 @@
+$ gcc -O0 -o ex3-1 binsearch.c gensar.c ex3-1.c
+$ time ./ex3-1
+pos = -1
+
+real	0m0.011s
+user	0m0.002s
+sys	0m0.000s
+$ gcc -O0 -o ex3-1 binsearch2.c gensar.c ex3-1.c
+# free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+              total        used        free      shared  buff/cache   available
+Mem:       16086732     3100004    11538276      731248     1448452    11964560
+Swap:       2097148           0     2097148
+              total        used        free      shared  buff/cache   available
+Mem:       16086732     3098252    11570960      705508     1417520    11992304
+Swap:       2097148           0     2097148
+$ time ./ex3-1
+pos = 5
+
+real	0m0.003s
+user	0m0.002s
+sys	0m0.000s
+

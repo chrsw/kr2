@@ -18,7 +18,7 @@
 #include <time.h>
 #include "gensar.h"
 
-int a[ARR_LEN];
+volatile int a[ARR_LEN];
 
 void gensar(bool p) {
 
