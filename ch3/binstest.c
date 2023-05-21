@@ -23,9 +23,15 @@ int main(int argc, char *argv[]) {
     unsigned int n = sizeof(v)/sizeof(v[0]);
     int key, pos; 
     
-    key = 21;
-    pos = binsearch(key,v,16);
+    key = 22;
+    pos = binsearch(key,v,(int)n);
 
     printf("pos = %d\n", pos);
+
+    key = 21;
+    pos = binsearch(key,v,(int)n);
+
+    printf("pos = %d\n", pos);
+
     return 0;
 }
