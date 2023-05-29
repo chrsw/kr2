@@ -4,7 +4,7 @@
  *      Get a character.
  *
  * Description:
- *      Details
+ *      Uses a global buffer.
  *
  * Input:
  *
