@@ -6,8 +6,8 @@
  *
  * Description:
  *      Implementation for two simple functions:
- *      getch() - 
- *      ungetch() - 
+ *      getch() - read a character from input into a buffer
+ *      ungetch() - push a character back into buffer
  *
  * Build:
  *      $ gcc -c getch.c
