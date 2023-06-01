@@ -1,11 +1,20 @@
-/* vim:ts=4:sw=4:et:
+/* vim:ts=4:sw=4:et:so=10:
  *
  * itoa.c
- *     Convert n to characters in s 
+ *      Convert integer n to characters in s.
  *
  * Description:
- *      Details
- *
+ *      Excerpt from section 3.6. itoa() takes a signed integer value
+ *      and converts each integer digit in base 10 and converts the
+ *      digit to its ASCII character. e.e. 0 -> 0x30 (decimal 48),
+ *      1 -> 0x31 (decimal 49), etc. The sign of the character (-) is
+ *      printed too.
+ *      reverse() is compiled in too because it's used to switch the
+ *      string from left-to-right increasing (how arrays are indexed) to
+ *      right-to-left increasing (how numbers are written).
+ * 
+ * Build:
+ *      $ gcc -o itoa reverse.c itoa.c
  */
 
 #include <string.h>
