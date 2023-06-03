@@ -10,8 +10,6 @@
 
 #include <string.h>
 
-int trim(char s[]);
-
 int trim(char s[]) {
 
     int n;
