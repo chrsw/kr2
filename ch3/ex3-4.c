@@ -23,8 +23,10 @@ void reverse(char s[]);
 
 int main(int argc, char *argv[])
 {
-    int n = INT_MIN;                /* make sure string has enough room */
-    //int n = -20;                /* make sure string has enough room */
+    int n = INT_MIN;                
+    //int n = -20;              
+ 
+    /* make sure string has enough room to store max size number */
     char s[13];                     /* $ ./int_min | wc -c
                                      * 12
                                      */
@@ -35,40 +37,28 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-
+/* new itoa() for solution to chapter 3, exercise 4
+ * handle full range of numerical values for runtime
+ */
 void itoa(int n, char s[]) {
 
     int i, sign;
-    //if ((sign = n) < 0) {           /* record sign */
-    //    n = -n;                     /* make n positive */
-   //}                                /* collapse sign to magnitude 1 */
 
-//    if (n == INT_MIN)
-//        sign = - 1;
-    sign = n == INT_MIN ? -1 : n < 0 ? -1 : 1;      /* only take sign info.
-                                                     * handle special case
-                                                     * when n is at negative
-                                                     * limit.
-                                                     */
+    /* extract sign, handle case where n is smallest limit */
+    sign = n == INT_MIN ? -1 : n < 0 ? -1 : 1;      
+
     printf("sign = %d\n", sign);
     if (n < 0) printf("-1\n");
     i = 0;
-    do {                                            /* generate digits in 
-                                                       reverse order   */
-        s[i++] = (sign * (n % 10)) + '0';           /* get next digit. */
-                                                    /* use sign info with
-                                                     * each digit so 2's
-                                                     * compliment number
-                                                     * is handled. this
-                                                     * avoids the case where
-                                                     * INT_MIN magnitude
-                                                     * is too large to
-                                                     * handle
-                                                     */
+    /* generate digits for string in reverse order */ 
+    do {    
+        /* get next digit.
+         * use sign info with each digit so 2's compliment number
+         * is handled. this avoids the case where INT_MIN magnitude
+         * is too large to handle.
+         */
+        s[i++] = (sign * (n % 10)) + '0';
 
-        //printf("%d %d\n", (sign*n) % 10, ((sign*n) % 10 + '0'));
-        //s[i+1] = '\0';
-        //printf("s = %s\n", s);
     } while (abs(n /= 10) > 0);    /* delete it */
     if (sign < 0)
         s[i++] = '-';
