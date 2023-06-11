@@ -1,21 +1,14 @@
-this is a test of the word counting program wc
-
 Exercise 1-11. How would you test the word count program? What kinds of
 input are most likely to to uncover bugs if there are any?
 
-test input
+hyphenated word near the end of a line
+this is a very long line of text that will end in the middle of a kind of long-
+ish word. the wc program will count this as two words becaue it doesn't take
+the hyphen into account.
 
-! ` 09 () EOF
-what if words are split across t	abs?
+a multi-gigabyte file will probably break this little program too.
 
-one
-word
-per
-line
-test
-non printable characters a problem?
-
-
+a program with non-printable bytes could throw off the IN/OUT state machine.
 		 	    		 			
  
 
