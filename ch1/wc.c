@@ -9,7 +9,11 @@
  * Input:
  *      Stream of text.
  *
+ * Build:
+ *      $ gcc -o wc wc.c
  *
+ * Test:
+ *      $ ./wc < ex1-11.txt
  */
 
 #include <stdio.h>
