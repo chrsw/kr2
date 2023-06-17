@@ -27,6 +27,7 @@ int main(void) {
     return 0;
 }
 
+/* convert hex string to integer */
 int htoi(char s[]) {
 
     int i = 0, n = 0, len = 0;

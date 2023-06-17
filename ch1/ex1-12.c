@@ -3,8 +3,6 @@
  * ex1-12.c
  *      Write a program that prints its inputs one word per line.
  *
- * Description:
- *
  * Input:
  *      Text.
  *
@@ -22,7 +20,7 @@ int main(void) {
     state = OUT;
     
     while ((c = getchar()) != EOF ) {
-        if (c != ' ' && c != '\t')
+        if (c != ' ' && c != '\t')          /* skip spaces and tabs */
             putchar(c);
         if (c == '\n') {
             state = OUT;
