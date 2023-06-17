@@ -4,11 +4,10 @@
  *      Convert string s to double.
  *
  * Description:
- *      Template file for solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
+ *      Excerpt from K&R2 text.
  *
  * Input:
- *      Describe the expected input.
+ *      ex. 123.45
  *
  * Other info:
  * Returns, build, notes, etc. 

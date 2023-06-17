@@ -3,8 +3,6 @@
  * atoi_test.c
  *      Test function cpl_atoi().
  *
- * Description:
- *
  * Input:
  *      Describe the expected input.
  *
@@ -14,13 +12,14 @@
  */
 
 #include <stdio.h>
+
 int cpl_atoi(char s[]);
 
 int main(int argc, char *argv[]) {
 
     char s[] = "3.146";
 
-    printf("%d\n", cpl_atoi(s) );
+    printf("%d\n", cpl_atoi(s));
 
     return 0;
 }
