@@ -9,9 +9,6 @@
  * Input:
  *      ex. 123.45
  *
- * Other info:
- * Returns, build, notes, etc. 
- * 
  *
  */
 
@@ -27,8 +24,10 @@ double cpl_atof(char s[])
 
     for (i = 0; isspace(s[i]); i++)  /* skip white space */
         ;
-    
+ 
+    /* extract leading sign character, if any */   
     sign = (s[i] == '-') ? -1 : 1;
+
     if (s[i] == '+' || s[i] == '-')
         i++;
     for (val = 0.0; isdigit(s[i]); i++)
