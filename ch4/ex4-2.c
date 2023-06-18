@@ -6,9 +6,20 @@
  *
  * Description:
  *      Only a single positive digit exponent is supported.
+ *      According to IEEE-754, float is a 32-bit type with 8 bits
+ *      for the exponent and double is a 64-bit type with 11 bits for
+ *      the exponent. 2^11 = 2048.
+ *      The largest exponent size supported in this solution is 4 digits.
+ *      Negative and postive mantissas are supported.
+ *      Negative and positive exponents are supported.
  *
  * Input:
+ *      String representing float or double.
  *      ex. 123.45e3
+ *
+ * TODO:
+ *      Use own code instead of math lib for pow().
+ *      Use own code instead of std lib for atoi().
  *
  */
 
@@ -16,6 +27,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h> 
 
 double ex4_2_atof(char s[]);            /* Std lib already has  */
                                         /* atoi(), atof(), etc. */
@@ -24,28 +36,48 @@ double ex4_2_atof(char s[])
 
     double val, power;
     int i, sign, exp;
-
+    double d_exp;
     char *exp_loc = NULL;               /* for searching exponent */
     const char eE[] = "eE";                
+    int exp_sign = 1;
 
     exp = 0;        /* default value of exp will be zero */
                     /* exp means * 10 ^ exp */
-                    /* 10 ^ 0 = 1 */
+                    /* 10 ^ 0 = 1, so zero is a safe value */
 
     for (i = 0; isspace(s[i]); i++)     /* skip leading white space */
         ;
 
     exp_loc = strpbrk(s, eE);           /* find exponent */
-    if (exp_loc != NULL)            
-        exp = *++exp_loc - '0';
 
-    if (exp) exp = pow(10,exp);         /* exp means * 10 ^ exp */
+    if (exp_loc != NULL)                /* ex is location of e/E, if any */
+        exp_loc++;                      /* exponent value starts here */
+
+    if (exp_loc != NULL)                /* get exponent sign */
+        switch (*exp_loc) {
+            case '+':
+                exp_sign = 1;
+                exp_loc++;
+                break;
+            case '-':
+                exp_sign = -1;
+                exp_loc++;
+                break;
+            default:
+                break;
+        }
+    //exp_sign = (*exp_loc == '-') ? -1 : 1;
+    // exp_loc now points at the first digit of the exponent, if any
+    if (exp_loc != NULL) {            
+        exp = atoi(exp_loc);
+    }
+    d_exp = pow(10,exp_sign * exp);     /* exp means * 10 ^ exp */
                                         /* we don't want zero ruining */
                                         /* the calculations later */
 
-// For debugging...
 #ifdef DEBUG       
     printf("%s: e: %d\n", __func__, exp);
+    printf("%s: d_exp: %f\n", __func__, d_exp);
 #endif
 
     /* extract leading sign character, if any */ 
@@ -62,5 +94,5 @@ double ex4_2_atof(char s[])
         power *= 10.0;
     }
 
-    return sign * exp * val / power;
+    return sign * d_exp * val / power;
 }

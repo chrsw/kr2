@@ -14,7 +14,8 @@ double ex4_2_atof(char s[]);
 
 int main(int argc, char *argv[]) {
 
-    char s[] = "123.456e3";
+    //char s[] = "123.456e3";
+    char s[] = "123.456e-2";
 
     printf("%f\n", ex4_2_atof(s));
 
