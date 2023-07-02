@@ -25,7 +25,7 @@ int main(void) {
     state = OUT;
     wl = 0;
    
-    /* read standad input and store word lengths */ 
+    /* read standard input and store word lengths */ 
     while ((c = getchar()) != EOF ) {
         if (c == ' ' || c == '\n' || c == '\t') {
             state = OUT;                /* finished a word */ 
