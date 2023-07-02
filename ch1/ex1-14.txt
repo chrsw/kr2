@@ -1,0 +1,17 @@
+this is a small test
+again another test
+each line has a bunch of words
+that are used to test a program
+designed
+to
+calculate
+a
+group of statistics on the input data
+what happens in the case of the following line
+
+ADDDING MORE TEST INPUT
+THIS IS THE 3RD TIME ADDING MORE
+TEST INPUT TO THIS FILE
+THERE ARE NOW OVER 10 LINES AND OVER 100 CHARACTERS.
+
+TODO: 4TH 5TH AND 6TH VERSIONS!
