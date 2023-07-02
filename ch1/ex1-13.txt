@@ -1,0 +1,10 @@
+this is a small test
+again another test
+each line has a bunch of words
+that are used to test a program
+designed
+to
+calculatre
+a
+group of statistics on the input data
+what happens in the case of the following line
