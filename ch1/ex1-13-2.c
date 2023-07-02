@@ -5,33 +5,33 @@
  *      input. 2nd part of exercise 13: vertical orientation of histogram.
  *
  * Input:
- *      Stream of text.
+ *      Stream of plain text words. See ex1-12.txt and ex1-13.txt.
  *
  */
 
 #include <stdio.h>
 
-#define IN 1        /* inside a word */
-#define OUT 0       /* outside a word */
+#define IN 1                                    /* inside a word */
+#define OUT 0                                   /* outside a word */
 #define MAXLENGTH 25
 #define NROWS 25
-#define NCOLUMNS 80
 
 int lengths[MAXLENGTH] = {0};
 
 int main(void) {
 
     int c, wl, state;
-    int i, j, k; 
+    int i, k; 
 
     state = OUT;
     wl = 0;
    
     /* read standard input and store word lengths */ 
+    /* this chunk is from previous exercises/solutions */
     while ((c = getchar()) != EOF ) {
         if (c == ' ' || c == '\n' || c == '\t') {
-            state = OUT;                /* finished a word */ 
-            lengths[wl]++;              /* add one to this length */
+            state = OUT;                        /* finished a word */ 
+            lengths[wl]++;                      /* add one to this length */
         }
         else if (state == OUT ) {
             state = IN;
@@ -47,10 +47,10 @@ int main(void) {
      * go through each column and figure out if a history bar 
      * needs to be printed based on the length count.
      */
-    for (k = NROWS; k > 0; k--) {
-        for (i = 0; i < MAXLENGTH; i++)
-            if (lengths[i] >= k)
-                printf(" |");
+    for (k = NROWS; k > 0; k--) {               /* every row */
+        for (i = 0; i < MAXLENGTH; i++)         /* every column */
+            if (lengths[i] >= k)                /* show the bars, if enough */
+                printf(" |");                   /* one space between columns */
             else
                 printf("  ");
         printf("\n");
