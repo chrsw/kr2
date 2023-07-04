@@ -14,6 +14,7 @@
  * Input:
  *      One RPN calculation per line, e.g.:
  *      1 2 + 4 5 + *
+ *
  * Output:
  *      Result of each line-based calculator input, e.g.:
  *              -9
@@ -40,6 +41,7 @@ int getop(char []);
 void push(double);
 double pop(void);
 
+/* reverse polish calculator program entry here */
 int main(void) {
 
     int type;
@@ -81,7 +83,6 @@ int main(void) {
     return 0;
 }
 
-
 int getop(char s[]) {
 
     int i, c;
@@ -108,7 +109,6 @@ int getop(char s[]) {
 int sp = 0;                                     /* next free stack position */
 double val[MAXVAL];                             /* value stack */
 
-
 /* push: push f onto value stack */
 void push(double f) {
 
@@ -130,7 +130,6 @@ double pop() {
         
     return 0;
 }
-
 
 /* external variables for getch() and ungetch() */
 char buf[BUFSIZE];                              /* buffer for ungetch() */
