@@ -1,7 +1,8 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * ex4-3.c
- *      Add the modulus (%) operator to the RPN calculator.
+ *      Add the modulus (%) operator and signed support to the
+ *      RPN calculator.
  *
  * Description:
  *      The % (or modulo) operator returns the remainder of a
@@ -50,7 +51,7 @@ int main(void) {
     while ((type = getop(s)) != EOF ){
         switch (type) {
             case NUMBER:
-                push(atof(s));
+                push(atof(s));          /* atof() supports signed strings */
                 break;
             case '+':
                 push(pop() + pop());
@@ -93,10 +94,10 @@ int getop(char s[]) {
     while ((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
-    if (!isdigit(c) && c != '.')
+    if (!isdigit(c) && c != '.' && c != '-')    /* accept sign as input */
         return c;                               /* not a number */
     i = 0;
-    if (isdigit(c))                             /* collect integer part */
+    if (isdigit(c) || c == '-' )                /* collect integer part */
         while (isdigit(s[++i] = c = getch()))
             ;
     if (c == '.')                               /* collect fraction part */
