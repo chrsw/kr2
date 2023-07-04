@@ -8,6 +8,9 @@
  *      Excerpt from section 4.3 part of Reverse Polish Notation (RPN)
  *      calculator application.
  *
+ * Build:
+ *      See rpn.c
+ *
  */
 
 #define BUFSIZE     100             /* BUFSIZ already defined */
