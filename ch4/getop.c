@@ -16,6 +16,7 @@
  */
 
 #include <ctype.h>
+#include <stdio.h>                              /* for EOF */
 
 #define NUMBER '0'
 
@@ -32,10 +33,10 @@ int getop(char s[]) {
         return c;                               /* not a number */
     i = 0;
     if (isdigit(c))                             /* collect integer part */
-        while (isdigit(s[++i] = c = getch())
+        while (isdigit(s[++i] = c = getch()))
             ;
     if (c == '.')                               /* collect fraction part */
-        while (isdigit(s[++i] = c = getch())
+        while (isdigit(s[++i] = c = getch()))
             ;
     s[i] = '\0';
     if (c != EOF)

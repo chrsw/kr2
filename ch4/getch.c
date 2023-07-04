@@ -13,6 +13,8 @@
  *
  */
 
+#include <stdio.h>
+
 #define BUFSIZE     100             /* BUFSIZ already defined */
 
 char buf[BUFSIZE];                  /* buffer for ungetch() */
