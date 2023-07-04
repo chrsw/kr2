@@ -4,8 +4,8 @@
  *      Add the modulus (%) operator to the RPN calculator.
  *
  * Description:
- *      The % (or modulo) operator returns the remaindor of a
- *      dividend divided by a divisor. 
+ *      The % (or modulo) operator returns the remainder of a
+ *      dividend divided by a divisor. Integer support only.
  *
  * Build:
  *      $ gcc -o rpn_ex4-3 ex4-3.c
