@@ -5,10 +5,10 @@
  *
  * Description:
  *      Excerpt from section 4.3, part of Reverse Polish Notation (RPN)
- *      calculator application.
+ *      calculator application. Split into multiple source files.
  *
  * Build:
- *      See rpn.c
+ *      $ gcc -o rpn getch.c getop.c push.c rpn.c
  *
  */
 
