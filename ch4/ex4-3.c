@@ -14,12 +14,15 @@
  * Input:
  *      One RPN calculation per line, e.g.:
  *      20 % 3
+ *      11 * -1
  *
  * Output:
  *      Result of each line-based calculator input, e.g.:
  *              2
+ *            -22
  * Test:
- *     $ ./rpn_main < rpn_modulo_test.txt
+ *     $ ./rpn_ex4-3 < rpn_modulo_test.txt
+ *     $ ./rpn_ex4-3 < rpn_neg_test.txt
  *
  */
 
