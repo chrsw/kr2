@@ -30,7 +30,7 @@ void push(double f) {
 }
 
 /* pop: pop and return top value from stack */
-int pop() {
+double pop() {
     
     if (sp > 0)
         return val[--sp];
