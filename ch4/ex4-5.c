@@ -14,14 +14,16 @@
  *      $ gcc -o rpn_ex4-5 ex4-5.c -lm
  * 
  * Input:
- *      One RPN calculation per line, e.g.:
- *      1.57 s
+ *      One RPN calculation per line, e.g. sine(pi/2):
+ *      3.14159265 2 / s
  *
  * Output:
  *      Result of each line-based calculator input, e.g.:
  *              1
- * Test:
- *     $ ./rpn_ex4-5 < rpn_math_test.txt
+ * Tests:
+ *     $ ./rpn_ex4-5 < rpn_sine_test.txt
+ *     $ ./rpn_ex4-5 < rpn_exp_test.txt
+ *     $ ./rpn_ex4-5 < rpn_pow_test.txt
  *
  */
 
@@ -35,7 +37,7 @@
 #define MAXOP 100                       /* max size of operator or operator */
 #define NUMBER '0'                      /* signal that a number was found */
 #define MAXVAL 100                      /* maximum depth of val stack */
-#define BUFSIZE     100                 /* BUFSIZ already defined */
+#define BUFSIZE 100                     /* BUFSIZ already defined */
 
 /* function definitions for main */
 int getch(void);
@@ -121,7 +123,7 @@ int main(void) {
                 op2 = pop();
                 op1 = pop();
                 push(pow(op1,op2));
-                break
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
