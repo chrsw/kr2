@@ -4,6 +4,7 @@
  *      Add access to library functions like sin(), exp() and pow().
  *
  * Description:
+ *      func(arg) - (RPN command)
  *      sin(a) - sine of a (s)
  *      exp(a) - base e exponential (e)
  *      pow(a,b) - raise a to the power of b (^)
@@ -110,9 +111,12 @@ int main(void) {
                    pop();               /* pop values until sp is zero */
                 } while (--sp > 0);
                 break;
-            case 's':
+            case 's':                   /* sine */
                 push(sin(pop()));
                 break; 
+            case 'e':                   /* exponential */
+                push(exp(pop()));
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
