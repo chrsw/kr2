@@ -7,6 +7,7 @@
  * Description:
  *      Commands are lower case, variables are upper case.
  *      To save top of stack to var, use upper case 'A' to 'Z'.
+ *      Last value printed can be restored with '?', 0.0 if unused.
  *
  * Build:
  *      $ gcc -o rpn_ex4-6 ex4-6.c -lm
@@ -46,6 +47,7 @@ int sp = 0;                                     /* next free stack position */
 double val[MAXVAL];                             /* value stack */
 double vars[26];                                /* array of vars */
 bool used_vars[26];                             /* var tracking */
+double last_print = 0.0;                        /* last printed value */
 
 /* reverse polish calculator program entry here */
 int main(void) {
@@ -87,7 +89,7 @@ int main(void) {
             case 'p':
                 if (sp > 0)
                                         /* print top value without popping */
-                    printf("\t%.8g\n", val[sp-1]);
+                    printf("\t%.8g\n", last_print = val[sp-1]);
                 break;
             case 'd':
                 if (sp > 0 ){           /* assuming top is number */
@@ -123,7 +125,8 @@ int main(void) {
                 op1 = pop();
                 push(pow(op1,op2));
                 break;
-            case 'A' ... 'Z':                       /* variables */
+            /* variables */
+            case 'A' ... 'Z':                      
                 if (!used_vars[type-'A']) {
                     vars[type-'A'] = pop();
                     used_vars[type-'A'] = true;
@@ -131,8 +134,11 @@ int main(void) {
                 else
                     push(vars[type-'A']);
                 break;
+            case '?':                   /* restore last printed value */
+                push(last_print);
+                break;
             case '\n':
-                printf("\t%.8g\n", pop());          /* end of cmd line */
+                printf("\t%.8g\n", last_print = pop());          /* end of cmd line */
                 break;
             default:
                 printf("error: unknown command %s\n", s);
