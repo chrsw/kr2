@@ -26,6 +26,7 @@
 #include <stdlib.h>                     /* for atof() */
 #include <ctype.h>
 #include <math.h>
+#include <stdbool.h>
 
 /* defines */
 #define MAXOP 100                       /* max size of operator or operator */
@@ -44,6 +45,7 @@ double pop(void);
 int sp = 0;                                     /* next free stack position */
 double val[MAXVAL];                             /* value stack */
 double vars[26];                                /* array of vars */
+bool used_vars[26];                             /* var tracking */
 
 /* reverse polish calculator program entry here */
 int main(void) {
@@ -51,6 +53,9 @@ int main(void) {
     int type;
     double op1, op2, temp;              /* op1, temp added for swapping */
     char s[MAXOP];
+
+    for (int i = 0; i < 26; i++)
+        used_vars[i] = false;
 
     while ((type = getop(s)) != EOF ){
         switch (type) {
@@ -118,12 +123,16 @@ int main(void) {
                 op1 = pop();
                 push(pow(op1,op2));
                 break;
-            case 'A' ... 'Z':
-                vars[type-'0'] = pop();
-                push(vars[type-'0']);
+            case 'A' ... 'Z':                       /* variables */
+                if (!used_vars[type-'A']) {
+                    vars[type-'A'] = pop();
+                    used_vars[type-'A'] = true;
+                }
+                else
+                    push(vars[type-'A']);
                 break;
             case '\n':
-                printf("\t%.8g\n", pop());
+                printf("\t%.8g\n", pop());          /* end of cmd line */
                 break;
             default:
                 printf("error: unknown command %s\n", s);
