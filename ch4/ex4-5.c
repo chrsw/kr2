@@ -101,7 +101,7 @@ int main(void) {
                     temp = op2;
                     op2 = op1;
                     op1 = temp;
-                    push(op1);
+                    push(op1);          
                     push(op2);
             }
                 break;
@@ -110,6 +110,9 @@ int main(void) {
                    pop();               /* pop values until sp is zero */
                 } while (--sp > 0);
                 break;
+            case 's':
+                push(sin(pop()));
+                break; 
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
