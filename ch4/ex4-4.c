@@ -102,11 +102,8 @@ int main(void) {
                 if (sp > 1) {
                     op2 = pop();        /* use a temporary value to */
                     op1 = pop();        /* swap */
-                    temp = op2;
-                    op2 = op1;
-                    op1 = temp;
-                    push(op1);
                     push(op2);
+                    push(op1);
             }
                 break;
             case '#':
