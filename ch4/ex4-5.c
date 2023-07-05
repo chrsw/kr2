@@ -111,12 +111,17 @@ int main(void) {
                    pop();               /* pop values until sp is zero */
                 } while (--sp > 0);
                 break;
-            case 's':                   /* sine */
+            case 's':                   /* sinusoidal: sine(top) */
                 push(sin(pop()));
                 break; 
-            case 'e':                   /* exponential */
+            case 'e':                   /* exponential: e ^ top */
                 push(exp(pop()));
                 break;
+            case '^':                   /* power: 2nd top ^ top */
+                op2 = pop();
+                op1 = pop();
+                push(pow(op1,op2));
+                break
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
