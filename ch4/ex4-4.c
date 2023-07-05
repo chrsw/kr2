@@ -90,12 +90,12 @@ int main(void) {
                 if (sp > 0)
                                         /* print top value without popping */
                     printf("\t%.8g\n", val[sp-1]);
-            //case 'd':
-                //if (sp > 0 ){
-                //    op2 = pop();
-                //    push(op2);
-                //    push(op2);
-                //}
+            case 'd':
+                if (sp > 0 ){
+                    op2 = pop();
+                    push(op2);
+                    push(op2);
+                }
                break;
             case '\n':
                 printf("\t%.8g\n", pop());
