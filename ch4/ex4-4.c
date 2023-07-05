@@ -56,7 +56,7 @@ double val[MAXVAL];                             /* value stack */
 int main(void) {
 
     int type;
-    double op2;
+    double op1, op2, temp;              /* op1, temp added for swapping */
     char s[MAXOP];
 
     while ((type = getop(s)) != EOF ){
@@ -82,8 +82,8 @@ int main(void) {
                     printf("error: zero divisor\n");
                 break;
             case '%':
-                op2 = (int)pop();
-                if (op2 != 0.0)
+                op2 = (int)pop();       /* mod does not work on doubles */
+                if (op2 != 0.0)         /* or floats */
                     push((int)pop() % (int)op2);
                 break;
             case 'p':
@@ -92,12 +92,23 @@ int main(void) {
                     printf("\t%.8g\n", val[sp-1]);
                 break;
             case 'd':
-                if (sp > 0 ){
+                if (sp > 0 ){           /* assuming top is number */
                     op2 = pop();        /* duplicate top value */
                     push(op2);
                     push(op2);
                 }
                break;
+            case '$':
+                if (sp > 1) {
+                    op2 = pop();        /* use a temporary value to */
+                    op1 = pop();        /* swap */
+                    temp = op2;
+                    op2 = op1;
+                    op1 = temp;
+                    push(op1);
+                    push(op2);
+            }
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
