@@ -109,6 +109,11 @@ int main(void) {
                     push(op2);
             }
                 break;
+            case '#':
+                do {                    /* clear stack */
+                   pop();               /* pop values until sp is zero */
+                } while (--sp > 0);
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
