@@ -90,9 +90,10 @@ int main(void) {
                 if (sp > 0)
                                         /* print top value without popping */
                     printf("\t%.8g\n", val[sp-1]);
+                break;
             case 'd':
                 if (sp > 0 ){
-                    op2 = pop();
+                    op2 = pop();        /* duplicate top value */
                     push(op2);
                     push(op2);
                 }
