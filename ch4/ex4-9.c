@@ -11,6 +11,9 @@
  * Build:
  *      $ gcc -c ex4-9.c
  *
+ * TODO:
+ *      Write tests.
+ *
  */
 
 #include <stdio.h>
