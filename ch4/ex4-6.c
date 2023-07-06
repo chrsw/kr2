@@ -11,11 +11,6 @@
  *
  * Build:
  *      $ gcc -o rpn_ex4-6 ex4-6.c -lm
- * 
- * Input:
- *      TODO: explain variables
- *
- * Output:
  *
  * Test:
  *     $ ./rpn_ex4-6 < rpn_var_test.txt
