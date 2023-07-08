@@ -3,10 +3,8 @@
  * getint_test.c
  *      Test driver for getint().
  *
- * Description:
- *
  * Input:
- *      Describe the expected input.
+ *      ASCII integer on standard input.
  *
  * Build:
  *      $ gcc -o getint_test getint_test.c getint.c getch.c
@@ -20,11 +18,14 @@ int getint(int *);
 int main(int argc, char *argv[]) {
 
     int i = 0;
-    int c = 0;
-   
-    for (c = getint(&i); i <= 20; i++)
+    
+    (void)argc;
+    (void)argv;
+
+    for ((void)getint(&i); i <= 20; i++)
         printf("%d ", i);
     printf("\n");
+
     return 0;
 }
 
