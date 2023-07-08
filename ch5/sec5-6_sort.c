@@ -1,6 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * exCH-#.c
+ * sec5-6_qsort.c
  *      Sorting program from section 5.6.
  
  * Description:
@@ -10,8 +10,11 @@
  * Input:
  *      Describe the expected input.
  *
- * Other info:
- *      Returns, build, notes, etc. 
+ * Build:
+ *      $ gcc -o sort sec5-6_qsort.c
+ *
+ * Test:
+ *      $ ./qsort < qsort_test.txt
  *
  */
 
@@ -20,7 +23,6 @@
 
 #define MAXLINES 5000                   /* max #lines to be sorted */
 char *lineptr[MAXLINES];                /* pointers to next lines */
-
 
 /* function declarations */
 int readlines(char *lineptr[], int nlines);
@@ -46,7 +48,6 @@ int main(void) {
     }
     return 0;
 }
-
 
 #define MAXLEN 1000                     /* max length of any input line */
 int sec1_9_getline(char *, int);        /* from section 1.9 */
@@ -80,6 +81,7 @@ void writelines(char *lineptr[], int nlines) {
         printf("%s\n", lineptr[i]);
 }
 
+
 /* sec5_6_qsort: sort v[left]...v[right] into increasing order */
 /* Section 5.6 version */
 void sec5_6_qsort(char *v[], int left, int right) {
@@ -87,7 +89,7 @@ void sec5_6_qsort(char *v[], int left, int right) {
     int i, last;
     void swap(char *v[], int i, int j);
     
-    if (left >= right) {                         /* do nothing if array */
+    if (left >= right) {                        /* do nothing if array */
         return;                                 /* contains fewer than */
     }                                           /* two elements. */
     swap(v, left, (left+right)/2);
@@ -101,6 +103,7 @@ void sec5_6_qsort(char *v[], int left, int right) {
     
 }
 
+
 /* interchangae v[i] and v[j] */
 void swap(char *v[], int i, int j) {
 
@@ -109,6 +112,7 @@ void swap(char *v[], int i, int j) {
     v[i] = v[j];
     v[j] = temp;
 }
+
 
 #define ALLOCSIZE 10000                         /* size of available space */
 
@@ -126,6 +130,7 @@ char *alloc(int n) {
         return NULL;                            /* not enough room */
     }
 }
+
 
 /* getline: read a line into s, return length */
 int sec1_9_getline(char s[], int lim) {
