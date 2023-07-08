@@ -14,7 +14,7 @@
  *      $ gcc -o sort sec5-6_qsort.c
  *
  * Test:
- *      $ ./qsort < qsort_test.txt > qsort_test_output.txt
+ *      $ ./sort < qsort_test.txt > qsort_test_output.txt
  *
  */
 
