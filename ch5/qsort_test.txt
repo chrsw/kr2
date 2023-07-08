@@ -1,0 +1,5 @@
+There once was a bug in the code
+That made the whole network explode
+The programmers cried
+And debugged all night
+But they couldn’t find where it showed
