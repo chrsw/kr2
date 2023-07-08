@@ -51,7 +51,6 @@ int main(void) {
 #define MAXLEN 1000                     /* max length of any input line */
 int sec1_9_getline(char *, int);        /* from section 1.9 */
 char *alloc(int);                       /* from section 5.4 */
-void afree(char *p);
 
 /* readlines: read input lines */
 int readlines(char *lineptr[], int maxlines) {
@@ -126,13 +125,6 @@ char *alloc(int n) {
     else {
         return NULL;                            /* not enough room */
     }
-}
-
-/* free storage pointed to by p */
-void afree(char *p) {
-    
-    if (p >= allocbuf && p < allocbuf + ALLOCSIZE)
-        allocp = p;
 }
 
 /* getline: read a line into s, return length */
