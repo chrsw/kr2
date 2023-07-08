@@ -32,12 +32,12 @@ void writelines(char *lineptr[], int nlines);
 void sec5_6_qsort(char *lineptr[], int left, int right);
 
 /* sort input lines */
-main(void) {
+int main(void) {
 
     int nlines;
     
     if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
-        qsort(lineptr, 0, nlines-1);
+        sec5_6_qsort(lineptr, 0, nlines-1);
         writelines(lineptr, nlines);
         return 0;
     } else {
@@ -61,7 +61,7 @@ int readlines(char *lineptr[], int maxlines) {
     
     nlines = 0;
     while ((len = sec1_9_getline(line, MAXLEN))> 0)
-        if (nlines >= maxlines || (p = alloc(len) == NULL))
+        if (nlines >= maxlines || (p = alloc(len)) == NULL)
             return -1;
         else {
             line[len-1] = '\0';         /* delete newline */
@@ -78,7 +78,7 @@ void writelines(char *lineptr[], int nlines) {
     int i;
     
     for (i = 0; i < nlines; i++)
-        printf("%s\n", lineptr);
+        printf("%s\n", lineptr[i]);
 }
 
 /* sec5_6_qsort: sort v[left]...v[right] into increasing order */
@@ -121,7 +121,7 @@ char *alloc(int n) {
     
     if (allocbuf + ALLOCSIZE - allocp >= n) {   /* it fits */
         allocp += n;
-        return allocp -n;                       /* old p */
+        return allocp - n;                       /* old p */
     }
     else {
         return NULL;                            /* not enough room */
