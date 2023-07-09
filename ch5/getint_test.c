@@ -17,12 +17,17 @@ int getint(int *);
 
 int main(int argc, char *argv[]) {
 
-    int i = 0;
+    int i = 19;
+    int c = 0;
     
     (void)argc;
     (void)argv;
 
-    for ((void)getint(&i); i <= 20; i++)
+    c = getint(&i);
+
+    printf("c = %d\n", c);
+
+    for (; i <= 20; i++)
         printf("%d ", i);
     printf("\n");
 
