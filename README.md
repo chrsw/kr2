@@ -10,7 +10,8 @@ This code isn't designed to be completely correct in all cases, only meant to fu
 The plan is to eventually add more helpful comments and test code.
 
 ### Contents
-1. ch1-8 code, mostly solutions per chapter.
+1. ch1-ch8 code, mostly solutions per chapter.
 2. template.[ch] convenient starting point for source files.
+3. README.md this Markdown file
 
 
