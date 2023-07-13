@@ -1,7 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:
- *      Vim modeline for consistent editor settings across files.
  *
- *  find.c
+ *  find2.c
  *      find utility. From section 5.10. 2nd version.
  *
  * Description:
@@ -12,7 +11,7 @@
  *      $ gcc -o find2 getline.c find2.c
  *
  * Run:
- *      $ ./find2 -x -n  getline < find.c
+ *      $ ./find2 -x -n  getline < find2.c
  *
  */
 
@@ -31,9 +30,10 @@ int main(int argc, char *argv[]) {
 
     int c, except = 0, number = 0, found = 0;
 
-    while (--argc > 0 && (*++argv)[0] == '-')
-        while (c = *++argv[0])
-            switch (c) {
+    /* sweep through command line */
+    while (--argc > 0 && (*++argv)[0] == '-')   /* sweep through cmd args */
+        while (c = *++argv[0])                  /* look at first letter */
+            switch (c) {                        /* of each cmd line arg */
                 case 'x':
                     except = 1;
                     break;
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
                     break;
             }
     if (argc != 1)
-        printf("Usage: find -x -n pattern\n");
+        printf("Usage: find2 -x -n pattern\n");
     else
         while (sec1_9_getline(line, MAXLINE) > 0) {
             lineno++;
