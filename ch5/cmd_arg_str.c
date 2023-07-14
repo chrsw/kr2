@@ -9,7 +9,7 @@
  *      Command line parameters
  *
  * Build:
- *      $ gcc -o cmd-arg-str getline.c cmd_arg_str.c
+ *      $ gcc -o cmd-arg-str cmd_arg_str.c
  *
  * Run:
  *      $ ./cmd-arg-str one two three four
@@ -24,10 +24,6 @@
 
 /* cmd-arg-str: build a string using cmd line arguments */
 int main(int argc, char *argv[]) {
-
-    char line[MAXLINE] = {'0'};
-
-    int i = 0;
 
     char *p = (char *)malloc(MAXLINE);
     p[0] = '\0';
