@@ -15,7 +15,7 @@
  *      $ gcc -o detab2 detab2.c
  *
  * Run:
- *      $ cat tabtest.txt | ./detab2.c
+ *      $ cat tab_test.txt | ./detab2.c
  *
  */
 
