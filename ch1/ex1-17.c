@@ -17,7 +17,6 @@ int main() {
     int len;                /* current line length */
     int max;                /* maximum length seen so far */
     char line[MAXLINE];     /* current input line */
-    //char longest[MAXLINE];  /* longest line saved here */
 
     max = 0;
     while ((len = getlin(line, MAXLINE)) > 0 )
