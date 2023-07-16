@@ -5,10 +5,17 @@
  *      RPN calculator using command line instead of standard input.
  *
  * Description:
+ *      Write the program 'expr', which evaluates a reverse Polish expression
+ *      from the command line, where each operator or operand is a separate
+ *      argument. For example,
+ *      expr 2 3 4 + *
+ *      evaluates 2 x (3+4.
  *      Use an array built from the command line instead of standard input.
  *
  * Build:
- *      $ gcc -o rpn_main rpn_main.c
+ *      $ gcc -o expr expr.c
+ *      -or-
+ *      $ gcc -o ex5-10 expr.c
  * 
  * Test:
  *     $ ./expr 1 2 +
