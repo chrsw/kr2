@@ -1,6 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * expr.c
+ *      Solution for exercise 5-10.
  *      RPN calculator using command line instead of standard input.
  *
  * Description:
@@ -9,15 +10,12 @@
  * Build:
  *      $ gcc -o rpn_main rpn_main.c
  * 
- * Input:
- *      One RPN calculation per line from stdin, e.g.:
- *      1 2 + 4 5 + *
- *
- * Output:
- *      Result of each line-based calculator input, e.g.:
- *              -9
  * Test:
  *     $ ./expr 1 2 +
+ *
+ * Output:
+ *      Result of command line input, e.g.:
+ *              3
  *
  */
 
@@ -63,10 +61,8 @@ int main(int argc, char *argv[]) {
         strcat(p, " ");
     }
     p[strlen(p)-1] = '\n';
-    printf("expr: input: %s\n", p);
     gp = p;
     while ((type = getop(s)) != '\0' ){
-        printf("main: %d\n", i++);
         switch (type) {
             case NUMBER:
                 push(atof(s));
@@ -119,8 +115,6 @@ int getop(char s[]) {
     s[i] = '\0';
     if (c != EOF)
         ungetch(c);
-    printf("getop: c: %d\n", c);
-    printf("getop: s: %s\n", s);
     return NUMBER;
 }
 
@@ -154,10 +148,7 @@ double pop() {
 /* get a (possibly pushed back) character */
 int getch(void) {
 
-    //return (bufp > 0) ? buf[--bufp] : getchar();
     return (bufp > 0) ? buf[--bufp] : *gp++;
-    //printf("getch: ");
-    //return buf[bufp++];
 }
 
 /* push character back on input */
