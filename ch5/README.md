@@ -9,13 +9,13 @@ The following table is a list of exercises and solutions.
 |5-2  	 | ex5-2.c     ||
 |5-3    | ex5-3.c     ||
 |5-4    | ex5-4.c     ||
-|5-5    |      ||
+|5-5    | strncat.c     ||
 |5-6    |      ||
 |5-7    |      ||
 |5-8    |      ||
 |5-9    |      ||
 |5-10 	 | expr.c     ||
-|5-11    |      ||
+|5-11    | detab2.c     |tab_test.txt|
 |5-12  	 |      ||
 |5-13    |      ||
 |5-14    |      ||
