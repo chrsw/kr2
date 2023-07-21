@@ -21,7 +21,7 @@ The following table is a list of exercises and solutions.
 |4-6    |   ex4-6.c, rpn_main.c    ||
 |4-7    |  ex4-7.c     ||
 |4-8    |  ex4-8.c     ||
-|4-9    |  ex4-0.c     ||
+|4-9    |  ex4-9.c     ||
 |4-10 	 |  ex4-10.c    ||
 |4-11    |      ||
 |4-12  	 |      ||
