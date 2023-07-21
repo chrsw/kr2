@@ -11,12 +11,21 @@
  * Input:
  *      Describe the expected input.
  *
- * Other info:
- *      Returns, build, notes, etc. 
+ * Output:
+ *      What output does this program generate? stdout, stderr, files, etc.
+ *
+ * Build:
+ *      How to build this program or a build example (incl make targets).
+ *
+ * Run:
+ *      An example of how this program should be run.
+ *
+ * Nots:
+ *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
-//#include <stdio.h>
+#include <stdio.h>
 
 int main(int argc, char *argv[]) {
 
