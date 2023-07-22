@@ -27,32 +27,32 @@ int main(int argc, char *argv[])
     i = 0;
     t = 0;
     int space = 0;
-    bool b_space = false;
-    bool b_tab = false;
 
     // read every character from standard input
     // exec loop for every char
     while ((c = getchar()) != EOF) {
 
         i++;
+        if (c == '\n') i = 0;
         // any time a space char is found, start or keep counting
         if (c == ' ') {
-            b_space = true;
-            //printf("\nfound space %d ", ++space);
-            if (++space == 8) {
-                //printf("found tab!\n");
+            if (++space == TABWIDTH) {
                 // found enough spaces in a row
-                space = 0;
-                b_tab = true;
                 printf("\t");
+                // the tab char will stop at the next tabstop
+                // (probably multiples of 8)
+                // i contains the column number
+                t = space;
+                while (t-- > i % TABWIDTH) {
+                    printf(" ");
+                }
+                space = 0;
             }
         } else {
             // print the non-space char, the total number of spaces if less
             // than TABWIDTH or a tab char.
             for (t = 0; t < space; t++) printf(".");
             space = 0;
-            b_space = false;
-            b_tab = false;
             printf("%c",c);
         }
     }
