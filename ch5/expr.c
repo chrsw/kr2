@@ -9,7 +9,7 @@
  *      from the command line, where each operator or operand is a separate
  *      argument. For example,
  *      expr 2 3 4 + *
- *      evaluates 2 x (3+4.
+ *      evaluates 2 * (3+4).
  *      Use an array built from the command line instead of standard input.
  *
  * Build:
@@ -49,6 +49,7 @@ double pop(void);
 char buf[BUFSIZE];                              /* buffer for ungetch() */
 int bufp = 0;                                   /* next free position in buf */
 char *gp;
+
 
 /* reverse polish calculator program entry here */
 int main(int argc, char *argv[]) {
@@ -104,6 +105,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/* parse operators and operands */
 int getop(char s[]) {
 
     int i, c;
@@ -125,6 +127,7 @@ int getop(char s[]) {
     return NUMBER;
 }
 
+
 /* external variables for push() and pop() */
 int sp = 0;                                     /* next free stack position */
 double val[MAXVAL];                             /* value stack */
@@ -137,6 +140,7 @@ void push(double f) {
     else
         fprintf(stderr, "error: stack full, can't push %g\n", f);
 }
+
 
 /* pop: pop and return top value from stack */
 double pop() {
@@ -157,6 +161,7 @@ int getch(void) {
 
     return (bufp > 0) ? buf[--bufp] : *gp++;
 }
+
 
 /* push character back on input */
 void ungetch(int c) {
