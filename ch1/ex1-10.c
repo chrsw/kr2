@@ -28,18 +28,17 @@ int main(int argc, char *argv[]) {
 
     int c;
 
-	while ((c = getchar()) != EOF) {
-        if (c == '\t') {
+	while ((c = getchar()) != EOF) {            /* read every char in stdin */
+        if (c == '\t') {                        /* replace tabs */
             putchar('\\');
             putchar('t');
-        } else if (c == '\b' ) {
+        } else if (c == '\b' ) {                /* replace backspace */
             putchar('\\');
             putchar('b');
-        } else {
+        } else {                                /* everything else as-is */
 		    putchar(c);
         }
 	}
-
 
     return 0;
 }
