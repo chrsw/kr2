@@ -7,18 +7,19 @@
  *      Excerpt from K&R 2 section 4.1.
  *      Description from the text: a program to print each line of its
  *      input that contains a particular "pattern" or string of characters.
+ *      Slightly updated to be more modern.
  *
  * Input:
  *      Text on standard input.
  *
  * Output:
- *      Lines that match a special pattern defined in the applicatin.
+ *      Lines that match a special pattern defined in the application.
  *
  * Returns:
  *      Number of lines matched.
  *
  * Build:
- *      $ gcc -o match match.
+ *      $ gcc -o match match.c
  *
  * Run:
  *      $ cat match_test_input.txt | ./match
