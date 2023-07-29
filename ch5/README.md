@@ -10,7 +10,7 @@ The following table is a list of exercises and solutions.
 |5-3    | ex5-3.c     ||
 |5-4    | ex5-4.c     ||
 |5-5    | strncat.c, strncmp.c     ||
-|5-6    | ex5-6_getline.c     ||
+|5-6    | ex5-6_getline.c, ch5_match.c, ch5_atoi.c, ch5_itoa.c, ch5_reverse.c     ||
 |5-7    |      ||
 |5-8    |      ||
 |5-9    |      ||
