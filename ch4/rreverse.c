@@ -1,7 +1,11 @@
 /*
  * vim:ts=4:sw=4:et:
  *
- * To build full app, define REVERSE_MAIN, ex:
+ * rreverse.c
+ *      Reverse a string in place, recursively.
+ *
+ * Build:
+ *      To build full app, define REVERSE_MAIN, ex:
  *      gcc -DREVERSE_MAIN -o reverse reverse.c
  */
 

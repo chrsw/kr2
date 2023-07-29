@@ -2,18 +2,19 @@
  *
  * ch5_reverse.c
  *      Reverse a string. K&R chapter 5 pointer version.
+ *      Partial solution to exercise 5-6.
  *
- * To build full app, define REVERSE_MAIN, ex:
+ * Build:
+ *      To build full app, define REVERSE_MAIN, ex:
  *      gcc -DREVERSE_MAIN -o reverse ch5_reverse.c
  */
 
 #include <string.h>
 #include <stdio.h>
 
-//void reverse(char s[]);
 void reverse(char *s);
 
-
+/* test driver, if desired. */
 #ifdef REVERSE_MAIN
 int main(void) {
 
