@@ -28,9 +28,9 @@ int main(int argc, char *argv[]) {
     int n = -23456;
     char s[10];
 
-    printf("input:  %d\n", n);
+    printf("number:  %d\n", n);
     itoa2(n,s);
-    printf("string: %s\n", s);
+    printf("string:  %s\n", s);
 	return 0;
 }
 #endif
