@@ -21,7 +21,6 @@
 
 void itoa2(int n, char s[]);
 void reverse(char s[]);
-static int find_int_max_length(void);
 
 #ifdef ITOA_MAIN
 int main(int argc, char *argv[])
@@ -53,14 +52,4 @@ void itoa2(int n, char s[]) {
     // e.g. Maybe each time in the do {} while shift the characaters
     // in the array to make room.
     reverse(s);
-}
-
-static int find_int_max_length(void) {
-
-    int n = INT_MAX;
-    int i = 0;
-
-    do { i++; } while ((n /= 10) > 0);
-
-    return i;
 }
