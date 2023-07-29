@@ -5,8 +5,8 @@
  *
  * Description:
  *      Excerpt from section 3.6. itoa() takes a signed integer value
- *      and converts each integeter digit in base 10 and converts the
- *      digit to its ascii character. e.e. 0 -> 0x30 (decimal 48),
+ *      and converts each integer digit in base 10 and converts the
+ *      digit to its ASCII character. e.e. 0 -> 0x30 (decimal 48),
  *      1 -> 0x31 (decimal 49), etc.
  *      This version is revised from the text version.
  * 
@@ -23,8 +23,8 @@ void itoa2(int n, char s[]);
 void reverse(char s[]);
 
 #ifdef ITOA_MAIN
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
+
     int n = -23456;
     char s[10];
 
@@ -49,7 +49,7 @@ void itoa2(int n, char s[]) {
         s[i++] = '-';
     s[i] = '\0';
     // TODO: Try this without using reverse().
-    // e.g. Maybe each time in the do {} while shift the characaters
+    // e.g. Maybe each time in the do {} while shift the characters
     // in the array to make room.
     reverse(s);
 }
