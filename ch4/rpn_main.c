@@ -1,18 +1,21 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * rpn_main.c
- *      Reverse Polish calculator implemented in a single source file.
+ *      Reverse Polish Notation calculator implemented in a single source file.
  *
  * Description:
  *      Excerpt from section 4.3, Reverse Polish Notation (RPN) calculator
  *      application. The book intends this example to be implemented
  *      in a single source file, at least initially.
+ *      Mostly a copy of the text code with minor changes for the way
+ *      more modern C is written and some changes for readability. And
+ *      of course, more descriptive comments.
  *
  * Build:
  *      $ gcc -o rpn_main rpn_main.c
  * 
  * Input:
- *      One RPN calculation per line, e.g.:
+ *      One RPN calculation per line from stdin, e.g.:
  *      1 2 + 4 5 + *
  *
  * Output:
@@ -26,18 +29,18 @@
 /* includes */
 #include <stdio.h>                      /* includes EOF */
 #include <stdlib.h>                     /* for atof() */
-#include <ctype.h>
+#include <ctype.h>                      /* isdigit(), etc */
 
 /* defines */
-#define MAXOP 100                       /* max size of operator or operator */
+#define MAXOP 100                       /* max size of operand or operator */
 #define NUMBER '0'                      /* signal that a number was found */
-#define MAXVAL 100                      /* maximum depth of val stack */
-#define BUFSIZE     100                 /* BUFSIZ already defined */
+#define MAXVAL 100                      /* maximum depth of stack */
+#define BUFSIZE 100                     /* BUFSIZ already defined in stdio */
 
-/* function definitions for main */
+/* function definitions for main, getop */
 int getch(void);
 void ungetch(int c);
-int getop(char []);
+int getop(char s[]);
 void push(double);
 double pop(void);
 
@@ -49,8 +52,8 @@ int main(void) {
     char s[MAXOP];
 
     while ((type = getop(s)) != EOF ){
-        switch (type) {
-            case NUMBER:
+        switch (type) {                 /* pick action based on operands */ 
+            case NUMBER:                /* and operators */
                 push(atof(s));
                 break;
             case '+':
@@ -68,13 +71,13 @@ int main(void) {
                 if (op2 != 0.0)
                     push(pop() / op2);
                 else
-                    printf("error: zero divisor\n");
+                    fprintf(stderr, "error: zero divisor\n");
                 break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
             default:
-                printf("error: unknown command %s\n", s);
+                fprintf(stderr, "error: unknown command %s\n", s);
                 break;
         }
 
@@ -115,7 +118,7 @@ void push(double f) {
     if (sp < MAXVAL)
         val[sp++] = f;
     else
-        printf("error: stack full, can't push %g\n", f);
+        fprintf(stderr, "error: stack full, can't push %g\n", f);
 }
 
 /* pop: pop and return top value from stack */
@@ -124,7 +127,7 @@ double pop() {
     if (sp > 0)
         return val[--sp];
     else {
-        printf("error: stack empty\n");
+        fprintf(stderr, "error: stack empty\n");
         return 0.0;
     }
         
@@ -138,14 +141,14 @@ int bufp = 0;                                   /* next free position in buf */
 /* get a (possibly pushed back) character */
 int getch(void) {
 
-    return (bufp > 0) ? buf[--bufp]: getchar();
+    return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
 /* push character back on input */
 void ungetch(int c) {
 
     if (bufp >= BUFSIZE)
-        printf("ungetch: too many characters\n");
+        fprintf(stderr, "ungetch: too many characters\n");
     else
         buf[bufp++] = c; 
 }
