@@ -1,10 +1,11 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * wc.c
- *      Barebones version of the UNIX program wc.
+ *      Word count. Bare bones version of the Unix program wc.
  *
  * Description:
  *      Simple wc example from section 1.5.4 Word Counting.
+ *      Part of solution 1-11.
  *
  * Input:
  *      Stream of text.
