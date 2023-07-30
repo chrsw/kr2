@@ -5,13 +5,9 @@ The following table is a list of exercises and solutions.
 
 |Exercise|Solution|Comments|
 |--------|--------|--------|
-|3-1 	 | ||
-|3-2  	 | ||
-|3-3     | ||
-|3-4     | ||
+|3-1 	 | ex3-1.c, gensar.c, gensar.h, binsearch2.c, binsearch2.c|binsearch.c, gensartest.c, ex3-1_benchmark.txt|
+|3-2  	 | ex3-2.c, ex3-2b.c | escape() and unescape() |
+|3-3     | ex3-3.c|expand.c|
+|3-4     | ex3-4.c, reverse.c||
 |3-5     | ||
-|3-6     | ||
-|3-7     | ||
-|3-8     | ||
-|3-9     | ||
-|3-10 	 | ||
+|3-6     | ex3-6.c||
