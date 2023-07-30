@@ -6,17 +6,12 @@ The following table is a list of exercises and solutions.
 |Exercise|Solution|Comments|
 |--------|--------|--------|
 |2-1 	 | ||
-|2-2  	 |     ||
-|2-3     |   ||
-|2-4     | ||
-|2-5     |  ||
-|2-6     |  ||
+|2-2  	 | htoi-try1.c    ||
+|2-3     | ex2-3.c  |Related: ex2-3a.c|
+|2-4     | ex2-4.c|Related: squeeze.c, squeeze2.c|
+|2-5     | ex2-5.c, any.c ||
+|2-6     | ex2-6.c, setbits.c, setbits.h |setbits_test.c|
 |2-7     |  ||
 |2-8     |       ||
-|2-9     |  ||
-|2-10 	 |  ||
-|2-11    |      ||
-|2-12  	 |      ||
-|2-13    |      ||
-|2-14    |      ||
-|2-15    |      ||
+|2-9     | ex2-9.c ||
+|2-10 	 | ex2-10.c ||
