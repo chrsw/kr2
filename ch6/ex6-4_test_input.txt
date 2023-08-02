@@ -1,0 +1,17 @@
+time
+chapter 1: style and program organization
+a program is a detailed set of instructions read by both a human and a machine. the computer
+reads only the code, while the human concentrates on the comments. good style pertains to both
+parts of a program. well designed, well-written code not only makes effective use of the com-
+puter, it also contains careful constructed comments to help humans understand it. well-designed, well-written code is a joy to debug, maintain, and enhance.
+time
+good programming style begins with the effective organization of code. using a clear and con-
+sistent organization of the components of your program you make them more efficient, readable,
+and maintainable.
+time
+program organization
+good computer programs are organized much like good books. this can seen especially well
+with technical books, in which the structure is very clear.
+people have been writing books for hundreds of years, and during that time they have discov-
+ered how to organize the material to efficiently present their ideas. standards have emerged. for example, if i asked you when this book was copyrighted, you would turn to the title page. that's where the copyright notice is always located. the same goes for code. in fact, we can make the parallels quite explicit. any technical book can be analyzed into standard components. so can program. these components correspond quite closely as the following table shows.
+time
