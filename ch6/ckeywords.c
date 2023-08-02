@@ -10,7 +10,7 @@
  *      A valid C file.
  *
  * Build:
- *      gcc -o ckeywords ckeywords.c getword.c getch.c binsearch.c
+ *     $ gcc -o ckeywords ckeywords.c getword.c getch.c binsearch.c
  *
  * Run:
  *      ./ckeywords < <c_file.c>
