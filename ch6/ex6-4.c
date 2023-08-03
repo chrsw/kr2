@@ -9,7 +9,7 @@
  *      Plain text with words.
  *
  * Output:
- *
+ *      List of words sorted by frequency in reverse order.
  *
  * Build:
  *      $ gcc -o ex6-4 ex6-4.c bgetword.c getch.c
@@ -17,6 +17,8 @@
  * Run:
  *      $ ./ex6-4 < test_input.txt
  *
+ * TODO:
+ *      Improve the timing of the sort, use a real sording algorithm?
  */
 
 #include <stdio.h>
@@ -37,7 +39,7 @@ void sortprint(struct tnode *p);
 void seltreeprint(struct tnode *p, int sel);
 int bgetword(char *, int);
 
-int gmax_count = 0;
+int gmax_count = 0;             /* holds the largets count seen so far */
 
 /* word frequency count */
 int main(int argc, char *argv[]) {
@@ -45,11 +47,11 @@ int main(int argc, char *argv[]) {
     struct tnode *root;
     char word[MAXWORD];
     
-    root = NULL;
+    root = NULL;                /* build tree of all the input words */
     while (bgetword(word, MAXWORD) != EOF)
         if (isalpha(word[0]))
             root = addtree(root, word);
-    sortprint(root);
+    sortprint(root);            /* print the tree in reverse frequency */
     printf("%d\n", gmax_count);
     return 0;
 }
@@ -116,7 +118,7 @@ void seltreeprint(struct tnode *p, int sel) {
     }
 }
 
-
+/* sortprint: print all words found with each frequency */
 void sortprint(struct tnode *p) {
 
     int i = gmax_count;
