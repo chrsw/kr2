@@ -4,7 +4,7 @@
  *      Count C keywords.
  *
  * Description:
- *      Details
+ *      Count the occurance of each Standard C keyboard in a C source file.
  *
  * Input:
  *      A valid C file.
