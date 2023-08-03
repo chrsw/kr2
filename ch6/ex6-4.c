@@ -37,6 +37,8 @@ void sortprint(struct tnode *p);
 void seltreeprint(struct tnode *p, int sel);
 int bgetword(char *, int);
 
+int gmax_count = 0;
+
 /* word frequency count */
 int main(int argc, char *argv[]) {
 
@@ -48,6 +50,7 @@ int main(int argc, char *argv[]) {
         if (isalpha(word[0]))
             root = addtree(root, word);
     sortprint(root);
+    printf("%d\n", gmax_count);
     return 0;
 }
 
@@ -64,8 +67,10 @@ struct tnode *addtree(struct tnode *p, char *w) {
         p->word = strdup(w);
         p->count = 1;
         p->left = p->right = NULL;
-    } else if ((cond = strcmp(w,p->word)) == 0)
+    } else if ((cond = strcmp(w,p->word)) == 0) {
         p->count++;                     /* repeated word */
+        gmax_count = p->count > gmax_count ? p->count : gmax_count;
+    }
     else if (cond < 0)                  /* less than into left subtree */
         p->left = addtree(p->left, w);
     else                                /* greater than into right subtree */
@@ -114,11 +119,11 @@ void seltreeprint(struct tnode *p, int sel) {
 
 void sortprint(struct tnode *p) {
 
-    int i = 20;
+    int i = gmax_count;
 
     if (p == NULL) return;
 
-    for (i; i > 0; i--) {
+    for (; i > 0; i--) {
         seltreeprint(p, i);   
     }
 
