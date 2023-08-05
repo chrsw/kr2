@@ -1,8 +1,8 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * ex4-6.c
- *      Add commands for handling variables. Add a variable for the most
- *      recently printed value.
+ *      RPN calculator. Add commands for handling variables.
+ *      Add a variable for the most recently printed value.
  *
  * Description:
  *      Commands are lower case, variables are upper case.
