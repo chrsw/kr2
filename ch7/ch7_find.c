@@ -13,7 +13,7 @@
  *      $ gcc -o ch7-find ch7_getline.c ch7_find.c
  *
  * Run:
- *      $ ./ch7-find ch7_find.c getline
+ *      $ ./ch7-find ch7_test2.txt ch7_test.txt pattern
  *
  */
 
@@ -24,6 +24,9 @@
 
 int ch7_getline(char s[], int lim, FILE *fp);
 
+char gfiles[8][80];
+FILE *gfp[8];
+
 /* find: print lines that match pattern from an argument */
 int main(int argc, char *argv[]) {
 
@@ -31,31 +34,35 @@ int main(int argc, char *argv[]) {
     long lineno = 0;
     char filename[80];
     FILE *fp;
-
+    int i = 0;
     int c, except = 0, number = 0, found = 0;
 
     /* ignore the other command line options for now for simplicity */
     number = 1;
     except = 0;
 
-    --argc;
     ++argv;
-    strcpy(filename, *argv++); 
-    if (argc != 2) {
+    /* get list of file names to open */
+    while (--argc > 1) {
+        printf("ch7-find: opening %s\n", *argv);
+        gfp[i++] = fopen(*argv++, "r");
+    }
+    printf("files found: %d\n", i);
+    if (argc != 1) {
         printf("Usage: ch7-find -x -n pattern\n");
         printf("File name to open: %s\n", filename); 
     }
     else {
-        printf("File name to open: %s\n", filename); 
         printf("Pattern to search: %s\n", *argv); 
-        fp = fopen(filename, "r");
-        while (ch7_getline(line, MAXLINE, fp) > 0) {
-            lineno++;
-            if ((strstr(line, *argv) != NULL) != except) {
-                if (number)
-                    printf("%ld: ", lineno);
-                printf("%s", line);
-                found++;
+        while (i-- > 0) {
+            while (ch7_getline(line, MAXLINE, gfp[i]) > 0) {
+                lineno++;
+                if ((strstr(line, *argv) != NULL) != except) {
+                    if (number)
+                        printf("%ld: ", lineno);
+                    printf("%s", line);
+                    found++;
+                }
             }
         }
     }
