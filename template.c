@@ -20,7 +20,7 @@
  * Run:
  *      An example of how this program should be run.
  *
- * Nots:
+ * Notes:
  *      Helpful information for anyone to have who is maintaining this code.
  *
  */
