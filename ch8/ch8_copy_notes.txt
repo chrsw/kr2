@@ -1,0 +1,13 @@
+The following command does not work. Why?
+
+$ ./ch8_copy <(cat test7.txt test8.txt testdir/test1.txt testdir/test2.txt) > ch8_copy_test_output.txt
+
+Command doesn't return to shell. Output file is empty. All file exist.
+
+$ cat test7.txt test8.txt testdir/test1.txt testdir/test2.txt
+
+produces the correct output.
+
+$ ./ch8_copy < test7.txt > ch8_copy_test_output.txt
+
+also works.
