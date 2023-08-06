@@ -5,7 +5,7 @@
  *
  * Description:
  *      Read a line, return the length of the line read.
- *      Use the standar library function fgets().
+ *      Use the standard library function fgets().
  *
  * Input:
  *      Describe the expected input.
@@ -15,15 +15,16 @@
  *
  * Build:
  *      $ gcc -c ch7_getline.c
+ *      or compile into large app.
  *
  */
 
 #include <stdio.h>
 #include <string.h>
 
-int ch7_getline(char *line, int max) {
+int ch7_getline(char *line, int max, FILE *fp) {
    
-    if (fgets(line, max, stdin) == NULL)
+    if (fgets(line, max, fp) == NULL)
         return 0;
     else
         return strlen(line);
