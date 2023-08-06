@@ -11,7 +11,7 @@
  *      $ gcc -o find2 getline.c find2.c
  *
  * Run:
- *      $ ./find2 -x -n  getline < find2.c
+ *      $ ./find2 -x -n getline < find2.c
  *
  */
 
@@ -22,7 +22,7 @@
 
 int sec1_9_getline(char s[], int lim);
 
-/* find: print lines that match pattern from 1st arg */
+/* find: print lines that match pattern from an argument */
 int main(int argc, char *argv[]) {
 
     char line[MAXLINE];
