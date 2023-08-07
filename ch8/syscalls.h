@@ -38,7 +38,7 @@
 #endif
 
 #ifndef OPEN_MAX
-  #define OPEN_MAX
+  #define OPEN_MAX 20
 #endif
 
 #endif // SYSCALLS_H
