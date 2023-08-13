@@ -15,7 +15,7 @@
  */
 
 #include <fcntl.h>
-#include "_stdio.h"
+#include "stdio.h"
 #include "syscalls.h"
 
 #define PERMS 0666          /* RW for owner, group, others */
