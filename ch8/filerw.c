@@ -6,7 +6,7 @@
  * Description:
  *      Open a file for reading and writing. Read to it, write to it,
  *      then read from it again.
- *      Open anothe file, write to it, then read from it.
+ *      Open another file, write to it, then read from it.
  *      Both files will exist before opening.
  *
  * Input:
@@ -17,14 +17,13 @@
  *      to the files.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -o filerw filerw.c
  *
  * Run:
- *      An example of how this program should be run.
+ *      $ ./filerw
  *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
- *
+ * TODO:
+ *      Fix reading and writing to same file.
  */
 
 #include <stdio.h>
