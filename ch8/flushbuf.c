@@ -4,7 +4,7 @@
  *      Write out a file buffer if full.
  *
  * Description:
- *      Partial solution to Exercise 8-3, _flushbuf().
+ *      Partial solution to Exercise 8-3, _flushbuf(), implementation.
  *      If there is no buffer, and the file is buffered, allocate a buffer
  *      and write to it.
  *
@@ -20,6 +20,12 @@
  *      putc(). When the file is opened by fopen(), fopen() does not
  *      allocate any buffer space. This means that just like _fillbuf(),
  *      the first call to _flushbuf() should allocate the file buffer.
+ *
+ *      Any call to _flushbuf() means putc() tried to put a character into
+ *      the file buffer of fp but the fp.cnt was zero. This means that the
+ *      file is being written to for the first time or there is no more
+ *      room in the buffer. If the buffer is NULL that means the buffer
+ *      has not been allocated yet and this is the first call to _flushbuf().
  *
  * Input:
  *      Character to write and file pointer to write to.
@@ -43,23 +49,28 @@ int _flushbuf(int c, FILE *fp) {
     int bufsize;
     int written;
     
-    /* exit if file is not open for writing or there is an error */
+    /* exit w/ EOF if file is not open for writing or there is an error */
     if ((fp->flag&(_WRITE|_EOF|_ERR)) != _READ)
         return EOF;
+
+    /* file is usable, figure out the buffering state */
     bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
     if (bufsize == 1) {
         fp->cnt = write(fp->fd, &c, bufsize);   /* no buffer, just write one */
         if (fp->cnt == 1)
-            return c;
-        else
-            return EOF;
+            return c;                           /* return the chracter */
+        else                                    /* written if the write was */
+            return EOF;                         /* sucessful */
     }
     else {                                      /* using buffer */
-        if (fp->base == NULL)               
-            return EOF;                         /* error, no buffer */
-        //fp->cnt = write(fp->fd, fp->base, bufsize);
-        written = bufsize - write(fp->fd, fp->ptr, bufsize);
-        fp->ptr -= written;                     /* reset file buffer ptr */
-        return c;
+        if (fp->base == NULL)   {               /* have a buffer already? */
+            if ((fp->base = (char *)malloc(bufsize)) == NULL)
+                return EOF;                     /* can't get buffer */
+            fp->ptr = fp->base;
+       } else {                                 /* already have full buffer */
+            written = bufsize - write(fp->fd, fp->base, bufsize);
+            fp->ptr -= written;                 /* reset file buffer ptr */
+            return c;
+        }
     }
 }
