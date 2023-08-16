@@ -16,16 +16,21 @@
  *      If the file is unbuffered, write the specified character to the
  *      file.
  *
- *      For _fillbuf(), the text has this description: "The first call to
- *      getc() for a particular file finds a count of zero, which forces a
- *      call of _fillbuf(). If _fillbuf() finds that the file is not open
- *      for reading, it returns EOF immediately. Otherwise, it tries to
- *      allocate a buffer (if reading is to be buffered)."
- *
+ *      For _fillbuf(), the text has this description: 
+ *      "The first call to getc() for a particular file finds a count of zero
+ *      zero , which forces a call of _fillbuf(). If _fillbuf() finds that the   *      file is not open for reading, it returns EOF immediately. Otherwise, it  *      tries t  o allocate a buffer (if reading is to be buffered)."
+ *      
+ *      "Once the buffer is established, _fillbuf calls read() to fill it,
+ *      sets the count and pointers, and returns the character at the
+ *      beginning of the buffer. Subsequent calls to _fillbuf will find a
+ *      buffer allocated."
+ *      
  *      So, for _flushbuf(), putc() will try to put a character into the
  *      file buffer. If the buffer is full then _flushbuf() is called. The
  *      buffer is full if the count has reached zero prior to the call of
- *      putc(). When the file is opened by fopen(), fopen() does not
+ *      putc(). The count is initially set to the size of the allocated 
+ *      buffer. After a flush, the count is reset to the same initial size.
+ *      When the file is opened by fopen(), fopen() does not
  *      allocate any buffer space. This means that just like _fillbuf(),
  *      the first call to _flushbuf() should allocate the file buffer.
  *
