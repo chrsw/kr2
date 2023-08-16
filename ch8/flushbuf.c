@@ -58,7 +58,7 @@ int _flushbuf(int c, FILE *fp) {
     int written;
     
     /* exit w/ EOF if file is not open for writing or there is an error */
-    if ((fp->flag&(_WRITE|_EOF|_ERR)) != _READ)
+    if ((fp->flag&(_WRITE|_EOF|_ERR)) != _WRITE)
         return EOF;
 
     /* file is usable, figure out the buffering state */
