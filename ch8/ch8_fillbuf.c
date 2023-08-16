@@ -5,7 +5,15 @@
  *
  * Description:
  *      Taken from K&R2 section 8.5.
- *
+ *      Description from the book:
+ *      "The first call to getc() for a particular file finds a count of zero
+ *      zero , which forces a call of _fillbuf(). If _fillbuf() finds that the   *      file is not open for reading, it returns EOF immediately. Otherwise, it  *      tries t  o allocate a buffer (if reading is to be buffered)."
+ *      
+ *      "Once the buffer is established, _fillbuf calls read() to fill it,
+ *      sets the count and pointers, and returns the character at the
+ *      beginning of the buffer. Subsequent calls to _fillbuf will find a
+ *      buffer allocated."
+ *      
  * Input:
  *      File pointer.
  *
