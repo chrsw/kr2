@@ -5,8 +5,16 @@
  *
  * Description:
  *      Partial solution to Exercise 8-3, _flushbuf(), implementation.
+ *      
+ *      File buffer full or non-existant.
+ *
+ *      Copy the specified file's buffer to the actual file.
+ *   
  *      If there is no buffer, and the file is buffered, allocate a buffer
  *      and write to it.
+ *      
+ *      If the file is unbuffered, write the specified character to the
+ *      file.
  *
  *      For _fillbuf(), the text has this description: "The first call to
  *      getc() for a particular file finds a count of zero, which forces a
