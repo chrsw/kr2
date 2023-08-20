@@ -1,17 +1,18 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * ch8_stdio.h
+ * stdio.h
  *      Chapter 8 implementation of stdio.h, the standard library
  *      input/output support header.
  *
  * Details:
- *      Basically a direct copy of the book excerpt, section 8.5, page 176.
+ *      Basically a copy of the book excerpt, section 8.5, page 176.
  *      
  */
 
-#ifndef _STDIO_H
-#define _STDIO_H
+#ifndef STDIO_H
+#define STDIO_H
 
+/* These are also defined in syscalls.h */
 #ifndef NULL
   #define NULL        0
 #endif
@@ -60,7 +61,7 @@ int _flushbuf(int, FILE*);
 #define putc(x,p)       (--(p)->cnt >= 0 \
                         ? *(p)->ptr++ = (x) : _flushbuf((x),p))
 
-#define getchar()       getc(ch8_stdin)
-#define putchar(x)      putc((x),ch8_stdout)
+#define getchar()       getc(stdin)
+#define putchar(x)      putc((x),stdout)
 
-#endif // _STDIO_H
+#endif // STDIO_H
