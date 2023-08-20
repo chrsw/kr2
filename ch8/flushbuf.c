@@ -1,22 +1,14 @@
-/* vim:ts=4:sw=4:et:so=10:
+ /* vim:ts=4:sw=4:et:so=10:
  *
  * flushbuf.c
- *      Write out a file buffer if full.
+ *      _flushbuf():  write a file buffer to disk. write a char to file buffer.
  *
  * Description:
  *      Partial solution to Exercise 8-3, _flushbuf(), implementation.
- *      
- *      File buffer full or non-existant.
- *
- *      Copy the specified file's buffer to the actual file.
- *   
- *      If there is no buffer, and the file is buffered, allocate a buffer
- *      and write to it.
- *      
- *      If the file is unbuffered, write the specified character to the
- *      file.
- *
- *      For _fillbuf(), the text has this description: 
+ *      Exercise 8-3 includes two other sections: fflush() and fclose()
+ *      which are not implemented in this file. See this chapter's README.
+*
+ *      Description from the text: 
  *      "The first call to getc() for a particular file finds a count of zero
  *      zero , which forces a call of _fillbuf(). If _fillbuf() finds that the   *      file is not open for reading, it returns EOF immediately. Otherwise, it  *      tries t  o allocate a buffer (if reading is to be buffered)."
  *      
@@ -24,6 +16,19 @@
  *      sets the count and pointers, and returns the character at the
  *      beginning of the buffer. Subsequent calls to _fillbuf will find a
  *      buffer allocated."
+ *
+ *      Additional description:      
+ *      The text does not formally specify the behavior of _flushbuf and
+ *      there doesn't appear to be a corresponding function in the system's
+ *      standard C library (Ubunut 20.04 glibc 2.31).
+ *
+ *      _flushbuf is called when file buffer is full or non-existant.
+ *      _flsubuf will copy the specified file's buffer to the actual file.
+ *      If there is no buffer, and the file is buffered, allocate a buffer
+ *      and write to it.
+ *      
+ *      If the file is unbuffered, write the specified character to the
+ *      file.
  *      
  *      So, for _flushbuf(), putc() will try to put a character into the
  *      file buffer. If the buffer is full then _flushbuf() is called. The
@@ -60,13 +65,12 @@
 int _flushbuf(int c, FILE *fp) {
 
     int bufsize;
-    int written;
     
     /* exit w/ EOF if file is not open for writing or there is an error */
     if ((fp->flag&(_WRITE|_EOF|_ERR)) != _WRITE)
         return EOF;
 
-    /* file is usable, figure out the buffering state */
+    /* file is usable, determine the buffering mode */
     bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
     if (bufsize == 1) {
         fp->cnt = write(fp->fd, &c, bufsize);   /* no buffer, just write one */
@@ -74,16 +78,16 @@ int _flushbuf(int c, FILE *fp) {
             return c;                           /* return the chracter */
         else                                    /* written if the write was */
             return EOF;                         /* sucessful */
-    }
-    else {                                      /* using buffer */
+    } else {
+                                                /* using buffer */
         if (fp->base == NULL)   {               /* have a buffer already? */
             if ((fp->base = (char *)malloc(bufsize)) == NULL)
                 return EOF;                     /* can't get buffer */
             fp->ptr = fp->base;
        } else {                                 /* already have full buffer */
-            written = bufsize - write(fp->fd, fp->base, bufsize);
-            fp->ptr -= written;                 /* reset file buffer ptr */
-            return c;
+            write(fp->fd, fp->base, bufsize);   /* TODO use write() return  */
+            fp->ptr = fp->base;                 /* reset file buffer ptr */
+            return *fp->ptr++ = c;
         }
     }
 }
