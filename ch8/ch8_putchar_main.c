@@ -7,7 +7,7 @@
  *      $ gcc -o ch8_putchar_main ch8_putchar_main.c
  */
 
-#include "ch8_stdio.h"
+#include "stdio.h"
 
 FILE _iob[OPEN_MAX];
 //void ch8_putchar_test(void);
