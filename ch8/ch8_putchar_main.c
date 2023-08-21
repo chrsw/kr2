@@ -10,7 +10,6 @@
 #include "stdio.h"
 
 FILE _iob[OPEN_MAX];
-//void ch8_putchar_test(void);
 
 int main(void) {
     
