@@ -6,6 +6,9 @@
  *
  * Details:
  *      Basically a copy of the book excerpt, section 8.5, page 176.
+ *
+ * TODO:
+ *      Look into why using this custom stdio.h file doesn't work at runtime.
  *      
  */
 
