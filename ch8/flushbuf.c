@@ -1,29 +1,29 @@
  /* vim:ts=4:sw=4:et:so=10:
  *
  * flushbuf.c
- *      _flushbuf():  write a file buffer to disk. write a char to file buffer.
+ *      _flushbuf():  write a file buffer to disk. Write a char to file buffer.
  *
  * Description:
  *      Partial solution to Exercise 8-3, _flushbuf(), implementation.
  *      Exercise 8-3 includes two other sections: fflush() and fclose()
  *      which are not implemented in this file. See this chapter's README.
-*
- *      Description from the text: 
- *      "The first call to getc() for a particular file finds a count of zero
- *      zero , which forces a call of _fillbuf(). If _fillbuf() finds that the   *      file is not open for reading, it returns EOF immediately. Otherwise, it  *      tries t  o allocate a buffer (if reading is to be buffered)."
- *      
- *      "Once the buffer is established, _fillbuf calls read() to fill it,
- *      sets the count and pointers, and returns the character at the
- *      beginning of the buffer. Subsequent calls to _fillbuf will find a
- *      buffer allocated."
+ *
+ *      Description of _flushbuf() from the text:
+ *      "...we have included the definition of putc() to show that it operates
+ *      in much the same way as getc(), calling a function _flushbuf() when
+ *      its buffer is full."
+ *
+ *      How _flushbuf() is called:
+ *          #define putc(x,p) (--(p)->cnt >= 0 \
+ *                      ? *(p)->ptr++ = (x) : _flushbuf((x),p)
  *
  *      Additional description:      
  *      The text does not formally specify the behavior of _flushbuf and
  *      there doesn't appear to be a corresponding function in the system's
  *      standard C library (Ubunut 20.04 glibc 2.31).
  *
- *      _flushbuf is called when file buffer is full or non-existant.
- *      _flsubuf will copy the specified file's buffer to the actual file.
+ *      _flushbuf is called when file buffer is full or non-existent.
+ *      _flushbuf will copy the specified file's buffer to the actual file.
  *      If there is no buffer, and the file is buffered, allocate a buffer
  *      and write to it.
  *      
@@ -54,6 +54,13 @@
  * Build:
  *      $ gcc -c flushbuf.c
  *
+ * TODO:
+ *      What happens when a file is opened for reading and writing?
+ *      the fp.cnt counter will decrease for both reading and writing when
+ *      using putc() and getc(), the fp.ptr buffer pointer will advance
+ *      on a call to either putc() or getc() but in one case a character is
+ *      written and another case a character is read.
+ *
  */
 
 #include <stdlib.h>
@@ -75,11 +82,10 @@ int _flushbuf(int c, FILE *fp) {
     if (bufsize == 1) {
         fp->cnt = write(fp->fd, &c, bufsize);   /* no buffer, just write one */
         if (fp->cnt == 1)
-            return c;                           /* return the chracter */
+            return c;                           /* return the character */
         else                                    /* written if the write was */
-            return EOF;                         /* sucessful */
-    } else {
-                                                /* using buffer */
+            return EOF;                         /* successful */
+    } else {                                    /* using buffer */
         if (fp->base == NULL)   {               /* have a buffer already? */
             if ((fp->base = (char *)malloc(bufsize)) == NULL)
                 return EOF;                     /* can't get buffer */
