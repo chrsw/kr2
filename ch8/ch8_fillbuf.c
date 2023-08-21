@@ -17,7 +17,7 @@
  *      buffer allocated."
  *
  *      Additional description:
- *      When a file is read from, first the data is retrieved from the file's
+ *      When a file is read, first the data is retrieved from the file's
  *      buffer. If the buffer is empty, that's when this function _fillbuf is
  *      called. This function will allocate space for a new buffer if the
  *      buffer doesn't exist yet.
@@ -28,10 +28,15 @@
  *      File pointer.
  *
  * Output:
- *      Character at the beginning of the buffer.
+ *      Character at the beginning of the newly allocated buffer.
  *
  * Build:
  *      $ gcc -c ch8_fillbuf.c
+ *
+ * TODO:
+ *      Look into why
+ *      if ((fp->flag&(_READ|_EOF|_ERR)) != _READ)
+ *      always returns true.
  *
  */
 
