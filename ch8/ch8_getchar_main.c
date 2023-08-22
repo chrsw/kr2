@@ -19,11 +19,19 @@
 
 #include "stdio.h"
 
-FILE _iob[OPEN_MAX];
+FILE _iob[OPEN_MAX] = {         /* stdin, stdout, stderr */
+    {0, (char *)0, (char *)0, _READ, 0 },
+    {0, (char *)0, (char *)0, _WRITE, 1 },
+    {0, (char *)0, (char *)0, _WRITE | _UNBUF, 2 }
+};
+
+char buf[8000];
 
 int main(void) {
     
     int c = 0; 
-    c = getchar();
+    int i = 0;
+    while ((c = getchar()) != EOF)
+        buf[i++] = c;
     return c;
 }
