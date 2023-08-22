@@ -33,11 +33,6 @@
  * Build:
  *      $ gcc -c ch8_fillbuf.c
  *
- * TODO:
- *      Look into why
- *      if ((fp->flag&(_READ|_EOF|_ERR)) != _READ)
- *      always returns true.
- *
  */
 
 #include <stdlib.h>
