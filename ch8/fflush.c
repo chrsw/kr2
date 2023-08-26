@@ -26,9 +26,8 @@
 
 int fflush(FILE *fp) {
 
-    int ret;
-    ret = write(1, fp->base, BUFSIZ);
-    if (ret < 0)
+    /* write the file buffer */
+    if (write(1, fp->base, fp->cnt) < 0)
         return EOF;
     else
         return 0;
