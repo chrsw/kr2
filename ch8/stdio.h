@@ -20,7 +20,7 @@
   #define EOF         (-1)
 #endif
 #ifndef BUFSIZ
-  #define BUFSIZ      20
+  #define BUFSIZ      1024
 #endif
 #ifndef OPEN_MAX
   #define OPEN_MAX    20
