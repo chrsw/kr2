@@ -19,7 +19,7 @@ int main(void) {
     
     int i;
            /* 'a' */  /* 'z' */
-    for (i = 0x61; i <= 0x7B; i++)
+    for (i = 0x61; i <= 0x7A; i++)
         putchar((char)i);
     return 0;
 }
