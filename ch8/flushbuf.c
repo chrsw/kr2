@@ -80,8 +80,7 @@ int _flushbuf(int c, FILE *fp) {
     /* file is usable, determine the buffering mode */
     bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
     if (bufsize == 1) {
-        fp->cnt = write(fp->fd, &c, bufsize);   /* no buffer, just write one */
-        if (fp->cnt == 1)
+        if ((fp->cnt = write(fp->fd, &c, bufsize)) == 1)
             return c;                           /* return the character */
         else                                    /* written if the write was */
             return EOF;                         /* successful */
@@ -90,10 +89,14 @@ int _flushbuf(int c, FILE *fp) {
             if ((fp->base = (char *)malloc(bufsize)) == NULL)
                 return EOF;                     /* can't get buffer */
             fp->ptr = fp->base;
+            fp->cnt = bufsize;
+            return *fp->ptr++ = c;
        } else {                                 /* already have full buffer */
             write(fp->fd, fp->base, bufsize);   /* TODO use write() return  */
+            write(fp->fd, &c, 1);
             fp->ptr = fp->base;                 /* reset file buffer ptr */
-            return *fp->ptr++ = c;
+            fp->cnt = bufsize;
+            return c;
         }
     }
 }
