@@ -6,13 +6,8 @@
  * Description:
  *      Simple fclose() implementation for part of Exercise 8-3.
  *      
- *      Description from the text:
- *      
- *      Description from local man page:
- *
  * Returns:
- *      0 for succession, otherwise EOF. Not implemented errno for this
- *      version.
+ *      0, error handling not implemented. 
  *
  * Output:
  *
@@ -20,18 +15,19 @@
  *      $ gcc -c fclose.c
  *      $ gcc -o app fflush.c fclose.c app.c
  *
- *
  */
 
+#include <stdlib.h>
 #include "syscalls.h"
 #include "stdio.h"
 
 int fflush(FILE *);
 
-
 int fclose(FILE *fp) {
 
     fflush(fp);
+    if (fp->base != NULL)
+        free(fp->base);
     close(fp->fd);
     return 0;
 }
