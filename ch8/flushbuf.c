@@ -80,8 +80,10 @@ int _flushbuf(int c, FILE *fp) {
     /* file is usable, determine the buffering mode */
     bufsize = (fp->flag & _UNBUF) ? 1 : BUFSIZ;
     if (bufsize == 1) {
-        if ((fp->cnt = write(fp->fd, &c, bufsize)) == 1)
+        if (write(fp->fd, &c, bufsize) == 1) {
+            fp->cnt = 0;
             return c;                           /* return the character */
+        }
         else                                    /* written if the write was */
             return EOF;                         /* successful */
     } else {                                    /* using buffer */
