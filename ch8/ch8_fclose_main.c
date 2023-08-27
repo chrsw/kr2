@@ -62,7 +62,7 @@ int main(void) {
     len = strlen(buf);
 
     i = 0;
-    while (i < len)
+    while (i <= len)
         putc(buf[i++], w);
 
     fclose(r);
