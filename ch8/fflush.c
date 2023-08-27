@@ -27,11 +27,11 @@
 int fflush(FILE *fp) {
 
     if (fp == NULL)
-        return EOF;
+        ;
     else
         if (fp->base != NULL)
-            if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt))) < 0) 
-                return EOF;
+            if ((write(fp->fd, fp->base, BUFSIZ-fp->cnt)) < 0) 
+                ;
             else
                 return 0;
 
