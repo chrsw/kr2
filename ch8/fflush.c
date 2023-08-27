@@ -26,9 +26,14 @@
 
 int fflush(FILE *fp) {
 
-    /* write the file buffer */
-    if (write(1, fp->base, fp->cnt) < 0)
+    if (fp == NULL)
         return EOF;
     else
-        return 0;
+        if (fp->base != NULL)
+            if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt))) < 0) 
+                return EOF;
+            else
+                return 0;
+
+    return EOF;
 }
