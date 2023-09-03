@@ -7,15 +7,10 @@
  *      Read a line, return the length of the line read.
  *      Use the standard library function fgets().
  *
- * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
  * Build:
  *      $ gcc -c ch7_getline.c
- *      or compile into large app.
+ *      or compile into large app:
+ *      $ gcc -c app ch7_getline.c app.c
  *
  */
 
