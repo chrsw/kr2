@@ -5,7 +5,7 @@ The following table is a list of exercises and solutions.
 
 |Exercise|Solution|Comments|
 |--------|--------|--------|
-|7-1 	 |ex7-1.c |        |
+|7-1 	 |ex7-1.c |test.txt        |
 |7-2  	 |        |        |
 |7-3     |        |        |
 |7-4     |        |        |
@@ -13,7 +13,7 @@ The following table is a list of exercises and solutions.
 |7-6     |ex7-6.c, test2.txt, test3.ext |        |
 |7-7     |        |        |
 |7-8     |        |        |
-|7-9     |        |        |
+|7-9     |isupper.c        |        |
 |7-10 	 |        |        |
 |7-11    |        |        |
 |7-12  	 |        |        |
