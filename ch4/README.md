@@ -14,7 +14,7 @@ The following table is a list of exercises and solutions.
 |Exercise|Solution|Comments|
 |--------|--------|--------|
 |4-1 	 | ex4-1.c| TODO: add test driver. |
-|4-2  	 | ex4-2.c, ex4-2_test.c     |atoi_test.c, atof_test.c, cpl_atoi.c, cpl_atof.c, TODO: remove dependency on math.h|
+|4-2  	 | ex4-2.c, ex4-2_test.c     |atoi_test.c, atof_test.c, cpl_atoi.c, cpl_atof.c,<br /> TODO: remove dependency on math.h|
 |4-3    | ex4-3.c     |rpn_neg_test.txt |
 |4-4    | ex4-4.c     |rpn_modulo_test.txt|
 |4-5    |  ex4-5.c     |rpn_sine_test.txt, rpn_exp_test.txt, rpn_pow_test.txt|
