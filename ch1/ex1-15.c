@@ -7,6 +7,9 @@
  * Description:
  *      Convert Fahrenheit to Celsius.
  *
+ * Build:
+ *      $ gcc -o ex1-15 ex1-15.c
+ *
  */
 
 #include <stdio.h>
@@ -15,14 +18,14 @@
 #define UPPER 300
 #define STEP 20
 
-float ftoc(float f);
+float ftoc(float fahr);
 
 int main(int argc, char *argv[]) {
 
     int fahr;
 
+    /* print a table of temperature conversion */ 
     for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
-        //printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
         printf("%3d %6.1f\n", fahr, ftoc(fahr));
 
     return 0;
