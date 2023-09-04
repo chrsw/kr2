@@ -1,0 +1,37 @@
+/* vim:ts=4:sw=4:et:so=10:
+ *
+ * ex1-15.c
+ *      Rewrite the temperature conversion program of Section ??
+ *      to use a function for conversion.
+ *
+ * Description:
+ *      Convert Fahrenheit to Celsius.
+ *
+ */
+
+#include <stdio.h>
+
+#define LOWER 0
+#define UPPER 300
+#define STEP 20
+
+float ftoc(float f);
+
+int main(int argc, char *argv[]) {
+
+    int fahr;
+
+    for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
+        //printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
+        printf("%3d %6.1f\n", fahr, ftoc(fahr));
+
+    return 0;
+}
+
+/* convert Fahrenheit to Celsius */
+float ftoc(float fahr) {
+
+    float c = 0.f;
+    c = (5.0/9.0)*(fahr-32);
+    return c;
+}
