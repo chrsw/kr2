@@ -24,6 +24,11 @@ int main(int argc, char *argv[]) {
 
     int fahr;
 
+	printf("%3.3s %6.6s\n", "F" ,"C"); /* print the heading with the
+					                      same spacing and justification
+					                      as the table */
+
+
     /* print a table of temperature conversion */ 
     for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
         printf("%3d %6.1f\n", fahr, ftoc(fahr));
