@@ -17,7 +17,7 @@ The following table is a list of exercises and solutions.
 |5-10 	 | expr.c     ||
 |5-11    | detab2.c     |tab_test.txt|
 |5-12  	 |      ||
-|5-13    |      ||
+|5-13    |tail.c      |tail_test.txt|
 |5-14    |      ||
 |5-15    |      ||
 |5-16    |      ||
