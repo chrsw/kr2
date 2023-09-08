@@ -31,6 +31,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int ex5_6_getline(char *s, int lim);
 
@@ -42,6 +43,13 @@ int main(int argc, char *argv[]) {
     char line[limit];
     int lc = 0;
     int i = 0;
+    int n = 10;
+    char *ns;
+
+    if (argc == 2) {
+        ns = argv[1];
+        n = atoi(++ns);
+    }
 
     // Read in every line
     // add the new recent line to the s array
@@ -50,10 +58,10 @@ int main(int argc, char *argv[]) {
     // then add the new line to the end of the array
     while (ex5_6_getline(line, limit) > 0) {
         
-        if (lc < 10) {
+        if (lc < n) {
             strcpy(s[lc++], line);
         } else {
-            for (i = 0; i < 10; i++) {
+            for (i = 0; i < n; i++) {
                 strcpy(s[i],s[i+1]);
             }
             strcpy(s[lc], line);
@@ -61,7 +69,7 @@ int main(int argc, char *argv[]) {
         
     }
 
-    for (i = 0; i <= 9; i++)
+    for (i = 0; i < n; i++)
         printf("%s", s[i]);
 
     return 0;
