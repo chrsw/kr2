@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
         
     }
 
-    for (i = 0; i < n; i++)
+    for (i = 1; i <= n; i++)
         printf("%s", s[i]);
 
     return 0;
