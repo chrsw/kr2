@@ -45,32 +45,53 @@ int main(int argc, char *argv[]) {
     int i = 0;
     int n = 10;
     char *ns;
+    char **ap;
+    char *lp;
+    int len;
 
     if (argc == 2) {
         ns = argv[1];
         n = atoi(++ns);
     }
 
+    ap = (char **)malloc((sizeof(ap)*n)+1);
+
     // Read in every line
     // add the new recent line to the s array
     // or
     // push all other lines down s array
     // then add the new line to the end of the array
-    while (ex5_6_getline(line, limit) > 0) {
+    while (len = ex5_6_getline(line, limit) > 0) {
         
+        if ((lp = (char *)malloc(len+1)) == NULL)
+            return -1;
+
         if (lc < n) {
-            strcpy(s[lc++], line);
+            //strcpy(s[lc], line);
+            strcpy(lp, line);
+            *(ap+lc) = lp; 
+            //strcpy(*(ap+lc), line);
+            lc++;
         } else {
-            for (i = 0; i < n; i++) {
-                strcpy(s[i],s[i+1]);
+            strcpy(lp, line);
+            *(ap+lc) = lp; 
+            //strcpy(*(ap+lc), line);
+            for (i = 0; i < lc; i++) {
+                //strcpy(s[i],s[i+1]);
+                //if (i < n-1) strcpy(*(ap+i), *(ap+i+1));
+                //printf("ap+%d = %sap+%d+1 = %s\n", i, *(ap+i), i, *(ap+i+1));
+                strcpy(*(ap+i), *(ap+i+1));
             }
-            strcpy(s[lc], line);
+            //strcpy(s[lc], line);
+            //strcpy(*(ap+lc-1), line);
         }
         
     }
 
-    for (i = 1; i <= n; i++)
-        printf("%s", s[i]);
-
+    for (i = 0; i < n; i++){
+        //printf("%s", s[i]);
+        //if (i < n-1)
+            printf("%s", *(ap+i));
+    }
     return 0;
 }
