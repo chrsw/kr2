@@ -66,18 +66,18 @@ int main(int argc, char *argv[]) {
 
         if (lc < n) {
             strcpy(lp, line);
-            *(ap+lc) = lp; 
+            ap[lc] = lp; 
             lc++;
         } else {
             strcpy(lp, line);
-            *(ap+lc) = lp; 
+            ap[lc] = lp; 
             for (i = 0; i < lc; i++) 
-                strcpy(*(ap+i), *(ap+i+1));
+                strcpy(ap[i], ap[i+1]);
         }
     }
 
     for (i = 0; i < n; i++){
-        printf("%s", *(ap+i));
+        printf("%s", ap[i]);
     }
 
     return 0;
