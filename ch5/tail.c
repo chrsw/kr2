@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * tail.c
- *      Print the last 10 or n lines of input. Exercise 5-13.
+ *      Print the last 10 or n lines of input. Solution for exercise 5-13.
  *
  * Description:
  *      Problem description from text. Chapater 5, exercise 13:
@@ -39,7 +39,6 @@ const int limit = 100;
 
 int main(int argc, char *argv[]) {
 
-    char s[10][limit];
     char line[limit];
     int lc = 0;
     int i = 0;
@@ -61,7 +60,7 @@ int main(int argc, char *argv[]) {
     // or
     // push all other lines down s array
     // then add the new line to the end of the array
-    while (len = ex5_6_getline(line, limit) > 0) {
+    while ((len = ex5_6_getline(line, limit)) > 0) {
         
         if ((lp = (char *)malloc(len+1)) == NULL)
             return -1;
