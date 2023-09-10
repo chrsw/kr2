@@ -4,7 +4,7 @@
  *      Print the last 10 or n lines of input. Solution for exercise 5-13.
  *
  * Description:
- *      Problem description from text. Chapater 5, exercise 13:
+ *      Problem description from text. Chapter 5, exercise 13:
  *      Write the program `tail` which prints the last n lines of its input.
  *      By default, n is set to 10, but it can be changed by an optional
  *      argument so that
