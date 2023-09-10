@@ -26,7 +26,6 @@
  *      $ ./tail < tail_test.txt
  *      $ ./tail -5 < tail_test.txt
  *
- *
  */
 
 #include <stdio.h>
@@ -66,31 +65,20 @@ int main(int argc, char *argv[]) {
             return -1;
 
         if (lc < n) {
-            //strcpy(s[lc], line);
             strcpy(lp, line);
             *(ap+lc) = lp; 
-            //strcpy(*(ap+lc), line);
             lc++;
         } else {
             strcpy(lp, line);
             *(ap+lc) = lp; 
-            //strcpy(*(ap+lc), line);
-            for (i = 0; i < lc; i++) {
-                //strcpy(s[i],s[i+1]);
-                //if (i < n-1) strcpy(*(ap+i), *(ap+i+1));
-                //printf("ap+%d = %sap+%d+1 = %s\n", i, *(ap+i), i, *(ap+i+1));
+            for (i = 0; i < lc; i++) 
                 strcpy(*(ap+i), *(ap+i+1));
-            }
-            //strcpy(s[lc], line);
-            //strcpy(*(ap+lc-1), line);
         }
-        
     }
 
     for (i = 0; i < n; i++){
-        //printf("%s", s[i]);
-        //if (i < n-1)
-            printf("%s", *(ap+i));
+        printf("%s", *(ap+i));
     }
+
     return 0;
 }
