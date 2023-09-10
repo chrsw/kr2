@@ -32,35 +32,35 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define LINE_LIMIT 100
 int ex5_6_getline(char *s, int lim);
-
-const int limit = 100;
 
 int main(int argc, char *argv[]) {
 
-    char line[limit];
-    int lc = 0;
-    int i = 0;
-    int n = 10;
+    char line[LINE_LIMIT];
+    unsigned int n = 10;
     char *ns;
     char **ap;
     char *lp;
-    int len;
+    unsigned int len;
 
     if (argc == 2) {
         ns = argv[1];
         n = atoi(++ns);
     }
 
-    ap = (char **)malloc((sizeof(ap)*n)+1);
+    if ((ap = (char **)malloc((sizeof(ap)*n)+1)) == NULL)
+        return -1;
 
     // Read in every line
     // add the new recent line to the s array
     // or
     // push all other lines down s array
     // then add the new line to the end of the array
-    while ((len = ex5_6_getline(line, limit)) > 0) {
-        
+    while ((len = ex5_6_getline(line, LINE_LIMIT)) > 0) {
+       
+        unsigned int lc; 
+
         if ((lp = (char *)malloc(len+1)) == NULL)
             return -1;
 
@@ -71,14 +71,13 @@ int main(int argc, char *argv[]) {
         } else {
             strcpy(lp, line);
             ap[lc] = lp; 
-            for (i = 0; i < lc; i++) 
+            for (unsigned int i = 0; i < lc; i++) 
                 strcpy(ap[i], ap[i+1]);
         }
     }
 
-    for (i = 0; i < n; i++){
+    for (unsigned int i = 0; i < n; i++)
         printf("%s", ap[i]);
-    }
 
     return 0;
 }
