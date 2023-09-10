@@ -11,7 +11,7 @@
  *
  *      $ tail -n
  *
- *      prints the last n lines.
+ *      prints the last n lines instead of the last 10.
  *
  * Input:
  *      Plain text.
@@ -20,12 +20,12 @@
  *      Last 10 or n lines of input.
  *
  * Build:
+ *      $ gcc -Wall -Wextra -Wpedantic -o tail ex5-6_getline.c tail.c
  *
  * Run:
- *      An example of how this program should be run.
+ *      $ ./tail < tail_test.txt
+ *      $ ./tail -5 < tail_test.txt
  *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
