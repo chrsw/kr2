@@ -27,8 +27,3 @@ The following table is a list of exercises and solutions.
 |4-12  	 |      ||
 |4-13    | ex4-13.c     ||
 |4-14    |      ||
-|4-15    |      ||
-|4-16    |      ||
-|4-17    |      ||
-|4-18    |      ||
-|4-19    |      ||
