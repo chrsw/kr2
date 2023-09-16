@@ -8,14 +8,14 @@
  *      calculator application.
  *
  * Input:
- *      Describe the expected input.
+ *      String of operators and operands.
  *
  * Build:
  *      See rpn.c
  *
  */
 
-#include <ctype.h>
+#include <ctype.h>                              /* if isdigit() */
 #include <stdio.h>                              /* for EOF */
 
 #define NUMBER '0'
