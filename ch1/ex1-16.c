@@ -61,7 +61,10 @@ int main(void) {
 }
 
 
-/* getline: read a line into s, return length. Exercise 1.16 version. */
+/* getline: read a line into s, return length. 
+ * Exercise 1.16 version:
+ * accept arbitrarily long input lines using dynamic memory allocation
+ */
 int ex_1_16_getline(void) {
 
     int c, i;
