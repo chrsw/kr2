@@ -3,3 +3,4 @@ of named files or, if no files are named as arguments, from standard input.
 Should the file name be printed when a matching line is found?
 
 Chapter 5 pattern matching program is called 'find' and its listing is in section 5.10 on page 117.
+Studying syscalls is a good way to learn system programming.
