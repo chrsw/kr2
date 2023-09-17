@@ -3,6 +3,8 @@
  * lngln.c
  *      Print the longest input line.
  *      From section 1.9.
+ *      Used as the start of exercise 1-16.
+ *      Static line lengths.
  *
  * Input:
  *      Plain text lines.
@@ -11,10 +13,10 @@
  *      Longest line from input.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -o lngln lngln.c
  *
  * Run:
- *      An example of how this program should be run.
+ *      $ ./lngln < lngln.c
  *
  */
 
