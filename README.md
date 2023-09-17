@@ -12,6 +12,8 @@ The plan is to eventually add more helpful comments and test code.
 ### Contents
 1. ch1-ch8 code, mostly solutions per chapter.
 2. template.[ch] convenient starting point for source files.
-3. README.md this Markdown file
-
+3. README.md this Markdown file.
+4. LICENSE specify license for files in this repo.
+5. kr2.utf-8.add, kr2.utf-8.add.spl project-level vim dictionary files for spell checking.
+6. INSTALL how to use the files in this repo.
 
