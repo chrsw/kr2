@@ -1,4 +1,3 @@
-Clean up Solution 1-16.
 Finish the exercises in the text. Some extremely tedious exercises may be left undone or left for a much later date.
 Write Makefiles for the more complicated solutions.
 Add comments to existing Makefiles.
@@ -6,4 +5,5 @@ Fill in the tables of exercises and solutions files for each chapter.
 Add more helpful comments for each exercise, solution and sample.
 Finish TODOs throughout the code.
 Explain the Vim config lines somewhere.
-Rename project from 'cpl' to 'knr2'.
+Rename project from 'cpl' to 'kr2'.
+Break up RPM calculator into separate files.
