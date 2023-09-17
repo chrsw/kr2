@@ -1,9 +1,9 @@
 /* vim:ts=4:sw=4:et:
  *
  * ex2-2.c
- *      Write the function htoi(s), which converst a string of hexa-
+ *      Write the function htoi(s), which converts a string of hexa-
  *      decimal digits (including an optional 0x or 0X) into its
- *      equivalent inteiger value. The allowable digits are 0 through
+ *      equivalent integer value. The allowable digits are 0 through
  *      9, a through f, and A through F.
  */
 
