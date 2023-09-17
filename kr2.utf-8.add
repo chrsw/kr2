@@ -31,3 +31,5 @@ EOF
 syscalls
 unbuffered
 htoi
+main
+gitignore
