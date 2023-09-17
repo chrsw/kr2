@@ -14,3 +14,4 @@ void ungetch(int c);
 #define BUFSIZE 100		/* BUFSIZ already defined by standard lib */
 #define NUMBER '0'
 #define MAXVAL 100
+#define MAXOP 100
