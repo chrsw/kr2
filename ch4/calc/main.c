@@ -8,7 +8,7 @@
  *      calculator application. Split into multiple source/header files.
  *
  * Build:
- *      $ gcc -o rpn getch.c getop.c stack.c main.c -I.
+ *      $ make
  *
  */
 

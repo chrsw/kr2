@@ -1,4 +1,7 @@
 # RPN calculator Makefile
 
-rpn: getch.c getop.c stack.c main.c
-	gcc -o rpn getch.c getop.c stack.c main.c -I.
+CC=gcc
+CFLAGS=-I.
+
+rpn: getch.o getop.o stack.o main.o
+	$(CC) -o rpn getch.o getop.o stack.o main.o 
