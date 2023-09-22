@@ -51,6 +51,11 @@ int main(void) {
                 if (op2 != 0.0)
                     push((int)pop() % (int)op2);
                 break;
+            case 'p':
+                op2 = pop();
+                printf("\t%.8g\n", op2);
+                push(op2);
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
