@@ -6,6 +6,7 @@
  * Description:
  *      Excerpt from section 4.3, part of Reverse Polish Notation (RPN)
  *      calculator application. Split into multiple source/header files.
+ *      Addtions from the exercises related to the RPM calculator.
  *
  * Build:
  *      $ make
@@ -15,7 +16,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>                     /* for atof() */
-#include "calc.h"
+#include "calc.h"                       /* app funcs: getop(), pop(), etc */
 
 int main(void) {
 
