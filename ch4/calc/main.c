@@ -21,7 +21,7 @@
 int main(void) {
 
     int type;
-    double op2;
+    double op1, op2, temp;
     char s[MAXOP];
 
     while ((type = getop(s)) != EOF ){
@@ -59,6 +59,15 @@ int main(void) {
             case 'd':
                 op2 = pop();
                 push(op2);
+                push(op2);
+                break;
+            case '$':
+                op2 = pop();
+                op1 = pop();
+                temp = op2;
+                op2 = op1;
+                op1 = temp;
+                push(op1);
                 push(op2);
                 break;
             case '\n':
