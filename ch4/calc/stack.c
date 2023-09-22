@@ -12,7 +12,7 @@ int sp = 0;
 double val[MAXVAL];
 
 
-/* push a floating point number onto value stack */
+/* push: a floating point number onto value stack */
 void push(double f) {
 
     if (sp < MAXVAL)
@@ -22,7 +22,7 @@ void push(double f) {
 }
 
 
-/* pop top floating point value from stack */
+/* pop: top floating point value from stack */
 double pop(void) {
     
     if (sp > 0)
