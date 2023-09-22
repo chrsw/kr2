@@ -56,6 +56,11 @@ int main(void) {
                 printf("\t%.8g\n", op2);
                 push(op2);
                 break;
+            case 'd':
+                op2 = pop();
+                push(op2);
+                push(op2);
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
