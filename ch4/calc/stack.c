@@ -9,7 +9,7 @@
 #include "calc.h"
 
 int sp = 0;
-double val[MAXVAL];
+static double val[MAXVAL];
 
 
 /* push: a floating point number onto value stack */
@@ -32,3 +32,7 @@ double pop(void) {
         return 0.0;
     }
 }
+
+/* gp:  return the stack pointer value */
+int gp(void) { return sp; }
+

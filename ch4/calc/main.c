@@ -70,6 +70,9 @@ int main(void) {
                 push(op1);
                 push(op2);
                 break;
+            case '#':
+                while (gp() > 0) pop();
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
