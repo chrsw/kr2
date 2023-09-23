@@ -55,6 +55,14 @@ int main(void) {
             case 's':
                 push(sin(pop()));
                 break; 
+            case 'e':
+                push(exp(pop()));
+                break;
+            case '^':
+                op2 = pop();
+                op1 = pop();
+                push(pow(op1,op2));
+                break;
             case 'p':
                 op2 = pop();
                 printf("\t%.8g\n", op2);
