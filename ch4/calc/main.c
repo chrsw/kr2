@@ -17,7 +17,11 @@
 #include <stdio.h>
 #include <stdlib.h>                     /* for atof() */
 #include <math.h>
+#include <stdbool.h>
 #include "calc.h"                       /* app funcs: getop(), pop(), etc */
+
+static bool used_vars[MAXVARS] = {false};
+static double vars[MAXVARS] = {0.f};
 
 int main(void) {
 
@@ -62,6 +66,18 @@ int main(void) {
                 op2 = pop();
                 op1 = pop();
                 push(pow(op1,op2));
+                break;
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
+                if (!used_vars[type-'W']) {
+                    vars[type-'W'] = pop();
+                    used_vars[type-'W'] = true;
+                    push(vars[type-'W']);
+                } else {
+                    push(vars[type-'W']);
+                }
                 break;
             case 'p':
                 op2 = pop();

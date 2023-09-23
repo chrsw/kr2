@@ -16,3 +16,4 @@ void ungetch(int c);
 #define NUMBER '0'
 #define MAXVAL 100
 #define MAXOP 100
+#define MAXVARS 4      /* W-Z upper case letters to store vars */
