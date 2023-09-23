@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>                     /* for atof() */
+#include <math.h>
 #include "calc.h"                       /* app funcs: getop(), pop(), etc */
 
 int main(void) {
@@ -46,11 +47,14 @@ int main(void) {
                 else
                     printf("error: zero divisor\n");
                 break;
-             case '%':
+            case '%':
                 op2 = (int)pop();
                 if (op2 != 0.0)
                     push((int)pop() % (int)op2);
                 break;
+            case 's':
+                push(sin(pop()));
+                break; 
             case 'p':
                 op2 = pop();
                 printf("\t%.8g\n", op2);

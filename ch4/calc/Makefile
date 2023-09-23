@@ -10,7 +10,7 @@ objects = getch.o getop.o stack.o main.o
 
 # Compile and link the RPN app
 rpn: getch.o getop.o stack.o main.o
-	$(CC) -o rpn getch.o getop.o stack.o main.o 
+	$(CC) -o rpn getch.o getop.o stack.o main.o -lm
 
 .PHONY:	clean
 
