@@ -6,7 +6,7 @@
  * Description:
  *      Excerpt from section 4.3, part of Reverse Polish Notation (RPN)
  *      calculator application. Split into multiple source/header files.
- *      Addtions from the exercises related to the RPM calculator.
+ *      Additions from the exercises related to the RPM calculator.
  *
  * Build:
  *      $ make
@@ -15,10 +15,10 @@
 
 
 #include <stdio.h>
-#include <stdlib.h>                     /* for atof() */
+#include <stdlib.h>                             /* atof() */
 #include <math.h>
 #include <stdbool.h>
-#include "calc.h"                       /* app funcs: getop(), pop(), etc */
+#include "calc.h"                               /* getop(), pop(), etc */
 
 static bool used_vars[MAXVARS] = {false};
 static double vars[MAXVARS] = {0.f};
