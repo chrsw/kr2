@@ -18,16 +18,22 @@
 #include <stdlib.h>                             /* atof() */
 #include <math.h>
 #include <stdbool.h>
+#include <string.h>
 #include "calc.h"                               /* getop(), pop(), etc */
 
 static bool used_vars[MAXVARS] = {false};
 static double vars[MAXVARS] = {0.f};
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
     int type;
     double op1, op2;
     char s[MAXOP];
+
+    /* -h for help */
+    if (argc == 2)
+        if(!strcmp(argv[1], "-h"))
+            usage();
 
     while ((type = getop(s)) != EOF ){
         switch (type) {
@@ -109,4 +115,17 @@ int main(void) {
     }
 
     return 0;
+}
+
+
+/* usage:  show calculator operators */
+void usage(void) {
+    printf("RPN operators and commands:\n");
+    printf("\t+, -, *, \\, %%, ^:\tarithmetic operators\n");
+    printf("\td:\t\t\tduplicate top of stack\n");
+    printf("\t$:\t\t\tswap top two on stack\n");
+    printf("\t#:\t\t\tclear stack\n");
+    printf("\tp:\t\t\tprint top of stack\n");
+    printf("\tW,X,Y,Z:\t\tstore top of stack in one of four variables\n");
+    exit(1);
 }

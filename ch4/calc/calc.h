@@ -10,6 +10,7 @@ int gp(void);
 int getop(char []);
 int getch(void);
 void ungetch(int c);
+void usage(void);
 
 
 #define BUFSIZE 100		/* BUFSIZ already defined by standard lib */
