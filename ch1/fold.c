@@ -26,16 +26,18 @@
 
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
+int main(void) {
 
-    unsigned int i;
+    unsigned int i = 0;
     int c;
-    while (c=getchar() != EOF) {
+    while ((c=getchar()) != EOF) {
         if (c == '\n') i = 0;
         if (++i == 79)  { 
             putchar('\n');
             i = 0;
         }
+        putchar((char)c);
     }
+    if (i) putchar('\n');
     return 0;
 }
