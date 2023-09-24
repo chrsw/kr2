@@ -104,6 +104,9 @@ int main(int argc, char *argv[]) {
             case '#':
                 while (gp() > 0) pop();
                 break;
+            case 'h':
+                usage();
+                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
@@ -127,5 +130,6 @@ void usage(void) {
     printf("\t#:\t\t\tclear stack\n");
     printf("\tp:\t\t\tprint top of stack\n");
     printf("\tW,X,Y,Z:\t\tstore top of stack in one of four variables\n");
+    printf("\th:\t\t\tprint this help and exit\n");
     exit(1);
 }
