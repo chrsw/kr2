@@ -20,6 +20,7 @@ rpn: getch.o getop.o stack.o main.o
 clean:
 	-$(RM) $(objects) rpn
 
+# Remove ojbect files only
 .PHONY: clobber
 clobber:
 	-$(RM) $(objects)	

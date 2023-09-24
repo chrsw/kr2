@@ -1,0 +1,38 @@
+Notes for chapter 8 exercises and solutions.
+
+- Segfault when ch8_fopen() is changed to ubuffered for all files opened for write:
+fp->flag = (*mode == 'r') ? _READ : _WRITE;
+to
+fp->flag = (*mode == 'r') ? _READ : (_WRITE | _UNBUF);
+
+or setting the flag later also causes a segfault:
+w = ch8_fopen("ch8_fclose_write_test.txt", "w");
+    if (r == NULL || w == NULL )
+        return 1;
+w->flag |= _UNBUF;
+
+Possibly fixed the seg fault problem:
+<         if ((fp->cnt = write(fp->fd, &c, bufsize)) == 1)
+---
+>         if (write(fp->fd, &c, bufsize) == 1) {
+>             fp->cnt = 0;
+84a86
+>         }
+
+With the unbuffered segfault problem fixed, using unbuffered produces the correct results:
+chris@xps:~/proj/cpl/ch8$ wc -c ch8*_test.txt
+36 ch8_fclose_test.txt
+36 ch8_fclose_write_test.txt
+72 total
+
+
+- Output missing when writing to a buffered file:
+chris@xps:~/proj/cpl/ch8$ gcc -o ch8_fclose_main ch8_fopen.c fclose.c fflush.c flushbuf.c ch8_fillbuf.c ch8_fclose_main.c
+chris@xps:~/proj/cpl/ch8$ ./ch8_fclose_main 
+chris@xps:~/proj/cpl/ch8$ wc -c ch8*_test.txt
+36 ch8_fclose_test.txt
+35 ch8_fclose_write_test.txt
+
+The problem occurs when a file reaches the end of a buffer and a buffer is flushed.
+When the file reaches the end of the buffer the next character written after the flush is dropped.
+OR the character write that forced the flush is dropped...
