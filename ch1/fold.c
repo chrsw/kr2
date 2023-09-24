@@ -22,6 +22,16 @@
  * Run:
  *      $ ./fold < input.txt
  *
+ * TODO:
+ *      Fill a dynamic array while reading input
+ *      If there's a blank character, set to INBLANK
+ *      and stop a count
+ *      If a non-blank character occurs before the n-th column or new line
+ *      then sent to inspace and keep counting, recover the count.
+ *      If there's a new line then only write output to that count
+ *      If there's the n-th column, then only write to that count pulus a new
+ *      line.
+ *
  */
 
 #include <stdio.h>
