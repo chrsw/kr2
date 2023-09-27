@@ -21,33 +21,49 @@
  *
  * Run:
  *      $ ./fold < input.txt
- *
- * TODO:
- *      Fill a dynamic array while reading input
- *      If there's a blank character, set to INBLANK
- *      and stop a count
- *      If a non-blank character occurs before the n-th column or new line
- *      then sent to inspace and keep counting, recover the count.
- *      If there's a new line then only write output to that count
- *      If there's the n-th column, then only write to that count pulus a new
- *      line.
+ *       - or -
+ *      $ make fold # make will figure out what to do even without a target.
  *
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 int main(void) {
 
-    unsigned int i = 0;
     int c;
+    int col = 0;                        // column for last character found
+    unsigned int i = 0;
+    const int n = 72;
+    char *line;
+
+    line = (char *)malloc(n+2);
+    if (line == NULL)
+        return -1;
+
     while ((c=getchar()) != EOF) {
-        if (c == '\n') i = 0;
-        if (++i == 79)  { 
-            putchar('\n');
+        // split long lines
+        if (i <= n) {
+            line[i++] = c;
+            if(!isspace(c)) col = i;    // save column if character
+        } else {
+            line[col++] = '\n';
+            line[col++] = '\0';
+            //printf("%2ld: \t%s", strlen(line), line);
+            printf("%s", line);
             i = 0;
+            col = 0;
         }
-        putchar((char)c);
+        // print short lines 
+        if (c == '\n') {
+            line[col++] = '\0';
+            //printf("%2ld: \t%s", strlen(line), line);
+            printf("%s", line);
+            i = 0;
+            col = 0;
+        }
     }
-    if (i) putchar('\n');
     return 0;
 }
