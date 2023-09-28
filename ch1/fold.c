@@ -20,7 +20,7 @@
  *      $ gcc -o fold fold.c
  *
  * Run:
- *      $ ./fold < input.txt
+ *      $ ./fold < fold_test.txt
  *       - or -
  *      $ make fold # make will figure out what to do even without a target.
  *
@@ -34,7 +34,7 @@
 int main(int argc, char *argv[]) {
 
     int c;
-    int col = 0;                        // column for last character found
+    int col = 0;                        /* column for last character found */
     unsigned int i = 0;
     int n = 72;
     char *line;
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
         return -1;
 
     while ((c=getchar()) != EOF) {
-        // split long lines
+        /* split long lines */
         if (i <= n) {
             line[i++] = c;
             /* save column if character */
@@ -63,17 +63,15 @@ int main(int argc, char *argv[]) {
             if (!isspace(c)) line[col++] = c;
             line[col++] = '\n';
             line[col++] = '\0';
-            //printf("%2ld: \t%s", strlen(line), line);
             printf("%s", line);
             i = 0;
             col = 0;
         }
-        // print short lines 
+        /* print short lines */
         if (c == '\n') {
             if (col > 1)
                 line[col++] = '\n';
             line[col++] = '\0';
-            //printf("%2ld: \t%s", strlen(line), line);
             printf("%s", line);
             i = 0;
             col = 0;
