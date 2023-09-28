@@ -31,13 +31,21 @@
 #include <ctype.h>
 #include <string.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
     int c;
     int col = 0;                        // column for last character found
     unsigned int i = 0;
-    const int n = 72;
+    int n = 72;
     char *line;
+
+
+    if (argc == 2)
+        n = atoi(*++argv);
+
+    if (n < 1 || n > 1000)
+        n = 72;
+    printf("n = %d\n", n);
 
     line = (char *)malloc(n+2);
     if (line == NULL)
@@ -47,8 +55,12 @@ int main(void) {
         // split long lines
         if (i <= n) {
             line[i++] = c;
-            if(!isspace(c)) col = i;    // save column if character
+            /* save column if character */
+            if(!isspace(c)) { 
+                col = i;
+            }            
         } else {
+            if (!isspace(c)) line[col++] = c;
             line[col++] = '\n';
             line[col++] = '\0';
             //printf("%2ld: \t%s", strlen(line), line);
@@ -58,6 +70,8 @@ int main(void) {
         }
         // print short lines 
         if (c == '\n') {
+            if (col > 1)
+                line[col++] = '\n';
             line[col++] = '\0';
             //printf("%2ld: \t%s", strlen(line), line);
             printf("%s", line);
