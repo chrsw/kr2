@@ -26,6 +26,6 @@ The following table is a list of exercises and solutions.
 |1-19    |      ||
 |1-20    | detab.c     |tabtest.txt. Related: tabcol.c, tablen.c, linelen.c <br /> linelen_test.txt|
 |1-21    | entab.c     |entab_test.txt, entab_test2.txt|
-|1-22    |      ||
+|1-22    | fold.c     ||
 |1-23    |      ||
 |1-24    |      ||
