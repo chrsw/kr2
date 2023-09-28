@@ -1,0 +1,9 @@
+some long lines to test the fold application from chapter 1 of the c programming language book.
+some long lines to test the fold application from chapter 1 of the c programming language book. #2
+some long lines to test the fold application from chapter 1 of the c programming language book. #333333
+some long lines to test the fold application from chapter 1 of the c programming language book. #again
+some long lines to test the fold application from chapter 1 of the c programming language book. this line will leave blanks spaces at the end                                                
+THIS LONG LINE WILL LEAVE A BUNCH OF TABS AT THE END. BECAREFUL TABS CANNOT BE SEEN				
+this is a short line
+this is a long line that will not leave tabs at the end but have a bunch of spaces and tabs in the middle         			  	 	 	        						     	 then continue with some more text at the very end to try and throw off the application!
+123456789123456789123456789123456789123456789123456789123456789              
