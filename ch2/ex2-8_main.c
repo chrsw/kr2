@@ -8,34 +8,44 @@
  *      Language 2nd Ed. A longer description of the program goes here.
  *
  * Input:
- *      Describe the expected input.
+ *      Optional command line arguments for the number to rotate and the
+ *      amount to rotate to the right.
  *
  * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
+ *      Original #, rotation amount and result.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -o rightrot rightrot.c ex2-8_main.c
  *
  * Run:
- *      An example of how this program should be run.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
+ *      $ ./rightrot <integer> <rotate #>
+ *      Integer and rotational amount arguments are optional.
+ *      If only one argument is given it will be treated as an integer.
  *
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned int rightrot(unsigned int x, unsigned int n);
 
 int main(int argc, char *argv[]) {
 
-    int x = 0x01234567;
-    int n = 4;
-    unsigned int r = 0;
+    int x = 0;
+    int n = 0;
+
+    /* get values from cmd line or use defaults */
+    if (argc == 2)
+        x = atoi(*++argv);
+    else
+        x = 0x01234567;
+    if (argc == 3)
+        n = atoi(*++argv);
+    else
+        n = 4;
     
-    r = rightrot((unsigned int)x, (unsigned int)n);
-    printf("x = %08x\nrotating %d...\nr = %08x\n", x, n, r);
+    printf("x = 0x%08x\nrotating %d...\nr = 0x%08x\n", x, n, 
+            rightrot((unsigned int)x, (unsigned int)n));
 
     return 0;
 }
