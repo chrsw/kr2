@@ -14,6 +14,13 @@
  * Output:
  *      What output does this program generate? stdout, stderr, files, etc.
  *
+ * Design:
+ *      Details about the design, theory and options taken for the
+ *      implemented solution.
+ * 
+ * Implementation:
+ *      Details on how the code you're reading implements the design.      
+ *
  * Build:
  *      How to build this program or a build example (incl make targets).
  *
