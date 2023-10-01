@@ -59,11 +59,9 @@
  *      swinging around to the higher end and the higher end shifted
  *      to the lower end.
  *
- * Build:
- *      $ gcc -o rightrot rightrot.c ex2-8_main.c
- *
- * Run:
- *      $ ./rightrot
+ * Notes:
+ *      For more details on the test driver, building, running, etc., see
+ *      comments in ex2-8_main.c
  *
  */
 
