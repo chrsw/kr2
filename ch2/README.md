@@ -12,6 +12,6 @@ The following table is a list of exercises and solutions.
 |2-5     | ex2-5.c, any.c ||
 |2-6     | ex2-6.c, setbits.c, setbits.h |setbits_test.c|
 |2-7     |  ||
-|2-8     |       ||
+|2-8     |rightrot.c, ex2-8_main.c||
 |2-9     | ex2-9.c ||
 |2-10 	 | ex2-10.c ||
