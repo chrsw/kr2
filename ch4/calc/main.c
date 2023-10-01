@@ -35,6 +35,9 @@ int main(int argc, char *argv[]) {
         if(!strcmp(argv[1], "-h"))
             usage();
 
+    /* read input searcing for operands to push onto the stack and
+     * operators to run on the operands.
+     */
     while ((type = getop(s)) != EOF ){
         switch (type) {
             case NUMBER:
