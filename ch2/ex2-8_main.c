@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 unsigned int rightrot(unsigned int x, unsigned int n);
 
@@ -43,7 +44,8 @@ int main(int argc, char *argv[]) {
         n = atoi(*++argv);
     else
         n = 4;
-    
+
+    printf("size of int = %zu\n", sizeof(int));    
     printf("x = 0x%08x\nrotating %d...\nr = 0x%08x\n", x, n, 
             rightrot((unsigned int)x, (unsigned int)n));
 
