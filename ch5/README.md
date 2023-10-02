@@ -24,3 +24,4 @@ The following table is a list of exercises and solutions.
 |5-17    |      ||
 |5-18    |      ||
 |5-19    |      ||
+|5-20    |      ||
