@@ -59,6 +59,10 @@
  *      swinging around to the higher end and the higher end shifted
  *      to the lower end.
  *
+ *      sizeof(x)*CHAR_BIT
+ *      Used instead of an literal value like '32' or '64' to make 
+ *      the operation more generic.
+ *
  * Notes:
  *      For more details on the test driver, building, running, etc., see
  *      comments in ex2-8_main.c
