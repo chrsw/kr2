@@ -5,3 +5,5 @@ Fill in the tables of exercises and solutions files for each chapter.
 Add more helpful comments for each exercise, solution and sample.
 Finish TODOs throughout the code.
 Explain the Vim config lines somewhere.
+Add "Design" and "Implementation" sections of solutions.
+Update all Vim modelines to match the latest.
