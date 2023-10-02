@@ -11,5 +11,3 @@ The following table is a list of exercises and solutions.
 |6-4    | ex6-4.c, bgetword.c, getch.c ||
 |6-5    |     ||
 |6-6    |     ||
-|6-7    |      ||
-|6-8    |      ||
