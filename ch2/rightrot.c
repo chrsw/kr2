@@ -65,8 +65,10 @@
  *
  */
 
+#include <limits.h>
 
 unsigned int rightrot(unsigned int x, unsigned int n) {
 
-    return (x & ~(~0 << n)) << (32-n) | (x >> n);
+    return (x & ~(~0 << n)) << ((sizeof(x)*CHAR_BIT)-n) 
+            | (x >> n);
 }
