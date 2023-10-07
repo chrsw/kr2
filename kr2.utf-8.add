@@ -43,3 +43,5 @@ ex2
 or'ed
 stdout
 sizeof
+itoa
+printd
