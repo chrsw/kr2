@@ -20,6 +20,6 @@ The following table is a list of exercises and solutions.
 |4-9    |  ex4-9.c     |TODO: add test driver. |
 |4-10 	 |  ex4-10.c    |rpn_test.txt|
 |4-11    |      ||
-|4-12  	 |      ||
+|4-12  	 | itoa.c, ex4-12_main.c      ||
 |4-13    | ex4-13.c     ||
 |4-14    |      ||
