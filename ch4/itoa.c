@@ -52,5 +52,4 @@ void itoa(unsigned int n, char *s) {
         itoa(n / 10, s);
     s[i++] = n % 10 + '0';
     s[i] = '\0';
-    //printf("itoa: INT_MAX: %d\tn_max: %d\n", INT_MAX, n_max);
 }
