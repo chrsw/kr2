@@ -17,20 +17,13 @@
  *      String representation of the integer.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.      
+ *      Call itoa() recursively, passing in a smaller integer each time.
+ *      The final call writes the first character representation of the
+ *      integer to the first location in the string. As the calls return
+ *      each adds a successive char representation to the string.
  *
- * Build:
+ * Standalone build:
  *      $ gcc -c itoa.c
- *
- * Run:
- *      An example of how this program should be run.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
