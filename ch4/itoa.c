@@ -35,12 +35,22 @@
  */
 
 #include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
 
-void itoa(unsigned int i, char *s);
+void itoa(unsigned int n, char *s);
 
-void itoa(unsigned int i, char *s) {
+void itoa(unsigned int n, char *s) {
 
-    static int n = 0;
-    s[n] = itoa(i/10, n++);
-    return cp;
+    int n_max = 1;
+    int int_max = INT_MAX;
+    static int i = 0;
+
+    while ((int_max /= 10) > 0 ) n_max++;
+
+    if (n / 10)
+        itoa(n / 10, s);
+    s[i++] = n % 10 + '0';
+    s[i] = '\0';
+    //printf("itoa: INT_MAX: %d\tn_max: %d\n", INT_MAX, n_max);
 }
