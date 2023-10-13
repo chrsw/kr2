@@ -9,6 +9,9 @@
  *      printd() is described in section 4.10 Recursion.
  *      See printd.c for the recursive printd() implementation from the
  *      text.
+ *      itoa() is not an Standard C function so the name doesn't conflict
+ *      with the existing host code.
+ *      Only one base is supported, base 10.
  *
  * Input:
  *      Integer.
