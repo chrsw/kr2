@@ -45,3 +45,7 @@ stdout
 sizeof
 itoa
 printd
+stdout
+et
+qsort
+stdout
