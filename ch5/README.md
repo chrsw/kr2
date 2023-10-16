@@ -18,7 +18,7 @@ The following table is a list of exercises and solutions.
 |5-11    | detab2.c     |tab_test.txt|
 |5-12  	 |      ||
 |5-13    |tail.c      |tail_test.txt|
-|5-14    |sortr.c      | Related: sec5-11_swap.c, numcmp.c|
+|5-14    |sortr.c      |sec5-11_sort_test.txt, Related: sec5-11_swap.c, numcmp.c|
 |5-15    |      ||
 |5-16    |      ||
 |5-17    |      ||
