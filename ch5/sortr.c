@@ -1,23 +1,20 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * sortr.c
- *      Solution 5-15. Sort input lines, with a reverse option.
+ *      Solution 5-14. Sort input lines, with a reverse option.
  *
  * Description:
+ *      TBD
  *
  * Input:
  *      Lines of plain text.
  *
  * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
+ *      Sorted input.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
+ *      TBD
  * 
- * Implementation:
- *      Details on how the code you're reading implements the design.      
- *
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -o ex5-14 sortr.c
  *
@@ -37,6 +34,7 @@ char *lineptr[MAXLINES];                /* pointers to next lines */
 int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines, int reverse);
 
+/* avoid collision with Standard C library routine qsort() */
 void sec5_11_qsort(void *v[], int left, int right, 
             int (*comp)(void *, void *));
 int numcmp(char *, char *);
@@ -56,6 +54,9 @@ int main(int argc, char *argv[]) {
         reverse = 1;
     if (argc > 2 && strcmp(argv[2], "-n") == 0)
         numeric = 1;
+    /* read all lines into memory, sort and print.
+     * cast function pointer types in conditional expression to avoid 
+     * GCC warnings. */
     if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
         sec5_11_qsort((void **) lineptr, 0, nlines-1,
             (int (*)(void*,void*))(numeric ? (int (*)(void*,void*))numcmp : 
@@ -63,7 +64,7 @@ int main(int argc, char *argv[]) {
         writelines(lineptr,nlines,reverse);
         return 0;
     } else {
-        printf("input too bit to sort\n");
+        printf("input too big to sort\n");
         return -1;
     }
     return 0;
@@ -73,7 +74,6 @@ int main(int argc, char *argv[]) {
 #define MAXLEN 1000                     /* max length of any input line */
 int sec1_9_getline(char *, int);        /* from section 1.9 */
 char *alloc(int);                       /* from section 5.4 */
-void swap(void *v[], int i, int j);
 
 /* readlines:  read input lines */
 int readlines(char *lineptr[], int maxlines) {
@@ -94,7 +94,7 @@ int readlines(char *lineptr[], int maxlines) {
 }
 
 
-/* writelines:  write output lines */
+/* writelines:  write output lines in standard or reverse order */
 void writelines(char *lineptr[], int nlines, int reverse) {
 
     int i = nlines;
@@ -158,7 +158,7 @@ int numcmp(char *s1, char *s2) {
 static char allocbuf[ALLOCSIZE];                /* storage for alloc */
 static char *allocp = allocbuf;                 /* next free position */
 
-/* alloc: return pointer to n characters */
+/* alloc:  return pointer to n characters */
 char *alloc(int n) {
 
     if (allocbuf + ALLOCSIZE - allocp >= n) {   /* it fits */
@@ -171,7 +171,7 @@ char *alloc(int n) {
 }
 
 
-/* getline: read a line into s, return length */
+/* getline:  read a line into s, return length */
 int sec1_9_getline(char s[], int lim) {
 
     int c, i;
