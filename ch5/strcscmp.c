@@ -15,7 +15,9 @@
 #include <string.h>
 
 int strcscmp(char *s, char *t);
+int strdtcmp(char *s, char *t);
 
+/* strcscmp:  trace insensitive compare */
 int strcscmp(char *s, char *t) {
 
     int ret = 0;
@@ -23,6 +25,39 @@ int strcscmp(char *s, char *t) {
     char *t2 = t;
 
     while (*s != '\0') {
+        if (tolower(*s) > tolower(*t))
+            return 1;
+        else if (tolower(*s) < tolower(*t))
+            return -1;
+        else {
+            s++;
+            t++;
+        }
+    }
+
+    if (strlen(t2) > strlen(s2))
+       return -1; 
+
+    return ret;
+}
+
+
+/* strdtcmp:  dictionary compare */
+int strdtcmp(char *s, char *t) {
+
+    int ret = 0;
+    char *s2 = s;
+    char *t2 = t;
+
+
+    while (*s != '\0') {
+
+        if ((!isalnum(*s) && !isblank(*s)) ||
+            (!isalnum(*t) && !isblank(*t))) {
+            s++;
+            t++;
+            continue; 
+        }
         if (tolower(*s) > tolower(*t))
             return 1;
         else if (tolower(*s) < tolower(*t))
