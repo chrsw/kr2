@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
  * sortd.c
- *      Solution 5-16. Sort input lines, with a fold option.
+ *      Solution 5-16. Sort input lines, with a "dictionary order" option.
  *
  * Description:
  *      Add the -d ("dictionary order") option, which makes comparisons only
@@ -32,6 +32,7 @@
 #include <string.h>
 #include <strings.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define MAXLINES 5000                   /* max #lines to be sorted */
 char *lineptr[MAXLINES];                /* pointers to next lines */
@@ -40,6 +41,7 @@ char *lineptr[MAXLINES];                /* pointers to next lines */
 int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines, int reverse);
 int strcscmp(char *s, char *t);
+void dict(char *src, char *dest);
 
 void sec5_11_qsort(void *v[], int left, int right, int fold,
             int (*comp)(void *, void *));
@@ -63,10 +65,10 @@ int main(int argc, char *argv[]) {
     if (argc > 2 && strcmp(argv[2], "-d") == 0)
         dictionary = 1;
     if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
-        if (fold) {
+        if (dictionary) {
             sec5_11_qsort((void **) lineptr, 0, nlines-1, fold,
             (int (*)(void*,void*))(numeric ? (int (*)(void*,void*))numcmp : 
-                                            (int (*)(void*,void*))strcscmp));
+                                            (int (*)(void*,void*))strcmp));
         }
         else {
             sec5_11_qsort((void **) lineptr, 0, nlines-1, fold,
@@ -123,6 +125,9 @@ void writelines(char *lineptr[], int nlines, int reverse) {
 void sec5_11_qsort(void *v[], int left, int right, int fold, 
             int (*comp)(void *, void *)) {
 
+    char t1[80];
+    char t2[80];
+
     int i, last;
     void swap(void *v[], int, int);
 
@@ -130,9 +135,15 @@ void sec5_11_qsort(void *v[], int left, int right, int fold,
         return;                         /* fewer than two elements */
     swap(v, left, (left +right)/2);
     last = left;
-    for (i = left+1; i <= right; i++)
-        if ((*comp)(v[i], v[left]) < 0)
+    for (i = left+1; i <= right; i++) {
+        /* copy strings to sort into temp strings */
+        /* strip out all non-dictionary chars from temp strings */
+        dict(v[i],t1);
+        dict(v[left],t2);
+        /* compare temp strings, use return value to move real strings */
+        if ((*comp)(t1, t2) < 0)
             swap(v, ++last, i);
+    }
     swap(v,  left, last);
     sec5_11_qsort(v, left, last-1, fold, comp);
     sec5_11_qsort(v, last+1, right, fold, comp);
@@ -198,3 +209,13 @@ int sec1_9_getline(char s[], int lim) {
     return i;
 }
 
+/* dict:  strip out non-dict chars */
+void dict(char *src, char *dest) {
+
+    while (*src != '\0') {
+        if (isalnum(*src) || isblank(*src))
+            *dest++ = *src;
+        src++;
+    }
+
+}
