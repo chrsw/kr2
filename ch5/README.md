@@ -20,7 +20,7 @@ The following table is a list of exercises and solutions.
 |5-13    |tail.c      |tail_test.txt|
 |5-14    |sortr.c      |sec5-11_sort_test.txt, Related: sec5-11_swap.c, numcmp.c|
 |5-15    |sortf.c, strcscmp.c      |sec5-11_sort_fold_test.txt|
-|5-16    |      ||
+|5-16    |sortd.c      | sec5-11_sort_dict_test.txt|
 |5-17    |      ||
 |5-18    |      ||
 |5-19    |      ||
