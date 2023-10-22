@@ -54,3 +54,8 @@ Wextra
 Wpedantic
 ex5
 strcscmp
+sortf
+writelines
+readlines
+numcmp
+alloc
