@@ -1,7 +1,9 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  * 
- *  strtok_test.c
+ *  strtok_test.c   Experiment with strtok() and strtok_()
  *
+ *  TODO:
+ *      Use strtok_r().
  */
 
 #include <stdio.h>
