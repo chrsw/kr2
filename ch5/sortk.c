@@ -12,10 +12,12 @@
  *      Lines of plain text.
  *
  * Output:
- *      Sorted input.
+ *      Sorted input based on specified field.
  *
  * Design:
  *      For now the field separator will be the space character only.
+ *      Fields are zero indexed.
+ *      Folding is off, despite the support seeming like it remains.
  * 
  * Implementation:
  *      Details on how the code you're reading implements the design.      
@@ -24,10 +26,13 @@
  *      $ gcc -Wall -Wextra -Wpedantic -o ex5-17 sortk.c strcscmp.c
  *
  * Run:
- *      $ ./ex5-17 <-field> < sec5-11_sort_dict_test.txt
+ *      $ ./ex5-17 <-field> < sec5-11_sort_field_test.txt
+ *      $ ./ex5-17 -2 < sec5-11_sort_field_test.txt
  *
  * TODO:
  *      Combine with support from previous exercises.
+ *      Use Standard C strtok() instead of strtok_r().
+ *      Use better command line argument handling.
  *
  */
 
@@ -139,18 +144,18 @@ void sec5_11_qsort(void *v[], int left, int right, int fold,
     char *tok1;
     char *tok2;
 
-    if (left >= right)              /* do nothing if the array contains */
+    if (left >= right)                  /* do nothing if the array contains */
         return;                         /* fewer than two elements */
     swap(v, left, (left +right)/2);
     last = left;
 
 
     for (i = left+1; i <= right; i++) {
+        /* extract the field from v[i] and v[left] then do the comparison */
         strncpy(gstr_right,v[i], MAXLEN);
         strncpy(gstr_left,v[left], MAXLEN);
         f1 = strtok_r(gstr_right, " ", &tok1);
         f2 = strtok_r(gstr_left, " ", &tok2);
-        // extract the field from v[i] and v[left] then do the comparison
         for (fi = 0; fi < field; fi++) {
             f1 = strtok_r(NULL, " ", &tok1);
             f2 = strtok_r(NULL, " ", &tok2);
@@ -195,12 +200,12 @@ int numcmp(char *s1, char *s2) {
 static char allocbuf[ALLOCSIZE];                /* storage for alloc */
 static char *allocp = allocbuf;                 /* next free position */
 
-/* alloc: return pointer to n characters */
+/* alloc:  return pointer to n characters */
 char *alloc(int n) {
 
     if (allocbuf + ALLOCSIZE - allocp >= n) {   /* it fits */
         allocp += n;
-        return allocp - n;                       /* old p */
+        return allocp - n;                      /* old p */
     }
     else {
         return NULL;                            /* not enough room */
@@ -208,7 +213,7 @@ char *alloc(int n) {
 }
 
 
-/* getline: read a line into s, return length */
+/* getline:  read a line into s, return length */
 int sec1_9_getline(char s[], int lim) {
 
     int c, i;
