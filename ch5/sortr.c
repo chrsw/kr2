@@ -10,10 +10,10 @@
  *      Lines of plain text.
  *
  * Output:
- *      Sorted input.
+ *      Sorted input in reverse.
  *
  * Design:
- *      TBD
+ *      Reverse support added to writelines() for simplicity.
  * 
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -o ex5-14 sortr.c
@@ -138,7 +138,7 @@ void swap(void *v[], int i, int j) {
 }
 
 
-/* numcmp:  cmpare s1 and s2 numerically */
+/* numcmp:  compare s1 and s2 numerically */
 int numcmp(char *s1, char *s2) {
 
     double v1, v2;
@@ -171,7 +171,7 @@ char *alloc(int n) {
 }
 
 
-/* getline:  read a line into s, return length */
+/* sec1_9_getline:  read a line into s, return length */
 int sec1_9_getline(char s[], int lim) {
 
     int c, i;
