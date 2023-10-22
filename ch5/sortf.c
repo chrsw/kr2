@@ -15,7 +15,7 @@
  *      Sorted input.
  *
  * Design:
- *      TBD
+ *      Uses a new function strcscmp() for case insensitive compare.
  * 
  * Implementation:
  *      Details on how the code you're reading implements the design.      
@@ -149,7 +149,7 @@ void swap(void *v[], int i, int j) {
 }
 
 
-/* numcmp:  cmpare s1 and s2 numerically */
+/* numcmp:  compare s1 and s2 numerically */
 int numcmp(char *s1, char *s2) {
 
     double v1, v2;
@@ -163,13 +163,12 @@ int numcmp(char *s1, char *s2) {
         return 0;
 }
 
-
 #define ALLOCSIZE 10000                         /* size of available space */
 
 static char allocbuf[ALLOCSIZE];                /* storage for alloc */
 static char *allocp = allocbuf;                 /* next free position */
 
-/* alloc: return pointer to n characters */
+/* alloc:  return pointer to n characters */
 char *alloc(int n) {
 
     if (allocbuf + ALLOCSIZE - allocp >= n) {   /* it fits */
@@ -182,7 +181,7 @@ char *alloc(int n) {
 }
 
 
-/* getline: read a line into s, return length */
+/* getline:  read a line into s, return length */
 int sec1_9_getline(char s[], int lim) {
 
     int c, i;
