@@ -23,7 +23,7 @@
  *      Details on how the code you're reading implements the design.      
  *
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o ex5-17 sortk.c strcscmp.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o ex5-17 sortk.c
  *
  * Run:
  *      $ ./ex5-17 <-field> < sec5-11_sort_field_test.txt
@@ -50,7 +50,6 @@ char gstr_right[MAXLEN];
 /* function declarations */
 int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines, int reverse);
-int strcscmp(char *s, char *t);
 
 void sec5_11_qsort(void *v[], int left, int right, int fold,
             int (*comp)(void *, void *), int field);
@@ -78,7 +77,7 @@ int main(int argc, char *argv[]) {
         if (field) {
             sec5_11_qsort((void **) lineptr, 0, nlines-1, fold,
             (int (*)(void*,void*))(numeric ? (int (*)(void*,void*))numcmp : 
-                                            (int (*)(void*,void*))strcscmp),
+                                            (int (*)(void*,void*))strcmp),
                                             field);
         }
         else {
