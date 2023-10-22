@@ -49,3 +49,8 @@ stdout
 et
 qsort
 stdout
+sortk
+Wextra
+Wpedantic
+ex5
+strcscmp
