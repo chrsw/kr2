@@ -54,12 +54,12 @@ int gettoken(void) {
             return tokentype = '(';
         }
     } else if (c == '[') {
-        for (*p++ = c; (*p++ = getch() != ']'; )
+        for (*p++ = c; (*p++ = getch()) != ']'; )
             ;
         *p = '\0';
         return tokentype = BRACKETS;
     } else if (isalpha(c)) {
-        for (*p++ = c; isalnum(c = getch); )
+        for (*p++ = c; isalnum(c = getch()); )
             *p++ = c;
         *p = '\0';
         ungetch(c);
