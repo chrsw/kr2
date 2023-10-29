@@ -35,6 +35,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "dcl.h"
+#include "gettoken.h"
 
 int tokentype;			/* type of the last token */
 char token[MAXTOKEN];		/* last token string */
@@ -44,6 +45,9 @@ char out [1000];		/* output string */
 
 
 int main(int argc, char *argv[]) {
+
+    (void)argc;
+    (void)argv;
 
     while (gettoken() != EOF) {     /* first token on line */
         strcpy(datatype, token);     /* is the datatype */
