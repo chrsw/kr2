@@ -32,6 +32,7 @@
  */
 
 #include <ctype.h>
+#include <string.h>
 #include "getch.h"
 #include "dcl.h"
 #include "gettoken.h"

@@ -1,13 +1,11 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * template.h
- *      Template header file.
- *
+ * gettoken.h
  *
  */
 
-#ifndef TEMPLATE_H
-#define TEMPLATE_H
+#ifndef GETTOKEN_H
+#define GETTOKEN_H
 
 
-#endif /* TEMPLATE_H */
+#endif /* GETTOKEN_H */
