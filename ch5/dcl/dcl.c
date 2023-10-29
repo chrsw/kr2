@@ -58,11 +58,11 @@ void dirdcl(void) {
     if (tokentype == '(') {                 /* ( dcl )  */
         dcl();
         if (tokentype != ')')
-            printf("error: missing )\n");
+            printf("dirdcl(): error: missing )\n");
     } else if (tokentype == NAME)           /* variable name */
         strcpy(name, token);
     else
-        printf("error: expected name or (dcl)\n");
+        printf("dirdcl(): error: expected name or (dcl)\n");
     while ((type=gettoken()) == PARENS || type == BRACKETS) {
         if (type == PARENS)
             strcat(out, " function returning");
