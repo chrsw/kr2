@@ -37,6 +37,7 @@
 #include "dcl.h"
 #include "gettoken.h"
 
+/* return next token */
 int gettoken(void) {
 
     int c;
@@ -47,8 +48,8 @@ int gettoken(void) {
         ;
     if (c == '(') {
         if ((c = getch()) == ')') {
-            strcpy(token,"()");
-            return tokentype = '(';
+            strcpy(token, "()");
+            return tokentype = PARENS;
         } else {
             ungetch(c);
             return tokentype = '(';
@@ -64,11 +65,8 @@ int gettoken(void) {
         *p = '\0';
         ungetch(c);
         return tokentype = NAME;
-
-    } else {
+    } else 
         return tokentype = c;
-
-    }
-
+    
     return 0;
 }
