@@ -21,13 +21,14 @@
  *      Details on how the code you're reading implements the design.      
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -Wall -Wextra -Wpedantic -o dcl main.c dcl.c gettoken.c getch.c
  *
  * Run:
- *      An example of how this program should be run.
+ *      ./dcl # Then type input line, hit enter, hit Ctrl-D
  *
  * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
+ *      Seems to work better when input is typed into stdin rather then
+ *      redirected from file.
  *
  */
 
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
         out[0] = '\0';
         dcl();                      /* parse rest of line */
         if (tokentype != '\n')
-            printf("dcl: syntax error\n");
+            printf("dcl: syntax error: 0x%02X\n", tokentype);
         printf("%s: %s %s\n", name, out, datatype);
     }
     return 0;
