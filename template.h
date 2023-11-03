@@ -10,4 +10,4 @@
 #define TEMPLATE_H
 
 
-#endif // TEMPLATE_H
+#endif /* TEMPLATE_H */
