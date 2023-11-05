@@ -7,7 +7,8 @@
  *      C declaration.
  *
  * Description:
- *      Excerpt for text section 5.12.
+ *      Excerpt for text section 5.12. A stated in the text, this application
+ *      implements a recursive-descent parser.
  *
  * Output:
  *      Plain text English description of the C declaration on the input.
