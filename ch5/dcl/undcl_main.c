@@ -30,6 +30,9 @@ char out [1000];               /* output string */
 /* undcl:  convert word descriptions to declaration */
 int main(int argc, char *argv[]) {
 
+    (void)argc;
+    (void)argv;
+
     out[0] = '\0';
 
     while (gettoken() != EOF) {
