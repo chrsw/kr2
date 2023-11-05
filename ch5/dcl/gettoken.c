@@ -6,9 +6,9 @@
  *      Declarations.
  *
  * Description:
- *      The function gettoken() skips blanks and tabs, then finds the next
- *      token in the input; a "token" is a name, pair of parentheses, a pair
- *      of brackets perhaps including a number, or any other single character.
+ *      gettoken() skips any leading whitespace then finds the next token
+ *      in the input; a "token" is a name, pair of parentheses, a pair of
+ *      brackets perhaps including a number, or any other single character.
  *
  * Input:
  *      Standard input via getch().
@@ -21,7 +21,7 @@
  *      implemented solution.
  * 
  * Implementation:
- *      Details on how the code you're reading implements the design.      
+ *      Details on how the code you're reading implements the design.
  *
  * Build:
  *      Used in the dcl app. See dcl build instructions.
@@ -43,7 +43,7 @@ int gettoken(void) {
     int c;
     char *p = token;
    
-    /* skip blanks */ 
+    /* skip whitespace */ 
     while((c = getch()) == ' ' || c == '\t')
         ;
     if (c == '(') {
