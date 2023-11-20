@@ -18,8 +18,7 @@
 #include "gettoken.h"
 #include "dcl.h"
 
-int type;
-char temp[2000];
+
 int tokentype;
 char name[MAXTOKEN];           /* identifier name */
 char token[MAXTOKEN];           /* identifier name */
@@ -30,6 +29,8 @@ char out [1000];               /* output string */
 /* undcl:  convert word descriptions to declaration */
 int main(int argc, char *argv[]) {
 
+    int type;
+    char temp[1100+1];              /* TBD: why this value? */
     (void)argc;
     (void)argv;
 
