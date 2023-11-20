@@ -1,5 +1,14 @@
+Section 5.12 Complicated Declarations
+
+Since the programs are intended to be illustrative, not bullet-proof, there
+are significant restrictions on `dcl`. It can only handle a simple data type
+like `char` or `int`. It doe snot handle argument types in functions or
+qualifiers like `const`. Spurious blanks confuse it. It doesn't do much error
+recovery, so invalid declarations will also confuse it. These improvements are
+left as exercises to the reader.
+
 Exercise 5-18.  Make dcl recover from input errors.
 
-Exercise 5-19.  Modify undcl so that it does not add reduncant parentheses to declarations.
+Exercise 5-19.  Modify undcl so that it does not add redundant parentheses to declarations.
 
 Exercise 5-20.  Expand dcl to handle declarations with function argument types, qualifiers like const and so on.
