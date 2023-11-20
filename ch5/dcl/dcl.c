@@ -37,7 +37,7 @@
 #include "gettoken.h"
 
 
-/* dcl:  parse a declarator */
+/* dcl:  parse a declarator (dcl) */
 void dcl(void) {
 
     int ns;
@@ -50,7 +50,7 @@ void dcl(void) {
 }
 
 
-/* dirdcl:  parse a direct declarator */
+/* dirdcl:  parse a direct declarator (dir-dcl)*/
 void dirdcl(void) {
     
     int type;
