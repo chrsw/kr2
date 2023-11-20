@@ -74,3 +74,5 @@ dcl
 declarator
 dcl
 sprintf
+const
+undcl
