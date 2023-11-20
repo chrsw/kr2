@@ -39,7 +39,6 @@ char token[MAXTOKEN];		    /* last token string */
 char name[MAXTOKEN];            /* identifier name */
 char datatype[MAXTOKEN];        /* data type = char, int, etc. */
 char out [1000];                /* output string */
-int first = 0;                  /* first time through gettoken */
 int is_datatype(char *s);
 
 /* convert declaration to words */
