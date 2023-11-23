@@ -37,6 +37,8 @@
 #include "dcl.h"
 #include "gettoken.h"
 
+int is_datatype(char *s);
+
 /* return next token */
 int gettoken(void) {
 
@@ -70,3 +72,5 @@ int gettoken(void) {
     
     return 0;
 }
+
+
