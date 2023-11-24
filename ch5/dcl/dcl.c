@@ -4,7 +4,9 @@
  *      Core DCL routines dcl() and dirdcl().
  *
  * Description:
- *      TBD
+ *      This file implements the two routines dcl() and dirdcl() for parsing
+ *      the simplified C declaration grammar specified in section 5.12 
+ *      Complicated Declarations.
  *
  * Input:
  *      Describe the expected input.
@@ -50,7 +52,7 @@ void dcl(void) {
 }
 
 
-/* dirdcl:  parse a direct declarator (dir-dcl)*/
+/* dirdcl:  parse a direct declarator (dir-dcl) */
 void dirdcl(void) {
     
     int type;
