@@ -14,7 +14,9 @@
  *      Standard input via getch().
  *
  * Returns:
- *      Token type.
+ *      token:      string containing the found token.
+ *      tokentype:  integer enum containing the token category: name,
+ *                  parentheses, brakets.
  *
  * Design:
  *      Details about the design, theory and options taken for the
@@ -24,10 +26,10 @@
  *      Details on how the code you're reading implements the design.
  *
  * Build:
- *      Used in the dcl app. See dcl build instructions.
+ *      Used in the dcl app. See dcl build instructions in dcl_main.c.
  *
  * Run:
- *      Used in the dcl app. See dcl run instructions.
+ *      Used in the dcl app. See dcl run instructions in dcl_main.c.
  *
  */
 

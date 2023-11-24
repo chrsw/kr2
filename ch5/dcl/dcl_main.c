@@ -39,6 +39,7 @@ char out [1000];               /* output string */
 /* convert declaration to words */
 int main(int argc, char *argv[]) {
 
+    /* silence -Wunused-parameter */
     (void)argc;
     (void)argv;
 
