@@ -1,14 +1,12 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * dcl_ex5-20.c
- *      Expand dcl to handle declarations with function argument types,
- *      qualifiers like cosnt, and so on.
+ * dcl.c
+ *      Core DCL routines dcl() and dirdcl().
  *
  * Description:
- *      Function argument types, e.g.:
- *      int f(int x);
- *      int g(void *p);
- *      
+ *      This file implements the two routines dcl() and dirdcl() for parsing
+ *      the simplified C declaration grammar specified in section 5.12 
+ *      Complicated Declarations.
  *
  * Input:
  *      Describe the expected input.
@@ -17,44 +15,31 @@
  *      What output does this program generate? stdout, stderr, files, etc.
  *
  * Design:
- *      The grammar specified in Section 5.12:
- *          dcl:            optional *'s direct-dcl
- *          direct-dcl:     name
- *                          (dcl)
- *                          direct-dcl()
- *                          direct-dcl[optional size]
- *      Modified dcl for adding functional argument types:
- *          dcl:            optinal *'s direct-dcl
- *          direct-dcl:     name
- *                          (dcl)
- *                          direct-dcl(optional function arguments types)
- *                          direct-dcl[optional size]
+ *      Details about the design, theory and options taken for the
+ *      implemented solution.
  * 
  * Implementation:
- *      Details on how the code implements the design.      
+ *      Details on how the code you're reading implements the design.      
  *
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-20 dcl_main_ex5-20.c \
- *      dcl_ex5-20.c gettoken_ex5-20.c getch.c
+ *      How to build this program or a build example (incl make targets).
  *
  * Run:
- *      $ echo "int f(int)" | ./dcl-ex5-20
+ *      An example of how this program should be run.
  *
  * Notes:
- *      Additional functionality to be added to dcl across exercise copies of
- *      dcl.c, gettoken.c and dcl_main.c.
+ *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "dcl.h"
+#include "dcl_arg.h"
 #include "gettoken.h"
 
-int is_datatype(char *s);
 
-/* dcl:  parse a declarator */
+/* dcl:  parse a declarator (dcl) */
 void dcl(void) {
 
     int ns;
@@ -67,57 +52,35 @@ void dcl(void) {
 }
 
 
-/* dirdcl:  parse a direct declarator */
+/* dirdcl:  parse a direct declarator (dir-dcl) */
 void dirdcl(void) {
     
     int type;
     
-    if (tokentype == '(') {                 /* ( dcl )  */
+    if (tokentype == '(' || tokentype == ARG) {                 /* ( dcl )  */
         dcl();
-        if (tokentype != ')')
-            printf("dirdcl(): error: missing )\n");
-    } else if (tokentype == NAME) {          /* variable name */
+        if (tokentype != ')' && tokentype != ARG)
+            printf("dirdcl(): error: missing ), tokentype = %d\n", tokentype);
+    } else if (tokentype == NAME)           /* variable name */
         strcpy(name, token);
-    } else if (is_datatype(token)) {
-        strcat(out, "function taking ");
-        strcat(out, token);
-        strcat(out, " returning");
-        fn_args = 1;
-    }
-    else {
-        printf("dirdcl(): error: expected name or (dcl).");
-        isprint(tokentype) ? printf(" tokentype: %c\n", tokentype) :
-                             printf(" tokentype: %d\n", tokentype);
-        printf("token: %s\n", token);
-    }
-    while ((type=gettoken()) == PARENS || type == BRACKETS) {
+    else if (tokentype == ')') 
+        strcpy(arg, token);
+    else
+        printf("dirdcl(): error: expected name or (dcl), tokentype = %d\n", tokentype);
+    while ((type=gettoken()) == PARENS || type == BRACKETS || type == '(' || type == ARG) {
         if (type == PARENS)
             strcat(out, " function returning");
-        else {
+        else if (type == BRACKETS){
             strcat(out, " array");
             strcat(out, token);
             strcat(out, " of");
         }
-    }
-}
-
-
-/* is_datatype:  check to see if a token is a valid datatype */
-int is_datatype(char *s) {
-    
-    int ret = 0;
-    int idx = 0;
-    char *types[] = {"char", "double", "float", 
-                     "int", "long", "short", 
-                     "unsigned", "void", NULL};
-
-    while (types[idx] != NULL) {
-        if (strcmp(types[idx], s) == 0) {
-            ret = 1;
-            break;
+        else if (type == ARG) {
+            strcat(out, " function taking ");
+            strcat(out, token);
+            strcat(out, " and");
+        } else {
         }
-        idx++;
+        
     }
-    return ret;
 }
-
