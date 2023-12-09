@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * dcl.c
- *      Core DCL routines dcl() and dirdcl().
+ * dcl_ex5-20.c
+ *      Part of exercise 5-20 solution. Based on dcl.c.
  *
  * Description:
  *      This file implements the two routines dcl() and dirdcl() for parsing
@@ -9,26 +9,24 @@
  *      Complicated Declarations.
  *
  * Input:
- *      Describe the expected input.
+ *      One C declaration per line. Limited sub-set of C declaration
+ *      syntax.
  *
  * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
+ *      English description of C declaration passed on the input.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
+ *      Modified recursive decent parser from section 5.12 example.
  * 
  * Implementation:
- *      Details on how the code you're reading implements the design.      
+ *      TBD
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-20 dcl_main_ex5-20.c\
+ *      dcl_ex5-20.c gettoken_ex5-20.c getch.c
  *
  * Run:
- *      An example of how this program should be run.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
+ *      $ ./dcl-ex5-20 < test/dcl_test_arg.txt
  *
  */
 
