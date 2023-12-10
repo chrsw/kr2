@@ -37,7 +37,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "getch.h"
-#include "dcl_arg.h"
+#include "dcl_ex5-20.h"
 #include "gettoken.h"
 
 /* gettoken:  return next token */
@@ -56,12 +56,14 @@ int gettoken(void) {
             return tokentype = PARENS;
         } else {
             ungetch(c);
-            // if name is already afound and the next chars are alphanumeric 
-            // then we found function arg
+            // if name is already found and the next chars are alphanumeric 
+            // then we found function arg(s). treat everything found before
+            // the next ')' as part of one argument string even, though
+            // multiple args can be split by ',' in the declaration.
             if (strlen(name) > 0) {
                 (void)getch();
                 p = token;
-                for (*p++ = c; isalnum(c = getch()); )
+                for (*p++ = c; (c = getch()) != ')'; )
                     *p++ = c;
                 *p = '\0';
                 ungetch(c);   

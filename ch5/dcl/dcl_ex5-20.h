@@ -5,8 +5,8 @@
  *
  */
 
-#ifndef DCL_H
-#define DCL_H
+#ifndef DCL_EX5_20_H
+#define DCL_EX5_20_H
 
 #define MAXTOKEN 100
 
@@ -25,4 +25,4 @@ extern char arg[MAXTOKEN];
 
 
 
-#endif /* DCL_H */
+#endif /* DCL_EX5_20_H */

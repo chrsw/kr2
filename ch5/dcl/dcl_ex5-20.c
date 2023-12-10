@@ -33,7 +33,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "dcl_arg.h"
+#include "dcl_ex5-20.h"
 #include "gettoken.h"
 
 
