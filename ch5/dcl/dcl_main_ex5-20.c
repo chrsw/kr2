@@ -1,16 +1,16 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * dcl_main.c
- *      dcl app main().
+ * dcl_main_ex5-20.c
+ *      Exercise 5-20 solution main().
  *
  * Description:
- *      Excerpt from text section 5.12. A stated in the text, this application
- *      implements a recursive-descent parser. For more details see the other
- *      source files specified in the build instructions.
- *      Allow simple function arguments.
+ *      Modified dcl application from section 5.12 of the text, this  version
+ *      implements a recursive-descent parser of a C declaration with support
+ *      for function argument types. Function argument types can be omitted
+ *      and the application should still work.
  *
  * Input:
- *      C declaration.
+ *      C declaration w/ function argument types (optional).
  *
  * Output:
  *      Plain text English description of the C declaration on the input.
@@ -26,17 +26,21 @@
  *          dcl:            optinal *'s direct-dcl
  *          direct-dcl:     name
  *                          (dcl)
- *                          direct-dcl(optional function argument type)
+ *                          direct-dcl(optional function argument types)
  *                          direct-dcl[optional size]
  * 
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o dcl_arg dcl_main_arg.c dcl_arg.c gettoken_arg.c\
+ *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-20 dcl_main_ex5-20.c dcl_ex5-20.c gettoken_ex5-20.c\
  *      getch.c
  *
  * Run:
- *      ./dcl_arg # Then type input line, hit enter. Ctlr-D to quit.
+ *      ./dcl-ex5-20 # Then type input line, hit enter. Ctlr-D to quit.
  *      - or -
- *      ./dcl_arg < dcl_test.txt
+ *      ./dcl_ex5-20 < dcl_test.txt
+ *
+ * TODO:
+ *      Friendlier function argument descriptions. e.g. for void foo(char *, int *)
+ *      "foo: function taking pointer to char and pointer to int"
  *
  */
 
