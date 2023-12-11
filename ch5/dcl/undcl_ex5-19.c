@@ -4,8 +4,8 @@
  *      Avoid unnecessary parentheses in undcl.
  *
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o undcl-ex5-19 undcl_ex5-19.c dcl.c gettoken.c\
- *      getch.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o undcl-ex5-19 undcl_ex5-19.c\
+ *      dcl.c gettoken.c getch.c
  *
  * Run:
  *      $ ./dcl < dcl_test.txt
