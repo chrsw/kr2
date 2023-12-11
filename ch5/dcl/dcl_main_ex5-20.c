@@ -30,13 +30,13 @@
  *                          direct-dcl[optional size]
  * 
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-20 dcl_main_ex5-20.c dcl_ex5-20.c gettoken_ex5-20.c\
- *      getch.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-20 dcl_main_ex5-20.c \
+ *        dcl_ex5-20.c gettoken_ex5-20.c getch.c
  *
  * Run:
  *      ./dcl-ex5-20 # Then type input line, hit enter. Ctlr-D to quit.
  *      - or -
- *      ./dcl_ex5-20 < dcl_test.txt
+ *      ./dcl_ex5-20 < test/dcl_test_arg2.txt
  *
  * TODO:
  *      Friendlier function argument descriptions. e.g. for void foo(char *, int *)
@@ -50,13 +50,14 @@
 #include "dcl_ex5-20.h"
 #include "gettoken.h"
 
-int tokentype;			/* type of the last token */
-char token[MAXTOKEN];		/* last token string */
-char name[MAXTOKEN];           /* identifier name */
-char datatype[MAXTOKEN];       /* data type = char, int, etc. */
-char out [1000];               /* output string */
+int tokentype;			        /* type of the last token */
+char token[MAXTOKEN];		    /* last token string */
+char name[MAXTOKEN];            /* identifier name */
+char datatype[MAXTOKEN];        /* data type = char, int, etc. */
+char out [1000];                /* output string */
 char arg[MAXTOKEN];
-int ret = 0;
+int ret = 0;                    /* application returns non-zero if error */
+unsigned int debug = 0;                  /* set to 1 for debug output */
 
 /* convert declaration to words */
 int main(int argc, char *argv[]) {
@@ -66,7 +67,7 @@ int main(int argc, char *argv[]) {
     (void)argv;
 
     while (gettoken() != EOF) {                 /* first token on line */
-        strcpy(datatype, token);      /* is the datatype */
+        strcpy(datatype, token);                /* is the datatype */
         out[0] = '\0';
         dcl();                                  /* parse rest of line */
         if (tokentype != '\n') {

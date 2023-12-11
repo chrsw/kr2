@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * dcl.h
- * 	Parse C declarations. 
+ * dcl_ex5-20.h
+ * 	Parse C declarations. Solution 5-20 version.
  *
  */
 
@@ -21,6 +21,7 @@ extern char name[MAXTOKEN];
 extern char datatype[MAXTOKEN];
 extern char out [1000];
 extern char arg[MAXTOKEN];
+extern unsigned int debug;
 
 
 
