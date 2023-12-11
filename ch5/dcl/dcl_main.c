@@ -17,6 +17,8 @@
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -o dcl dcl_main.c dcl.c gettoken.c\
  *      getch.c
+ *      - or -
+ *      $ make dcl
  *
  * Run:
  *      ./dcl # Then type input line, hit enter. Ctlr-D to quit.
