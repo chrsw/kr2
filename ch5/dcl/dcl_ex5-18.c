@@ -14,8 +14,8 @@
  *      Plain text English description of the C declaration on the input.
  *
  * Build:
- *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-18 dcl_ex5-18.c dcl.c gettoken.c\
- *      getch.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o dcl-ex5-18 dcl_ex5-18.c\
+ *      dcl.c gettoken.c getch.c
  *
  * Run:
  *      $ ./dcl # Then type input line, hit enter, hit Ctrl-D

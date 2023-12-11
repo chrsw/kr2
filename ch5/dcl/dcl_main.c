@@ -21,7 +21,7 @@
  *      $ make dcl
  *
  * Run:
- *      ./dcl # Then type input line, hit enter. Ctlr-D to quit.
+ *      ./dcl # Then type input line, hit enter. Ctrl-D to quit.
  *      - or -
  *      ./dcl < dcl_test.txt
  *

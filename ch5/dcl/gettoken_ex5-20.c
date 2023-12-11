@@ -5,7 +5,7 @@
  *      Find the next token, including function arguments. 
  *
  * Description:
- *      gettoken() skips any leading whitespace then finds the next token
+ *      gettoken() skips any leading white space then finds the next token
  *      in the input; a "token" is a name, pair of parentheses, a pair of
  *      brackets perhaps including a number, or any other single character.
  *      This version of gettoken() is for the solution to exercise 5-20 where
@@ -17,7 +17,7 @@
  * Returns:
  *      token:      string containing the found token.
  *      tokentype:  integer enum containing the token category: name,
- *                  parentheses, brakets.
+ *                  parentheses, brackets.
  *
  * Design:
  *      TBD 
@@ -46,7 +46,7 @@ int gettoken(void) {
     int c;
     char *p = token;
    
-    /* skip whitespace */ 
+    /* skip white space */ 
     while((c = getch()) == ' ' || c == '\t')
         ;
     if (c == '(') {
@@ -57,7 +57,7 @@ int gettoken(void) {
         } else {
             ungetch(c);
             /* if name is already found and the next chars are alphanumeric 
-             * then we found function arg(s). treat everything found before
+             * then we found function arg(s). Treat everything found before
              * the next ')' as part of one argument string even, though
              * multiple args can be split by ',' in the declaration. 
              */

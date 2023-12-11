@@ -6,7 +6,7 @@
  *      Declarations.
  *
  * Description:
- *      gettoken() skips any leading whitespace then finds the next token
+ *      gettoken() skips any leading white space then finds the next token
  *      in the input; a "token" is a name, pair of parentheses, a pair of
  *      brackets perhaps including a number, or any other single character.
  *
@@ -16,7 +16,7 @@
  * Returns:
  *      token:      string containing the found token.
  *      tokentype:  integer enum containing the token category: name,
- *                  parentheses, brakets.
+ *                  parentheses, brackets.
  *
  * Design:
  *      Details about the design, theory and options taken for the
@@ -45,7 +45,7 @@ int gettoken(void) {
     int c;
     char *p = token;
    
-    /* skip whitespace */ 
+    /* skip white space */ 
     while((c = getch()) == ' ' || c == '\t')
         ;
     if (c == '(') {

@@ -23,7 +23,7 @@
  *                          direct-dcl()
  *                          direct-dcl[optional size]
  *      Modified dcl for adding functional argument type:
- *          dcl:            optinal *'s direct-dcl
+ *          dcl:            optional *'s direct-dcl
  *          direct-dcl:     name
  *                          (dcl)
  *                          direct-dcl(optional function argument types)
@@ -34,12 +34,13 @@
  *        dcl_ex5-20.c gettoken_ex5-20.c getch.c
  *
  * Run:
- *      ./dcl-ex5-20 # Then type input line, hit enter. Ctlr-D to quit.
+ *      ./dcl-ex5-20 # Then type input line, hit enter. Ctrl-D to quit.
  *      - or -
  *      ./dcl_ex5-20 < test/dcl_test_arg2.txt
  *
  * TODO:
- *      Friendlier function argument descriptions. e.g. for void foo(char *, int *)
+ *      Friendlier function argument descriptions. E.g., for 
+ *      void foo(char *, int *)
  *      "foo: function taking pointer to char and pointer to int"
  *
  */
