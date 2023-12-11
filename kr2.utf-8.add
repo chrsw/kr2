@@ -76,3 +76,7 @@ dcl
 sprintf
 const
 undcl
+dirdcl
+gettoken
+arg
+tokentype
