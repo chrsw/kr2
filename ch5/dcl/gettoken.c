@@ -39,7 +39,7 @@
 #include "dcl.h"
 #include "gettoken.h"
 
-/* return next token */
+/* gettoken:  return next token */
 int gettoken(void) {
 
     int c;

@@ -3,12 +3,13 @@
  * dcl_main.c
  *      dcl app main().
  *
+ * Description:
+ *      Excerpt from text section 5.12. A stated in the text, this application
+ *      implements a recursive-descent parser. For more details see the other
+ *      source files specified in the build instructions.
+ *
  * Input:
  *      C declaration.
- *
- * Description:
- *      Excerpt for text section 5.12. A stated in the text, this application
- *      implements a recursive-descent parser.
  *
  * Output:
  *      Plain text English description of the C declaration on the input.
@@ -18,7 +19,7 @@
  *      getch.c
  *
  * Run:
- *      ./dcl # Then type input line, hit enter, hit Ctrl-D
+ *      ./dcl # Then type input line, hit enter. Ctlr-D to quit.
  *      - or -
  *      ./dcl < dcl_test.txt
  *
@@ -43,13 +44,13 @@ int main(int argc, char *argv[]) {
     (void)argc;
     (void)argv;
 
-    while (gettoken() != EOF) {     /* first token on line */
-        strcpy(datatype, token);     /* is the datatype */
+    while (gettoken() != EOF) {                 /* first token on line */
+        strcpy(datatype, token);      /* is the datatype */
         out[0] = '\0';
-        dcl();                      /* parse rest of line */
+        dcl();                                  /* parse rest of line */
         if (tokentype != '\n')
             printf("dcl: syntax error: 0x%02X\n", tokentype);
-        printf("%s: %s %s\n", name, out, datatype);
+        printf("%s: %s %s\n\n", name, out, datatype);
     }
     return 0;
 }
