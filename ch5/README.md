@@ -22,6 +22,6 @@ The following table is a list of exercises and solutions.
 |5-15   | sortf.c, strcscmp.c      |sec5-11_sort_fold_test.txt|
 |5-16   | sortd.c      	| sec5-11_sort_dict_test.txt|
 |5-17   | sortk.c      	|sec5-11_sort_field_test.txt|
-|5-18   |      		||
-|5-19   |      		||
-|5-20   |      		||
+|5-18   | dcl/dcl_ex5-18.c |dcl/dcl.c, dcl/gettoken.c, dcl/getch.c|
+|5-19   | dcl/undcl_5-19.c     		|dcl/dcl.c, dcl/gettoken.c, dcl/getch.c|
+|5-20   | dcl/dcl_main_ex5-20.c, dcl/dcl_ex5-20.c, dcl/gettoken_ex5-20.c     		|dcl/getch.c|
