@@ -80,3 +80,9 @@ dirdcl
 gettoken
 arg
 tokentype
+enum
+args
+PARENS
+Wunused
+Ctrl
+arg2
