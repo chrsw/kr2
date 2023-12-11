@@ -1,0 +1,9 @@
+p tokentype
+p/c tokentype
+frame
+list
+!cat dcl_test_temp.txt
+bt
+watch tokentype
+c
+bt
