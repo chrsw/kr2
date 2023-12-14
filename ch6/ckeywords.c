@@ -4,7 +4,7 @@
  *      Count C keywords.
  *
  * Description:
- *      Count the occurance of each Standard C keyboard in a C source file.
+ *      Count the occurrence of each Standard C keyboard in a C source file.
  *
  * Input:
  *      A valid C file.
@@ -13,7 +13,7 @@
  *     $ gcc -o ckeywords ckeywords.c getword.c getch.c binsearch.c
  *
  * Run:
- *      ./ckeywords < <c_file.c>
+ *      ./ckeywords < file.c
  */
 
 
@@ -23,12 +23,12 @@
 #include "ckeywords.h"
 
 #define MAXWORD 100                     /* max word length to look for */
-#define NKEYS 32                        /* number of keywords in C */
 
 int getword(char *, int);
 int bgetword(char *, int);
 int binsearch(char *, struct key *, int);
 
+/* keyword list from Section A2.4 Keywords, page 192 */
 struct key keytab[] = {
 
     "auto", 0,
@@ -49,7 +49,7 @@ struct key keytab[] = {
     "if", 0,
     "int", 0,
     "long", 0,
-    "retister", 0,
+    "register", 0,
     "return", 0,
     "short", 0,
     "signed", 0,
@@ -64,21 +64,23 @@ struct key keytab[] = {
     "volatile", 0,
     "while", 0
 };
-// For keyword list size, do:
-// $ grep "^    \"[a-z]\{2,\}\", 0,*$" ckeywords.c | wc -l
-// TODO: find a programatic way of getting the keyword list size
 
+/* Get size of list with a programmatic solution */ 
+unsigned int listsize = (unsigned int)(sizeof(keytab)/sizeof(struct key));
 
 int main(int argc, char *argv[])
 {
+    (void)argc;
+    (void)argv;
+
     int n;
     char word[MAXWORD];
-    
+
     while (bgetword(word, MAXWORD) != EOF)   /* count keywords */
         if (isalpha(word[0]))
-            if ((n = binsearch(word, keytab, NKEYS)) >= 0)
+            if ((n = binsearch(word, keytab, listsize)) >= 0)
                 keytab[n].count++;
-    for (n = 0; n < NKEYS; n++)             /* print keyword counts */
+    for (n = 0; n < listsize; n++)             /* print keyword counts */
         if (keytab[n].count > 0)
             printf("%4d %s\n", keytab[n].count, keytab[n].word);
 	return 0;
