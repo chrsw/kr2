@@ -6,7 +6,7 @@ The following table is a list of exercises and solutions.
 |Exercise|Solution|Comments|
 |--------|--------|--------|
 |6-1 	 | ex6-1.c||
-|6-2  	 |      ||
+|6-2  	 |      |getwords.c, getch.c|
 |6-3    |      ||
 |6-4    | ex6-4.c, bgetword.c, getch.c ||
 |6-5    |     ||
