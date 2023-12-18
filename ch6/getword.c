@@ -1,12 +1,13 @@
-/* vim:ts=4:sw=4:et:
+/* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * getword.c
+ * File:
+ *      getword.c
  *
  * Description:
- *      Details
+ *      Different versions of getword() from Chapter 6.
  *
  * Input:
- *
+ *      Text on standard input.
  */
 
 #include <ctype.h>
