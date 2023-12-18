@@ -86,3 +86,11 @@ PARENS
 Wunused
 Ctrl
 arg2
+ckeywords
+getword
+binsearch
+typedef
+struct
+goto
+extern
+A2
