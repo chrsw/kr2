@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
 
     while (bgetword(word, MAXWORD) != EOF) {   /* count keywords */
         if (isalpha(word[0]))
+            /* look for word found by getword() in keyword list */
             if ((n = binsearch(word, keytab, listsize)) >= 0)
                 keytab[n].count++;
     }
