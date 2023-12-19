@@ -1,7 +1,12 @@
 /* vim:ts=4:sw=4:et:
  *
  * binsearch.c
- *      Find word
+ *      Search for word in array using binary search algorithm.
+ *      Uses an order input search space. If the search key is lower
+ *      than the current search mid point then everything in the
+ *      search space that's high is ignored. Opposite for search
+ *      key being higher than current mid point.
+ *      After each search iteration a new mid point is chosen.
  *
  * Description:
  *      For use with chpater 6, exercise 1.
@@ -32,5 +37,5 @@ int binsearch(char *word, struct key tab[], int n) {
 	return -1;
 }
 
-/* test_break */
+/* test break */
 /* test continue */
