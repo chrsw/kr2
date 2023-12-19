@@ -58,7 +58,9 @@ int bgetword(char *word, int lim)
     int c;
     bool cmt[3] = {false, false, false};  /* track comment state */ 
     char *w = word;
-    
+
+    /* Look for 1st non-whitespace or opening quote for string literals */ 
+    /* Closing " is handled later */
     while (isspace(c = getch()) || c == '"') 
         ;
     if (c != EOF)                   /* still haven't reached EOF... */
@@ -68,7 +70,7 @@ int bgetword(char *word, int lim)
         return c;
     }
     for ( ; --lim > 0; w++)
-        if (!isgraph(*w = getch())) {
+        if (!isgraph(*w = getch()) || *w == '"') {
             ungetch(*w);
             break;
         }
