@@ -5,6 +5,10 @@
  * Description:
  *     Get words from input. 
  *
+ * TODO:
+ *      Handle preprocessor control lines.
+ *      Handle comments.
+ *      Write test driver.
  */
 
 #include <ctype.h>
@@ -19,7 +23,8 @@ void ungetch(int);
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
  */
-int getword(char *word, int lim) {
+int getword(char *word, int lim)
+{
 
     int c;
     char *w = word;
@@ -43,20 +48,22 @@ int getword(char *word, int lim) {
 
 /* bgetword:    Get next word or character from input.
  *              Better version, handles underscores.
+ *              Handles string constants.
  *
  * TODO:        Find out if we're in a comment or not.
  */
-int bgetword(char *word, int lim) {
+int bgetword(char *word, int lim)
+{
 
     int c;
     bool cmt[3] = {false, false, false};  /* track comment state */ 
     char *w = word;
     
-    while (isspace(c = getch())) 
+    while (isspace(c = getch()) || c == '"') 
         ;
     if (c != EOF)                   /* still haven't reached EOF... */
         *w++ = c;
-    if (!isalpha(c)) {
+    if (!isalpha(c) && c != '_') {
         *w = '\0';
         return c;
     }
@@ -80,7 +87,7 @@ int getwordb(char *word, int lim)
         ;
     if (c != EOF)
         *w++ = c;
-    if (!isalpha(c)) {
+    if (!isalpha(c) && c != '_') {
         *w = '\0';
         return c;
     }
