@@ -1,12 +1,15 @@
 /* vim:ts=4:sw=4:et:
  *
  * bgetword.c
- *      Better version of getword(). Handles underscores (_).
+ *      Better version of getword(). Handles underscores (_) and string
+ *      constants.
  *
  * Description:
- *      Details
+ *      By "handle string constants" we mean don't ignore the "s and
+ *      consider words inside the ""s.
  *
  * Input:
+ *      Stream of characters on standard input.
  *
  */
 
@@ -21,7 +24,7 @@ int bgetword(char *word, int lim)
 {
     int c;
     char *w = word;
-    while (isspace(c = getch()))
+    while (isspace(c = getch()) || c == '"')
         ;
     if (c != EOF)
         *w++ = c;
