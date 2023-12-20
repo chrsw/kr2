@@ -67,7 +67,7 @@ struct key keytab[] = {
 };
 
 /* Get size of list with a programmatic solution */ 
-int listsize = (unsigned int)(sizeof(keytab)/sizeof(struct key));
+#define NKEYS (sizeof(keytab)/sizeof(struct key))
 
 int main(int argc, char *argv[])
 {
@@ -80,10 +80,10 @@ int main(int argc, char *argv[])
     while (bgetword(word, MAXWORD) != EOF) {   /* count keywords */
         if (isalpha(word[0]))
             /* look for word found by getword() in keyword list */
-            if ((n = binsearch(word, keytab, listsize)) >= 0)
+            if ((n = binsearch(word, keytab, NKEYS)) >= 0)
                 keytab[n].count++;
     }
-    for (n = 0; n < listsize; n++) {            /* print keyword counts */
+    for (n = 0; (long unsigned int)n < NKEYS; n++) {            /* print keyword counts */
         if (keytab[n].count > 0)
             printf("%4d %s\n", keytab[n].count, keytab[n].word);
     }
