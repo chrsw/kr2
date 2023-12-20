@@ -94,3 +94,5 @@ struct
 goto
 extern
 A2
+ex6
+bgetword
