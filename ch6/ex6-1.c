@@ -1,14 +1,18 @@
 /* vim:ts=4:sw=4:et:
  *
  * ex6-1.c
+ *      getword() implementation for Chapter 6, exercise 1 solution.
  *
  * Description:
  *     Get words from input. 
  *
+ * Build:
+ *      $ gcc -Wall -c ex6-1.c
  * TODO:
  *      Handle preprocessor control lines.
  *      Handle comments.
  *      Write test driver.
+ *      Clean warnings.
  */
 
 #include <ctype.h>
@@ -19,6 +23,9 @@
 int getch(void);
 int getchb(void);
 void ungetch(int);
+
+/* Are we at the start of a line or not? */
+static bool newline = false;
 
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
@@ -50,6 +57,7 @@ int getword(char *word, int lim)
  *              Better version, handles underscores.
  *              Handles string constants.
  *
+ *              Preprocesor lines start at the beginning of a line
  * TODO:        Find out if we're in a comment or not.
  */
 int bgetword(char *word, int lim)
@@ -59,9 +67,28 @@ int bgetword(char *word, int lim)
     bool cmt[3] = {false, false, false};  /* track comment state */ 
     char *w = word;
 
+    /* Preprocessor statements start on a new line 
+     * The first thing we do is test for new line and if we're at 
+     * the start of a preprocessor statement then ignore the rest of
+     * of the line.
+     */
+    if ((c = getch()) == '\n') {
+        /* Start of a new line */
+        if ((c = getch()) == '#') {
+            /* Ignore rest of line */
+            while ((c = getch()) != '\n')
+                ;
+        } else {
+            ungetch(c);
+        }
+    } else {
+        ungetch(c);
+    }
+
+
     /* Look for 1st non-whitespace or opening quote for string literals */ 
     /* Closing " is handled later */
-    while (isspace(c = getch()) || c == '"') 
+    while (isblank(c = getch()) || c == '"') 
         ;
     if (c != EOF)                   /* still haven't reached EOF... */
         *w++ = c;
