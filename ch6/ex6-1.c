@@ -28,14 +28,14 @@ void ungetch(int);
 static bool newline = false;
 
 /* getword: get next word or character from input 
- *          very similiar version in K&R2, page 136 
+ *          very similar version in K&R2, page 136 
  */
 int getword(char *word, int lim)
 {
 
     int c;
     char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    while (isspace(c = getch())) /* find the first non-white space */
         ;
     if (c != EOF)               /* still haven't reached EOF... */
         *w++ = c;
@@ -57,7 +57,7 @@ int getword(char *word, int lim)
  *              Better version, handles underscores.
  *              Handles string constants.
  *
- *              Preprocesor lines start at the beginning of a line
+ *              Pre-processor lines start at the beginning of a line
  * TODO:        Find out if we're in a comment or not.
  */
 int bgetword(char *word, int lim)
@@ -86,7 +86,7 @@ int bgetword(char *word, int lim)
     }
 
 
-    /* Look for 1st non-whitespace or opening quote for string literals */ 
+    /* Look for 1st non-white space or opening quote for string literals */ 
     /* Closing " is handled later */
     while (isblank(c = getch()) || c == '"') 
         ;
