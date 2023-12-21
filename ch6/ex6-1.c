@@ -4,12 +4,13 @@
  *      getword() implementation for Chapter 6, exercise 1 solution.
  *
  * Description:
- *     Get words from input. 
+ *      Get words from input. 
+ *      Handle string literals.
+ *      Handle preprocessor control lines
  *
  * Build:
  *      $ gcc -Wall -c ex6-1.c
  * TODO:
- *      Handle preprocessor control lines.
  *      Handle comments.
  *      Write test driver.
  *      Clean warnings.
@@ -24,6 +25,15 @@ int getch(void);
 int getchb(void);
 void ungetch(int);
 
+typedef enum comments {
+    NONE = 0,       /* Not in comment */
+    START,          /* '/' */
+    IN_BLOCK,       /* Block comment started with '/' then '*' */
+    IN_LINE,        /* One a comment line '/' then '/' */
+    END_BLOCK      /* start of end of block comment '*' */
+} comstate;
+
+
 /* Are we at the start of a line or not? */
 static bool newline = false;
 
@@ -35,6 +45,7 @@ int getword(char *word, int lim)
 
     int c;
     char *w = word;
+
     while (isspace(c = getch())) /* find the first non-white space */
         ;
     if (c != EOF)               /* still haven't reached EOF... */
@@ -57,15 +68,23 @@ int getword(char *word, int lim)
  *              Better version, handles underscores.
  *              Handles string constants.
  *
- *              Pre-processor lines start at the beginning of a line
+ * returns:
+ *              Last character in word.
+ *              Word found pointed to by word parameter.
+ *              0 - if word skipped.
+ *
+ *              Preprocessor lines start at the beginning of a line
  * TODO:        Find out if we're in a comment or not.
  */
 int bgetword(char *word, int lim)
 {
-
     int c;
+                                            /* Don't count words in */
+                                            /* comments */
     bool cmt[3] = {false, false, false};  /* track comment state */ 
     char *w = word;
+
+    comstate comment_state = NONE;
 
     /* Preprocessor statements start on a new line 
      * The first thing we do is test for new line and if we're at 
@@ -86,6 +105,22 @@ int bgetword(char *word, int lim)
     }
 
 
+    /* Comments, like this one, start anywhere with '/' followed by 
+     * '*'. Comments wont nest (for this solution). Any words found
+     * inside a comment block are skipped. Comments end with '*' followed
+     * by '/' 
+     */
+    if ( c == '/' && comment_state == NONE) {
+        comment_state = START;
+    } else if (c == '*' && comment_state == START) {
+        comment_state = IN_BLOCK;
+    } else if (c == '*' && comment_state == IN_BLOCK) {
+        comment_state = END_BLOCK;
+    } else if (c == '/' && comment_state == END_BLOCK){
+        comment_state = NONE;
+    }
+
+
     /* Look for 1st non-white space or opening quote for string literals */ 
     /* Closing " is handled later */
     while (isblank(c = getch()) || c == '"') 
@@ -102,8 +137,10 @@ int bgetword(char *word, int lim)
             break;
         }
     *w = '\0';
-    return word[0];
-
+    if (comment_state == NONE)
+        return word[0];
+    else
+        return 0;
 }
 
 
