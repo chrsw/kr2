@@ -72,6 +72,7 @@ int getword(char *word, int lim)
  *              Last character in word.
  *              Word found pointed to by word parameter.
  *              0 - if word skipped.
+ *              word[0] non-alphanumeric if word is skipped.
  *
  *              Preprocessor lines start at the beginning of a line
  * TODO:        Find out if we're in a comment or not.
