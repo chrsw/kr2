@@ -1,0 +1,4 @@
+this is a simple test of the word counting program cow
+no punctuation used in this very simple test as this is the initial file
+in the future other types of files including source files will be used
+to test the functionality of cow
