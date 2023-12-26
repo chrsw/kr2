@@ -11,7 +11,6 @@
  * Build:
  *      $ gcc -Wall -c ex6-1.c
  * TODO:
- *      Handle comments.
  *      Write test driver.
  *      Clean warnings.
  */

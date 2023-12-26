@@ -1,0 +1,1 @@
+simple words for the start of the getword test
