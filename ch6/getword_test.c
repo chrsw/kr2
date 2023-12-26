@@ -1,5 +1,4 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
- *      Vim modeline for consistent editor settings across files.
  *
  * getword_test.c
  *      Test driver for various getword() implementations.
@@ -11,16 +10,6 @@
  * Input:
  *      Plain text words in varioius formats.
  *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
- * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.
- *
  * Build:
  *      $ gcc -o getword_test getword_test.c getword.c getch.c
  *      - or -
@@ -29,28 +18,38 @@
  * Run:
  *      $ ./getword_test < getword_test.txt
  *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
 #include <stdio.h>
+#include <string.h>
 
 /* functions defined in ex6-1.c, getword functions */
 int getword(char *, int);
 int bgetword(char *, int);
 int getwordb(char *, int);
 
+/* words is an array of 10 words, each word can be 99 letters */
+/* one element is used by the '\0' (NULL) character */
+char words[10][100];
+
+
 int main(int argc, char *argv[]) 
 {
 
     char word[100];
     int count = 0;
+    int i = 0;
 
-    while (bgetword(word, 100) != EOF)
+    while (bgetword(word, 100) != EOF) {
         count++;
+        strcpy(words[i++ % 10], word);
+    }
 
     printf("word count: %6d\n", count);
+    printf("last 10 words (not in order):\n");
+    for (i = 0; i < 10; i++)
+        printf("\t%s\n", words[i]);
 
     return 0;
 }
