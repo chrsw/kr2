@@ -12,10 +12,9 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include "getch.h"
+#include "getword.h"
 
-int getch(void);
-int getchb(void);
-void ungetch(int);
 
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
@@ -24,6 +23,7 @@ int getword(char *word, int lim) {
 
     int c;
     char *w = word;
+
     while (isspace(c = getch())) /* find the first non-whitespace */
         ;
     if (c != EOF)               /* still haven't reached EOF... */

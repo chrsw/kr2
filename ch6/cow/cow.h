@@ -1,13 +1,12 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * template.h
- *      Template header file.
- *
+ * cow.h
  *
  */
 
-#ifndef TEMPLATE_H
-#define TEMPLATE_H
+#ifndef COW_H
+#define COW_H
 
+#define MAXWORD 100
 
-#endif /* TEMPLATE_H */
+#endif /* COW_H */

@@ -4,9 +4,9 @@ cow counts the occurance of every word seen on standard input. Taken from The C 
 
 
 Build:
-$ gcc -o cow cow.c tree.c getword.c getch.c 
+`$ gcc -o cow cow.c tree.c getword.c getch.c` 
  - or -
-$ make
+`$ make``
 
 Run:
-$ ./cow < input.txt
+`$ ./cow < input.txt`
