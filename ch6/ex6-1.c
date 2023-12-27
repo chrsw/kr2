@@ -224,14 +224,28 @@ int getwordb(char *word, int lim)
  *      word (NULL) in the word string in the parameter list and given
  *      the non-letter character in the integer returned by the function.
  *
- * */
+ * Solution description:
+ *      In the solution 6-1 version of getword(), the same as the original
+ *      description still applies execpt for the following.
+ *
+ *      Now when a underscore character is encountered, it is treated as part
+ *      of the word that is in. This is a very simple version of the solution
+ *      and probably still has some problems.
+ *      
+ *      In order to avoid being confused by string literals, the double-
+ *      quote character is now ingored along with leading white space.
+ *      If a quote appears in the middle of a word, instead of at the
+ *      beginning or end, this strategy will break. But this is not common.
+ * 
+ */
 int ex6_1_getword(char *word, int lim)
 {
 
     int c;
     char *w = word;
-
-    while (isspace(c = getch())) /* find the first non-white space */
+    /* find the first non-white space */
+    /* and non-quote character */
+    while (isspace(c = getch()) || c == '"') 
         ;
     if (c != EOF)               /* still haven't reached EOF... */
         *w++ = c;
