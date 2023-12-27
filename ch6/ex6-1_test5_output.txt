@@ -1,0 +1,12 @@
+word count:     30
+last 10 words (not in order):
+	now
+	for
+	a
+	comment
+	done
+	with
+	exercise
+	six
+	point
+	one

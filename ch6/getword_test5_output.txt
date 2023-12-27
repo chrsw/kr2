@@ -1,0 +1,12 @@
+word count:     36
+last 10 words (not in order):
+	done
+	with
+	exercise
+	six
+	point
+	one
+	in
+	here
+	*
+	/
