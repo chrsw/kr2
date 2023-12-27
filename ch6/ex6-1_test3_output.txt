@@ -1,0 +1,12 @@
+word count:     14
+last 10 words (not in order):
+	this
+	file
+	is
+	unique
+	start
+	of
+	getword
+	test
+	every_word
+	in
