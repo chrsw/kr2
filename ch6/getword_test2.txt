@@ -1,0 +1,2 @@
+simple words for the start of getword test every word in this file is unique
+new line is treated as a word? no

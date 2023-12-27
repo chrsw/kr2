@@ -1,0 +1,12 @@
+word count:     16
+last 10 words (not in order):
+	word
+	in
+	this
+	file
+	is
+	unique
+	getword
+	test
+	every
+	_
