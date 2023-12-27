@@ -4,6 +4,15 @@ Punctuation characters, like '?' are also treated as separate words.
 
 getword() does not properly handle underscores (see getword_test3_output.txt).
 Notice in this output how one underscore is dangling outside of a word.
-For exercise 6-1, the function should be modifed to accept the underscore
+For exercise 6-1, the function should be modified to accept the underscore
 character '_' as another alphanumeric character as it's building its word
 string. Leading underscores will not be treated as a word.
+
+What does it mean to properly handle string constants?
+"this is a string constant". Are words inside string constants not counted
+as words??
+From looking at getword_test4_output.txt you can see that the getword()
+function treats every quotation character as a separate word. This breaks
+string literals. "every word" should return two words: 'every' and 'word',
+not four words '"', 'every', 'word' and '"' again.
+One way to fix this is to ignore "'s.
