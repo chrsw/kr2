@@ -1,0 +1,22 @@
+word count:     45
+last 20 words (not in order):
+	not
+	see
+	me
+	read
+	another
+	exercise
+	six
+	point
+	one
+	next
+	line
+	will
+	start
+	preprocessor
+	statement
+	#
+	hi
+	there
+	you
+	should

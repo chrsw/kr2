@@ -1,0 +1,22 @@
+word count:     37
+last 20 words (not in order):
+	now
+	for
+	comment
+	done
+	with
+	exercise
+	six
+	point
+	one
+	next
+	line
+	will
+	start
+	preprocessor
+	statement
+	read
+	another
+	More
+	Words
+	Here

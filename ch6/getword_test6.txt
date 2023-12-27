@@ -1,0 +1,8 @@
+simple words for the start of getword test every_word in this file is unique every "word" even
+More
+Words
+Here
+now for comment /* in here */ done with exercise six point one
+next line will start preprocessor statement
+# hi there you should not see me
+read another
