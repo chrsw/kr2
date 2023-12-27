@@ -1,0 +1,9 @@
+The text version of getword() seems to have an issue with newlines (\n) being
+counted as words sometimes. Not sure why.
+Punctuation characters, like '?' are also treated as separate words.
+
+getword() does not properly handle underscores (see getword_test3_output.txt).
+Notice in this output how one underscore is dangling outside of a word.
+For exercise 6-1, the function should be modifed to accept the underscore
+character '_' as another alphanumeric character as it's building its word
+string. Leading underscores will not be treated as a word.
