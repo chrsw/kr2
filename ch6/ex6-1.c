@@ -255,6 +255,10 @@ int getwordb(char *word, int lim)
  *
  *      This solution will skip all words (or any characters) inside the old
  *      C-style comment blocks, '/' + '*'.
+ *
+ *      This solution will also try a similar approach with the C
+ *      preprocessor character '#': ignore everyting from # to the end
+ *      of the line.
  * 
  */
 int ex6_1_getword(char *word, int lim)
@@ -267,7 +271,7 @@ int ex6_1_getword(char *word, int lim)
     /* And non-quote character to accept words inside string literals */
     while (isspace(c = getch()) || c == '"') 
         ;
-    if (c != EOF && c != '/')               /* still haven't reached EOF... */
+    if (c != EOF && c != '/' && c != '#')   /* still haven't reached EOF... */
         *w++ = c;                           /* or found a comment */
 
     /* Look for comments, if found skip like skipping whitespace */
@@ -275,6 +279,15 @@ int ex6_1_getword(char *word, int lim)
         if ((c = getch()) == '*') 
             while ((c = getch()) != '/');
                 ;
+
+    /* Look for start of preprocessor statement '#' */
+    if (c == '#')
+        while ((c = getch()) != '\n');
+            ;
+
+
+
+
 
    if (!isalpha(c)) {
         *w = '\0';
