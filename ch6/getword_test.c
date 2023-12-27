@@ -28,10 +28,10 @@
 int getword(char *, int);
 int bgetword(char *, int);
 int getwordb(char *, int);
-
+int ex6_1_getword(char *, int);
 /* words is an array of 10 words, each word can be 99 letters */
 /* one element is used by the '\0' (NULL) character */
-char words[10][100];
+char words[20][100];
 
 
 int main(int argc, char *argv[]) 
@@ -41,14 +41,16 @@ int main(int argc, char *argv[])
     int count = 0;
     int i = 0;
 
-    while (bgetword(word, 100) != EOF) {
-        count++;
-        strcpy(words[i++ % 10], word);
+    while (ex6_1_getword(word, 100) != EOF) {
+        if (word[0] != '\0') {
+            count++;
+            strcpy(words[i++ % 20], word);
+        }
     }
 
     printf("word count: %6d\n", count);
-    printf("last 10 words (not in order):\n");
-    for (i = 0; i < 10; i++)
+    printf("last 20 words (not in order):\n");
+    for (i = 0; i < 20; i++)
         printf("\t%s\n", words[i]);
 
     return 0;
