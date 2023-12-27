@@ -1,0 +1,12 @@
+word count:     19
+last 10 words (not in order):
+	this
+	file
+	is
+	unique
+	every
+	"
+	word
+	"
+	even
+	in
