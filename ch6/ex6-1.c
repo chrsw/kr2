@@ -236,24 +236,53 @@ int getwordb(char *word, int lim)
  *      quote character is now ingored along with leading white space.
  *      If a quote appears in the middle of a word, instead of at the
  *      beginning or end, this strategy will break. But this is not common.
+ *
+ *      Should words in comments be excluded or included?
+ *      The text doesn't say exactly but future exercises make it seem
+ *      like words in comments should be excluded, so that's what we'll
+ *      do for exercise 6-1.
+ *
+ *      To remove words in comments we can use a static variable that will
+ *      be set to true when inside a comment and false when not inside a
+ *      comment. To do this we'll use a state machine to work our way inside
+ *      a comment and a state machine to get out. Comments start with '/',
+ *      then '*'.
+ *
+ *      The text example of getword() includes '*' and '/' as individual
+ *      words. See getword_test5_output.txt.
+ *
+ *      isalnum(*) and isalnum(/) returns zero (0).
+ *
+ *      This solution will skip all words (or any characters) inside the old
+ *      C-style comment blocks, '/' + '*'.
  * 
  */
 int ex6_1_getword(char *word, int lim)
 {
-
     int c;
     char *w = word;
-    /* find the first non-white space */
-    /* and non-quote character */
+    static bool comment = false;
+
+    /* Find the first non-white space */
+    /* And non-quote character to accept words inside string literals */
     while (isspace(c = getch()) || c == '"') 
         ;
-    if (c != EOF)               /* still haven't reached EOF... */
-        *w++ = c;
-    if (!isalpha(c)) {
+    if (c != EOF && c != '/')               /* still haven't reached EOF... */
+        *w++ = c;                           /* or found a comment */
+
+    /* Look for comments, if found skip like skipping whitespace */
+    if (c == '/')
+        if ((c = getch()) == '*') 
+            while ((c = getch()) != '/');
+                ;
+
+   if (!isalpha(c)) {
         *w = '\0';
         return c;
     }
-    for ( ; --lim > 0; w++)
+
+   for ( ; --lim > 0; w++)
+        /* Include uderscores as part of words */
         if (!(isalnum(*w = getch())) && (*w != '_')) {
             ungetch(*w);
             break;
