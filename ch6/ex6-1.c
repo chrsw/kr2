@@ -98,13 +98,12 @@
  *      of the line.
  *
  * Build:
- *      $ gcc -o getword_test getword_test.c ex6-1.c getch.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o getword_test getword_test.c\
+ *      ex6-1.c getch.c
  *
  * Run:
  *      $ ./getword_test < getword_test6.txt
  *
- * TODO:
- *      Clean warnings.
  */
 
 #include <ctype.h>
@@ -121,7 +120,6 @@ int ex6_1_getword(char *word, int lim)
 {
     int c;
     char *w = word;
-    static bool comment = false;
 
     /* Find the first non-white space */
     /* And non-quote character to accept words inside string literals */
