@@ -18,77 +18,42 @@
 
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
+ * added capabilities from Exercise 6.1
  */
 int getword(char *word, int lim)
 {
-
     int c;
     char *w = word;
 
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    /* Find the first non-white space */
+    /* And non-quote character to accept words inside string literals */
+    while (isspace(c = getch()) || c == '"')
         ;
-    if (c != EOF)               /* still haven't reached EOF... */
-        *w++ = c;
-    if (!isalpha(c)) {
+    if (c != EOF && c != '/' && c != '#')   /* still haven't reached EOF... */
+        *w++ = c;                           /* or found a comment */
+
+    /* Look for com:ments, if found skip like skipping white space */
+    if (c == '/')
+        if ((c = getch()) == '*')
+            while ((c = getch()) != '/');
+                ;
+
+    /* Look for start of preprocessor statement '#' */
+    if (c == '#')
+        while ((c = getch()) != '\n');
+            ;
+
+   if (!isalpha(c)) {
         *w = '\0';
         return c;
     }
-    for ( ; --lim > 0; w++)
-        if (!isalnum(*w = getch())) {
+
+   for ( ; --lim > 0; w++)
+        /* Include underscores as part of words */
+        if (!(isalnum(*w = getch())) && (*w != '_')) {
             ungetch(*w);
             break;
     }
     *w = '\0';
     return word[0];
-
-}
-
-/* bgetword: Get next word or character from input.
- *           Better version, handles underscores.
- */
-int bgetword(char *word, int lim)
-{
-
-    int c;
-    char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
-        ;
-    if (c != EOF)               /* still haven't reached EOF... */
-        *w++ = c;
-    if (!isalpha(c)) {
-        *w = '\0';
-        return c;
-    }
-    for ( ; --lim > 0; w++)
-        if (!isgraph(*w = getch())) {
-            ungetch(*w);
-            break;
-    }
-    *w = '\0';
-    return word[0];
-
-}
-
-
-/* getwordb: get next word or character from input */
-int getwordb(char *word, int lim)
-{
-    int c;
-    char *w = word;
-    while (isspace(c = getchb()))
-        ;
-    if (c != EOF)
-        *w++ = c;
-    if (!isalpha(c)) {
-        *w = '\0';
-        return c;
-    }
-    for ( ; --lim > 0; w++)
-        if (!isalnum(*w = getchb())) {
-        ungetch(*w);
-        break;
-    }
-    *w = '\0';
-    return word[0];
-
 }

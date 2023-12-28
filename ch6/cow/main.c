@@ -23,7 +23,9 @@
  *      Details on how the code you're reading implements the design.
  *
  * Build:
- *      gcc -o cow main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
+ *      $ gcc -o cow main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
+ *      - or -
+ *      $ make
  *
  * Run:
  *      $ ./cow < test/input.txt
