@@ -4,7 +4,7 @@
  *      getword.c
  *
  * Description:
- *      Different versions of getword() from Chapter 6.
+ *      Inspired from Section 6.3.
  *
  * Input:
  *      Text on standard input.
@@ -15,10 +15,34 @@
 #include "getch.h"
 #include "getword.h"
 
-
+#ifdef ORIG_GETWORD
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
- * added capabilities from Exercise 6.1
+ */
+int getword(char *word, int lim) {
+
+    int c;
+    char *w = word;
+    while (isspace(c = getch())) /* find the first non-whitespace */
+        ;
+    if (c != EOF)               /* still haven't reached EOF... */
+        *w++ = c;
+    if (!isalpha(c)) {
+        *w = '\0';
+        return c;
+    }
+    for ( ; --lim > 0; w++)
+        if (!isalnum(*w = getch())) {
+            ungetch(*w);
+            break;
+    }
+    *w = '\0';
+    return word[0];
+
+}
+#else
+/* getword:  get next word or character from input, very similiar version in K&R2, 
+ * page 136 with added capabilities from Exercise 6.1
  */
 int getword(char *word, int lim)
 {
@@ -32,7 +56,7 @@ int getword(char *word, int lim)
     if (c != EOF && c != '/' && c != '#')   /* still haven't reached EOF... */
         *w++ = c;                           /* or found a comment */
 
-    /* Look for com:ments, if found skip like skipping white space */
+    /* Look for comments, if found skip like skipping white space */
     if (c == '/')
         if ((c = getch()) == '*')
             while ((c = getch()) != '/');
@@ -57,3 +81,4 @@ int getword(char *word, int lim)
     *w = '\0';
     return word[0];
 }
+#endif
