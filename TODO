@@ -7,3 +7,4 @@ Finish TODOs throughout the code.
 Explain the Vim config lines somewhere.
 Add "Design" and "Implementation" sections of solutions.
 Update all Vim modelines to match the latest.
+Convert Vim modelines into project level .vimrc
