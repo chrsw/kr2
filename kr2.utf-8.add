@@ -97,3 +97,13 @@ A2
 ex6
 bgetword
 sec6
+preprocessor
+lim
+isspace
+isalpha
+islower
+isupper
+isdigit
+isalnum
+test5
+test6
