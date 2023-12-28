@@ -5,22 +5,32 @@
  *      main() driver for cow - Count Occurance of Words. Count each time a
  *      word appears on input.
  *
- * Description:
- *      Template for code and solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
+ * Original text description:
+ *      "Suppose we want to handle the more general problem of counting
+ *      the occurances all the words in some input. Since the list of
+ *      words isn't known in advance we can't convenientlyh sort it and
+ *      use a binary search. Yet we can't do a linear search for each
+ *      word as it arrives to see if it's already been seen; the program
+ *      would take too long.
+ *      - snip -
+ *      One solution is to keep the set of words seen so far sorted at all
+ *      times, by placing each word into its proper position ino the order
+ *      in which it arrives. We will use a data structure called a 'binary
+ *      tree'.
+ *
+ * Modifications:
+ *      Not all words are counted on the input unless ORIG_GETWORD is defined.
+ *
  *
  * Input:
  *      Describe the expected input.
  *
  * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
+ *      List of words seen on the input and a count of their respective
+ *      occurances.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      See section 6.5. Self-referential Structures.
  *
  * Build:
  *      $ gcc -o cow main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
