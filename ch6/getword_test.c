@@ -2,10 +2,10 @@
  *
  * getword_test.c
  *      Test driver for various getword() implementations.
- *      Useful for exercise 6-1.
+ *      Used for exercise 6-1.
  *
  * Description:
- *      Call getword() (and similar functions) for running with test input.
+ *      Call getword() for running with test input.
  *
  * Input:
  *      Plain text words in varioius formats.
@@ -17,7 +17,8 @@
  *
  * Run:
  *      $ ./getword_test < getword_test.txt
- *
+ *      - or -
+ *      $ ./getword_test < getword_testN.txt > getword_testN_output.txt
  *
  */
 
@@ -36,6 +37,9 @@ char words[20][100];
 
 int main(int argc, char *argv[]) 
 {
+
+    (void)argc;
+    (void)argv;
 
     char word[100];
     int count = 0;
