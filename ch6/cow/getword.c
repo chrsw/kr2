@@ -19,7 +19,8 @@
 /* getword: get next word or character from input 
  *          very similiar version in K&R2, page 136 
  */
-int getword(char *word, int lim) {
+int getword(char *word, int lim)
+{
 
     int c;
     char *w = word;
@@ -45,7 +46,8 @@ int getword(char *word, int lim) {
 /* bgetword: Get next word or character from input.
  *           Better version, handles underscores.
  */
-int bgetword(char *word, int lim) {
+int bgetword(char *word, int lim)
+{
 
     int c;
     char *w = word;
