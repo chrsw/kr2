@@ -1,6 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * main.c
+ * ex6-2.c
  *      Print short variable name in a C program.
  *
  * Description:
@@ -29,12 +29,11 @@
  *      See section 6.5. Self-referential Structures.
  *
  * Build:
- *      $ gcc -o cow main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
+ *      $ gcc -o ex6-2 main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
  *      - or -
- *      $ make
  *
  * Run:
- *      $ ./cow < test/input.txt
+ *      $ ./ex6-2 < test/input.txt
  *
  * Notes:
  *      Helpful information for anyone to have who is maintaining this code.
@@ -75,7 +74,6 @@ int main(int argc, char *argv[])
     struct tnode *root;
     char word[MAXWORD];
 
-
     root = NULL;
     while (getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))
@@ -83,17 +81,16 @@ int main(int argc, char *argv[])
         if (istype(word))
             printf("found type:\t%s\n", word);
     }
-    //treeprint(root);
     return 0;
 }
 
-/* matches a C data type */
+/* istype:  matches a C data type */
 bool istype(char *s)
 {
     bool ret = false;
     int i;
     for (i = 0; i < 6; i++)
-        if (strcmp(types[i],s) == 0)
+        if (!strcmp(types[i],s))
             ret = true;
     return ret;
 }
