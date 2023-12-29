@@ -4,14 +4,14 @@
  *      Count C keywords.
  *
  * Description:
- *      Count the occurrence of each Standard C keyboard in a C source file.
+ *      Count the occurrence of each Standard C keyboard in a file.
  *
  * Input:
  *      A valid C file.
  *
  * Build:
- *     $ gcc -Wall -Wextra -Wpedantic -o ckeywords ckeywords.c getword.c getch.c
- *       binsearch.c
+ *     $ gcc -Wall -Wextra -Wpedantic -o ckeywords ckeywords.c getword.c getch.c\
+        binsearch.c
  *
  * Run:
  *      ./ckeywords < file.c
@@ -31,7 +31,6 @@ int binsearch(char *, struct key *, int);
 
 /* keyword list from Section A2.4 Keywords, page 192 */
 struct key keytab[] = {
-
     {"auto",        0},
     {"break",       0},
     {"case",        0},
@@ -64,7 +63,7 @@ struct key keytab[] = {
     {"void",        0},
     {"volatile",    0},
     {"while",       0}
-};
+};  /* keytab */
 
 /* Get size of list with a programmatic solution */ 
 #define NKEYS (sizeof(keytab)/sizeof(struct key))
@@ -77,16 +76,16 @@ int main(int argc, char *argv[])
     int n;
     char word[MAXWORD];
 
-    while (bgetword(word, MAXWORD) != EOF) {   /* count keywords */
+    while (bgetword(word, MAXWORD) != EOF) {            /* count keywords */
         if (isalpha(word[0]))
             /* look for word found by getword() in keyword list */
             if ((n = binsearch(word, keytab, NKEYS)) >= 0)
                 keytab[n].count++;
     }
-    for (n = 0; (long unsigned int)n < NKEYS; n++) {            /* print keyword counts */
-        if (keytab[n].count > 0)
+    for (n = 0; (long unsigned int)n < NKEYS; n++) {    /* print counts */
+        if (keytab[n].count > 0)                        /* and words */
             printf("%4d %s\n", keytab[n].count, keytab[n].word);
     }
-	return 0;
+    return 0;
 }
 
