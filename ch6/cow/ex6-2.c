@@ -73,13 +73,19 @@ int main(int argc, char *argv[])
     int i = 0;
     struct tnode *root;
     char word[MAXWORD];
+    char name[MAXWORD];
 
     root = NULL;
     while (getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))
             root = addtree(root, word);
-        if (istype(word))
-            printf("found type:\t%s\n", word);
+        if (istype(word)) {
+            /* if a type is found, the next word might be a variable name */
+            if (getword(name, MAXWORD) == EOF)
+                break;
+            printf("found variable:\t%s\n", name);
+
+        }
     }
     return 0;
 }
