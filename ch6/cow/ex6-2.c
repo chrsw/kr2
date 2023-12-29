@@ -54,7 +54,7 @@
 #include "cow.h"
 #include "tree.h"
 
-#define MAXVAR 6
+#define MAXVAR 100
 
 const char types[][10] = {
     {"char"},
