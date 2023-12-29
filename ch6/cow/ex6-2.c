@@ -29,11 +29,14 @@
  *      See section 6.5. Self-referential Structures.
  *
  * Build:
- *      $ gcc -o ex6-2 main.c tree.c getword.c talloc.c ch6_strdup.c getch.c
+ *      $ gcc -o ex6-2 ex6-2.c tree.c getword.c talloc.c ch6_strdup.c getch.c
  *      - or -
  *
  * Run:
- *      $ ./ex6-2 < test/input.txt
+ *      $ ./ex6-2 < main.c
+ *
+ * TODO:
+ *      Support structs and typedefs.
  *
  * Notes:
  *      Helpful information for anyone to have who is maintaining this code.
