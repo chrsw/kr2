@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
  * ex6-2.c
- *      Print short variable name in a C program.
+ *      Print short variable names in a C program.
  *
  * Description:
  *      White a program that reads a C program and prints in alphabeti-
@@ -74,28 +74,24 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    int i = 0;
     struct tnode *root;
     char word[MAXVAR];
     char name[MAXVAR];
 
     root = NULL;
     while (getword(word, MAXVAR) != EOF) {
-        //if (isalpha(word[0]))
-        //    root = addtree(root, word);
         if (istype(word)) {
             /* if a type is found, the next word might be a variable name */
             if (getword(name, MAXVAR) == EOF)
                 break;
             if (isalpha(name[0]))
                 root = addtree(root, name);
-            //printf("found variable:\t%s\n", name);
-
         }
     }
     treeprint(root);
     return 0;
 }
+
 
 /* istype:  matches a C data type */
 bool istype(char *s)
