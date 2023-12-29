@@ -1,0 +1,6 @@
+this is a test input file for exercise 6.2
+this program prints C variables
+C variables are names followed by types
+like this: char hello
+and like this: int i
+more examples to come in additional test input files
