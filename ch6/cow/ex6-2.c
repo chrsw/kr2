@@ -50,6 +50,7 @@
 #include "cow.h"
 #include "tree.h"
 
+#define MAXVAR 6
 
 const char types[][10] = {
     {"char"},
@@ -72,21 +73,24 @@ int main(int argc, char *argv[])
 
     int i = 0;
     struct tnode *root;
-    char word[MAXWORD];
-    char name[MAXWORD];
+    char word[MAXVAR];
+    char name[MAXVAR];
 
     root = NULL;
-    while (getword(word, MAXWORD) != EOF) {
-        if (isalpha(word[0]))
-            root = addtree(root, word);
+    while (getword(word, MAXVAR) != EOF) {
+        //if (isalpha(word[0]))
+        //    root = addtree(root, word);
         if (istype(word)) {
             /* if a type is found, the next word might be a variable name */
-            if (getword(name, MAXWORD) == EOF)
+            if (getword(name, MAXVAR) == EOF)
                 break;
-            printf("found variable:\t%s\n", name);
+            if (isalpha(name[0]))
+                root = addtree(root, name);
+            //printf("found variable:\t%s\n", name);
 
         }
     }
+    treeprint(root);
     return 0;
 }
 
