@@ -1,13 +1,13 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * File:
- *      getword.c
- *
- * Description:
+ * getword.c
  *      Different versions of getword() from Chapter 6.
  *
  * Input:
  *      Text on standard input.
+ *
+ * Returns:
+ *      First letter of found word, word in parameter string or EOF.
  */
 
 #include <ctype.h>
@@ -17,16 +17,15 @@ int getch(void);
 int getchb(void);
 void ungetch(int);
 
-/* getword: get next word or character from input 
- *          very similiar version in K&R2, page 136 
- */
+
+/* getword:  get next word or character from input K&R2, page 136  */
 int getword(char *word, int lim) {
 
     int c;
     char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    while (isspace(c = getch()))    /* find the first non-white space */
         ;
-    if (c != EOF)               /* still haven't reached EOF... */
+    if (c != EOF)                   /* still haven't reached EOF... */
         *w++ = c;
     if (!isalpha(c)) {
         *w = '\0';
@@ -39,19 +38,17 @@ int getword(char *word, int lim) {
     }
     *w = '\0';
     return word[0];
-
 }
 
-/* bgetword: Get next word or character from input.
- *           Better version, handles underscores.
- */
-int bgetword(char *word, int lim) {
 
+/* bgetword:  get next word or character from input. Handles underscores. */
+int bgetword(char *word, int lim)
+{
     int c;
     char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    while (isspace(c = getch()))
         ;
-    if (c != EOF)               /* still haven't reached EOF... */
+    if (c != EOF) 
         *w++ = c;
     if (!isalpha(c)) {
         *w = '\0';
@@ -64,11 +61,10 @@ int bgetword(char *word, int lim) {
     }
     *w = '\0';
     return word[0];
-
 }
 
 
-/* getwordb: get next word or character from input */
+/* getwordb:  get next word or character from input */
 int getwordb(char *word, int lim)
 {
     int c;
@@ -88,5 +84,4 @@ int getwordb(char *word, int lim)
     }
     *w = '\0';
     return word[0];
-
 }
