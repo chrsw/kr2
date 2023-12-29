@@ -31,9 +31,10 @@
  * Build:
  *      $ gcc -o ex6-2 ex6-2.c tree.c getword.c talloc.c ch6_strdup.c getch.c
  *      - or -
+ *      $ make ex6-2
  *
  * Run:
- *      $ ./ex6-2 < main.c
+ *      $ ./ex6-2 <name length> < main.c
  *
  * TODO:
  *      Support structs and typedefs.
@@ -70,19 +71,23 @@ bool istype(char *s);
 /* ex6-2:  print C variable names */
 int main(int argc, char *argv[])
 {
-
-    (void)argc;
-    (void)argv;
-
     struct tnode *root;
     char word[MAXVAR];
     char name[MAXVAR];
+    int length = 6;
+
+    /* Get variable name length from command line if available */ 
+    if (argc == 2)
+        length = atoi(argv[1]);
+    /* Clamp length to something sane */
+    if (length < 1 || length > 100)
+        length = 6;
 
     root = NULL;
-    while (getword(word, MAXVAR) != EOF) {
+    while (getword(word, length) != EOF) {
         if (istype(word)) {
             /* if a type is found, the next word might be a variable name */
-            if (getword(name, MAXVAR) == EOF)
+            if (getword(name, length) == EOF)
                 break;
             if (isalpha(name[0]))
                 root = addtree(root, name);
