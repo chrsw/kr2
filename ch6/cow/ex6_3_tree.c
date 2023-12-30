@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "ch6_strdup.h"
 #include "ex6-3.h"
 #include "talloc.h"
@@ -41,10 +42,17 @@ struct tnode *addtree(struct tnode *p, char *w)
     if (p == NULL){                 /* a new word has arrived */
         p = talloc();               /* make a new node */
         p->word = ch6_strdup(w);
-        p->lines = NULL;
+        p->count = 1;
+        p->lines = (int *)malloc(sizeof(int)+1);
+        p->lines[0] = linen;
+        p->lines[1] = -1;           /* indicates no more lines found */
         p->left = p->right = NULL;
-    } else if ((cond = strcmp(w, p->word)) == 0)
-        p->lines = NULL;                 /* repeated word */
+    } else if ((cond = strcmp(w, p->word)) == 0){
+        p->count++;
+        p->lines = (int *)realloc(p->lines, p->count+1);                 /* repeated word */
+        p->lines[p->count] = linen;
+        p->lines[p->count+1] = -1;
+    }
     else if (cond < 0)              /* less than into left subtree */
         p->left = addtree(p->left, w);
     else                            /* greater than into right subtree */

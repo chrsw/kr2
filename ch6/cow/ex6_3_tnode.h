@@ -9,7 +9,8 @@
 
 struct tnode {              /* the tree node: */
     char *word;             /* points to the text */
-    int *lines;              /* lines of occurrences */
+    int count;              /* number of occurrences */
+    int *lines;             /* lines of occurrences */
     struct tnode *left;     /* children */
     struct tnode *right;
 };
