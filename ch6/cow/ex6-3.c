@@ -9,7 +9,20 @@
  *      occurs. Remove noise words like "the", "and" and so on.
  *
  * Design:
- *      TBD
+ *      The baseline of this app is from the 'cow' application which builds a list
+ *      of words and their occurances. cow = Count Occurence of Words. The
+ *      application for exercise 6-3 is supposed to track every non-trivial word
+ *      and maintain a list of lines in which every word appears.
+ *
+ *      To support this, we can modify the tree node data structure.The node
+ *      structure will include a pointer to an array of numbers instead of an
+ *      integer count.
+ *      Every time a new occurance of a word is encountered on a new line,
+ *      addtree() will add another element to the lines array for that word
+ *      structure.
+ *
+ *      The lines array in each word node needs to be a dynamic array
+ *      because we don't know how many lines the word will apear on.
  *
  * Input:
  *      Describe the expected input.
@@ -22,12 +35,13 @@
  *      Based off the code in section 6.5. Self-referential Structures.
  *
  * Build:
- *      $ gcc -o ex6-3 ex6-3.c tree.c getword.c talloc.c ch6_strdup.c getch.c
+ *      $ gcc -o ex6-3 ex6-3.c ex6_3_tree.c ex6_3_getword.c \
+ *      talloc.c ch6_strdup.c getch.c
  *      - or -
  *      $ make ex6-3
  *
  * Run:
- *      $ ./ex6-3 <name length> < test_input.txt
+ *      $ ./ex6-3 < test_input.txt
  *
  */
 
@@ -36,21 +50,21 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
-#include "tnode.h"
-#include "getword.h"
-#include "cow.h"
+#include "ex6_3_tnode.h"
+#include "ex6_3_getword.h"
+#include "ex6-3.h"
 #include "tree.h"
 
-#define MAXLEN 100
+int linen = 0;              /* Used to track which line number we're on */
 
 /* ex6-3:  print word cross-reference */
 int main(int argc, char *argv[])
 {
     struct tnode *root;
-    char word[MAXLEN];
+    char word[MAXWORD];
 
     root = NULL;
-    while (getword(word, MAXLEN) != EOF) {
+    while (ex6_3_getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))
             root = addtree(root, word);
     }
