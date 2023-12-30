@@ -22,6 +22,11 @@ cow: getch.o main.o ch6_strdup.o getword.o talloc.o tree.o
 ex6-2: getch.o ex6-2.o ch6_strdup.o getword.o talloc.o tree.o
 	$(CC) -o ex6-2 getch.o ex6-2.o ch6_strdup.o getword.o talloc.o tree.o
 
+# Compile and link the exercise 6.3 solution
+ex6-3: getch.o ex6-3.o ch6_strdup.o ex6_3_getword.o talloc.o ex6_3_tree.o
+	$(CC) -o ex6-2 getch.o ex6-3.o ch6_strdup.o ex6_3_getword.o talloc.o ex6_3_tree.o
+
+
 # Run clean when asked, no matter what
 .PHONY:	clean
 clean:
