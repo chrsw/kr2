@@ -16,6 +16,8 @@ int main(int argc, char *argv[]) {
     printf("isalnum(_) = %d\n", isalnum('_'));
     printf("isalnum(.) = %d\n", isalnum('.'));
     printf("isalnum(\\n) = %d\n", isalnum('\n'));
+    printf("ispsace(\\n) = %d\n", isspace('\n'));
+    printf("isblank(\\n) = %d\n", isblank('\n'));
 
     return 0;
 }
