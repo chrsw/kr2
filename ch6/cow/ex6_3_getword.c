@@ -18,13 +18,13 @@
 
 #ifdef ORIG_GETWORD
 /* getword: get next word or character from input 
- *          very similiar version in K&R2, page 136 
+ *          very similar version in K&R2, page 136 
  */
 int getword(char *word, int lim) {
 
     int c;
     char *w = word;
-    while (isspace(c = getch())) /* find the first non-whitespace */
+    while (isspace(c = getch())) /* find the first non-white space */
         ;
     if (c != EOF)               /* still haven't reached EOF... */
         *w++ = c;
@@ -42,7 +42,8 @@ int getword(char *word, int lim) {
 
 }
 #else
-/* getword:  get next word or character from input, very similiar version in K&R2, 
+/* getword:  get next word or character from input,
+ * very similar version in K&R2, 
  * page 136 with added capabilities from Exercise 6.1
  */
 int getword(char *word, int lim)

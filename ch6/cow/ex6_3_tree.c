@@ -4,7 +4,7 @@
  *      Create or add to a tree.
  *
  * Description:
- *      This verison is to support exercise 6-3.
+ *      This version is to support exercise 6-3.
  *
  * Input:
  *      Describe the expected input.
@@ -65,7 +65,6 @@ void treeprint(struct tnode *p)
     if (p != NULL) {
         treeprint(p->left);
         printf("%-14s\t%d\t", p->word, p->count);
-        //printf("%-14s\t%d\n", p->word, p->count);
         for (i = 0; i < p->count; i++)
             printf("%d ", p->buflines[i]);
         printf("\n");
