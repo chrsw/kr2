@@ -9,10 +9,10 @@
  *      occurs. Remove noise words like "the", "and" and so on.
  *
  * Design:
- *      The baseline of this app is from the 'cow' application which builds a list
- *      of words and their occurances. cow = Count Occurence of Words. The
- *      application for exercise 6-3 is supposed to track every non-trivial word
- *      and maintain a list of lines in which every word appears.
+ *      The baseline of this app is from the 'cow' application which builds a
+ *      list of words and their occurances. cow = Count Occurence of Words.
+ *      The application for exercise 6-3 is supposed to track every 
+ *      non-trivial word and maintain a list of lines where each word appears.
  *
  *      To support this, we can modify the tree node data structure.The node
  *      structure will include a pointer to an array of numbers instead of an
@@ -23,9 +23,11 @@
  *
  *      The lines array in each word node needs to be a dynamic array
  *      because we don't know how many lines the word will apear on.
+ *      Currently this lines array is not a dynamic array, it is static
+ *      for simpler implementation.
  *
  * Input:
- *      Describe the expected input.
+ *      Stream of words on standard input.
  *
  * Output:
  *      List of words seen on the input and a list of their line
@@ -35,7 +37,7 @@
  *      Based off the code in section 6.5. Self-referential Structures.
  *
  * Build:
- *      $ gcc -o ex6-3 ex6-3.c ex6_3_tree.c ex6_3_getword.c \
+ *      $ gcc -o ex6-3 ex6-3.c ex6_3_tree.c ex6_3_getword.c\
  *      talloc.c ch6_strdup.c getch.c
  *      - or -
  *      $ make ex6-3
@@ -66,6 +68,9 @@ int main(int argc, char *argv[])
     struct tnode *root;
     char word[MAXWORD];
 
+    (void)argc;
+    (void)argv;
+    
     root = NULL;
     while (ex6_3_getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))

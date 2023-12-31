@@ -7,6 +7,8 @@
 #ifndef EX6_3_H
 #define EX6_3_H
 
+
+#define ORIG_GETWORD
 #define MAXWORD 100
 
 extern int linen; 		/* the line number we're currently on */
