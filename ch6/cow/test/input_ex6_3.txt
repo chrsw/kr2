@@ -1,6 +1,6 @@
 simple text file for
 testing exercise six three
-on kernighan and ritching
+on Kernighan and Ritchie
 second edition parse this
 file and generate a list
 of files names line counts
@@ -11,10 +11,9 @@ easier
 C provides the infinitely
 abusable goto statement
 and labels to branch to
-formally, the gotostatement
+formally, the goto statement
 is never necessary and 
 in practice it is almost
 always easy to write code 
 without it we have not used
 goto in this book
-inds of objects.
