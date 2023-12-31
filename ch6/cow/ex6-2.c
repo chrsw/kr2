@@ -4,8 +4,8 @@
  *      Print short variable names in a C program.
  *
  * Description:
- *      White a program that reads a C program and prints in alphabeti-
- *      cal order each group of variable names that are identical in the
+ *      White a program that reads a C program and prints in alphabetical
+ *      order each group of variable names that are identical in the
  *      first 6 characters but different somewhere after. Don't count words
  *      within strings and comments. Make 6 a parameter that can be set
  *      from the command line.
@@ -16,14 +16,11 @@
  *      float", "int", "long", "short".
  *
  *      Using the 'cow' application as a starting point, modify it just to
- *      print the variable declaration keywoards listed above.
- *
- * Input:
- *      Describe the expected input.
+ *      print the variable declaration keywords listed above.
  *
  * Output:
  *      List of words seen on the input and a count of their respective
- *      occurances.
+ *      occurrences.
  *
  * Design:
  *      See section 6.5. Self-referential Structures.
@@ -38,9 +35,6 @@
  *
  * TODO:
  *      Support structs and typedefs.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
@@ -96,7 +90,6 @@ int main(int argc, char *argv[])
     treeprint(root);
     return 0;
 }
-
 
 /* istype:  matches a C data type */
 bool istype(char *s)
