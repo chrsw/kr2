@@ -7,5 +7,5 @@ The following table is a list of exercises and solutions.
 |--------|--------|--------|
 |6-1 	 | ex6-1.c, getch.c, getwords_test.c, getch.c||
 |6-2  	 | cow/ex6-2.c     | Based off 'cow' application in cow/|
-|6-3    |      ||
+|6-3    | cow/ex6-3.c, ex6_3_getword.c, ex6_3_tree.c ||
 |6-4    | ex6-4.c, bgetword.c, getch.c ||
