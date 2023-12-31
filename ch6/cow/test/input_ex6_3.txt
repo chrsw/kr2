@@ -1,0 +1,20 @@
+simple text file for
+testing exercise six three
+on kernighan and ritching
+second edition parse this
+file and generate a list
+of files names line counts
+the following lines will
+be snippets from the text
+to make generating input
+easier
+C provides the infinitely
+abusable goto statement
+and labels to branch to
+formally, the gotostatement
+is never necessary and 
+in practice it is almost
+always easy to write code 
+without it we have not used
+goto in this book
+inds of objects.
