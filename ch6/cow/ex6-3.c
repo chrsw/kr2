@@ -41,7 +41,10 @@
  *      $ make ex6-3
  *
  * Run:
- *      $ ./ex6-3 < test_input.txt
+ *      $ ./ex6-3 < test/input_ex6_3.txt
+ * 
+ * TODO:
+ *      Use dynamic memory for list of line nubmers words appear.
  *
  */
 
@@ -55,7 +58,7 @@
 #include "ex6-3.h"
 #include "tree.h"
 
-int linen = 0;              /* Used to track which line number we're on */
+int linen = 1;              /* Used to track which line number we're on */
 
 /* ex6-3:  print word cross-reference */
 int main(int argc, char *argv[])

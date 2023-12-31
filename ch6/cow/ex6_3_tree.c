@@ -43,15 +43,13 @@ struct tnode *addtree(struct tnode *p, char *w)
         p = talloc();               /* make a new node */
         p->word = ch6_strdup(w);
         p->count = 1;
-        p->lines = (int *)malloc(sizeof(int)+1);
-        p->lines[0] = linen;
-        p->lines[1] = -1;           /* indicates no more lines found */
+        p->linen = linen;
+        p->buflines[0] = linen;
         p->left = p->right = NULL;
-    } else if ((cond = strcmp(w, p->word)) == 0){
+    } else if ((cond = strcmp(w, p->word)) == 0) {
+        p->buflines[p->count] = linen;
         p->count++;
-        p->lines = (int *)realloc(p->lines, p->count+1);                 /* repeated word */
-        p->lines[p->count] = linen;
-        p->lines[p->count+1] = -1;
+        p->linen = linen;
     }
     else if (cond < 0)              /* less than into left subtree */
         p->left = addtree(p->left, w);
@@ -63,9 +61,14 @@ struct tnode *addtree(struct tnode *p, char *w)
 /* treeprint:  in-order print of tree p */
 void treeprint(struct tnode *p)
 {
+    int i;
     if (p != NULL) {
         treeprint(p->left);
-        printf("%s\n", p->word);
+        printf("%-14s\t%d\t%d\t", p->word, p->count, p->linen);
+        //printf("%-14s\t%d\n", p->word, p->count);
+        for (i = 0; i < p->count-1; i++)
+            printf("%d ", p->buflines[i]);
+        printf("\n");
         treeprint(p->right);
     }
 }
