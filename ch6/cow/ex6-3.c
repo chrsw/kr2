@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
         if (isalpha(word[0]))
             root = addtree(root, word);
     }
+    printf("WORD\t\tCOUNT\tLINES\n");
     treeprint(root);
     return 0;
 }

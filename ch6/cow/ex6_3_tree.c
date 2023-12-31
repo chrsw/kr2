@@ -64,9 +64,9 @@ void treeprint(struct tnode *p)
     int i;
     if (p != NULL) {
         treeprint(p->left);
-        printf("%-14s\t%d\t%d\t", p->word, p->count, p->linen);
+        printf("%-14s\t%d\t", p->word, p->count);
         //printf("%-14s\t%d\n", p->word, p->count);
-        for (i = 0; i < p->count-1; i++)
+        for (i = 0; i < p->count; i++)
             printf("%d ", p->buflines[i]);
         printf("\n");
         treeprint(p->right);
