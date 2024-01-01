@@ -11,11 +11,13 @@ This code isn't designed to be completely correct in all cases, only meant to fu
 
 The plan is to eventually add more helpful comments and test code.
 
+Rebuild the Vim spelling file with: :mkspell kr2.utf-8.add
+
 ### Contents
 - <pre>ch1-ch8 directories: mostly solutions, split into chapters.</pre>
 - <pre>template.[ch]:       convenient starting point for source files.</pre>
 - <pre>README.md:           this Markdown file.</pre>
 - <pre>LICENSE:             specify license for files in this repo.</pre>
-- <pre>kr2.utf-8.spl:       project-level vim dictionary files for spell checking.</pre>
+- <pre>kr2.utf-8.add:       project-level vim dictionary files for spell checking.</pre>
 - <pre>INSTALL:             how to use the files in this repo.</pre>
 - <pre>TODO:                ideas and next planned next steps.</pre>
