@@ -46,7 +46,8 @@
  *      $ ./ex6-3 < test/input_ex6_3.txt
  * 
  * TODO:
- *      Use dynamic memory for list of line nubmers words appear.
+ *      Use a dynamically _growing_ array for list of lines where words
+ *      appear.
  *
  */
 
@@ -58,7 +59,7 @@
 #include "ex6_3_tnode.h"
 #include "ex6_3_getword.h"
 #include "ex6-3.h"
-#include "tree.h"
+#include "ex6_3_tree.h"
 
 int linen = 1;              /* Used to track which line number we're on */
 
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
     root = NULL;
     while (ex6_3_getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))
-            root = addtree(root, word);
+            root = addtree(&root, word);
     }
     printf("WORD\t\tCOUNT\tLINES\n");
     treeprint(root);

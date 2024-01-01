@@ -31,30 +31,32 @@
 #include "ex6-3.h"
 #include "talloc.h"
 #include "ex6_3_tnode.h"
-#include "tree.h"
+#include "ex6_3_tree.h"
 
 /* addtree:  add a node with w, at or below p */
-struct tnode *addtree(struct tnode *p, char *w)
+struct tnode *addtree(struct tnode **pp, char *w)
 {
-
     int cond;
-    
+    struct tnode *p = *pp;
+
     if (p == NULL){                 /* a new word has arrived */
         p = talloc();               /* make a new node */
         p->word = ch6_strdup(w);
         p->count = 1;
         p->linen = linen;
-        p->buflines[0] = linen;
+        p->linel = malloc(sizeof(int)*20);
+        *(p->linel+1) = linen;
         p->left = p->right = NULL;
     } else if ((cond = strcmp(w, p->word)) == 0) {
-        p->buflines[p->count] = linen;
+        *(p->linel+p->count+1) = linen;
         p->count++;
         p->linen = linen;
+        p->linel = realloc(p->linel, sizeof(int)*(p->count+20));
     }
     else if (cond < 0)              /* less than into left subtree */
-        p->left = addtree(p->left, w);
+        p->left = addtree(&p->left, w);
     else                            /* greater than into right subtree */
-        p->right = addtree(p->right, w);
+        p->right = addtree(&p->right, w);
     return p;
 }
 
@@ -66,7 +68,7 @@ void treeprint(struct tnode *p)
         treeprint(p->left);
         printf("%-14s\t%d\t", p->word, p->count);
         for (i = 0; i < p->count; i++)
-            printf("%d ", p->buflines[i]);
+            printf("%d  ", *(p->linel+i+1));
         printf("\n");
         treeprint(p->right);
     }
