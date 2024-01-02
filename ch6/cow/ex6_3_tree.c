@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
  * ex6_3_tree.c
- *      Create or add to a tree.
+ *      Add to a tree and in-order print a tree.
  *
  * Description:
  *      This version is to support exercise 6-3.
@@ -42,15 +42,11 @@ struct tnode *addtree(struct tnode **pp, char *w)
     if (p == NULL){                 /* a new word has arrived */
         p = talloc();               /* make a new node */
         p->word = ch6_strdup(w);
-        p->count = 1;
-        p->linen = linen;
         p->linel = malloc(sizeof(int)*2);
-        *(p->linel+1) = linen;
+        p->linel[p->count=1] = linen;
         p->left = p->right = NULL;
     } else if ((cond = strcmp(w, p->word)) == 0) {
-        *(p->linel+p->count+1) = linen;
-        p->count++;
-        p->linen = linen;
+        p->linel[++p->count] = linen;
         p->linel = realloc(p->linel, sizeof(int)*(p->count+1));
     }
     else if (cond < 0)              /* less than into left subtree */
@@ -67,8 +63,8 @@ void treeprint(struct tnode *p)
     if (p != NULL) {
         treeprint(p->left);
         printf("%-14s\t%d\t", p->word, p->count);
-        for (i = 0; i < p->count; i++)
-            printf("%d  ", *(p->linel+i+1));
+        for (i = 1; i <= p->count; i++)
+            printf("%d  ", p->linel[i]);
         printf("\n");
         treeprint(p->right);
     }

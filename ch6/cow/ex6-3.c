@@ -48,6 +48,7 @@
  * TODO:
  *      Use a dynamic table format based on the length of input words
  *      and occurance statistics.
+ *      Remove noise words.
  *
  */
 

@@ -10,10 +10,9 @@
 struct tnode {              /* the tree node: */
     char *word;             /* points to the text */
     int count;              /* number of occurrences */
-    int linen;
     struct tnode *left;     /* children */
     struct tnode *right;
-    int *linel;
+    int *linel;             /* list of lines where word appears */
 };
 
 #endif /* EX6_3_TNODE_H */
