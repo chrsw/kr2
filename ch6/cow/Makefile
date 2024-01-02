@@ -15,7 +15,7 @@ objects = getch.o main.o ch6_strdup.o getword.o talloc.o tree.o
 ex6_3_objects = getch.o ex6-3.o ch6_strdup.o ex6_3_getword.o talloc.o ex6_3_tree.o
 
 
-all: cow ex6-2
+all: cow ex6-2 ex6-3
 
 # Compile and link the cow app
 cow: getch.o main.o ch6_strdup.o getword.o talloc.o tree.o
