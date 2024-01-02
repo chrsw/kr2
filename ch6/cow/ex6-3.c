@@ -48,6 +48,8 @@
  * TODO:
  *      Use a dynamically _growing_ array for list of lines where words
  *      appear.
+ *      Use a dynamic table format based on the length of input words
+ *      and occurance statistics.
  *
  */
 
@@ -78,6 +80,7 @@ int main(int argc, char *argv[])
             root = addtree(&root, word);
     }
     printf("WORD\t\tCOUNT\tLINES\n");
+    printf("----\t\t-----\t-----\n");
     treeprint(root);
     return 0;
 }
