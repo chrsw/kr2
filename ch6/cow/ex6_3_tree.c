@@ -44,14 +44,14 @@ struct tnode *addtree(struct tnode **pp, char *w)
         p->word = ch6_strdup(w);
         p->count = 1;
         p->linen = linen;
-        p->linel = malloc(sizeof(int)*20);
+        p->linel = malloc(sizeof(int)*2);
         *(p->linel+1) = linen;
         p->left = p->right = NULL;
     } else if ((cond = strcmp(w, p->word)) == 0) {
         *(p->linel+p->count+1) = linen;
         p->count++;
         p->linen = linen;
-        p->linel = realloc(p->linel, sizeof(int)*(p->count+20));
+        p->linel = realloc(p->linel, sizeof(int)*(p->count+1));
     }
     else if (cond < 0)              /* less than into left subtree */
         p->left = addtree(&p->left, w);

@@ -46,8 +46,6 @@
  *      $ ./ex6-3 < test/input_ex6_3.txt
  * 
  * TODO:
- *      Use a dynamically _growing_ array for list of lines where words
- *      appear.
  *      Use a dynamic table format based on the length of input words
  *      and occurance statistics.
  *
