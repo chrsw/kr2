@@ -13,4 +13,6 @@
 
 extern int linen; 		/* the line number we're currently on */
 
+bool isnoise(char *);
+
 #endif /* EX6_3_H */

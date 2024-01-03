@@ -64,6 +64,20 @@
 
 int linen = 1;              /* Used to track which line number we're on */
 
+const char noise[][10] = {
+    {"the"},
+    {"and"},
+    {"a"},
+    {"an"},
+    {"in"},
+    {"at"},
+    {"of"},
+    {"on"},
+    {"so"},
+    {"but"},
+}; /* noise[] */
+
+
 /* ex6-3:  print word cross-reference */
 int main(int argc, char *argv[])
 {
@@ -76,10 +90,24 @@ int main(int argc, char *argv[])
     root = NULL;
     while (ex6_3_getword(word, MAXWORD) != EOF) {
         if (isalpha(word[0]))
-            root = addtree(&root, word);
+            if (!isnoise(word))
+                root = addtree(&root, word);
     }
     printf("WORD\t\tCOUNT\tLINES\n");
     printf("----\t\t-----\t-----\n");
     treeprint(root);
     return 0;
+}
+
+
+
+/* istype:  matches a C data type */
+bool isnoise(char *s)
+{
+    bool ret = false;
+    int i;
+    for (i = 0; i < 6; i++)
+        if (!strcmp(noise[i],s))
+            ret = true;
+    return ret;
 }

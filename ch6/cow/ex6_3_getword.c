@@ -12,6 +12,7 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "getch.h"
 #include "getword.h"
 #include "ex6-3.h"

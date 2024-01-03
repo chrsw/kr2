@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "ch6_strdup.h"
 #include "ex6-3.h"
 #include "talloc.h"
