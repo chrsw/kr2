@@ -96,7 +96,7 @@ bool istype(char *s)
 {
     bool ret = false;
     int i;
-    for (i = 0; i < 6; i++)
+    for (i = 0; i <= 6; i++)
         if (!strcmp(types[i],s))
             ret = true;
     return ret;
