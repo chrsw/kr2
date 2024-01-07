@@ -1,0 +1,6 @@
+TEST INPUT FOR THE LOWER APP FROM SECTION 7.1.
+ALL THIS TEXT SHOULD BE CONVERTED TO LOWER CASE.
+all this text should be untouched.
+^&*(%$#!
+
+ThIs Is CeRtAiNlY hArD tO TyPe!
