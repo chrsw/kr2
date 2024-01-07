@@ -11,7 +11,8 @@
  *
  * Run:
  *      $ ./lower < test_input_lower.txt
- *
+ *      - or - 
+ *      $ make lower.c
  *
  */
 
