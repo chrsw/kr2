@@ -2,33 +2,14 @@
  *
  * minprintf.c
  *      Minimal printf with variable argument list.
- *      Excerpt from section 7.3.
- *
- * Description:
- *      Template for code and solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
- *
- * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
- * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.      
+ *      Excerpt from section 7.3. Related to exercise 7-3.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      See main() driver. TBD.
  *
  * Run:
- *      An example of how this program should be run.
+ *      See main() driver. TBD.
  *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
@@ -36,7 +17,8 @@
 #include <stdio.h>
 
 /* minprintf:  minimal printf with variable argument list */
-void minprintf(char *fmt, ...) {
+void minprintf(char *fmt, ...)
+{
 
     va_list ap;                 /* points to each unnamed arg in turn */   
     char *p, *sval;
