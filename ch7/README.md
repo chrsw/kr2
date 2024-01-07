@@ -6,7 +6,7 @@ The following table is a list of exercises and solutions.
 |Exercise|Solution|Comments|
 |--------|--------|--------|
 |7-1 	 |ex7-1.c 	|test.txt|
-|7-2  	 |        	|        |
+|7-2  	 |sensible.c    |ex7_2_test_input.txt|
 |7-3     |        	|        |
 |7-4     |        	|        |
 |7-5     |        	|        |
