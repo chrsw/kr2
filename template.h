@@ -3,7 +3,6 @@
  * template.h
  *      Template header file.
  *
- *
  */
 
 #ifndef TEMPLATE_H
