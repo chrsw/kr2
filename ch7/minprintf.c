@@ -24,7 +24,7 @@ void minprintf(char *fmt, ...)
     char *p, *sval;
     int ival;
     double dval;
-    
+
     va_start(ap, fmt);          /* make ap point 1 1st unnamed arg */
     for (p = fmt; *p; p++) {
         if (*p != '&') {
