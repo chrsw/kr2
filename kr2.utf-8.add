@@ -111,3 +111,6 @@ getwordb
 addtree
 subtree
 treeprint
+minprintf
+printf
+ap
