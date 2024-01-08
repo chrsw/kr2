@@ -44,11 +44,19 @@
 int main(int argc, char *argv[])
 {
     int i = 1;
-
+    FILE *fp;
     /* print command line args */
-    for (i = 1; i < argc; i++)
+    for (i = 1; i < argc; i++) {
         printf("%s%s", argv[i], (i < argc-1) ? " " : "");
+    }
     printf ("\n");
 
+    /** open files named on command line */ 
+    i = 1;
+    for (i = 1; i < argc; i++) {
+        fp = fopen(argv[i], "r");
+        if (fp != NULL)
+            printf("%s successfully opened!\n", argv[i]);
+    }
     return 0;
 }
