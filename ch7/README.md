@@ -12,5 +12,5 @@ The following table is a list of exercises and solutions.
 |7-5     |        	|        |
 |7-6     |ex7-6.c|test2.txt, test3.txt|
 |7-7     |        	|        |
-|7-8     |         	|        |
+|7-8     |prp.c,ch7_fgets.c         	|        |
 |7-9     |isupper.c	|        |
