@@ -43,6 +43,12 @@
 /* prp:  print a set of files, split file into unique pages */
 int main(int argc, char *argv[])
 {
+    int i = 1;
+
+    /* print command line args */
+    for (i = 1; i < argc; i++)
+        printf("%s%s", argv[i], (i < argc-1) ? " " : "");
+    printf ("\n");
 
     return 0;
 }
