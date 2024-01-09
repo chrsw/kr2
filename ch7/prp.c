@@ -40,6 +40,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "ch7_fgets.h"
 
 /* prp:  print a set of files, split file into unique pages */
@@ -49,6 +50,8 @@ int main(int argc, char *argv[])
     FILE *fp;
     char *fname;
     char fline[80];
+    int flen = 0;
+    int fpos = 0;
 
     /* print command line args */
     for (i = 1; i < argc; i++) {
@@ -70,6 +73,11 @@ int main(int argc, char *argv[])
     for (i = 1; i < argc; i++) {
         fp = fopen(argv[i], "r");
         if (fp != NULL) {
+            flen = strlen(argv[i]);
+            fpos = 40 - (flen/2) + flen;
+            /* print a header */
+            
+            printf("%*s\n", fpos, argv[i]);
             while (ch7_fgets(fline, 79, fp) != NULL)
                 printf("%s", fline);
         }
