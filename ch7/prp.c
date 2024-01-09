@@ -79,10 +79,14 @@ int main(int argc, char *argv[])
             flen = strlen(argv[i]);
             fpos = 40 - (flen/2) + flen;
             /* print a file header every 24 lines */
-            if ((curpos++ % 24) == 0)
-                printf("%*s\n", fpos, argv[i]);
-            while (llen = ch7_getline(fline, 79, fp) > 0) 
+            //if ((curpos++ % 24) == 0)
+            //    printf("%*s\n", fpos, argv[i]);
+            while (llen = ch7_getline(fline, 79, fp) > 0) {
+                /* print a file header every 24 lines */
+                if ((curpos++ % 24) == 0)
+                    printf("%*s\n", fpos, argv[i]);
                 printf("%s", fline);
+            }
         }
         while (curpos++ < 24) printf("\n");
         curpos = 0;
