@@ -39,24 +39,44 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "ch7_fgets.h"
 
 /* prp:  print a set of files, split file into unique pages */
 int main(int argc, char *argv[])
 {
     int i = 1;
     FILE *fp;
+    char *fname;
+    char fline[80];
+
     /* print command line args */
     for (i = 1; i < argc; i++) {
         printf("%s%s", argv[i], (i < argc-1) ? " " : "");
     }
     printf ("\n");
 
-    /** open files named on command line */ 
+    /* open files named on command line */ 
     i = 1;
     for (i = 1; i < argc; i++) {
         fp = fopen(argv[i], "r");
         if (fp != NULL)
             printf("%s successfully opened!\n", argv[i]);
+        fclose(fp);
     }
-    return 0;
+
+    /* print files named on command line */
+    i = 1;
+    for (i = 1; i < argc; i++) {
+        fp = fopen(argv[i], "r");
+        if (fp != NULL) {
+            while (ch7_fgets(fline, 79, fp) != NULL)
+                printf("%s", fline);
+        }
+        fclose(fp);
+        if (i < argc-1)
+            puts("\n");
+    }
+
+   return 0;
 }

@@ -8,6 +8,6 @@
 #ifndef CH7_FGETS_H
 #define CH7_FGETS_H
 
-char *fgets(char *, int, FILE *);
+char *ch7_fgets(char *, int, FILE *);
 
 #endif /* CH7_FGETS_H */
