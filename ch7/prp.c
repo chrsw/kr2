@@ -42,6 +42,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "ch7_fgets.h"
+#include "ch7_getline.h"
 
 /* prp:  print a set of files, split file into unique pages */
 int main(int argc, char *argv[])
@@ -52,6 +53,8 @@ int main(int argc, char *argv[])
     char fline[80];
     int flen = 0;
     int fpos = 0;
+    int llen = 0;
+    unsigned int curpos = 0;
 
     /* print command line args */
     for (i = 1; i < argc; i++) {
@@ -75,12 +78,14 @@ int main(int argc, char *argv[])
         if (fp != NULL) {
             flen = strlen(argv[i]);
             fpos = 40 - (flen/2) + flen;
-            /* print a header */
-            
-            printf("%*s\n", fpos, argv[i]);
-            while (ch7_fgets(fline, 79, fp) != NULL)
+            /* print a file header every 24 lines */
+            if ((curpos++ % 24) == 0)
+                printf("%*s\n", fpos, argv[i]);
+            while (llen = ch7_getline(fline, 79, fp) > 0) 
                 printf("%s", fline);
         }
+        while (curpos++ < 24) printf("\n");
+        curpos = 0;
         fclose(fp);
         if (i < argc-1)
             puts("\n");

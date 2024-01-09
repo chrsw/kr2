@@ -16,7 +16,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "ch7_getline.h"
 
+/* ch7_getline:  read a line, chapter 7 version */
 int ch7_getline(char *line, int max, FILE *fp) {
    
     if (fgets(line, max, fp) == NULL)
