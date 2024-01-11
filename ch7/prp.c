@@ -53,20 +53,17 @@ int main(int argc, char *argv[])
 {
     int i;
     FILE *fp;
-    char *fname;
     char fline[80];                 /* working line of every file */
-    int flen = 0;                   /* for header position */
     int fpos = 0;
-    int llen = 0;
+
     unsigned int curpos = 0;        /* line in page counter */
 
     /* print files named on command line */
     for (i = 1; i < argc; i++) {
         fp = fopen(argv[i], "r");
         if (fp != NULL) {
-            flen = strlen(argv[i]);
             fpos = 40 - strlen(argv[i])/2 + strlen(argv[i]);
-            while (llen = ch7_getline(fline, 79, fp) > 0) {
+            while (ch7_getline(fline, 79, fp) > 0) {
                 /* print a file header every 24 lines */
                 if ((curpos++ % 24) == 0)
                     printf("%*s\n", fpos, argv[i]);
