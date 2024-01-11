@@ -21,20 +21,22 @@
  *      What output does this program generate? stdout, stderr, files, etc.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      Open each file listed on the command line.
+ *      Print each file inserting a header into the output every page.
+ *      Center the header using the length of the file name.
+ *      Each page is 25 rows, including header. Fill space left on each
+ *      page with blank lines.
  *
  * Build:
- *      $ gcc -o prp prp.c
+ *      $ gcc -o prp prp.c ch7_fgets.c ch7_getline.c
+ *      - or -
+ *      $ make prp
  *
  * Run:
  *      $ ./prp <file1> <file2> <file3> ... <fileN>
+ *      - or -
+ *      $ ./prp file* # let the shell expand list of files
  *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
@@ -44,43 +46,26 @@
 #include "ch7_fgets.h"
 #include "ch7_getline.h"
 
+
+
 /* prp:  print a set of files, split file into unique pages */
 int main(int argc, char *argv[])
 {
-    int i = 1;
+    int i;
     FILE *fp;
     char *fname;
-    char fline[80];
-    int flen = 0;
+    char fline[80];                 /* working line of every file */
+    int flen = 0;                   /* for header position */
     int fpos = 0;
     int llen = 0;
-    unsigned int curpos = 0;
-
-    /* print command line args */
-    for (i = 1; i < argc; i++) {
-        printf("%s%s", argv[i], (i < argc-1) ? " " : "");
-    }
-    printf ("\n");
-
-    /* open files named on command line */ 
-    i = 1;
-    for (i = 1; i < argc; i++) {
-        fp = fopen(argv[i], "r");
-        if (fp != NULL)
-            printf("%s successfully opened!\n", argv[i]);
-        fclose(fp);
-    }
+    unsigned int curpos = 0;        /* line in page counter */
 
     /* print files named on command line */
-    i = 1;
     for (i = 1; i < argc; i++) {
         fp = fopen(argv[i], "r");
         if (fp != NULL) {
             flen = strlen(argv[i]);
-            fpos = 40 - (flen/2) + flen;
-            /* print a file header every 24 lines */
-            //if ((curpos++ % 24) == 0)
-            //    printf("%*s\n", fpos, argv[i]);
+            fpos = 40 - strlen(argv[i])/2 + strlen(argv[i]);
             while (llen = ch7_getline(fline, 79, fp) > 0) {
                 /* print a file header every 24 lines */
                 if ((curpos++ % 24) == 0)
@@ -88,11 +73,11 @@ int main(int argc, char *argv[])
                 printf("%s", fline);
             }
         }
+        /* start next file on new page */
         while (curpos++ < 24) printf("\n");
         curpos = 0;
         fclose(fp);
-        if (i < argc-1)
-            puts("\n");
+        if (i < argc-1) puts("\n");
     }
 
    return 0;
