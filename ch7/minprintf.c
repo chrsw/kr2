@@ -28,7 +28,7 @@ void minprintf(char *fmt, ...)
 
     va_start(ap, fmt);              /* make ap point 1 1st unnamed arg */
     for (p = fmt; *p; p++) {
-        if (*p != '&') {
+        if (*p != '%') {
             putchar(*p);
             continue;
         }
