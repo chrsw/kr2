@@ -1,5 +1,4 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
- *      Vim modeline for consistent editor settings across files.
  *
  * prp.c
  *      Print a set of files, starting each new one on a new page.
@@ -18,7 +17,9 @@
  *      A list of files named on the command line.
  *
  * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
+ *      Printout to standard output (terminal) of all named files on
+ *      command line split into pages with centered headers at the top
+ *      of each page.
  *
  * Design:
  *      Open each file listed on the command line.
@@ -37,6 +38,8 @@
  *      - or -
  *      $ ./prp file* # let the shell expand list of files
  *
+ * TDOO:
+ *      Put file name headers on left and right side of screen.
  *
  */
 
