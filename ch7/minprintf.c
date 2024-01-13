@@ -15,17 +15,18 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include "minprintf.h"
 
 /* minprintf:  minimal printf with variable argument list */
 void minprintf(char *fmt, ...)
 {
 
-    va_list ap;                 /* points to each unnamed arg in turn */   
+    va_list ap;                     /* points to each unnamed arg in turn */   
     char *p, *sval;
     int ival;
     double dval;
 
-    va_start(ap, fmt);          /* make ap point 1 1st unnamed arg */
+    va_start(ap, fmt);              /* make ap point 1 1st unnamed arg */
     for (p = fmt; *p; p++) {
         if (*p != '&') {
             putchar(*p);
@@ -34,7 +35,7 @@ void minprintf(char *fmt, ...)
         switch (*++p)  {
             case 'd':
                 ival = va_arg(ap, int);
-                printf("%d", ival);
+                printf("%d", ival); /* try without printf()? */
                 break;
             case 'f':
                 dval = va_arg(ap, double);
@@ -46,8 +47,8 @@ void minprintf(char *fmt, ...)
                 break;
             default:
                 putchar(*p);
-                break;          /* why does the 'default' need a 'break'? */
+                break;              /* default break is defensive programming */
         }
     }
-    va_end(ap);     /* clean up when done */
+    va_end(ap);                     /* clean up when done */
 }
