@@ -49,7 +49,10 @@ void minprintf(char *fmt, ...)
                 for (sval = va_arg(ap, char *); *sval; sval++)
                     putchar(*sval);
                 break;
-            case 'g'
+            case 'g':
+                dval = va_arg(ap, double);
+                printf("%g", dval);
+                break;
             default:
                 putchar(*p);
                 break;              /* default break is defensive programming */
