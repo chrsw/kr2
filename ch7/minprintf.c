@@ -2,14 +2,18 @@
  *
  * minprintf.c
  *      Minimal printf with variable argument list.
- *      Excerpt from section 7.3. Related to exercise 7-3.
+ *      Excerpt from section 7.3 with additions for Exercise 7-3.
+ *
+ * Design:
+ *      Converts input to specified data types using a format string
+ *      Uses an integer return value and pointer arguments to store
+ *      converted values.
  *
  * Build:
- *      See main() driver. TBD.
+ *      See main() driver.
  *
  * Run:
- *      See main() driver. TBD.
- *
+ *      See main() driver.
  *
  */
 
@@ -45,6 +49,7 @@ void minprintf(char *fmt, ...)
                 for (sval = va_arg(ap, char *); *sval; sval++)
                     putchar(*sval);
                 break;
+            case 'g'
             default:
                 putchar(*p);
                 break;              /* default break is defensive programming */
