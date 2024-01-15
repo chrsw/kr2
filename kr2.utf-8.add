@@ -114,3 +114,4 @@ treeprint
 minprintf
 printf
 ap
+scanf
