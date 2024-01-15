@@ -8,12 +8,19 @@
  *      Converts input to specified data types using a format string
  *      Uses an integer return value and pointer arguments to store
  *      converted values.
+ *      Addtional info from text section 7.3: Since are are mainly
+ *      interested in the argument passing, minprintf() will process
+ *      the format string and arguments but will call the real printf()
+ *      to do the format conversions.
  *
  * Build:
  *      See main() driver.
  *
  * Run:
  *      See main() driver.
+ *
+ * TODO:
+ *      Don't use any printf() calls for this solution.
  *
  */
 
