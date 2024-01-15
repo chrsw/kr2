@@ -8,5 +8,5 @@
 #ifndef MINSCANF_H
 #define MINSCANF_H
 
-int ch7_scanf(char *, ...);
+int minscanf(char *, ...);
 #endif /* MINSCANF_H*/
