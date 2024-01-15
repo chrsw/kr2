@@ -8,6 +8,22 @@
  *      minprintf() from the previous section. See minprintf.c in this
  *      directory for what that entails.
  *
+ *      scanf() is described in Section 7.4. Here are the key points
+ *      - converts stdin input according to 'format'
+ *      - stops when the input fails to match 'format'
+ *      - stops on EOF
+ *      - all arguments after 'format' must be pointers
+ *      - returns number of arguments successfully converted
+ *      - only a subset of functionality is expected for this exercise
+ *      - blanks and tabs are ignored
+ *      + conversion specifications:
+ *          - start with '%'
+ *          - an optional supression character '*'
+ *          - an optional max field width number
+ *          - an optional h, l or L
+ *          - a conversion character
+ *      - literal characters in format string must match input
+ *
  * Input:
  *      Format string and pointers to place data.
  *
@@ -31,15 +47,25 @@
  *      An example of how this program should be run.
  *
  * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
+ *      For this example it is ok to actually call scanf() like minprintf()
+ *      calls printf()?
  *
  */
 
+#include <stdio.h>
 #include "ch7_scanf.h"
+
 
 /* ch7_scanf:  formatted input, chapter 7 version */
 int ch7_scanf(char *format, ...)
 {
+    char *p;
+    int ret = 0;
+    for (p = format; *p; p++) {
+        if (getchar() != *p)
+            //printf("mismatch!\n");
+            ret = 1;
+    }
 
-    return 0;
+    return ret;
 }
