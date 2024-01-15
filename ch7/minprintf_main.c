@@ -30,7 +30,7 @@
  *      $ gcc -o minprintf_main minprintf_main.c minprintf.c
  *
  * Run:
- *      An example of how this program should be run.
+ *      $ ./minprintf_main
  *
  * Notes:
  *      Helpful information for anyone to have who is maintaining this code.
@@ -42,6 +42,10 @@
 int main(int argc, char *argv[])
 {
     int n = 10;
+
+    (void)argc;
+    (void)argv;
+    
     minprintf("this is ten: %d\n", n);
 
     return 0;
