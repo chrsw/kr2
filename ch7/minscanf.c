@@ -1,6 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
- * ch7_scanf.c
+ * minscanf.c
  *      Private version of scanf.c
  *
  * Description:
@@ -42,10 +42,10 @@
  *      input matches format string, 1 if no match.
  *
  * Build:
- *      See ch7_scanf_main.c.
+ *      See minscanf_main.c.
  *
  * Run:
- *      See ch7_scanf_main.c.
+ *      See minscanf_main.c.
  *
  * Notes:
  *      For this example it is ok to actually call scanf() like minprintf()
@@ -54,7 +54,7 @@
  */
 
 #include <stdio.h>
-#include "ch7_scanf.h"
+#include "minscanf.h"
 
 
 /* ch7_scanf:  formatted input, chapter 7 version */

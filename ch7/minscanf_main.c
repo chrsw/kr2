@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *      Vim modeline for consistent editor settings across files.
  *
- * ch7_scanf_main.c
+ * minscanf_main.c
  *      main() driver for scanf, chapter 7 version.
  *
  * Description:
@@ -22,18 +22,15 @@
  *      Details on how the code you're reading implements the design.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      $ gcc -o minscanf_main minscanf_main.c minscanf.c
  *
  * Run:
- *      An example of how this program should be run.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
+ *      $ ./minscanf
  *
  */
 
 #include <stdio.h>
-#include "ch7_scanf.h"
+#include "minscanf.h"
 
 int main(int argc, char *argv[])
 {
