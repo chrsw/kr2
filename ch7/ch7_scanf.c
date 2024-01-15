@@ -38,13 +38,14 @@
  *      implemented solution.
  * 
  * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      This version just does something trivial to run: return 0 if
+ *      input matches format string, 1 if no match.
  *
  * Build:
- *      How to build this program or a build example (incl make targets).
+ *      See ch7_scanf_main.c.
  *
  * Run:
- *      An example of how this program should be run.
+ *      See ch7_scanf_main.c.
  *
  * Notes:
  *      For this example it is ok to actually call scanf() like minprintf()
@@ -63,7 +64,6 @@ int ch7_scanf(char *format, ...)
     int ret = 0;
     for (p = format; *p; p++) {
         if (getchar() != *p)
-            //printf("mismatch!\n");
             ret = 1;
     }
 
