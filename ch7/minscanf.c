@@ -26,6 +26,11 @@
  *
  * Input:
  *      Format string and pointers to place data.
+ *      For example, the format string can be something like:
+ *      "n = %d"
+ *      But the actual input that correstponds to this format string
+ *      can be something like:
+ *      "n = 1"
  *
  * Output:
  *      Data specified by format string and input from stdin.
@@ -34,15 +39,24 @@
  *      Number of objects successfully converted.
  *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
+ *      This function will need to get input and compare the input
+ *      to the first argument 'format'. The first time the input
+ *      stream doesn't match the 'format' parameter, the function
+ *      should return with a count of how many conversions have happened
+ *      so far. The conversion specifier in the 'format' string is '%'.
+ *      This tells the function that the next sequence of characters
+ *      on the input should be converted into the spedified data type.
+ *      The data type specifier should be the character after the '%'.
+ *      Initially this solution will only support 'd' and 'f' format
+ *      conversion specifiers like the text example minprintf().
  * 
  * Implementation:
  *      This version just does something trivial to run: return 0 if
  *      input matches format string, 1 if no match.
  *
  * Build:
- *      See minscanf_main.c.
+ *      $ gcc -c minscanf.c
+ *      For full app build instructions, see minscanf_main.c.
  *
  * Run:
  *      See minscanf_main.c.
@@ -54,18 +68,120 @@
  */
 
 #include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
 #include "minscanf.h"
 
 
-/* ch7_scanf:  formatted input, chapter 7 version */
-int ch7_scanf(char *format, ...)
+/* minscanf:  formatted input, chapter 7 version */
+int minscanf(char *format, ...)
 {
-    char *p;
+    va_list ap;
+    //char *sval;
+    //int ival;
+    //double dval;
+    char *p;                    /* pointer to format string */
+    int c;                      /* character from stdin */ 
     int ret = 0;
-    for (p = format; *p; p++) {
-        if (getchar() != *p)
-            ret = 1;
-    }
+    int cnt = 0;                /* number of matched input specifiers */
 
+    va_start(ap, format);       /* piont ap to the first unnamed arg */ 
+    for (p = format; *p; p++) {
+        if ((c = getchar()) != *p)
+            ret = cnt;
+        if (c == '%') {
+            *p++ = (c = getchar());
+            switch (*p) {
+            case 'd':
+                //ival = va_arg(ap, int);
+                cnt++;
+                break;    
+            case 'f':
+                //dval = va_arg(ap, double);
+                cnt++;
+                break;
+            }
+        }
+    }
+    ret = cnt;
+    va_end(ap); 
     return ret;
 }
+
+/* protoscanf:  practice for getting to minscanf() */
+int protoscanf(char *format, ...)
+{
+    va_list ap;
+    //char *sval;
+    int ival = 0;
+    //double dval;
+    //char *p;                    /* pointer to format string */
+    //int status = 1;
+    int i;
+    int j;
+    int c;
+    int cnt = 0;
+    char args[80];              /* argument string */
+    int *ip;
+    int len = strlen(format);
+
+    va_start(ap, format);
+    ip = va_arg(ap, int *);
+    /* get some input and see if it matches format */
+    printf("protoscanf: format = %s, len = %d, val = %d\n",
+             format, len, *ip);
+    //ival = va_arg(ap, int);
+    //ival = va_arg(ap, int);
+    //printf("protoscanf: format = %s, len = %d, val = %d\n",
+             //format, len, ival);
+    for (i = 0; i < len; i++) {
+        c = getchar();
+        printf("i = %d, c = %c, format[%d] = %c\n", i, c, i, format[i]);
+        if (c != format[i] && format[i] != '%')
+            break;
+        if (format[i] == '%') {
+             printf("minscanf: found arg\n");
+             switch (format[++i]) {
+             case 'd':      /* get a decimal number */
+                j = 0;
+                args[j++] = c;
+                while ((c = getchar()) != ' ')
+                    args[j++] = c;
+                args[j] = '\0';
+                printf("minscanf: j = %d, int arg = %s\n", j, args);
+                for (j = 0; j < 80; j++)
+                    ;
+                printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
+                //printf("minscanf\n");
+                *ip = atoi(args);
+                //ival = va_arg(ap, int);
+                cnt++;
+                break;
+            case 'f':       /* get a floating point number */
+                break;
+            default:
+                fprintf(stderr, "minscanf: spec error: c = %c\n", c);
+                break;
+            }
+        }
+    }
+
+    /*if (i == len) 
+        status = 0;
+    else
+        status = 1;
+    */
+    va_end(ap);
+    return cnt;
+
+}
+
+/* while ((c=getchar()) != EOF && c != '\n')
+            printf("i = %d, c = %c, format[%d] = %c", i, c, i, format[1]);
+            if (format[n++] != c) {
+                //printf("protoscanf: format[%d] = %c, c = %c\n",
+                //       n, format[n], c);
+                status = 1;
+            }*/
+

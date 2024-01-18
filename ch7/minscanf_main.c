@@ -1,15 +1,11 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
- *      Vim modeline for consistent editor settings across files.
  *
  * minscanf_main.c
  *      main() driver for scanf, chapter 7 version.
  *
  * Description:
- *      Template for code and solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
- *
- * Input:
- *      Describe the expected input.
+ *      Use mainscanf() from minscanf.c to test behavior.
+ *      Part of Exercise 7-4.
  *
  * Output:
  *      What output does this program generate? stdout, stderr, files, etc.
@@ -32,14 +28,16 @@
 #include <stdio.h>
 #include "minscanf.h"
 
+int gn;
+
 int main(int argc, char *argv[])
 {
 
-    char *format = "hi there, scanf()";
-    char buf[10];
-    int status = 0;
+    int count = 0;
 
-    status = ch7_scanf(format, buf);
-    if (status) printf("mismatch!\n");
+    count = protoscanf("test%di", &gn);
+    printf("protoscanf count = %d\n", count);
+   
+    printf("value scaned = %d\n", gn); 
     return 0;
 }
