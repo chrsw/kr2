@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 
     int count = 0;
 
-    count = protoscanf("test%di", &gn);
-    printf("protoscanf count = %d\n", count);
+    count = minscanf("test%di", &gn);
+    printf("minscanf count = %d\n", count);
    
     printf("value scaned = %d\n", gn); 
     return 0;

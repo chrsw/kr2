@@ -79,41 +79,6 @@ int minscanf(char *format, ...)
 {
     va_list ap;
     //char *sval;
-    //int ival;
-    //double dval;
-    char *p;                    /* pointer to format string */
-    int c;                      /* character from stdin */ 
-    int ret = 0;
-    int cnt = 0;                /* number of matched input specifiers */
-
-    va_start(ap, format);       /* piont ap to the first unnamed arg */ 
-    for (p = format; *p; p++) {
-        if ((c = getchar()) != *p)
-            ret = cnt;
-        if (c == '%') {
-            *p++ = (c = getchar());
-            switch (*p) {
-            case 'd':
-                //ival = va_arg(ap, int);
-                cnt++;
-                break;    
-            case 'f':
-                //dval = va_arg(ap, double);
-                cnt++;
-                break;
-            }
-        }
-    }
-    ret = cnt;
-    va_end(ap); 
-    return ret;
-}
-
-/* protoscanf:  practice for getting to minscanf() */
-int protoscanf(char *format, ...)
-{
-    va_list ap;
-    //char *sval;
     int ival = 0;
     //double dval;
     //char *p;                    /* pointer to format string */
@@ -129,12 +94,10 @@ int protoscanf(char *format, ...)
     va_start(ap, format);
     ip = va_arg(ap, int *);
     /* get some input and see if it matches format */
-    printf("protoscanf: format = %s, len = %d, val = %d\n",
+    printf("minscanf: format = %s, len = %d, val = %d\n",
              format, len, *ip);
     //ival = va_arg(ap, int);
     //ival = va_arg(ap, int);
-    //printf("protoscanf: format = %s, len = %d, val = %d\n",
-             //format, len, ival);
     for (i = 0; i < len; i++) {
         c = getchar();
         printf("i = %d, c = %c, format[%d] = %c\n", i, c, i, format[i]);
@@ -176,12 +139,4 @@ int protoscanf(char *format, ...)
     return cnt;
 
 }
-
-/* while ((c=getchar()) != EOF && c != '\n')
-            printf("i = %d, c = %c, format[%d] = %c", i, c, i, format[1]);
-            if (format[n++] != c) {
-                //printf("protoscanf: format[%d] = %c, c = %c\n",
-                //       n, format[n], c);
-                status = 1;
-            }*/
 

@@ -9,6 +9,5 @@
 #define MINSCANF_H
 
 int minscanf(char *, ...);
-int protoscanf(char *, ...);
 
 #endif /* MINSCANF_H*/
