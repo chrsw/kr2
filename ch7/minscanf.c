@@ -79,6 +79,9 @@ int minscanf(char *format, ...)
 {
     va_list ap;
     int ival = 0;
+    double dval = 0.0;
+    double *pdval;
+    int *pival;
     int i;
     int j;
     int c;
@@ -111,10 +114,24 @@ int minscanf(char *format, ...)
                     ;
                 printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
                 *ip = atoi(args);
-                //ival = va_arg(ap, int);
+                pival = va_arg(ap, int *);
+                *pival = atoi(args);
                 cnt++;
                 break;
             case 'f':       /* get a floating point number */
+                j = 0;
+                args[j++] = c;
+                while ((c = getchar()) != ' ')
+                    args[j++] = c;
+                args[j] = '\0';
+                printf("minscanf: j = %d, double arg = %s\n", j, args);
+                for (j = 0; j < 80; j++)
+                    ;
+                printf("minscanf: orig: %f, new: %f\n", dval, atof(args));
+                *ip = atof(args);
+                pdval = va_arg(ap, double *);
+                *pdval = atof(args);
+                cnt++;
                 break;
             default:
                 fprintf(stderr, "minscanf: spec error: c = %c\n", c);
