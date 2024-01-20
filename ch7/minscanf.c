@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *
  * minscanf.c
- *      Private version of scanf.c
+ *      Private version of scanf.c. Solution for Exercise 7.4.
  *
  * Description:
  *      Exercise 7-4: Write a private version of scanf() analogous to
@@ -78,11 +78,7 @@
 int minscanf(char *format, ...)
 {
     va_list ap;
-    //char *sval;
     int ival = 0;
-    //double dval;
-    //char *p;                    /* pointer to format string */
-    //int status = 1;
     int i;
     int j;
     int c;
@@ -96,8 +92,6 @@ int minscanf(char *format, ...)
     /* get some input and see if it matches format */
     printf("minscanf: format = %s, len = %d, val = %d\n",
              format, len, *ip);
-    //ival = va_arg(ap, int);
-    //ival = va_arg(ap, int);
     for (i = 0; i < len; i++) {
         c = getchar();
         printf("i = %d, c = %c, format[%d] = %c\n", i, c, i, format[i]);
@@ -116,7 +110,6 @@ int minscanf(char *format, ...)
                 for (j = 0; j < 80; j++)
                     ;
                 printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
-                //printf("minscanf\n");
                 *ip = atoi(args);
                 //ival = va_arg(ap, int);
                 cnt++;
@@ -130,11 +123,6 @@ int minscanf(char *format, ...)
         }
     }
 
-    /*if (i == len) 
-        status = 0;
-    else
-        status = 1;
-    */
     va_end(ap);
     return cnt;
 
