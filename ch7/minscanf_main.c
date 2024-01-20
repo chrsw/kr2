@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
 
     int count = 0;
 
+    (void)argc;
+    (void)argv;
+
     count = minscanf("test%di", &gn);
     printf("minscanf count = %d\n", count);
    
