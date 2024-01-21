@@ -1,7 +1,7 @@
 # About this repo
 Code for _The C Programming Language 2nd Ed._ (K&R2) Kernighan & Ritchie, 1988, Prentice Hall
 
-Build instructions are embedded in source files or sub-directories.
+Build instructions are embedded in source files, sub-directories or Makefiles.
 
 This repo contains exercises, original solutions, code snippets, examples, thoughts, etc. related to K&R2. The excerpts are left as close as posssible to the text while still building on a real modern system.
 
