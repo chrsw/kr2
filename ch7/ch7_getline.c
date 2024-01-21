@@ -9,7 +9,7 @@
  *
  * Build:
  *      $ gcc -c ch7_getline.c
- *      or compile into large app:
+ *      - or -
  *      $ gcc -c app ch7_getline.c app.c
  *
  */

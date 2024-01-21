@@ -10,8 +10,8 @@
  *      on a new page, with a title and running page count for each file.
  *
  *      Print a set of files where each file only appears on one page or
- *      This excercise basically asks the reader to write a simplified
- *      version of the unix 'pr' command.
+ *      This exercise basically asks the reader to write a simplified
+ *      version of the Unix 'pr' command.
  *
  * Input:
  *      A list of files named on the command line.
