@@ -51,15 +51,15 @@
  *      conversion specifiers like the text example minprintf().
  * 
  * Implementation:
- *      This version just does something trivial to run: return 0 if
- *      input matches format string, 1 if no match.
+ *      TBD
  *
  * Build:
- *      $ gcc -c minscanf.c
- *      For full app build instructions, see minscanf_main.c.
+ *      $ gcc -o minscanf minscanf.c
+ *      - or -
+ *      $ make minscanf
  *
  * Run:
- *      See minscanf_main.c.
+ *      $ ./minscanf
  *
  * Notes:
  *      For this example it is ok to actually call scanf() like minprintf()
@@ -145,3 +145,19 @@ int minscanf(char *format, ...)
 
 }
 
+int gn;
+
+int main(int argc, char *argv[])
+{
+
+    int count = 0;
+
+    (void)argc;
+    (void)argv;
+
+    count = minscanf("test%di", &gn);
+    printf("minscanf count = %d\n", count);
+   
+    printf("value scaned = %d\n", gn); 
+    return 0;
+}
