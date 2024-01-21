@@ -7,3 +7,6 @@ minscanf: minscanf_main.o minscanf.o
 
 clean:
 	rm *.o
+
+cleanprp:
+	rm prp
