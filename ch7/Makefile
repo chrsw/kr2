@@ -10,3 +10,6 @@ clean:
 
 cleanprp:
 	rm prp
+
+cleanminscanf:
+	rm minscanf
