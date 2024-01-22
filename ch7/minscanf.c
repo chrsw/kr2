@@ -110,8 +110,6 @@ int minscanf(char *format, ...)
                     args[j++] = c;
                 args[j] = '\0';
                 //printf("minscanf: j = %d, int arg = %s\n", j, args);
-                for (j = 0; j < 80; j++)
-                    ;
                 //printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
                 *ip = atoi(args);
                 pival = va_arg(ap, int *);
@@ -125,8 +123,6 @@ int minscanf(char *format, ...)
                     args[j++] = c;
                 args[j] = '\0';
                 //printf("minscanf: j = %d, double arg = %s\n", j, args);
-                for (j = 0; j < 80; j++)
-                    ;
                 //printf("minscanf: orig: %f, new: %f\n", dval, atof(args));
                 *ip = atof(args);
                 pdval = va_arg(ap, double *);
