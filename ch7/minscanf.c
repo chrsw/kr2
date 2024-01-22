@@ -93,15 +93,15 @@ int minscanf(char *format, ...)
     va_start(ap, format);
     ip = va_arg(ap, int *);
     /* get some input and see if it matches format */
-    printf("minscanf: format = %s, len = %d, val = %d\n",
-             format, len, *ip);
+    //printf("minscanf: format = %s, len = %d, val = %d\n",
+    //         format, len, *ip);
     for (i = 0; i < len; i++) {
         c = getchar();
-        printf("i = %d, c = %c, format[%d] = %c\n", i, c, i, format[i]);
+        //printf("i = %d, c = %c, format[%d] = %c\n", i, c, i, format[i]);
         if (c != format[i] && format[i] != '%')
             break;
         if (format[i] == '%') {
-             printf("minscanf: found arg\n");
+             //printf("minscanf: found arg\n");
              switch (format[++i]) {
              case 'd':      /* get a decimal number */
                 j = 0;
@@ -109,10 +109,10 @@ int minscanf(char *format, ...)
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
                 args[j] = '\0';
-                printf("minscanf: j = %d, int arg = %s\n", j, args);
+                //printf("minscanf: j = %d, int arg = %s\n", j, args);
                 for (j = 0; j < 80; j++)
                     ;
-                printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
+                //printf("minscanf: orig: %d, new: %d\n", ival, atoi(args));
                 *ip = atoi(args);
                 pival = va_arg(ap, int *);
                 *pival = atoi(args);
@@ -124,10 +124,10 @@ int minscanf(char *format, ...)
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
                 args[j] = '\0';
-                printf("minscanf: j = %d, double arg = %s\n", j, args);
+                //printf("minscanf: j = %d, double arg = %s\n", j, args);
                 for (j = 0; j < 80; j++)
                     ;
-                printf("minscanf: orig: %f, new: %f\n", dval, atof(args));
+                //printf("minscanf: orig: %f, new: %f\n", dval, atof(args));
                 *ip = atof(args);
                 pdval = va_arg(ap, double *);
                 *pdval = atof(args);
@@ -151,12 +151,13 @@ int main(int argc, char *argv[])
 {
 
     int count = 0;
-
+    char *format = "test%di";
     (void)argc;
     (void)argv;
 
-    count = minscanf("test%di", &gn);
-    printf("minscanf count = %d\n", count);
+
+    count = minscanf(format, &gn);
+    //printf("minscanf count = %d\n", count);
    
     printf("value scaned = %d\n", gn); 
     return 0;
