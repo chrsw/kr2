@@ -4,14 +4,13 @@
  *      Simple implementation of isupper().
  *
  * Description:
- *      Part of code and solution to chpater 7, exercise 9.
+ *      Part of code and solution to chapter 7, exercise 9.
  *
  * Input:
  *      One character, c.
  *
  * Returns:
  *      Non-zero if c is upper case, zero if not.
- *      
  *
  */
 
