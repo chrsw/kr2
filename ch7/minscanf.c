@@ -151,12 +151,12 @@ int main(int argc, char *argv[])
 {
 
     int count = 0;
-    char *format = "test%di";
+    
     (void)argc;
     (void)argv;
 
 
-    count = minscanf(format, &gn);
+    count = minscanf("test%di", &gn);
     //printf("minscanf count = %d\n", count);
    
     printf("value scaned = %d\n", gn); 
