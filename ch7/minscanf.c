@@ -91,7 +91,7 @@ int minscanf(char *format, ...)
     int len = strlen(format);
 
     va_start(ap, format);
-    ip = va_arg(ap, int *);
+    //ip = va_arg(ap, int *);
     /* get some input and see if it matches format */
     //printf("minscanf: format = %s, len = %d, val = %d\n",
     //         format, len, *ip);
@@ -122,9 +122,9 @@ int minscanf(char *format, ...)
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
                 args[j] = '\0';
-                //printf("minscanf: j = %d, double arg = %s\n", j, args);
+                printf("minscanf: j = %d, double arg = %s\n", j, args);
                 //printf("minscanf: orig: %f, new: %f\n", dval, atof(args));
-                *ip = atof(args);
+                //*ip = atof(args);
                 pdval = va_arg(ap, double *);
                 *pdval = atof(args);
                 cnt++;
@@ -142,6 +142,7 @@ int minscanf(char *format, ...)
 }
 
 int gn;
+double gd;
 
 int main(int argc, char *argv[])
 {
@@ -152,9 +153,10 @@ int main(int argc, char *argv[])
     (void)argv;
 
 
-    count = minscanf("test%di", &gn);
+    count = minscanf("test%fi", &gd);
     //printf("minscanf count = %d\n", count);
    
-    printf("value scaned = %d\n", gn); 
+    //printf("value scaned = %d\n", gn);
+    printf("value scaned = %f, args converted = %d\n", gd, count); 
     return 0;
 }
