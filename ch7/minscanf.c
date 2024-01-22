@@ -138,7 +138,6 @@ int minscanf(char *format, ...)
 
     va_end(ap);
     return cnt;
-
 }
 
 int gn;
@@ -152,7 +151,7 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-
+    printf("input: test%%fi\n");
     count = minscanf("test%fi", &gd);
     //printf("minscanf count = %d\n", count);
    
