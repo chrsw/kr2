@@ -106,7 +106,18 @@ int minscanf(char *format, ...)
                 *pival = atoi(args);
                 cnt++;
                 break;
+             case 'u':      /* get a decimal number */
+                j = 0;
+                args[j++] = c;
+                while ((c = getchar()) != ' ')
+                    args[j++] = c;
+                args[j] = '\0';
+                pival = va_arg(ap, int *);
+                *pival = (unsigned int)atoi(args);
+                cnt++;
+                break;
             case 'f':       /* get a floating point number */
+            case 'g':
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
@@ -115,6 +126,8 @@ int minscanf(char *format, ...)
                 pdval = va_arg(ap, double *);
                 *pdval = atof(args);
                 cnt++;
+                break;
+            case '%':       /* do nothing, found a literal '%' */
                 break;
             default:
                 fprintf(stderr, "minscanf: spec error: c = %c\n", c);
