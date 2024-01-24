@@ -6,7 +6,7 @@ clean:
 	rm *.o
 
 cleanprp:
-	rm prp
+	rm prp *.0
 
 cleanminscanf:
-	rm minscanf
+	rm minscanf *.o
