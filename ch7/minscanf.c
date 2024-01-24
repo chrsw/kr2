@@ -5,8 +5,8 @@
  *
  * Description:
  *      Exercise 7-4: Write a private version of scanf() analogous to
- *      minprintf() from the previous section. See minprintf.c in this
- *      directory for what that entails.
+ *      minprintf() from the previous section. 
+ *      See minprintf.c in this directory for what that entails.
  *
  *      scanf() is described in Section 7.4. Here are the key points
  *      - converts stdin input according to 'format'
@@ -23,12 +23,13 @@
  *          - an optional h, l or L
  *          - a conversion character
  *      - literal characters in format string must match input
+ *      This file includes the minscanf() main driver.
  *
  * Input:
  *      Format string and pointers to place data.
  *      For example, the format string can be something like:
  *      "n = %d"
- *      But the actual input that correstponds to this format string
+ *      But the actual input that corresponds to this format string
  *      can be something like:
  *      "n = 1"
  *
@@ -45,7 +46,7 @@
  *      should return with a count of how many conversions have happened
  *      so far. The conversion specifier in the 'format' string is '%'.
  *      This tells the function that the next sequence of characters
- *      on the input should be converted into the spedified data type.
+ *      on the input should be converted into the specified data type.
  *      The data type specifier should be the character after the '%'.
  *      Initially this solution will only support 'd' and 'f' format
  *      conversion specifiers like the text example minprintf().
@@ -155,7 +156,7 @@ int main(int argc, char *argv[])
     count = minscanf("test%fi", &gd);
     //printf("minscanf count = %d\n", count);
    
-    //printf("value scaned = %d\n", gn);
-    printf("value scaned = %f, args converted = %d\n", gd, count); 
+    //printf("value scanned = %d\n", gn);
+    printf("value scanned = %f, args converted = %d\n", gd, count); 
     return 0;
 }
