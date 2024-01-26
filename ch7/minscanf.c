@@ -140,18 +140,19 @@ int minscanf(char *format, ...)
     return cnt;
 }
 
-int gn;
-double gd;
 
 int main(int argc, char *argv[])
 {
     int count = 0;
-    
+    int gn;
+    double gd;
+
     (void)argc;
     (void)argv;
 
-    printf("input: test%%fi\n");
-    count = minscanf("test%fi", &gd);
-    printf("value scanned = %f, args converted = %d\n", gd, count); 
+    printf("input: testf%%fi%%dd\n");
+    count = minscanf("testf%fi%dd", &gd, &gn);
+    printf("float scanned = %f, int scanned = %d, args converted = %d\n",
+            gd, gn, count); 
     return 0;
 }
