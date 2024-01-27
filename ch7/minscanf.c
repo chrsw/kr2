@@ -87,6 +87,7 @@ int minscanf(char *format, ...)
     va_list ap;                                 /* variadic arg pointer */
     double *pdval;                              /* conversion pointers */
     int *pival;
+    long *plval;
     int cnt = 0;                                /* conversion count */
     char args[80];                              /* argument string */
    
@@ -132,6 +133,16 @@ int minscanf(char *format, ...)
                 *pdval = atof(args);
                 cnt++;
                 break;
+            case 'l':
+                j = 0;
+                args[j++] = c;
+                while ((c = getchar()) != ' ')
+                    args[j++] = c;
+                args[j] = '\0';
+                plval = va_arg(ap, long *);
+                *plval = atol(args);
+                cnt++;
+                break;
             case '%':                 /* do nothing, found a literal '%' */
                 break;
             default:
@@ -151,13 +162,15 @@ int main(int argc, char *argv[])
     int count = 0;
     int gn;
     double gd;
+    long gl;
 
     (void)argc;
     (void)argv;
 
-    printf("input: testf%%fi%%dd\n");
-    count = minscanf("testf%fi%dd", &gd, &gn);
-    printf("float scanned = %f, int scanned = %d, args converted = %d\n",
-            gd, gn, count); 
+    printf("input: testf%%fi%%ddlong%%l l\n");
+    count = minscanf("testf%fi%ddlong%l l", &gd, &gn, &gl);
+    printf("float scanned = %f, int scanned = %d,\
+            long scanned = %li, args converted = %d\n",
+            gd, gn, gl, count); 
     return 0;
 }
