@@ -61,6 +61,7 @@
  *
  * Run:
  *      $ ./minscanf
+ *      Then type the input using the displayed format.
  *
  * Notes:
  *      For this example it is ok to actually call scanf() like minprintf()
