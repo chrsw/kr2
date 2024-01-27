@@ -1,0 +1,4 @@
+chris@xps:~/proj/knr2/ch7$ ./minscanf
+input: testf%fi%ddlong%l l
+testf1.2 i34 dlong 5678900000 l
+float scanned = 1.200000, int scanned = 34,            long scanned = 5678900000, args converted = 3
