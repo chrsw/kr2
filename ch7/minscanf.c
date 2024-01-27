@@ -66,6 +66,12 @@
  *      For this example it is ok to actually call scanf() like minprintf()
  *      calls printf()?
  *
+ * TODO:
+ *      Many improvements can be made here. For example, no static arrays
+ *      in case input is malformed.
+ *      Don't use string length to drive conversion.
+ *      Try reusing functions from earlier chapters, getword()?
+ *
  */
 
 #include <stdio.h>
@@ -78,25 +84,24 @@
 /* minscanf:  formatted input, chapter 7 version */
 int minscanf(char *format, ...)
 {
-    va_list ap;
-    double *pdval;
+    va_list ap;                                 /* variadic arg pointer */
+    double *pdval;                              /* conversion pointers */
     int *pival;
-    int i;
-    int j;
-    int c;
-    int cnt = 0;
-    char args[80];              /* argument string */
+    int cnt = 0;                                /* conversion count */
+    char args[80];                              /* argument string */
     int len = strlen(format);
 
     va_start(ap, format);
+    
     /* get some input and see if it matches format */
-    for (i = 0; i < len; i++) {
-        c = getchar();
+    for (int i = 0; i < len; i++) {
+        int c = getchar();
         if (c != format[i] && format[i] != '%')
             break;
         if (format[i] == '%') {
+            int j;
              switch (format[++i]) {
-             case 'd':      /* get a decimal number */
+             case 'd':                          /* get a decimal number */
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
@@ -106,7 +111,7 @@ int minscanf(char *format, ...)
                 *pival = atoi(args);
                 cnt++;
                 break;
-             case 'u':      /* get a decimal number */
+             case 'u':                          /* get a decimal number */
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
@@ -116,7 +121,7 @@ int minscanf(char *format, ...)
                 *pival = (unsigned int)atoi(args);
                 cnt++;
                 break;
-            case 'f':       /* get a floating point number */
+            case 'f':                           /* floating point number */
             case 'g':
                 j = 0;
                 args[j++] = c;
@@ -127,7 +132,7 @@ int minscanf(char *format, ...)
                 *pdval = atof(args);
                 cnt++;
                 break;
-            case '%':       /* do nothing, found a literal '%' */
+            case '%':                 /* do nothing, found a literal '%' */
                 break;
             default:
                 fprintf(stderr, "minscanf: spec error: c = %c\n", c);
