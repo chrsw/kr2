@@ -89,19 +89,19 @@ int minscanf(char *format, ...)
     int *pival;
     int cnt = 0;                                /* conversion count */
     char args[80];                              /* argument string */
-    int len = strlen(format);
-
+   
     va_start(ap, format);
     
     /* get some input and see if it matches format */
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < (int)strlen(format); i++) {
         int c = getchar();
         if (c != format[i] && format[i] != '%')
             break;
         if (format[i] == '%') {
             int j;
-             switch (format[++i]) {
-             case 'd':                          /* get a decimal number */
+            switch (format[++i]) {
+            case 'd':                          /* get a decimal number */
+            case 'i':
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
@@ -111,7 +111,7 @@ int minscanf(char *format, ...)
                 *pival = atoi(args);
                 cnt++;
                 break;
-             case 'u':                          /* get a decimal number */
+            case 'u':                          /* get a decimal number */
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
