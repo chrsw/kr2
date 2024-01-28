@@ -7,3 +7,9 @@ chris@xps:~/proj/knr2/ch7$ ./minscanf
 input: teststr%s s
 teststraabbccdd s
 string scanned = aabbccdd, count = 1
+
+ fomrat = test d1%d d2%d end
+format length = 18
+test d110 d220 end
+scan results:
+int = 10, int = 20, count = 2
