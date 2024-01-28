@@ -134,3 +134,4 @@ atoi
 ival
 dval
 atof
+variadic
