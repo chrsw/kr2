@@ -70,8 +70,8 @@
  *
  *
  * TODO:
- *      Many improvements can be made here. For example, no static arrays
- *      in case input is malformed.
+ *      Many improvements can be made. Here are some ideas:
+ *      No static arrays in case input is malformed.
  *      Don't use string length to drive conversion.
  *      Try reusing functions from earlier chapters, getword()?
  *      Describe how this works in better detail.
@@ -80,6 +80,9 @@
  *      - c matches a character
  *      - o matches an octal number
  *      - x matches an unsigned hexadecimal integer
+ *      Write functions to do the conversion instead of 
+ *      growing the main switch statement.
+ *      Get test input string from command line.
  *
  */
 
@@ -98,12 +101,15 @@ int minscanf(char *format, ...)
     int *pival;
     long *plval;
     int cnt = 0;                                /* conversion count */
-    char args[80];                              /* argument string */
+    char args[80];                              /* argument string to convert */
+                                                /* TODO: use dynmaic memory */
+                                                /* instead of static array */
    
-    va_start(ap, format);
+    va_start(ap, format);                       /* set arg list pointer ap */
+                                                /* to the first function arg */
     
     /* check if any chars are '%', for the length of the input */
-    for (int i = 0; i < (int)strlen(format); i++) {
+    for (size_t i = 0; i < strlen(format); i++) {
         int c = getchar();
 
         if (c != format[i] && format[i] != '%')
@@ -116,9 +122,9 @@ int minscanf(char *format, ...)
             case 'i':
                 j = 0;
                 args[j++] = c;
-                while ((c = getchar()) != ' ')
-                    args[j++] = c;
-                args[j] = '\0';
+                while ((c = getchar()) != ' ')  /* get input from stdin */
+                    args[j++] = c;              /* and convert to specified */
+                args[j] = '\0';                 /* value */
                 pival = va_arg(ap, int *);
                 *pival = atoi(args);
                 cnt++;
@@ -174,6 +180,7 @@ int main(int argc, char *argv[])
     int pn;
     double pd;
     long pl;
+
 
     (void)argc;
     (void)argv;
