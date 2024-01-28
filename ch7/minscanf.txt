@@ -1,15 +1,6 @@
 chris@xps:~/proj/knr2/ch7$ ./minscanf 
-input: testf%ff%ddlong%l l
-testf1.01 f20 dlong300000 l
-float scanned = 1.010000, int scanned = 20,            long scanned = 300000, args converted = 3
-
-chris@xps:~/proj/knr2/ch7$ ./minscanf 
-input: teststr%s s
-teststraabbccdd s
-string scanned = aabbccdd, count = 1
-
- fomrat = test d1%d d2%d end
-format length = 18
-test d110 d220 end
+fomrat = test d%d f%g l%l s%s end
+format length = 24
+test d12 f34.5 l600006000000 shello end
 scan results:
-int = 10, int = 20, count = 2
+float = 34.500000, int = 12, long = 600006000000, string = hello, count = 4

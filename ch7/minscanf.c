@@ -140,6 +140,7 @@ int minscanf(char *format, ...)
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
+                ungetc(c, stdin);
                 args[j] = '\0';
                 pival = va_arg(ap, int *);
                 *pival = (unsigned int)atoi(args);
@@ -151,6 +152,7 @@ int minscanf(char *format, ...)
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
+                ungetc(c, stdin);
                 args[j] = '\0';
                 pdval = va_arg(ap, double *);
                 *pdval = atof(args);
@@ -161,6 +163,7 @@ int minscanf(char *format, ...)
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
+                ungetc(c, stdin);
                 args[j] = '\0';
                 plval = va_arg(ap, long *);
                 *plval = atol(args);
@@ -171,6 +174,7 @@ int minscanf(char *format, ...)
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
                     args[j++] = c;
+                ungetc(c, stdin);
                 args[j] = '\0';
                 pstr = va_arg(ap, char *);
                 strcpy(pstr,args);
@@ -192,7 +196,7 @@ int minscanf(char *format, ...)
 int main(int argc, char *argv[])
 {
     int count = 0;
-    int pn, pn2;
+    int pn;
     double pd;
     long pl;
     char str[40];
@@ -200,11 +204,10 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    count = minscanf("test d1%d d2%d end", &pn, &pn2);
+    count = minscanf("test d%d f%g l%l s%s end", &pn, &pd, &pl, str);
     printf("scan results:\n");
-    printf("int = %d, int = %d, count = %d\n", pn, pn2, count);
-    //printf("float = %f, int = %d, long = %li, string = %s, count = %d\n",
-    //       pd, pn, pl, str, count); 
+    printf("float = %f, int = %d, long = %li, string = %s, count = %d\n",
+           pd, pn, pl, str, count); 
 
     return 0;
 }
