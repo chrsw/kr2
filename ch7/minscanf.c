@@ -100,6 +100,7 @@ int minscanf(char *format, ...)
     double *pdval;                              /* conversion pointers */
     int *pival;
     long *plval;
+    char *pstr;
     int cnt = 0;                                /* conversion count */
     char args[80];                              /* argument string to convert */
                                                 /* TODO: use dynmaic memory */
@@ -160,6 +161,16 @@ int minscanf(char *format, ...)
                 *plval = atol(args);
                 cnt++;
                 break;
+            case 's':
+                j = 0;
+                args[j++] = c;
+                while ((c = getchar()) != ' ')
+                    args[j++] = c;
+                args[j] = '\0';
+                pstr = va_arg(ap, char *);
+                strcpy(pstr,args);
+                cnt++;
+                break;
             case '%':                 /* do nothing, found a literal '%' */
                 break;
             default:
@@ -180,15 +191,18 @@ int main(int argc, char *argv[])
     int pn;
     double pd;
     long pl;
-
+    char str[40];
 
     (void)argc;
     (void)argv;
 
-    printf("input: testf%%ff%%ddlong%%l l\n");
-    count = minscanf("testf%ffd%ddllong%l l", &pd, &pn, &pl);
-    printf("float scanned = %f, int scanned = %d,\
-            long scanned = %li, args converted = %d\n",
-            pd, pn, pl, count); 
+    //printf("input: testf%%ff%%ddlong%%l l\n");
+    printf("input: teststr%%s s\n");
+    //count = minscanf("testf%ffd%ddllong%l l", &pd, &pn, &pl);
+    count = minscanf("teststr%s s", str);
+    //printf("float scanned = %f, int scanned = %d,\
+    //        long scanned = %li, args converted = %d\n",
+    //       pd, pn, pl, count); 
+    printf("string scanned = %s, count = %d\n", str, count);
     return 0;
 }
