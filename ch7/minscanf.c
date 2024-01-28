@@ -182,6 +182,6 @@ int main(int argc, char *argv[])
     count = minscanf("testf%ff%ddlong%l l", &pd, &pn, &pl);
     printf("float scanned = %f, int scanned = %d,\
             long scanned = %li, args converted = %d\n",
-            gd, gn, gl, count); 
+            pd, pn, pl, count); 
     return 0;
 }
