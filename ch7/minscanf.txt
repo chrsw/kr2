@@ -1,4 +1,4 @@
-chris@xps:~/proj/knr2/ch7$ ./minscanf
-input: testf%fi%ddlong%l l
-testf1.2 i34 dlong 5678900000 l
-float scanned = 1.200000, int scanned = 34,            long scanned = 5678900000, args converted = 3
+chris@xps:~/proj/knr2/ch7$ ./minscanf 
+input: testf%ff%ddlong%l l
+testf1.01 f20 dlong300000 l
+float scanned = 1.010000, int scanned = 20,            long scanned = 300000, args converted = 3
