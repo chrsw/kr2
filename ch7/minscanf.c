@@ -7,7 +7,7 @@
  *      Exercise 7-4 says: "Write a private version of scanf() analogous to
  *      minprintf() from the previous section."
  *      See minprintf.c in this directory for what that entails.
- *      This implementaiton only supports a few scanf() features as it
+ *      This implementation only supports a few scanf() features as it
  *      for exercise only.
  *      
  *      scanf() is described in Section 7.4. Here are the key points:
@@ -20,7 +20,7 @@
  *      - blanks and tabs are ignored
  *      + conversion specifications:
  *          - start with '%'
- *          - an optional supression character '*'
+ *          - an optional suppression character '*'
  *          - an optional max field width number
  *          - an optional h, l or L
  *          - a conversion character
@@ -76,10 +76,10 @@
  *      Try reusing functions from earlier chapters, getword()?
  *      Describe how this works in better detail.
  *      Implement some more scanf() features, for example:
- *      - s matches a sring of non-white-space characters
+ *      - s matches a string of non-white-space characters
  *      - c matches a character
  *      - o matches an octal number
- *      - x matches an unisgned hexadecimal integer
+ *      - x matches an unsigned hexadecimal integer
  *
  */
 
@@ -109,7 +109,7 @@ int minscanf(char *format, ...)
         if (c != format[i] && format[i] != '%')
             break;                              /* input did not match format */
 
-        if (format[i] == '%') {                 /* conversion specfiier */
+        if (format[i] == '%') {                 /* conversion specifier */
             int j;                              /* find conversion type */
             switch (format[++i]) {              /* and convert */
             case 'd':                           /* decimal number */
