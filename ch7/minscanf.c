@@ -4,11 +4,13 @@
  *      Private version of scanf.c. Solution for Exercise 7.4.
  *
  * Description:
- *      Exercise 7-4: Write a private version of scanf() analogous to
- *      minprintf() from the previous section. 
+ *      Exercise 7-4 says: "Write a private version of scanf() analogous to
+ *      minprintf() from the previous section."
  *      See minprintf.c in this directory for what that entails.
- *
- *      scanf() is described in Section 7.4. Here are the key points
+ *      This implementaiton only supports a few scanf() features as it
+ *      for exercise only.
+ *      
+ *      scanf() is described in Section 7.4. Here are the key points:
  *      - converts stdin input according to 'format'
  *      - stops when the input fails to match 'format'
  *      - stops on EOF
@@ -23,6 +25,7 @@
  *          - an optional h, l or L
  *          - a conversion character
  *      - literal characters in format string must match input
+ *
  *      This file includes the minscanf() main driver.
  *
  * Input:
@@ -45,8 +48,9 @@
  *      stream doesn't match the 'format' parameter, the function
  *      should return with a count of how many conversions have happened
  *      so far. The conversion specifier in the 'format' string is '%'.
- *      This tells the function that the next sequence of characters
- *      on the input should be converted into the specified data type.
+ *      In the simplest sense, this tells the function that the next
+ *      sequence of characters on the input should be converted into 
+ *      the specified data type.
  *      The data type specifier should be the character after the '%'.
  *      Initially this solution will only support 'd' and 'f' format
  *      conversion specifiers like the text example minprintf().
@@ -61,17 +65,21 @@
  *
  * Run:
  *      $ ./minscanf
- *      Then type the input using the displayed format.
+ *      Then type the input using the displayed format followed by enter.
+ *      See minscanf.txt for examples.
  *
- * Notes:
- *      For this example it is ok to actually call scanf() like minprintf()
- *      calls printf()?
  *
  * TODO:
  *      Many improvements can be made here. For example, no static arrays
  *      in case input is malformed.
  *      Don't use string length to drive conversion.
  *      Try reusing functions from earlier chapters, getword()?
+ *      Describe how this works in better detail.
+ *      Implement some more scanf() features, for example:
+ *      - s matches a sring of non-white-space characters
+ *      - c matches a character
+ *      - o matches an octal number
+ *      - x matches an unisgned hexadecimal integer
  *
  */
 
@@ -82,7 +90,7 @@
 #include "minscanf.h"
 
 
-/* minscanf:  formatted input, chapter 7 version */
+/* minscanf:  formatted input, exercise 7-4 version */
 int minscanf(char *format, ...)
 {
     va_list ap;                                 /* variadic arg pointer */
@@ -94,15 +102,17 @@ int minscanf(char *format, ...)
    
     va_start(ap, format);
     
-    /* get some input and see if it matches format */
+    /* check if any chars are '%', for the length of the input */
     for (int i = 0; i < (int)strlen(format); i++) {
         int c = getchar();
+
         if (c != format[i] && format[i] != '%')
-            break;
-        if (format[i] == '%') {
-            int j;
-            switch (format[++i]) {
-            case 'd':                          /* get a decimal number */
+            break;                              /* input did not match format */
+
+        if (format[i] == '%') {                 /* conversion specfiier */
+            int j;                              /* find conversion type */
+            switch (format[++i]) {              /* and convert */
+            case 'd':                           /* decimal number */
             case 'i':
                 j = 0;
                 args[j++] = c;
@@ -113,7 +123,7 @@ int minscanf(char *format, ...)
                 *pival = atoi(args);
                 cnt++;
                 break;
-            case 'u':                          /* get a decimal number */
+            case 'u':                           /* unsigned number */
                 j = 0;
                 args[j++] = c;
                 while ((c = getchar()) != ' ')
@@ -161,15 +171,15 @@ int minscanf(char *format, ...)
 int main(int argc, char *argv[])
 {
     int count = 0;
-    int gn;
-    double gd;
-    long gl;
+    int pn;
+    double pd;
+    long pl;
 
     (void)argc;
     (void)argv;
 
-    printf("input: testf%%fi%%ddlong%%l l\n");
-    count = minscanf("testf%fi%ddlong%l l", &gd, &gn, &gl);
+    printf("input: testf%%ff%%ddlong%%l l\n");
+    count = minscanf("testf%ff%ddlong%l l", &pd, &pn, &pl);
     printf("float scanned = %f, int scanned = %d,\
             long scanned = %li, args converted = %d\n",
             gd, gn, gl, count); 
