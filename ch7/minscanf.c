@@ -108,13 +108,17 @@ int minscanf(char *format, ...)
    
     va_start(ap, format);                       /* set arg list pointer ap */
                                                 /* to the first function arg */
+
+    printf("fomrat = %s\nformat length = %lu\n", format, strlen(format));
     
     /* check if any chars are '%', for the length of the input */
     for (size_t i = 0; i < strlen(format); i++) {
         int c = getchar();
 
-        if (c != format[i] && format[i] != '%')
+        if (c != format[i] && format[i] != '%') {
+            fprintf(stderr, "minscanf: expected: '%c', found: '%c'\n", format[i], c);
             break;                              /* input did not match format */
+        }
 
         if (format[i] == '%') {                 /* conversion specifier */
             int j;                              /* find conversion type */
@@ -125,6 +129,7 @@ int minscanf(char *format, ...)
                 args[j++] = c;
                 while ((c = getchar()) != ' ')  /* get input from stdin */
                     args[j++] = c;              /* and convert to specified */
+                ungetc(c, stdin);
                 args[j] = '\0';                 /* value */
                 pival = va_arg(ap, int *);
                 *pival = atoi(args);
@@ -174,7 +179,6 @@ int minscanf(char *format, ...)
             case '%':                 /* do nothing, found a literal '%' */
                 break;
             default:
-                fprintf(stderr, "minscanf: spec error: c = %c\n", c);
                 break;
             }
         }
@@ -188,7 +192,7 @@ int minscanf(char *format, ...)
 int main(int argc, char *argv[])
 {
     int count = 0;
-    int pn;
+    int pn, pn2;
     double pd;
     long pl;
     char str[40];
@@ -196,13 +200,11 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    //printf("input: testf%%ff%%ddlong%%l l\n");
-    printf("input: teststr%%s s\n");
-    //count = minscanf("testf%ffd%ddllong%l l", &pd, &pn, &pl);
-    count = minscanf("teststr%s s", str);
-    //printf("float scanned = %f, int scanned = %d,\
-    //        long scanned = %li, args converted = %d\n",
-    //       pd, pn, pl, count); 
-    printf("string scanned = %s, count = %d\n", str, count);
+    count = minscanf("test d1%d d2%d end", &pn, &pn2);
+    printf("scan results:\n");
+    printf("int = %d, int = %d, count = %d\n", pn, pn2, count);
+    //printf("float = %f, int = %d, long = %li, string = %s, count = %d\n",
+    //       pd, pn, pl, str, count); 
+
     return 0;
 }
