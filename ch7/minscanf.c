@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
     (void)argv;
 
     printf("input: testf%%ff%%ddlong%%l l\n");
-    count = minscanf("testf%ff%ddlong%l l", &pd, &pn, &pl);
+    count = minscanf("testf%ffd%ddllong%l l", &pd, &pn, &pl);
     printf("float scanned = %f, int scanned = %d,\
             long scanned = %li, args converted = %d\n",
             pd, pn, pl, count); 
