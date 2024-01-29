@@ -66,7 +66,8 @@
  * Run:
  *      $ ./minscanf
  *      Then type the input using the displayed format followed by enter.
- *      See minscanf.txt for examples.
+ *      See minscanf.txt for examples. The program will run, print the 
+ *      converted values then exit.
  *
  *
  * TODO:
@@ -76,7 +77,6 @@
  *      Try reusing functions from earlier chapters, getword()?
  *      Describe how this works in better detail.
  *      Implement some more scanf() features, for example:
- *      - s matches a string of non-white-space characters
  *      - c matches a character
  *      - o matches an octal number
  *      - x matches an unsigned hexadecimal integer
@@ -103,13 +103,13 @@ int minscanf(char *format, ...)
     char *pstr;
     int cnt = 0;                                /* conversion count */
     char args[80];                              /* argument string to convert */
-                                                /* TODO: use dynmaic memory */
+                                                /* TODO: use dynamic memory */
                                                 /* instead of static array */
    
     va_start(ap, format);                       /* set arg list pointer ap */
                                                 /* to the first function arg */
 
-    printf("fomrat = %s\nformat length = %lu\n", format, strlen(format));
+    printf("format = %s\nformat length = %lu\n", format, strlen(format));
     
     /* check if any chars are '%', for the length of the input */
     for (size_t i = 0; i < strlen(format); i++) {
@@ -196,18 +196,18 @@ int minscanf(char *format, ...)
 int main(int argc, char *argv[])
 {
     int count = 0;
-    int pn;
-    double pd;
-    long pl;
+    int n;
+    double d;
+    long l;
     char str[40];
 
     (void)argc;
     (void)argv;
 
-    count = minscanf("test d%d f%g l%l s%s end", &pn, &pd, &pl, str);
+    count = minscanf("test d%d f%g l%l s%s end", &n, &d, &l, str);
     printf("scan results:\n");
     printf("float = %f, int = %d, long = %li, string = %s, count = %d\n",
-           pd, pn, pl, str, count); 
+           d, n, l, str, count); 
 
     return 0;
 }
