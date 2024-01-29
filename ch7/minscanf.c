@@ -92,6 +92,7 @@
 #include <stdlib.h>
 #include "minscanf.h"
 
+static inline void get_arg(char *, int);
 
 /* minscanf:  formatted input, exercise 7-4 version */
 int minscanf(char *format, ...)
@@ -125,57 +126,32 @@ int minscanf(char *format, ...)
             switch (format[++i]) {              /* and convert */
             case 'd':                           /* decimal number */
             case 'i':
-                j = 0;
-                args[j++] = c;
-                while ((c = getchar()) != ' ')  /* get input from stdin */
-                    args[j++] = c;              /* and convert to specified */
-                ungetc(c, stdin);
-                args[j] = '\0';                 /* value */
+                get_arg(args, c);                 /* value */
                 pival = va_arg(ap, int *);
                 *pival = atoi(args);
                 cnt++;
                 break;
             case 'u':                           /* unsigned number */
-                j = 0;
-                args[j++] = c;
-                while ((c = getchar()) != ' ')
-                    args[j++] = c;
-                ungetc(c, stdin);
-                args[j] = '\0';
+                get_arg(args, c);
                 pival = va_arg(ap, int *);
                 *pival = (unsigned int)atoi(args);
                 cnt++;
                 break;
             case 'f':                           /* floating point number */
             case 'g':
-                j = 0;
-                args[j++] = c;
-                while ((c = getchar()) != ' ')
-                    args[j++] = c;
-                ungetc(c, stdin);
-                args[j] = '\0';
+                get_arg(args, c);
                 pdval = va_arg(ap, double *);
                 *pdval = atof(args);
                 cnt++;
                 break;
             case 'l':
-                j = 0;
-                args[j++] = c;
-                while ((c = getchar()) != ' ')
-                    args[j++] = c;
-                ungetc(c, stdin);
-                args[j] = '\0';
+                get_arg(args, c);
                 plval = va_arg(ap, long *);
                 *plval = atol(args);
                 cnt++;
                 break;
             case 's':
-                j = 0;
-                args[j++] = c;
-                while ((c = getchar()) != ' ')
-                    args[j++] = c;
-                ungetc(c, stdin);
-                args[j] = '\0';
+                get_arg(args, c);
                 pstr = va_arg(ap, char *);
                 strcpy(pstr,args);
                 cnt++;
@@ -210,4 +186,14 @@ int main(int argc, char *argv[])
            d, n, l, str, count); 
 
     return 0;
+}
+
+static inline void get_arg(char *args, int c)
+{
+    int j = 0;
+    args[j++] = c;
+    while((c = getchar()) != ' ')
+        args[j++] = c;
+    ungetc(c, stdin);
+    args[j] = '\0';
 }
