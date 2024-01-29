@@ -8,7 +8,7 @@ The following table is a list of exercises and solutions.
 |7-1 	 |ex7-1.c 	|test.txt|
 |7-2  	 |sensible.c    |ex7_2_test_input.txt|
 |7-3     |        	|minprintf.c        |
-|7-4     |minscanf_main.c, minscanf.c        	|WIP, sdate.c for practice       |
+|7-4     |minscanf_main.c, minscanf.c        	|minscanf.h, sdate.c for practice       |
 |7-5     |        	|        |
 |7-6     |ex7-6.c|test2.txt, test3.txt|
 |7-7     |        	|        |
