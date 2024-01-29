@@ -92,7 +92,7 @@
 #include <stdlib.h>
 #include "minscanf.h"
 
-static inline void get_arg(char *, int);
+void get_arg(char *, int);
 
 /* minscanf:  formatted input, exercise 7-4 version */
 int minscanf(char *format, ...)
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-static inline void get_arg(char *args, int c)
+void get_arg(char *args, int c)
 {
     int j = 0;
     args[j++] = c;
