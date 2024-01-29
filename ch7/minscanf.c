@@ -168,6 +168,7 @@ int minscanf(char *format, ...)
 }
 
 
+/* minscanf:  driver/test */
 int main(int argc, char *argv[])
 {
     int count = 0;
@@ -187,6 +188,8 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+
+/* get_arg get the data for the next arg from standard input */
 void get_arg(char *args, int c)
 {
     int j = 0;
