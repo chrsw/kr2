@@ -122,7 +122,6 @@ int minscanf(char *format, ...)
         }
 
         if (format[i] == '%') {                 /* conversion specifier */
-            int j;                              /* find conversion type */
             switch (format[++i]) {              /* and convert */
             case 'd':                           /* decimal number */
             case 'i':
