@@ -4,7 +4,7 @@
  *      Test fclose() and fflush() from Exercise 8-3.
  *      
  *      An input file with a hard coded path is opened for reading. An output
- *      file also with a hard coded path is opened for writing. the length
+ *      file also with a hard coded path is opened for writing. The length
  *      of the input file is larger than the length of a file's buffer.
  *      
  *      The entire input file is read into a statically allocated buffer.
@@ -22,6 +22,10 @@
  * Build:
  *      $ gcc -o ch8_fclose_main ch8_fopen.c fclose.c fflush.c flushbuf.c \
  *      ch8_fillbuf.c ch8_fclose_main.c
+ *
+ * Run:
+ *      $ ./ch8_fclose_main
+ *      $ cat ch8_fclose_write_test.txt
  *
  * TODO:
  *      Implement better error handling.
@@ -56,7 +60,7 @@ int main(void) {
     if (r == NULL || w == NULL )
         return 1;
 
-    while ((c = getc(r)) != EOF)
+    while (((c = getc(r)) != EOF) && (i < 100))
         buf[i++] = c;
     buf[i] = '\0';
     len = strlen(buf);
