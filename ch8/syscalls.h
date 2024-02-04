@@ -29,19 +29,10 @@
 
 /* These are also defined in chapter 8 version of stdio.h */
 #ifndef BUFSIZ
-  #define BUFSIZ 8192
-#endif
-
-#ifndef NULL
-  #define NULL 0
-#endif
-
-#ifndef EOF
-  #define EOF (-1)
-#endif
-
-#ifndef OPEN_MAX
-  #define OPEN_MAX 20
+#define BUFSIZ 8192
+#define NULL 0
+#define EOF (-1)
+#define OPEN_MAX 20
 #endif
 
 #endif // SYSCALLS_H
