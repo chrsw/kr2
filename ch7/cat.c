@@ -1,17 +1,14 @@
-/* vim:ts=4:sw=4:et:
+/* vim:ts=4:sw=4:et:so=10:ls=2:
  *
  * cat.c
- *      cat: concatenate files, version 1
+ *      Concatenate files, version 1
  *
  * Description:
- *      Copied from Chapter 7.5 of K&R2.
+ *      Excerpt from Seciton 7.5 of K&R2.
  *
  * Input:
- *      List of files.
+ *      List of files on command line.
  *
- * Other info:
- * Returns, build, notes, etc. 
- * 
  *
  */
 
@@ -20,7 +17,7 @@
 void filecopy(FILE *, FILE *);
 
 
-/* concatenate files */
+/* cat:  concatenate files */
 int main(int argc, char *argv[])
 {
     FILE *fp;
@@ -42,7 +39,7 @@ int main(int argc, char *argv[])
 }
 
 
-/* filecopy: copy file ifp to file ofp */
+/* filecopy:  copy file ifp to file ofp */
 void filecopy(FILE *ifp, FILE *ofp)
 {
     int c;
