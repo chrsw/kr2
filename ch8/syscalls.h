@@ -17,21 +17,30 @@
 #include <unistd.h>
 #include <error.h>
 
-/* Including this header will provide the following functions */
-// read()
-// write()
-// open()
-// close()
-// lseek()
-// error()
-// creat() 
-// unlink()
+/* Including this header will provide the following functions
+ read()
+ write()
+ open()
+ close()
+ lseek()
+ error()
+ creat() 
+ unlink() */
 
-/* These are also defined in chapter 8 version of stdio.h */
+/* These are also defined in chapter 8 version of stdio.h
+ * Tried just using #ifndef BUFSIZE but still got redefinition 
+ * warnings on other #defines 
+ */
 #ifndef BUFSIZ
 #define BUFSIZ 8192
-#define NULL 0
+#endif
+#ifndef NULL
+#define NULL ((void *)0)
+#endif
+#ifndef EOF
 #define EOF (-1)
+#endif
+#ifndef OPEN_MAX
 #define OPEN_MAX 20
 #endif
 
