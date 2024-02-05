@@ -44,9 +44,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include "stdio.h"
+#include "ch8_fseek.h"
 
 
-int ch8_fseek(FILE *fp, long offset, int origin);
 
 int ch8_fseek(FILE *fp, long offset, int origin)
 {
