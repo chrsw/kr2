@@ -28,6 +28,11 @@
  *      the system call lseek() and check the return value. This example will
  *      have to use the chapter 8 version of stdio.h instead of the system
  *      version.
+ *
+ *      Only the following offset directives will be supported:
+ *      SEEK_CUR
+ *      SEEK_END
+ *      SEEK_SET
  * 
  * Implementation:
  *      TBD
@@ -43,6 +48,7 @@
 
 #include <sys/types.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "stdio.h"
 #include "ch8_fseek.h"
 
@@ -55,6 +61,25 @@ int ch8_fseek(FILE *fp, long offset, int origin)
     /* first check the file pointer is valid */
     if (fp == NULL) 
         return -1;
+
+    if (origin == SEEK_END) {
+        offs = lseek(fp->fd, offset, SEEK_END); 
+        /* offset is from the end of file */
+        return 0;
+    }
+    else if (origin == SEEK_CUR) {
+        /* offset is from current file position */
+        return 0;
+    }
+    else if (origin == SEEK_SET) {
+        /* file oirigin set to zero offset bytes */
+        /* i.e., use current file position, ignore offset */
+        return 0;
+    }
+    else {
+        // unsupported origin directive
+        return -1;
+    }
 
     offs = lseek(fp->fd, offset, origin); 
     return 0;
