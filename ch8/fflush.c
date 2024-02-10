@@ -6,7 +6,11 @@
  * Description:
  *      Simple fflush() implementation for part of Exercise 8-3.
  *      
- *      Description from the text:
+ *      Description from the text, Standard Library, Appendix B:
+ *      On an output stream, fp, fflush causes any buffered but unwritten
+ *      data to be written; on an input stream the affect is undefined. It
+ *      returns EOF for a write error, and zero otherwise.
+ *      fflush(NULL) flushes all output streams.
  *
  * Input:
  *      0 for succession, otherwise EOF. Not implemented errno for this
@@ -24,10 +28,15 @@
 #include "syscalls.h"
 #include "ch8_stdio.h"
 
+/* fflush:  flush a specified output stream or all output streams */
 int fflush(FILE *fp) {
 
-    if (fp == NULL)
-        ;
+    if (fp == NULL) {
+        /* flush standard output and standard error */
+        write(1, (stdout)->base, (stdout)->cnt);
+        write(2, (stderr)->base, (stderr)->cnt);
+        return 0;
+    }
     else
         if (fp->base != NULL)
             if ((write(fp->fd, fp->base, BUFSIZ-fp->cnt)) < 0) 
