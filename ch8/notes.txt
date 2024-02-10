@@ -36,3 +36,5 @@ chris@xps:~/proj/cpl/ch8$ wc -c ch8*_test.txt
 The problem occurs when a file reaches the end of a buffer and a buffer is flushed.
 When the file reaches the end of the buffer the next character written after the flush is dropped.
 OR the character write that forced the flush is dropped...
+
+Need to understand the difference between file operations in the standard library using file pointers, and file operations in syscalls (via library) using file descriptors. File pointers seem to have more attributes and easier to use.
