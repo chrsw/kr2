@@ -1,0 +1,40 @@
+test input data for chapter 8, exericse 4, fseek() implementation
+read this file, write to this file, using fseek() the fprintf() (or something)
+output data can be inserted after this line and before "end"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
