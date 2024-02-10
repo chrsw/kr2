@@ -22,7 +22,7 @@
  *
  * Build:
  *      $ gcc -o ch8_fseek_main ch8_fseek_main.c ch8_fseek.c ch8_fopen.c\
- *      ch8_fclose.c
+ *      fclose.c
  *
  * Run:
  *      $ ./ch8_fseek_main
@@ -34,6 +34,15 @@
 
 #include "ch8_stdio.h"
 #include "ch8_fseek.h"
+
+/* Three files available by default 
+ * stdout, stdin, stderr 
+ */
+FILE _iob[OPEN_MAX] = {
+    {0, (char *)0, (char *)0, _READ, 0 },               /* stdin */
+    {0, (char *)0, (char *)0, _WRITE, 1 },              /* stdout */
+    {0, (char *)0, (char *)0, _WRITE | _UNBUF, 2 }      /* stderr */
+};
 
 int main(int argc, char *argv[])
 {
