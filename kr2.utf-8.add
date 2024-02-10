@@ -140,3 +140,8 @@ lseek
 fp
 errno
 ch8
+getchar
+fillbuf
+getc
+iob
+GDB
