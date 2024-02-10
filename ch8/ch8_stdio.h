@@ -1,22 +1,18 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * ch8_stdio.h
+ * stdio.h
  *      Chapter 8 implementation of stdio.h, the standard library
  *      input/output support header.
  *
  * Details:
- *      _iob is not linkable on this version of Unix (Ubuntu 20.04):
- *      chris@xps:~/proj/cpl/ch8$ gcc -o ch8_fopen ch8_fopen.c
- *      /usr/bin/ld: /tmp/ccNuBjjZ.o: in function `main':
- *      ch8_fopen.c:(.text+0x19): undefined reference to `_iob'
- *      /usr/bin/ld: ch8_fopen.c:(.text+0x22): undefined reference to `_iob'
+ *      Basically a copy of the book excerpt, section 8.5, page 176.
  *
- *      The internal system name for the I/O block on Linux is not "_iob".
- *      
  */
 
-#ifndef CH8_STDIO_H
-#define CH8_STDIO_H
+#ifndef STDIO_H
+#define STDIO_H
+
+/* These are also defined in syscalls.h */
 
 #ifndef NULL
   #define NULL        0
@@ -26,12 +22,15 @@
 #endif
 #ifndef BUFSIZ
   #define BUFSIZ      1024
+#else
+  #undef BUFSIZ
+  #define BUFSIZ        1024
 #endif
 #ifndef OPEN_MAX
   #define OPEN_MAX    20
 #endif
 
-typedef struct ch8_iobuf {
+typedef struct _iobuf {
     int cnt;                /* characters left */
     char *ptr;              /* next character position */
     char *base;             /* location of buffer */
@@ -40,33 +39,33 @@ typedef struct ch8_iobuf {
 } FILE;
 extern FILE _iob[OPEN_MAX];
 
-#define ch8_stdin   (&_iob[0])
-#define ch8_stdout  (&_iob[1])
-#define ch8_stderr  (&_iob[2])
+#define stdin   (&_iob[0])
+#define stdout  (&_iob[1])
+#define stderr  (&_iob[2])
 
-enum ch8_flags {
+enum _flags {
     _READ   =   01,         /* file open for reading  */
     _WRITE  =   02,         /* file open for writing */
     _UNBUF  =   04,         /* file is unbuffered */
-    _EOF    =   010,        /* EOF has onccured on this file */
-    _ERR    =   020,        /* error occured on this file */
+    _EOF    =   010,        /* EOF has occurred on this file */
+    _ERR    =   020,        /* error occurred on this file */
 };
 
 
 /* avoid collisions with existing functions in the standard library */
-int ch8_fillbuf(FILE*);
-int ch8_flushbuf(int, FILE*);
+int _fillbuf(FILE*);
+int _flushbuf(int, FILE*);
 
-#define ch8_feof(p)         (((p)->flag & _EOF) != 0)
-#define ch8_ferror(p)       (((p)->flag & _ERR) != 0)
-#define ch8_fileno(p)       ((p)->fd)
+#define feof(p)         (((p)->flag & _EOF) != 0)
+#define ferror(p)       (((p)->flag & _ERR) != 0)
+#define fileno(p)       ((p)->fd)
 
-#define ch8_getc(p)         (--(p)->cnt >= 0 \
-                        ? (unsigned char)*(p)->ptr++ : ch8_fillbuf(p))
-#define ch8_putc(x,p)       (--(p)->cnt >= 0 \
-                        ? *(p)->ptr++ = (x) : ch8_flushbuf((x),p))
+#define getc(p)         (--(p)->cnt >= 0 \
+                        ? (unsigned char)*(p)->ptr++ : _fillbuf(p))
+#define putc(x,p)       (--(p)->cnt >= 0 \
+                        ? *(p)->ptr++ = (x) : _flushbuf((x),p))
 
-#define ch8_getchar()       ch8_getc(ch8_stdin)
-#define ch8_putchar(x)      ch8_putc((x),ch8_stdout)
+#define getchar()       getc(stdin)
+#define putchar(x)      putc((x),stdout)
 
-#endif // CH8_STDIO_H
+#endif // STDIO_H

@@ -64,7 +64,7 @@
  */
 
 #include <stdlib.h>
-#include "stdio.h"
+#include "ch8_stdio.h"
 #include "syscalls.h"
 
 

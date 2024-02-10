@@ -7,7 +7,7 @@
  *      $ gcc -o ch8_flush_main fflush.c flushbuf.c ch8_flush_main.c
  */
 
-#include "stdio.h"
+#include "ch8_stdio.h"
 
 int fflush(FILE *);
 

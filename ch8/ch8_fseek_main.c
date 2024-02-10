@@ -32,7 +32,7 @@
  *
  */
 
-#include "stdio.h"
+#include "ch8_stdio.h"
 #include "ch8_fseek.h"
 
 int main(int argc, char *argv[])

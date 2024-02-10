@@ -17,7 +17,7 @@
  *      they are linked to the actual files, but that isn't happening here.
  */
 
-#include "stdio.h"
+#include "ch8_stdio.h"
 
 FILE _iob[OPEN_MAX] = {         /* stdin, stdout, stderr */
     {0, (char *)0, (char *)0, _READ, 0 },

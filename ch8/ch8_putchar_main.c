@@ -7,7 +7,7 @@
  *      $ gcc -o ch8_putchar_main flushbuf.c ch8_putchar_main.c
  */
 
-#include "stdio.h"
+#include "ch8_stdio.h"
 
 FILE _iob[OPEN_MAX] = {       
     {0, (char *)0, (char *)0, _READ, 0 },               /* stdin */

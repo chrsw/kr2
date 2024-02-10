@@ -22,7 +22,7 @@
  */
 
 #include "syscalls.h"
-#include "stdio.h"
+#include "ch8_stdio.h"
 
 int fflush(FILE *fp) {
 

@@ -33,7 +33,7 @@
  */
 
 #include <string.h>
-#include "stdio.h"
+#include "ch8_stdio.h"
 
 int fflush(FILE *);
 int fclose(FILE *);

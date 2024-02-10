@@ -49,7 +49,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include "stdio.h"
+#include "ch8_stdio.h"
 #include "ch8_fseek.h"
 
 
