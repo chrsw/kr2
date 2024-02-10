@@ -135,3 +135,8 @@ ival
 dval
 atof
 variadic
+fseek
+lseek
+fp
+errno
+ch8
