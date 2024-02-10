@@ -13,6 +13,7 @@
  *
  * Build:
  *      $ gcc -c fclose.c
+ *      - or example app -
  *      $ gcc -o app fflush.c fclose.c app.c
  *
  */
