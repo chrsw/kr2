@@ -38,7 +38,7 @@
  *      TBD
  *
  * Build:
- *      $ gcc -c ch8_fseek.c
+ *      $ gcc -c ch8_fseek.c fflush.c
  *
  * Run:
  *      TBD
@@ -52,35 +52,26 @@
 #include "ch8_stdio.h"
 #include "ch8_fseek.h"
 
-
+int fflush(FILE *);
 
 int ch8_fseek(FILE *fp, long offset, int origin)
 {
     off_t offs;
+    int seeks;
+
+    seeks = SEEK_END | SEEK_SET | SEEK_CUR;
 
     /* first check the file pointer is valid */
     if (fp == NULL) 
         return -1;
 
-    if (origin == SEEK_END) {
+    if (origin & seeks) {
         offs = lseek(fp->fd, offset, SEEK_END); 
-        /* offset is from the end of file */
-        return 0;
+        fflush(fp);
     }
-    else if (origin == SEEK_CUR) {
-        /* offset is from current file position */
-        return 0;
-    }
-    else if (origin == SEEK_SET) {
-        /* file oirigin set to zero offset bytes */
-        /* i.e., use current file position, ignore offset */
-        return 0;
-    }
-    else {
-        // unsupported origin directive
+    else 
+        /* unsupported origin directive */
         return -1;
-    }
 
-    offs = lseek(fp->fd, offset, origin); 
     return 0;
 }
