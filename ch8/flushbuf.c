@@ -74,7 +74,7 @@ int _flushbuf(int c, FILE *fp) {
     int bufsize;
     
     /* exit w/ EOF if file is not open for writing or there is an error */
-    if ((fp->flag&(_WRITE|_EOF|_ERR)) != _WRITE)
+    if ((fp->flag & (_WRITE|_EOF|_ERR)) != _WRITE)
         return EOF;
 
     /* file is usable, determine the buffering mode */
@@ -83,9 +83,9 @@ int _flushbuf(int c, FILE *fp) {
         if (write(fp->fd, &c, bufsize) == 1) {
             fp->cnt = 0;
             return c;                           /* return the character */
-        }
-        else                                    /* written if the write was */
-            return EOF;                         /* successful */
+        }                                       /* written if the write was */
+        else                                    /* successful */
+            return EOF;
     } else {                                    /* using buffer */
         if (fp->base == NULL)   {               /* have a buffer already? */
             if ((fp->base = (char *)malloc(bufsize)) == NULL)
