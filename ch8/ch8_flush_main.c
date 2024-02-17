@@ -20,9 +20,12 @@ FILE _iob[OPEN_MAX] = {
 int main(void) {
     
     int i;
-           /* 'a' */  /* 'z' */
-    for (i = 0x61; i <= 0x7A; i++)
-        putchar((char)i);
+
+    /* this does not fill the BUFSIZ, output will have to be flushed */
+            /* 'a' */    /* 'z' */
+    for (i = 0x61;   i <= 0x7A;    i++)
+        putchar(i);
+
     putchar('\n');
     fflush(stdout);
     return 0;
