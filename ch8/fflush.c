@@ -33,13 +33,14 @@ int fflush(FILE *fp) {
 
     if (fp == NULL) {
         /* flush standard output and standard error */
-        write(1, (stdout)->base, (stdout)->cnt);
-        write(2, (stderr)->base, (stderr)->cnt);
+        //write(1, (stdout)->base, (stdout)->cnt);
+        //write(2, (stderr)->base, (stderr)->cnt);
         return 0;
     }
     else
         if (fp->base != NULL)
-            if ((write(fp->fd, fp->base, BUFSIZ-fp->cnt)) < 0) 
+            // TODO: use a #define for 1024, BUFSIZ isn't working
+            if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt))) < 0)
                 ;
             else
                 return 0;

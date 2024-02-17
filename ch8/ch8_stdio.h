@@ -1,33 +1,38 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * stdio.h
+ * ch8_stdio.h
  *      Chapter 8 implementation of stdio.h, the standard library
  *      input/output support header.
  *
  * Details:
- *      Basically a copy of the book excerpt, section 8.5, page 176.
+ *      _iob is not linkable on this version of Unix (Ubuntu 20.04):
+ *      chris@xps:~/proj/cpl/ch8$ gcc -o ch8_fopen ch8_fopen.c
+ *      /usr/bin/ld: /tmp/ccNuBjjZ.o: in function `main':
+ *      ch8_fopen.c:(.text+0x19): undefined reference to `_iob'
+ *      /usr/bin/ld: ch8_fopen.c:(.text+0x22): undefined reference to `_iob'
  *
+ *      The internal system name for the I/O block on Linux is not "_iob".
+ *      
  */
 
-#ifndef STDIO_H
-#define STDIO_H
-
-/* These are also defined in syscalls.h */
+#ifndef CH8_STDIO_H
+#define CH8_STDIO_H
 
 #ifndef NULL
-  #define NULL        0
+#define NULL        0
 #endif
 #ifndef EOF
-  #define EOF         (-1)
+#define EOF         (-1)
 #endif
-#ifndef BUFSIZ
-  #define BUFSIZ      1024
+#ifdef BUFSIZ
+#undef BUFSIZ
+#define BUFSIZ      1024
 #else
-  #undef BUFSIZ
-  #define BUFSIZ        1024
+#define BUFSIZ      1024
 #endif
+
 #ifndef OPEN_MAX
-  #define OPEN_MAX    20
+#define OPEN_MAX    20
 #endif
 
 typedef struct _iobuf {
@@ -68,4 +73,4 @@ int _flushbuf(int, FILE*);
 #define getchar()       getc(stdin)
 #define putchar(x)      putc((x),stdout)
 
-#endif // STDIO_H
+#endif // CH8_STDIO_H
