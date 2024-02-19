@@ -4,7 +4,7 @@
  *      Test fflush() from Exercise 8-3.
  *
  * Build:
- *      $ gcc -o ch8_flush_main fflush.c flushbuf.c ch8_flush_main.c
+ *      $ gcc -o flush_main fflush.c flushbuf.c ch8_flush_main.c
  */
 
 #include "ch8_stdio.h"
