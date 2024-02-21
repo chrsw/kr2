@@ -1,7 +1,7 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
  * fflush.c
- *      Flush a stream.
+ *      Flush a stream's buffer.
  *
  * Description:
  *      Simple fflush() implementation for part of Exercise 8-3.
@@ -13,15 +13,12 @@
  *      fflush(NULL) flushes all output streams.
  *
  * Input:
- *      0 for succession, otherwise EOF. Not implemented errno for this
+ *      0 for success, otherwise EOF. Not implemented: errno for this
  *      version.
- *
- * Output:
  *
  * Build:
  *      $ gcc -c fflush.c
  *      $ gcc -o app fflush.c app.c
- *
  *
  */
 
@@ -33,17 +30,17 @@ int fflush(FILE *fp) {
 
     if (fp == NULL) {
         /* flush standard output and standard error */
-        //write(1, (stdout)->base, (stdout)->cnt);
-        //write(2, (stderr)->base, (stderr)->cnt);
+        write(stdout->fd, (stdout)->base, BUFSIZ-((stdout)->cnt));
+        write(stderr->fd, (stderr)->base, BUFSIZ-((stderr)->cnt));
         return 0;
     }
     else
-        if (fp->base != NULL)
-            // TODO: use a #define for 1024, BUFSIZ isn't working
+        if (fp->base != NULL) {
             if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt))) < 0)
                 ;
             else
                 return 0;
+        }
 
     return EOF;
 }
