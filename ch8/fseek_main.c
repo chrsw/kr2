@@ -7,10 +7,12 @@
  *      Read some data from a large file.
  *
  * Build:
- *      $ gcc -o fseek_main ch8_fread_main.c
+ *      $ gcc -o fseek_main fseek_main.c
  *
  * Run:
  *      $ ./fseek_main
+ *      Needs ../extras/millerstale.txt:
+ *      $ gunzip -c ../extras/millerstale.txt.gz > ../extras/millerstale.txt
  *
  */
 
