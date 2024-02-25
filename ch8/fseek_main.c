@@ -4,7 +4,10 @@
  *      Test fseek() and fflush() from stardard library.
  *      
  * Description:
- *      Read some data from a large file.
+ *      Read some data from a large file. Seek to an advanced position.
+ *      Read more data. In support of understanding Exercise 8-4. The
+ *      Exercise 8-4 solution to fseek should have similar behavior to the
+ *      C standard library version.
  *
  * Build:
  *      $ gcc -o fseek_main fseek_main.c
