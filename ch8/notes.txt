@@ -38,3 +38,42 @@ When the file reaches the end of the buffer the next character written after the
 OR the character write that forced the flush is dropped...
 
 Need to understand the difference between file operations in the standard library using file pointers, and file operations in syscalls (via library) using file descriptors. File pointers seem to have more attributes and easier to use.
+
+
+fread() library function and read() syscall documentation from system:
+
+NAME
+       fread, fwrite - binary stream input/output
+
+SYNOPSIS
+       #include <stdio.h>
+
+       size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+
+       size_t fwrite(const void *ptr, size_t size, size_t nmemb,
+                     FILE *stream);
+
+DESCRIPTION
+       The  function  fread() reads nmemb items of data, each size bytes long,
+       from the stream pointed to by stream,  storing  them  at  the  location
+       given by ptr.
+
+
+
+NAME
+       read - read from a file descriptor
+
+SYNOPSIS
+       #include <unistd.h>
+
+       ssize_t read(int fd, void *buf, size_t count);
+
+DESCRIPTION
+       read()  attempts to read up to count bytes from file descriptor fd into
+       the buffer starting at buf.
+
+From:
+       ssize_t read(int fd, void *buf, size_t count);
+To:
+       size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+
