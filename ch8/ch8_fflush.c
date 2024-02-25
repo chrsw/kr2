@@ -1,6 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * fflush.c
+ * ch8_fflush.c
  *      Flush a stream's buffer.
  *
  * Description:
@@ -17,16 +17,18 @@
  *      version.
  *
  * Build:
- *      $ gcc -c fflush.c
- *      $ gcc -o app fflush.c app.c
+ *      Compile stand-alone:
+ *      $ gcc -c ch8_fflush.c   
+ *      Build into an app:        
+ *      $ gcc -o app ch8_fflush.c app.c
  *
  */
 
 #include "syscalls.h"
 #include "ch8_stdio.h"
 
-/* fflush:  flush a specified output stream or all output streams */
-int fflush(FILE *fp) {
+/* ch8_fflush:  flush a specified output stream or all output streams */
+int ch8_fflush(FILE *fp) {
 
     if (fp == NULL) {
         /* flush standard output and standard error */
