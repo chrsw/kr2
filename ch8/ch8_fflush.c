@@ -38,7 +38,7 @@ int ch8_fflush(FILE *fp) {
     }
     else
         if (fp->base != NULL) {
-            if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt))) < 0)
+            if ((write(fp->fd, fp->base, BUFSIZ-(fp->cnt)+1)) < 0)
                 ;
             else
                 return 0;
