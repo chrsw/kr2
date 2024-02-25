@@ -10,9 +10,9 @@
  *      0, error handling not implemented. 
  *
  * Build:
- *      $ gcc -c fclose.c
+ *      $ gcc -c ch8_fclose.c
  *      - or example app -
- *      $ gcc -o app fflush.c fclose.c app.c
+ *      $ gcc -o app ch8_fflush.c ch8_fclose.c app.c
  *
  */
 
