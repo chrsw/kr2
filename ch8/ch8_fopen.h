@@ -1,6 +1,6 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * ch8_fseek.h
+ * ch8_fopen.h
  *      
  */
 
