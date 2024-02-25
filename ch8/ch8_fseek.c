@@ -38,11 +38,14 @@
  *      TBD
  *
  * Build:
- *      $ gcc -c ch8_fseek.c fflush.c
+ *      $ gcc -c ch8_fseek.c ch8_fflush.c
  *
  * Run:
  *      TBD
  *
+ * TODO:
+ *      Make clear which functions are library calls and which are
+ *      exercise/book versions.
  */
 
 
@@ -52,7 +55,7 @@
 #include "ch8_stdio.h"
 #include "ch8_fseek.h"
 
-int fflush(FILE *);
+int ch8_fflush(FILE *);
 
 int ch8_fseek(FILE *fp, long offset, int origin)
 {
@@ -66,12 +69,13 @@ int ch8_fseek(FILE *fp, long offset, int origin)
         return -1;
 
     if (origin & seeks) {
-        offs = lseek(fp->fd, offset, SEEK_END); 
-        fflush(fp);
+        offs = lseek(fp->fd, offset, origin); 
+        ch8_fflush(fp);
     }
     else 
         /* unsupported origin directive */
         return -1;
 
+    // return 'no error value'
     return 0;
 }
