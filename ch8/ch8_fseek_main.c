@@ -21,8 +21,8 @@
  *      Details on how the code you're reading implements the design.
  *
  * Build:
- *      $ gcc -o ch8_fseek_main ch8_fseek_main.c ch8_fseek.c ch8_fopen.c\
- *      fclose.c
+ *      $ gcc -o ch8_fseek_main ch8_fseek_main.c ch8_fseek.c\
+ *      ch8_fopen.c fclose.c ch8_fflush.c
  *
  * Run:
  *      $ ./ch8_fseek_main
