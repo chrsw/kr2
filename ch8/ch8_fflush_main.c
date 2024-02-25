@@ -1,15 +1,15 @@
 /* vim:ts=4:sw=4:et:so=10:
  *
- * ch8_flush_main.c
+ * ch8_fflush_main.c
  *      Test fflush() from Exercise 8-3.
  *
  * Build:
- *      $ gcc -o flush_main fflush.c flushbuf.c ch8_flush_main.c
+ *      $ gcc -o flush_main ch8_fflush.c flushbuf.c ch8_flush_main.c
  */
 
 #include "ch8_stdio.h"
 
-int fflush(FILE *);
+int ch8_fflush(FILE *);
 
 FILE _iob[OPEN_MAX] = {       
     {0, (char *)0, (char *)0, _READ, 0 },               /* stdin */
@@ -27,6 +27,6 @@ int main(void) {
         putchar(i);
 
     putchar('\n');
-    fflush(stdout);
+    ch8_fflush(stdout);
     return 0;
 }
