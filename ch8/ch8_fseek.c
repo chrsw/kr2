@@ -54,8 +54,8 @@
 #include <fcntl.h>
 #include "ch8_stdio.h"
 #include "ch8_fseek.h"
+#include "ch8_fflush.h"
 
-int ch8_fflush(FILE *);
 
 int ch8_fseek(FILE *fp, long offset, int origin)
 {
