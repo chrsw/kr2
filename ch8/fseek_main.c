@@ -10,12 +10,11 @@
  *      C standard library version.
  *
  * Build:
- *      $ gcc -o fseek_main fseek_main.c
+ *      $ gcc -Wall -Wextra -Wpedantic -o fseek_main fseek_main.c
  *
  * Run:
- *      $ ./fseek_main
- *      Needs ../extras/millerstale.txt:
  *      $ gunzip -c ../extras/millerstale.txt.gz > ../extras/millerstale.txt
+ *      $ ./fseek_main
  *
  */
 
@@ -26,12 +25,13 @@
 
 char buf[RD_BUF_SIZE];
 
-int main(void) {
-    
+int main(void) 
+{    
     int i = 0;
     FILE *fp;
     size_t rd = 1;
 
+    /* make sure to extract this file first */
     fp = fopen("../extras/millerstale.txt", "r");
     if (fp == NULL)
         return -1;
