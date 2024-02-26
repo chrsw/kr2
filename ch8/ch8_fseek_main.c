@@ -41,7 +41,7 @@
  */
 
 #include "syscalls.h"           // system calls
-#include "ch8_stdio.h"          // puthchar()
+#include "ch8_stdio.h"          // putchar()
 #include "ch8_fseek.h"          // fseek()
 #include "ch8_fopen.h"          // fopen()
 #include "ch8_fflush.h"         // fflush()

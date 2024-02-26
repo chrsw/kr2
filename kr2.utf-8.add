@@ -145,3 +145,10 @@ fillbuf
 getc
 iob
 GDB
+fflush
+fopen
+fread
+fclose
+putchar
+millerstale
+zu
