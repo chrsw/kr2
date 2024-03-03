@@ -11,7 +11,7 @@ This code isn't designed to be completely correct in all cases, only meant to fu
 
 The plan is to eventually add more helpful comments and test code.
 
-Rebuild the Vim spelling file in Vim with: :mkspell kr2.utf-8.add
+Rebuild the Vim spelling file in Vim with: :mkspell! kr2.utf-8.add
 
 ### Contents
 - ch1-ch8 directories: mostly solutions, split into chapters.
