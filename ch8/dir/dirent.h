@@ -9,8 +9,9 @@
 #ifndef DIRENT_H
 #define DIRENT_H
 
-
+#ifndef NAME_MAX
 #define NAME_MAX    14  /* longest filename component: system-dependent */
+#endif
 
 typedef struct {            /* portable directory entry */
     long ino;               /* inode number */
