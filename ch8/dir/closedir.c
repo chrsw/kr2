@@ -15,7 +15,7 @@
 
 
 /* closedir:  close directory opened by opendir */
-void closedir(DIR *dp)
+void ch8_closedir(ch8_DIR *dp)
 {
     if (dp) {
         close(dp->fd);

@@ -16,15 +16,15 @@
 typedef struct {            /* portable directory entry */
     long ino;               /* inode number */
     char name[NAME_MAX+1];  /* name + '\0' terminator */
-} Dirent;
+} ch8_Dirent;
 
 typedef struct {            /* minimal DIR: no buffering, etc. */
     int fd;                 /* file descriptor for directory */
-    Dirent d;               /* the directory entry */
-} DIR;
+    ch8_Dirent d;               /* the directory entry */
+} ch8_DIR;
 
-DIR *opendir(char *dirname);
-Dirent *readdir(DIR *dfd);
-void closedir(DIR *dfd);
+ch8_DIR *ch8_opendir(char *dirname);
+ch8_Dirent *ch8_readdir(ch8_DIR *dfd);
+void ch8_closedir(ch8_DIR *dfd);
 
 #endif /* DIRENT_H */
