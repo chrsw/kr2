@@ -34,7 +34,6 @@ void dirwalk(char *dir, void(*fcn)(char *));
 void ftime(char *name)
 {
     struct stat stbuf;
-    time_t mtime;
 
     if (stat(name, &stbuf) == -1) {
         fprintf(stderr, "fsize: can't access %s\n", name);
@@ -42,6 +41,5 @@ void ftime(char *name)
     }
     if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
         dirwalk(name, ftime);
-    mtime = stbuf.st_mtime;
-    printf("%20s\t\t%s", name, asctime(gmtime(&mtime)));
+    printf("%20s\t\t%s", name, ctime(&stbuf.st_mtime));
 }
