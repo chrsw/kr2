@@ -36,7 +36,7 @@ void ftime(char *name)
     struct stat stbuf;
 
     if (stat(name, &stbuf) == -1) {
-        fprintf(stderr, "fsize: can't access %s\n", name);
+        fprintf(stderr, "ftime: can't access %s\n", name);
         return;
     }
     if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
