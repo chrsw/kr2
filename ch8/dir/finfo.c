@@ -1,16 +1,17 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *      
- * ftime.c
- *      Show file modification time.
+ * finfo.c
+ *      Show file information as retured by stat().
  *
  * Description:
  *      Part of the solution to Exercise 8-5.
- *
+ *      Show file name, mode, owner and modifcation time.
+ * 
  * Input:
  *      Optional directory name.
  *
  * Build:
- *      $ gcc -c ftime.c
+ *      $ gcc -c finfo.c
  *
  */
 
@@ -30,16 +31,18 @@
 void dirwalk(char *dir, void(*fcn)(char *));
 
 
-/* ftime:  print modification time of file "name" */
-void ftime(char *name)
+/* finfo:  print stat info from file "name" */
+void finfo(char *name)
 {
     struct stat stbuf;
 
     if (stat(name, &stbuf) == -1) {
-        fprintf(stderr, "fsize: can't access %s\n", name);
+        fprintf(stderr, "finfo: can't access %s\n", name);
         return;
     }
     if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
-        dirwalk(name, ftime);
-    printf("%20s\t\t%s", name, ctime(&stbuf.st_mtime));
+        dirwalk(name, finfo);
+    /* print file name, mode, owner and modifcation time */
+    printf("%14s\t%lo\t%ld\t%s", name, (unsigned long)stbuf.st_mode, 
+        (long)stbuf.st_uid, ctime(&stbuf.st_mtime));
 }
