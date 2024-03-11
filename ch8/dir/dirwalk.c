@@ -5,6 +5,7 @@
  *
  * Description:
  *      Apply a function to all files in a directory dynamically.
+ *      Modified to run on Ubuntu Linux 20.04.
  *
  * Input:
  *      Directory to process, function pointer to run.
@@ -18,9 +19,6 @@
  *
  * Build:
  *      $ gcc -c dirwalk.c
- *
- * Run:
- *      An example of how this program should be run.
  *
  */
 
