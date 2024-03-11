@@ -12,6 +12,8 @@
  *
  * Build:
  *      $ gcc -c finfo.c
+ *      - or -
+ *      $ make finfo
  *
  */
 

@@ -14,6 +14,8 @@
  *
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -o finfo ex8-5.c finfo.c dirwalk.c
+ *      - or -
+ *      $ make finfo
  *
  * Run:
  *      $ ./finfo
