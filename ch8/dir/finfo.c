@@ -1,11 +1,11 @@
 /* vim:ts=4:sw=4:et:so=10:ls=2:
  *      
  * finfo.c
- *      Show file information as retured by stat().
+ *      Show file information as returned by stat().
  *
  * Description:
  *      Part of the solution to Exercise 8-5.
- *      Show file name, mode, owner and modifcation time.
+ *      Show file name, mode, owner and modification time.
  * 
  * Input:
  *      Optional directory name.
@@ -44,7 +44,7 @@ void finfo(char *name)
     }
     if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
         dirwalk(name, finfo);
-    /* print file name, mode, owner and modifcation time */
+    /* print file name, mode, owner and modification time */
     printf("%14s\t%lo\t%ld\t%s", name, (unsigned long)stbuf.st_mode, 
         (long)stbuf.st_uid, ctime(&stbuf.st_mtime));
 }
