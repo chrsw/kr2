@@ -26,9 +26,6 @@
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -c ch8_malloc.c
  *
- * Run:
- *      An example of how this program should be run.
- *
  */
 
 #include <unistd.h>

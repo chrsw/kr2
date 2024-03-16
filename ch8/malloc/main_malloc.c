@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
         gcp[i] = i;
 
     for (i = 0; i < 10; i++)
-        printf("%d ", i);
+        printf("%d ", gcp[i]);
     printf("\n");
 
     ch8_free(gcp);
