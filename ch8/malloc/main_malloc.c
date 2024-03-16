@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
         printf("%d ", i);
     printf("\n");
 
+    ch8_free(gcp);
 
     return 0;
 }
