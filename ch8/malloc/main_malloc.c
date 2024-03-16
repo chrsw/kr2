@@ -6,6 +6,7 @@
  * Description:
  *      Use the malloc() family of functions from Section 8.6 for testing
  *      and demonstration purposes.
+ *      Fill a malloc'd array with an integer count from 0 to 9.
  *
  * Build:
  *      $ gcc -o ch8_malloc main_malloc.c ch8_malloc.c

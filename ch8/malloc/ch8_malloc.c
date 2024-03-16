@@ -6,6 +6,9 @@
  * Description:
  *      Template for code and solutions to exercises in The C Programming
  *      Language 2nd Ed. A longer description of the program goes here.
+ *      This file defines the functions malloc(), free() and morecore() as
+ *      written in the text, except modified to build and link into a real
+ *      application on a modern Linux system (2023-24 time frame).
  *
  * Input:
  *      Describe the expected input.
@@ -22,28 +25,23 @@
  *
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -c ch8_malloc.c
- *      
- *      How to build this program or a build example (incl make targets).
  *
  * Run:
  *      An example of how this program should be run.
- *
- * Notes:
- *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
 #include <unistd.h>
 #include "ch8_malloc.h"
 
-typedef long Align;                 /* for alignment to long boundary */
+typedef long Align;                     /* for alignment to long boundary */
 
-union header {                      /* block header */
+union header {                          /* block header */
     struct {
-        union header *ptr;          /* next block if on free list */
-        unsigned size;              /* size of this block */
+        union header *ptr;              /* next block if on free list */
+        unsigned size;                  /* size of this block */
     } s;
-    Align x;                        /* force alignment of blocks */
+    Align x;                            /* force alignment of blocks */
 };
 
 typedef union header Header;
@@ -51,8 +49,8 @@ typedef union header Header;
 static Header *morecore(unsigned);
 
 
-static Header base;                 /* Empty list to get started */
-static Header *freep = NULL;        /* start of free list */
+static Header base;                     /* empty list to get started */
+static Header *freep = NULL;            /* start of free list */
 
 /* malloc:  general-purpose storage allocator */
 void *ch8_malloc(unsigned nbytes)
@@ -62,15 +60,15 @@ void *ch8_malloc(unsigned nbytes)
     unsigned nunits;
 
     nunits = (nbytes+sizeof(Header)-1)/sizeof(Header) + 1;
-    if ((prevp = freep) == NULL) {  /* no free list yet */
+    if ((prevp = freep) == NULL) {          /* no free list yet */
         base.s.ptr = freep = prevp = &base;
         base.s.size = 0;
     }
     for (p = prevp->s.ptr; ; prevp = p, p = p->s.ptr) {
-        if (p->s.size >= nunits) {  /* big enough */
-            if (p->s.size == nunits)    /* exactly */
+        if (p->s.size >= nunits) {          /* big enough */
+            if (p->s.size == nunits)        /* exactly */
                 prevp->s.ptr = p->s.ptr;
-            else {                  /* allocate tail end */
+            else {                          /* allocate tail end */
                 p->s.size -= nunits;
                 p += p->s.size;
                 p->s.size = nunits;
@@ -78,9 +76,9 @@ void *ch8_malloc(unsigned nbytes)
         freep = prevp;
         return (void *)(p+1);
         }
-        if (p == freep)                 /* wrapped around free list */
+        if (p == freep)                     /* wrapped around free list */
             if ((p = morecore(nunits)) == NULL)
-                return NULL;            /* none left */
+                return NULL;                /* none left */
     }
 
 }
@@ -96,13 +94,14 @@ static Header *morecore(unsigned nu)
     if (nu < NALLOC)
         nu = NALLOC;
     cp = sbrk((intptr_t)(nu * sizeof(Header)));
-    if (cp == (char *) -1)              /* no space at all */
+    if (cp == (char *) -1)                  /* no space at all */
         return NULL;
     up = (Header *) cp;
     up->s.size = nu;
     ch8_free((void *)(up+1));
     return freep;
 }
+
 
 /* free:  put block ap in free list */
 void ch8_free(void *ap)
