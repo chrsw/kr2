@@ -25,7 +25,7 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <string.h>
-#include "ch8_calloc_2.h"
+#include "ch8_calloc.h"
 
 typedef long Align;                     /* for alignment to long boundary */
 
