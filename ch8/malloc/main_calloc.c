@@ -6,9 +6,9 @@
  *
  * Description:
  *      Exercise 8-6 from book as written:
-        The standar library function calloc(n,size) returns a pointer to
-        objects of size _size_, with the storage, with the storage initialized
-        to zero. Write calloc() by calling malloc or by modifying it. 
+ *      The standar library function calloc(n,size) returns a pointer to
+ *      objects of size _size_, with the storage, with the storage initialized
+ *      to zero. Write calloc() by calling malloc or by modifying it. 
  *
  * Build:
  *      $ gcc -o ch8_calloc main_calloc.c ch8_calloc.c
