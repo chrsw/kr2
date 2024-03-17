@@ -156,3 +156,6 @@ dirwalk
 finfo
 ex8
 fsize
+allocator
+calloc
+malloc
