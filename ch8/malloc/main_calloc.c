@@ -12,8 +12,11 @@
  *
  * Build:
  *      $ gcc -o ch8_calloc main_calloc.c ch8_calloc.c
- *      - or -
  *      $ gcc -o ch8_calloc main_calloc.c ch8_calloc_2.c
+ *      - or -
+ *      $ make ch8_calloc
+ *      $ make ch8_calloc2 # will use ch8_calloc_2.c
+ *      $ make all
  *
  *      Use ch8_calloc.c for calloc() as a wrapper function on malloc().
  *      Use ch8_calloc_2.c for calloc() as a modified malloc().
@@ -32,12 +35,12 @@ char *gcp;                              /* for accessing the dynamically */
 
 int main(int argc, char *argv[])
 {
-    (void)argc;
+    (void)argc;                         /* satisfy warnings */ 
     (void)argv;
 
     int i = 0;
-    gcp = (char *)ch8_calloc(10, 1);
-
+    gcp = (char *)ch8_calloc(10, 1);    /* version of calloc depends on */
+                                        /* build command */
     for (i = 0; i < 10; i++)
         printf("%d ", gcp[i]);
     printf("\n");
