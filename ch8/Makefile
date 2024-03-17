@@ -9,5 +9,5 @@ flush_main: fflush.c flushbuf.c ch8_flush_main.c
 	$(CC) -o flush_main fflush.c flushbuf.c ch8_flush_main.c
 
 clean:
-	rm *.o
+	rm *.o 2> /dev/null || echo > /dev/null
 
