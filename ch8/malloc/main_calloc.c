@@ -24,6 +24,7 @@
  */
 
 #include <stdio.h>
+#include <stddef.h>
 #include "ch8_calloc.h"
 
 char *gcp;                              /* for accessing the dynamically */
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 {
     (void)argc;
     (void)argv;
-    
+
     int i = 0;
     gcp = (char *)ch8_calloc(10, 1);
 
