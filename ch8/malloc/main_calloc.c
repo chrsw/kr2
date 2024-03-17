@@ -9,6 +9,8 @@
  *
  * Build:
  *      $ gcc -o ch8_calloc main_calloc.c ch8_calloc.c
+ *      - or -
+ *      $ gcc -o ch8_calloc main_calloc.c ch8_calloc_2.c
  *      
  * Run:
  *      $ ./ch8_calloc
