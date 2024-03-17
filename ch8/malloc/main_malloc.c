@@ -10,6 +10,8 @@
  *
  * Build:
  *      $ gcc -o ch8_malloc main_malloc.c ch8_malloc.c
+ *      - or -
+ *      $ make ch8_malloc
  *      
  * Run:
  *      $ ./ch8_malloc
