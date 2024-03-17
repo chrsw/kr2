@@ -12,23 +12,13 @@
  *      Similar to malloc() but with additional functionality.
  *
  * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
- * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      malloc() (or calloc()) takes size (or object size and number of 
+ *      objects), allocates space to hold that amount of data and returns
+ *      a pointer to the storage. NULL on error, callc() additionally clears
+ *      the allocated space. Little to no error checking for Solution 8-6.
  *
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -c ch8_calloc.c
- *
- * Run:
- *      An example of how this program should be run.
  *
  */
 

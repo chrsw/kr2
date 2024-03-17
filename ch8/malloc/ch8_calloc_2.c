@@ -10,25 +10,15 @@
  *      The space allocated is cleared to 0 value.
  *
  *      Similar to malloc() but with additional functionality.
- *
- * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
- * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
  * 
  * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      This version of calloc() is a re-write of malloc(), there is an
+ *      additional argument for the size of each object. There is an additional
+ *      statement for the clearing of all allocated data. No definition of
+ *      malloc() in this file.
  *
  * Build:
  *      $ gcc -Wall -Wextra -Wpedantic -c ch8_calloc_2.c
- *
- * Run:
- *      An example of how this program should be run.
  *
  */
 
