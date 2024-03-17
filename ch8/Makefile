@@ -7,6 +7,7 @@ fclose_main: ch8_fopen.c fclose.c fflush.c flushbuf.c\
 
 flush_main: fflush.c flushbuf.c ch8_flush_main.c
 	$(CC) -o flush_main fflush.c flushbuf.c ch8_flush_main.c
+
 clean:
 	rm *.o
 
