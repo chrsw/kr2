@@ -20,6 +20,9 @@
  *
  *      Use ch8_calloc.c for calloc() as a wrapper function on malloc().
  *      Use ch8_calloc_2.c for calloc() as a modified malloc().
+ *
+ * Output:
+ *      Prints the allocated and cleared data from calloc().
  *      
  * Run:
  *      $ ./ch8_calloc
@@ -41,9 +44,10 @@ int main(int argc, char *argv[])
     int i = 0;
     gcp = (char *)ch8_calloc(10, 1);    /* version of calloc depends on */
                                         /* build command */
-    for (i = 0; i < 10; i++)
-        printf("%d ", gcp[i]);
-    printf("\n");
+
+    for (i = 0; i < 10; i++)            /* the space allocated by calloc() */
+        printf("%d ", gcp[i]);          /* should already be cleard so all */
+    printf("\n");                       /* that's necessary is to print */
 
     ch8_free(gcp);
     
