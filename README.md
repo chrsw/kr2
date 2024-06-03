@@ -42,10 +42,9 @@ Rebuild the Vim spelling file in Vim with: :mkspell! extras/kr2.utf-8.add
     └── extras
   
 ch1-ch8             code, mostly solutions, split into chapters.
-template.[ch]       convenient starting point for source files.
 README.md           this Markdown file.
 LICENSE             specify license for files in this repo.
 INSTALL             how to use the files in this repo.
 TODO                ideas and next planned next steps.
 extras              miscellaneous files used by project and exercises.
-  </pre>
+</pre>
