@@ -20,31 +20,11 @@ The plan is to eventually add more helpful comments and test code.
 Rebuild the Vim spelling file in Vim with: :mkspell! extras/kr2.utf-8.add
 
 ### Contents
-<pre>
-    ├── ch1
-    ├── ch2
-    ├── ch3
-    ├── ch4
-    │   └── calc
-    │       └── test
-    ├── ch5
-    │   └── dcl
-    │       └── test
-    ├── ch6
-    │   ├── cow
-    │   │   └── test
-    │   └── lookup
-    ├── ch7
-    ├── ch8
-    │   ├── dir
-    │   ├── malloc
-    │   └── testdir
-    └── extras
-  
-ch1-ch8             code, mostly solutions, split into chapters.
-README.md           this Markdown file.
-LICENSE             specify license for files in this repo.
-INSTALL             how to use the files in this repo.
-TODO                ideas and next planned next steps.
-extras              miscellaneous files used by project and exercises.
+
+ch1-ch8             code, mostly solutions, split into chapters
+README.md           this Markdown file
+LICENSE             specify license for files in this repo
+INSTALL             how to use the files in this repo
+TODO                ideas and next planned next steps
+extras              miscellaneous files used by project and exercises
 </pre>
