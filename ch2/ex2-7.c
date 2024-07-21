@@ -23,6 +23,9 @@
  * Run:
  *      $ ./ex2-7
  *
+ * TODO:
+ *      Simplify invert() implementation.
+ *
  */
 
 
