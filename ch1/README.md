@@ -22,7 +22,7 @@ The following table is a list of exercises and solutions.
 |1-15    | ex1-15.c     ||
 |1-16    | ex1-16.c     ||
 |1-17    | ex1-17.c     | Related: ex1-17a.c |
-|1-18    |      ||
+|1-18    | chomp.c, blank_test.txt     ||
 |1-19    |      ||
 |1-20    | detab.c     |tabtest.txt. Related: tabcol.c, tablen.c, linelen.c <br /> linelen_test.txt|
 |1-21    | entab.c     |entab_test.txt, entab_test2.txt|

@@ -1,0 +1,4 @@
+line has no extra spaces
+line has extra spaces              
+line has extra tabs			
+all done!
