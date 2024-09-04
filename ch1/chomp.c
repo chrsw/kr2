@@ -1,12 +1,12 @@
 /* chomp:  remove trailing blanks and blank lines
- * exercise 1-18
+ * Exercise 1-18
  * 
  * $ gcc -Wall -Wextra -Wpedantic -o chomp chomp.c
  * $ cat blank_test.txt | ./chomp
  */
 
 #include <stdio.h>
-#define MAXLINE 1000
+#define MAXLINE 4096        /* max line length (man termios) */
 
 int ch1_getline(char line[], int maxline);
 int chomp(char from[], int len);
