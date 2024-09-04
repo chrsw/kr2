@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     while ((len = ch1_getline(line, MAXLINE)) > 0) {
         len = chomp(line, len);
-        printf("%s", line);
+        if (line[0] != '\n') printf("%s", line);
     }
     return 0;
 }

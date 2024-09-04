@@ -1,4 +1,6 @@
 line has no extra spaces
 line has extra spaces              
 line has extra tabs			
+line has one char at the end      *
+
 all done!
