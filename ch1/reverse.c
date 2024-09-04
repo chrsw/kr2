@@ -27,7 +27,7 @@ void reverse(char b[], char f[]);
 int main(void) {
 
     int len;                    /* current line length */
-    char line[MAXLINE];         /* current inpu8t line */
+    char line[MAXLINE];         /* current input line */
     char reversed[MAXLINE];     /* reversed line saved here */
 
     while ((len = sec_1_9_getline(line, MAXLINE)) > 0) {
