@@ -3,6 +3,9 @@
  * 
  * $ gcc -Wall -Wextra -Wpedantic -o chomp chomp.c
  * $ cat blank_test.txt | ./chomp
+ *
+ * TODO:  remove blanks and blank lines in one construct
+ * in chomp() instead of main(). 
  */
 
 #include <stdio.h>
