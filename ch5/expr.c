@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * expr.c
  *      Solution for exercise 5-10.
  *      RPN calculator using command line instead of standard input.

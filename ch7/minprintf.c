@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * minprintf.c
  *      Minimal printf with variable argument list.
  *      Excerpt from section 7.3 with additions for Exercise 7-3.

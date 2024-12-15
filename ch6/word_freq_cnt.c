@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * word_freq_cnt.c
  *      Count the frequency of words on standard input.
  *      Excerpt from section 6.5 Self-referential structures.

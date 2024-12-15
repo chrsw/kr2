@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *      Vim modeline for consistent editor settings across files.
+/*      Vim modeline for consistent editor settings across files.
  *
  * main.c
  *      main() driver for cow - Count Occurance of Words. Count each time a

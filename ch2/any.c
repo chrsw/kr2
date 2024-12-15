@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * any.c
  *      Implements the any() function. Returns the number of bytes into s1
  *      where the first match is found for any character in s2.

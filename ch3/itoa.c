@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * itoa.c
  *      Convert integer n to characters in s.
  *

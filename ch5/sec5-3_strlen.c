@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * sec5-3_strlen.c
  *      strlen() from section 5.3.
  *

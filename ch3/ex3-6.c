@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * itoa.c
  *     Convert n to characters in s. Pad to lenght of 3rd argument.
  *

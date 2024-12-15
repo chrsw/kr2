@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * fread_main.c
  *      Test fread() and fflush() from stardard library.
  *      

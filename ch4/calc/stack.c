@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * stack.c
  *      Simple stack used with RPN calculator from section 4.3
  *

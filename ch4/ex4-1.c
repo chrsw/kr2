@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex4-1.c
  *      Write the function strrindex(s,t), which returns the position
  *      of the _rightmost_ occurance of t in s or -1 if there is none. 

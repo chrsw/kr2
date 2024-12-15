@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex5-6_getline.c
  *      Partial solution to exercise 5-6. Use pointers instead of array.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * binsearch.c
  *      Find an element in an array using binary search.
  *

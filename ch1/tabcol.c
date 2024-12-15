@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * tabcol.c
  *      Highlight colums that fall on tab colums with block character.
  *

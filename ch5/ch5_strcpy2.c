@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch5_strcpy2.c
  *      Copy string from source to destination. 2nd chapter 5 version.
  *

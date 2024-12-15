@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * itoa.c
  *      Exercise 4-12. Adapt the ideas of printd to write a recursive version
  *      of itoa(). That is, convert an integer into a string by calling

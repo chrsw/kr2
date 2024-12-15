@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex5-2.c
  *      Write getfloat(), the floating point analog of getint().
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex1-8.c
  *      Write a program to count blanks, tabs and newlines.
  *

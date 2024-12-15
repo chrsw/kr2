@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * getch.c
  *      Get a character from standard, get a character from a buffer or
  *      put a character back on a buffer.

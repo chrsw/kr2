@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * fsize.c
  *      Print the size of files.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * getch.c
  *      Get a (possibly pushed back) character.
  *      Push character back on input.

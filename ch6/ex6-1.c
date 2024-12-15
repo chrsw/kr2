@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex6-1.c
  *      getword() implementations, including for Chapter 6, exercise 1
  *      solution.

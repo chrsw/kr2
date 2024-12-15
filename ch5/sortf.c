@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * sortf.c
  *      Solution 5-15. Sort input lines, with a fold option.
  *

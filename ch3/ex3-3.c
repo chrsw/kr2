@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex3-3.c
  *      Expand shorthand notations like 'a-f' into 'abcdef'.
  *

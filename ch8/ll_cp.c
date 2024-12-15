@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ll_cp.c
  *      Example of low level copy using syscalls instead of std lib functions.
  *

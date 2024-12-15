@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * fseek_main.c
  *      Test fseek() and fflush() from stardard library.
  *      

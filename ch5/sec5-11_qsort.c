@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * sec5-11_qsort.c
  *      Sort array into increasing order.
  *

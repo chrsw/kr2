@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * minscanf.c
  *      Private version of scanf.c. Solution for Exercise 7.4.
  *

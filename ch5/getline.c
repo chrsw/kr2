@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * getline.c
  *      getline() from section 1.9. Get a line of text from standard input.
  *

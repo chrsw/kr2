@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex2-2.c
  *      Read a line into s, return length.
  *      Implement getline() without using '&&' or '||'.

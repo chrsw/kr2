@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-5.c
  *      Add access to library functions like sin(), exp() and pow().
  *

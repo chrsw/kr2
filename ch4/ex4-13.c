@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex4-13.c
  *     Write a recursive version of the function reverse(s), which reverses
  *     the string s in place. 

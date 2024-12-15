@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * filerw.c
  *      An example of reading and writing to the same file.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex1-3.c	
  *      Modify the temperature conversion program to print a heading
  * 		above the table.

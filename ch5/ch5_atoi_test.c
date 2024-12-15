@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch5_atoi_test.c
  *      Test function ch5_atoi().
  *

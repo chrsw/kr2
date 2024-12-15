@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex1-9.c
  *      Copy input to output, replacing one or more blanks by a single
  *      blank.

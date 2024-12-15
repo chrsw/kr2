@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ch5_reverse.c
  *      Reverse a string. K&R chapter 5 pointer version.
  *      Partial solution to exercise 5-6.

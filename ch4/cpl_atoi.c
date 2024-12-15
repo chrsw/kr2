@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * cpl_atoi.c
  *      Convert string s to integer using cpl_atof.
  *

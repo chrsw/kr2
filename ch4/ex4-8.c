@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-8.c
  *      Suppose there will never be more than one character of pushback.
  *      Modify getch() and ungetch() accordingly.

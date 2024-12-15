@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-2_test.c
  *      Test solution to ex4-2().
  *

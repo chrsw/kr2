@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex3-2b.c
  *	   Converts escape sequences '\n' and '\t' into real characters.
  *

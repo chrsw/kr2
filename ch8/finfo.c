@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * finf.c
  *      Print size of files and other file info.
  *

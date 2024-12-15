@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * main_calloc.c
  *      Small test driver for ch8_calloc().
  *      Part of solution to Exercise 8-6.

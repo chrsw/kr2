@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * linelen.c
  *      Print the length of each line on standard input in units of
  *      tab widths (8).

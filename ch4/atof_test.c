@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * atof_test.c
  *      Test function cpl_atof().
  *

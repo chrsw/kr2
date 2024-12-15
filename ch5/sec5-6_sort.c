@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * sec5-6_qsort.c
  *      Sorting program from section 5.6.
  

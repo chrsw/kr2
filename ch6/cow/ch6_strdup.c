@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *      Vim modeline for consistent editor settings across files.
+/*      Vim modeline for consistent editor settings across files.
  *
  * ch6_strdup.c
  *      Copy the string given by the argument to a "safe" space.

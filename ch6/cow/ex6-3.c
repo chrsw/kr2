@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ex6-3.c
  *      Print a cross reference of wrods in a document.
  *

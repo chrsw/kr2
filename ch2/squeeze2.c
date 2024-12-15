@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * squeeze2.c
  *      Delete each character in s1 that matches any character in s2.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * strcmp.c
  *      Compare strings s, t. Return -1 if s less than t, 0 if s equal to t
  *      and 1 if s greater than t.

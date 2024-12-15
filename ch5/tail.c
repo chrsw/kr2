@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * tail.c
  *      Print the last 10 or n lines of input. Solution for exercise 5-13.
  *

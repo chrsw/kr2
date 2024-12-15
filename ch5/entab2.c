@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * entab2.c
  *      Partial solution to Chapter 5, Exercise 11.
  *

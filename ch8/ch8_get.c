@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch8_get.c
  *      Read n bytes from position pos.
  *      Excerpt from chapter 8, section 4.

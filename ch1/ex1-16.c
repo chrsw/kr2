@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex1-16.c
  *      Print the longest input line of arbitrarily long length.
  *

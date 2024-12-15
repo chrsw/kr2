@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex2-8.c
  *      Main driver for chapter 2, exercise 8, rightrot().
  *

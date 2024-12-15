@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * binsearch2.c
  *      Binary search, exercise 3-1 version.
  *

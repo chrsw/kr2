@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex1-15.c
  *      Rewrite the temperature conversion program of Section ??
  *      to use a function for conversion.

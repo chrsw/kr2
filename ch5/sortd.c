@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * sortd.c
  *      Solution 5-16. Sort input lines, with a "dictionary order" option.
  *

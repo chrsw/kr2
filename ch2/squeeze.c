@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * squeeze.c
  *      Delete all c from s.
  *

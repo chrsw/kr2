@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * getbits.c
  *      Get n bits from position p
  *

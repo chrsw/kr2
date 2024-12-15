@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * minprintf_main.c
  *      main() driver for the minprintf() example from section 7.3.
  *      Also used from Exercise 7-3.

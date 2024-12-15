@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex5-3.c
  *      Write a pointer version of the fuction strcat(). strcat(s,t) copies
  *      the string t to the end of s.

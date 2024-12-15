@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex3-1.c
  *      Solution for chapter 3, exercise 1 that includes benchmarking.
  *

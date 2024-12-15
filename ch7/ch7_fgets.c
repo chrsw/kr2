@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ch7_fgets.c
  *      Get at most n chars from file.
  *

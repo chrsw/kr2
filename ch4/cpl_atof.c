@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * cpl_atof.c
  *      Convert string s to double.
  *

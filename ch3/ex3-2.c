@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex3-2.c
  *	   Converts newline and tab into '\n' and '\t'.
  *

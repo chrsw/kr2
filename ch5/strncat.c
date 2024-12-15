@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * strncat.c
  * 
  * Part of solution to ex 5-5.

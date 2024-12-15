@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch8_fflush.c
  *      Flush a stream's buffer.
  *

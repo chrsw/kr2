@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex7-1.c
  *      Write a program that converts upper case to lower or lower case 
  *      to upper depending on the name it is invoked with.

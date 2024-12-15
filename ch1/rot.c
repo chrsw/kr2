@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * rot.c
  *      Small demo of using the modulus operator (%) to rotate through
  * 	    a repeating sequence of numbers.

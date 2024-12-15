@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch5_strncpy.c
  *      Partial solution to 5-5. Write version of the library function
  *      strncpy(), which operates on at most the first n characters of

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * setbits.c
  *      Set right-adjusted n bits in x starting at p to the right most
  *      n bits in y.

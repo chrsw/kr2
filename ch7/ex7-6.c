@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex7-6.c
  *      Write a program to compare two files, printing the first line
  *      where they differ.

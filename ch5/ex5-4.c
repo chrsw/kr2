@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex5-4.c
  *      Write the function strend(s,t), which returns 1 if the string t
  *      occurs at the end of the string s, and 0 otherwise.

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ckeywords_sec6-4.c
  *      Count C keywords.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * binsearch.c
  *      Search for word in array using binary search algorithm.
  *      Uses an order input search space. If the search key is lower

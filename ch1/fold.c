@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * fold.c
  *      Exercise 1-22. Split long lines into specified column lengths.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * sortr.c
  *      Solution 5-14. Sort input lines, with a reverse option.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * getline.c
  *      Read a line into s, return length.
  *

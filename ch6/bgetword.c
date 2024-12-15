@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * bgetword.c
  *      Better version of getword(). Handles underscores (_) and string
  *      constants.

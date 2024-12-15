@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * echo2.c
  *      Repeat command line arguments; 2nd version.
  *

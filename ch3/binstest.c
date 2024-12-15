@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *      Vim modeline for consistent editor settings across files.
+/*      Vim modeline for consistent editor settings across files.
  *
  * binstest.c
  *      Test driver for binsearch.c.

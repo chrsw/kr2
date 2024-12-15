@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * bitcount.c
  *      Count 1 bits in x.
  *

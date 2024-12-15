@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * dirwalk.c
  *      Apply a function to all fies in dir
  *

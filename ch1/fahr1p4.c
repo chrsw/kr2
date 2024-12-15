@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * fahr1_4.c
  *      Fahrenheit-Celsius table from section 1.4.
  *

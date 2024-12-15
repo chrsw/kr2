@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * rightrot.c
  *      Write a function rightrot(x,n) that returns the value of the integer
  *      x rotate to the right by n bit positions.

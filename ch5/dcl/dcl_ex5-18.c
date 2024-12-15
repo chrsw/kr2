@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * dcl_ex5_18.c
  *      Solution to exercise 5-18.
  *

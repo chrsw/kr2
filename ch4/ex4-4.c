@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-4.c
  *      Add commands to print the top element of the stack without pop-
  *      ping to duplicate it, and to swap the top two elements. Add a

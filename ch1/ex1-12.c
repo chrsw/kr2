@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex1-12.c
  *      Write a program that prints its inputs one word per line.
  *

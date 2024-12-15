@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ex2-7.c
  *      Invert n bits in x starting a position p.
  *

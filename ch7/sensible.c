@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * sensible.c
  *      Print arbitrary input in a sensible way.
  *

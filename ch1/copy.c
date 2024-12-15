@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * copy.c
  *      Copy input to output; 1st version.
  *

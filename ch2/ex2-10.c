@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex2-10.c
  *      lower() using conditionals. 
  *

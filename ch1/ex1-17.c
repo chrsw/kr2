@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex1-17.c
  *      Write a program to print all input lines that are longer than 80
  *      characters.

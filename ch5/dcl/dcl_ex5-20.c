@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * dcl_ex5-20.c
  *      Part of exercise 5-20 solution. Based on dcl.c.
  *

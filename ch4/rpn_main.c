@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * rpn_main.c
  *      Reverse Polish Notation calculator implemented in a single source file.
  *

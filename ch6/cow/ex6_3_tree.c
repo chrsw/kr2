@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ex6_3_tree.c
  *      Add to a tree and in-order print a tree.
  *

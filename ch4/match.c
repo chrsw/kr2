@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * match.c
  *      Find all lines matching a pattern.
  *

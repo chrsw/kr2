@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * detab.c
  *      Solution to Chapter 5, Exercise 11.
  *      Replace tab characters with specified number of spaces.

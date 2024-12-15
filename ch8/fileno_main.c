@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * fileno_main.c
  *      An example of using fileno().
  *

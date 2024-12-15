@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * unicode.c
  *      Print a unicode character. 
  *

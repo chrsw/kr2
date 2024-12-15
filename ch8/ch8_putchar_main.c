@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch8_putchar_main.c
  *      Test putchar(), putc() and _fillbuf() in custom stdio.h
  *

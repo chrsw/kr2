@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * lngln.c
  *      Print the longest input line.
  *      From section 1.9.

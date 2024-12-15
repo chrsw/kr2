@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch3_atoi.c
  *      Convert s to integer, version 2.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * wc.c
  *      Word count. Bare bones version of the Unix program wc.
  *

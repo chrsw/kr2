@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch7_getline.c
  *      Chapter 7 version of getline().
  *

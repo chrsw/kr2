@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex2-3.c
  *      Convert hex string to number.
  *

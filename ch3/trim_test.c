@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * trim_test.c
  *      Test the code in the trim.c.
  *

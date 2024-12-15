@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch8_fclose_main.c
  *      Test fclose() and fflush() from Exercise 8-3.
  *      

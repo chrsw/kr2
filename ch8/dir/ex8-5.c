@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ex8-5.c
  *      Main entry point for finfo app.
  *

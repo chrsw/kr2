@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:
- *
+/*
  * ex2-2.c
  *      Write the function htoi(s), which converts a string of hexa-
  *      decimal digits (including an optional 0x or 0X) into its

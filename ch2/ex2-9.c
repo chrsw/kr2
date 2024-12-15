@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex2-9.c
  *      Rewrite of bitcount() with knowing that 'x &= (x-1)' removes
  *      the rightmost bit in x.

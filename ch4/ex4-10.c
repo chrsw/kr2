@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-10.c
  *      Revise the calculator to use getline() instead of getch and
  *      ungetch().

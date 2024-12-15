@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  *  find2.c
  *      find utility. From section 5.10. 2nd version.
  *

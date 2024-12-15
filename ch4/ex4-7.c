@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ex4-7.c
  *      Write a routine ungets(s) that will push back an entire string
  *      onto the input.
