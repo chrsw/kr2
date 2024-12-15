@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * dcl_ex5-20.h
  * 	Parse C declarations. Solution 5-20 version.
  *

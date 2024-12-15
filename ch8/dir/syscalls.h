@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * syscalls.h
  *      A header file "syscalls.h" is included in many examples in chapter 8.
  *      But the listing for this file is not provided. It appears this

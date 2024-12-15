@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
- *
+/*
  * ch8_stdio.h
  *      Chapter 8 implementation of stdio.h, the standard library
  *      input/output support header.

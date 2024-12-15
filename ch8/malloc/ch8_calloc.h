@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ch8_calloc.h
  *      calloc() header file. Part of solution to Exercise 8-6.
  *

@@ -1,5 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:ls=2:
- *
+/*
  * ch8_malloc.h
  *      malloc() header file. Adapted from Section 8.7 - Example:
  *      Storage Alocator.
