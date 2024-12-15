@@ -1,0 +1,7 @@
+syntax on           " turn on syntax highlighting for known file types
+set tabstop=4       " number of spaces that a <Tab> in the file counts for
+set shiftwidth=4    " number of spaces to use for each step of (auto)indent
+set expandtab       " use spaces instead of tabs
+set scrolloff=5     " keep a number of lines visible when scrolling
+set laststatus=2    " always show a status line even in multi-window
+set mouse=a         " always allow mouse use in all modes
