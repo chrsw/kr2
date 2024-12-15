@@ -1,0 +1,13 @@
+The following one-liners remove the Vim modeline text from source files.
+C source and header files started with a template that included a Vim
+modeline. For example:
+
+/* vim:ts=4:sw=4:et:so=10:
+
+Remove the modeline from all files:
+
+$ find . -name "*.[ch]" -exec sed -i '1{/^\/\* vim.*:$/d}' {} +
+
+Fix the file header block:
+
+$ find . -type f -name "*.[ch]" -exec sed -i '1s/ \*/\/\*/' {} +
