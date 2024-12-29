@@ -1,5 +1,5 @@
 # About this directory 
-Code for _The C Programming Language 2nd Ed._ (K&R2) Kernighan & Ritchie, 1988, Prentice Hall, Chapter 8
+Code for _The C Programming Language 2nd Ed._ (K&R2) Kernighan & Ritchie, 1988, Prentice Hall, Chapter 8: The UNIX System Interface
 
 The following table is a list of exercises and solutions.
 
