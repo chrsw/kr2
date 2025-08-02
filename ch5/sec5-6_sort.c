@@ -1,5 +1,5 @@
 /*
- * sec5-6_qsort.c
+ * sec5-6_sort.c
  *      Sorting program from section 5.6.
  
  * Description:
@@ -10,7 +10,7 @@
  *      Describe the expected input.
  *
  * Build:
- *      $ gcc -o sort sec5-6_qsort.c
+ *      $ gcc -o sort sec5-6_sort.c
  *
  * Test:
  *      $ ./sort < qsort_test.txt > qsort_test_output.txt
@@ -51,6 +51,7 @@ int main(void) {
 #define MAXLEN 1000                     /* max length of any input line */
 int sec1_9_getline(char *, int);        /* from section 1.9 */
 char *alloc(int);                       /* from section 5.4 */
+
 
 /* readlines: read input lines */
 int readlines(char *lineptr[], int maxlines) {
@@ -101,7 +102,7 @@ void sec5_6_qsort(char *v[], int left, int right) {
 }
 
 
-/* interchangae v[i] and v[j] */
+/* interchange v[i] and v[j] */
 void swap(char *v[], int i, int j) {
 
     char *temp;
@@ -115,6 +116,7 @@ void swap(char *v[], int i, int j) {
 
 static char allocbuf[ALLOCSIZE];                /* storage for alloc */
 static char *allocp = allocbuf;                 /* next free position */
+
 
 /* alloc: return pointer to n characters */
 char *alloc(int n) {
