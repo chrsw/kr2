@@ -23,12 +23,12 @@
 
 #define MAXLINES 5000                   /* max #lines to be sorted */
 #define MAXLEN 1000                     /* max length of any input line */
-char *lineptr[MAXLINES];                /* pointers to next lines */
+//char *lineptr[MAXLINES];                /* pointers to next lines */
 char *staticptr[MAXLINES];                /* pointers to next lines */
 char input[MAXLINES][MAXLEN];           /* static storage for input data */
 
 /* function declarations */
-int readlines(char *lineptr[], char* staticptr[], char input[MAXLINES][MAXLEN], int nlines);
+int readlines(/*char *lineptr[],*/ char* staticptr[], char input[MAXLINES][MAXLEN], int nlines);
 void writelines(char *lineptr[], int nlines);
 
 /* qsort() is defined in C standard lib (stdlib.h) so we'll have to rename
@@ -41,7 +41,7 @@ int main(void) {
 
     int nlines;
     
-    if ((nlines = readlines(lineptr, staticptr, input, MAXLINES)) >= 0) {
+    if ((nlines = readlines(/*lineptr, */staticptr, input, MAXLINES)) >= 0) {
         sec5_6_qsort(staticptr, 0, nlines-1);
         //sec5_6_qsort(input, 0, nlines-1);
         writelines(staticptr, nlines);
@@ -58,7 +58,7 @@ char *alloc(int);                       /* from section 5.4 */
 
 
 /* readlines: read input lines */
-int readlines(char *lineptr[], char *staticptr[], char input[MAXLINES][MAXLEN], int maxlines) {
+int readlines(/*char *lineptr[],*/ char *staticptr[], char input[MAXLINES][MAXLEN], int maxlines) {
 
     int len, nlines;
     char *p, line[MAXLEN];
@@ -74,7 +74,7 @@ int readlines(char *lineptr[], char *staticptr[], char input[MAXLINES][MAXLEN], 
             line[len-1] = '\0';         /* delete newline */
             strcpy(p, line);
             strcpy(input[nlines], line);
-            lineptr[nlines] = p;
+            //lineptr[nlines] = p;
             staticptr[nlines] = input[nlines];
             nlines++;
         }
