@@ -1,19 +1,20 @@
 /*
- * sec5-6_sort.c
- *      Sorting program from section 5.6.
- 
+ * ex5-7_sort.c
+ *      Sorting program for exercise 5-7. Use array instead of allocation.
+ *
  * Description:
- *      Mostly copied from the text with some minor changes. Avoid conflict
- *      with Standard Library functions. More modern style. More comments.
+ *      Rewrite readlines() to store lines in an array supplied by main(),
+ *      rather than calling alloc() to maintain storage. How much faster 
+ *      is the program?
  *
  * Input:
- *      Describe the expected input.
+ *      Plain text of unsorted lines. See ex5-7_test_input.txt
  *
  * Build:
- *      $ gcc -o sort sec5-6_sort.c
+ *      $ gcc -o ex5-7_sort ex5-7_sort.c
  *
  * Test:
- *      $ ./sort < qsort_test.txt > qsort_test_output.txt
+ *      $ ./ex5-7_sort < ex5-7_test_input.txt > ex5-7_test_output.txt
  *
  */
 
