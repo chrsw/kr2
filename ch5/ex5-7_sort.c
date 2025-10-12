@@ -1,6 +1,7 @@
 /*
  * ex5-7_sort.c
- *      Sorting program for exercise 5-7. Use array instead of allocation.
+ *      Sorting program for exercise 5-7. Use array instead of dynamic
+ *      allocation.
  *
  * Description:
  *      Rewrite readlines() to store lines in an array supplied by main(),
@@ -16,6 +17,8 @@
  * Test:
  *      $ ./ex5-7_sort < ex5-7_test_input.txt > ex5-7_test_output.txt
  *
+ * Time test:
+ *      $ ./ex5-7_loop.sh
  */
 
 #include <stdio.h>
