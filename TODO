@@ -7,3 +7,5 @@ Update all Vim modelines to match the latest.
 Convert Vim modelines into project level .vimrc
 Add script for updating vim modeline.
 Create Makefile template.
+Clean up code in Solution 5-7.
+Time different solutions for Solution 5-7.
