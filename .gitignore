@@ -6,3 +6,4 @@
 
 # Vim spelling files
 *.spl
+.VSCodeCounter/
