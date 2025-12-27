@@ -13,10 +13,10 @@
  *      Input lines that match the pattern.
  *
  * Build:
- *      $ gcc -o ch7-find ch7_getline.c ch7_find.c
+ *      $ gcc -o ex7-find ch7_getline.c ex7_find.c
  *
  * Run:
- *      $ ./ch7-find ex7_test2.txt ex7_test.txt pattern
+ *      $ ./ex7-find ex7_test2.txt ex7_test.txt pattern
  *
  * TODO:
  *    Optionally restore command line options -x and -n.
@@ -50,12 +50,12 @@ int main(int argc, char *argv[]) {
     ++argv;
     /* get list of file names to open */
     while (--argc > 1) {
-        printf("ch7-find: opening %s\n", *argv);
+        printf("ex7_find: opening %s\n", *argv);
         gfp[i++] = fopen(*argv++, "r");
     }
     printf("files found: %d\n", i);
     if (argc != 1) {
-        printf("Usage: ch7-find -x -n pattern\n");
+        printf("Usage: ex7_find -x -n pattern\n");
         printf("File name to open: %s\n", filename); 
     }
     else {
