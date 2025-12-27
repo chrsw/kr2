@@ -11,6 +11,6 @@ The following table is a list of exercises and solutions.
 |7-4     |minscanf_main.c, minscanf.c        	|minscanf.h, sdate.c for practice       |
 |7-5     |        	|        |
 |7-6     |ex7-6.c|test2.txt, test3.txt|
-|7-7     |ch7_find.c,  ch7_getline.c      	|        |
+|7-7     |ex7_find.c,  ch7_getline.c      	|ex7_test.txt, ex7_test2.txt        |
 |7-8     |prp.c,ch7_fgets.c         	|        |
 |7-9     |isupper.c	|        |
