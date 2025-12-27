@@ -47,6 +47,9 @@ int main(int argc, char *argv[]) {
     /* get list of file names to open */
     while (--argc > 1) {
         gfp[i++] = fopen(*argv++, "r");
+        if (gfp[i-1] == NULL) {
+            printf("ex7_find: can't open %s\n", *(argv-1));
+        }
     }
     if (argc != 1) {
         printf("Usage: ex7_find -x -n pattern\n");
@@ -54,6 +57,8 @@ int main(int argc, char *argv[]) {
     }
     else {
         while (i-- > 0) {
+            if (gfp[i] == NULL)
+                continue;
             while (ch7_getline(line, MAXLINE, gfp[i]) > 0) {
                 lineno++;
                 if ((strstr(line, *argv) != NULL) != 0) {
