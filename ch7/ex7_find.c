@@ -41,31 +41,22 @@ int main(int argc, char *argv[]) {
     char filename[80];
     FILE *fp;
     int i = 0;
-    int c, except = 0, number = 0, found = 0;
-
-    /* ignore the other command line options for now for simplicity */
-    number = 1;
-    except = 0;
+    int c, found = 0;
 
     ++argv;
     /* get list of file names to open */
     while (--argc > 1) {
-        printf("ex7_find: opening %s\n", *argv);
         gfp[i++] = fopen(*argv++, "r");
     }
-    printf("files found: %d\n", i);
     if (argc != 1) {
         printf("Usage: ex7_find -x -n pattern\n");
         printf("File name to open: %s\n", filename); 
     }
     else {
-        printf("Pattern to search: %s\n", *argv); 
         while (i-- > 0) {
             while (ch7_getline(line, MAXLINE, gfp[i]) > 0) {
                 lineno++;
-                if ((strstr(line, *argv) != NULL) != except) {
-                    if (number)
-                        printf("%ld: ", lineno);
+                if ((strstr(line, *argv) != NULL) != 0) {
                     printf("%s", line);
                     found++;
                 }
