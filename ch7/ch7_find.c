@@ -1,12 +1,16 @@
 /*
- *  ch7_find.c
- *      find utility. Chapter 7 version.
+ * ex7_find.c
+ *      Modify the pattern matching program of Chapter 5 to take its
+ *      input from a set of named files or, if no files are named as
+ *      arguments, from standard input. Should the file name be printed 
+ *      when a matching line is found?
  *
- * Description:
- *      Print lines that match pattern from 1st argument. This version
- *      takes input from a list of files specified on the command line,
- *      or standard input if no command line arguments are given.
- *      Prints line numbers of each match as well.
+ * Input:
+ *      Files specified on the command line, or standard input
+ *      and pattern to match
+ *
+ * Output:
+ *      Input lines that match the pattern.
  *
  * Build:
  *      $ gcc -o ch7-find ch7_getline.c ch7_find.c
@@ -14,7 +18,10 @@
  * Run:
  *      $ ./ch7-find ex7_test2.txt ex7_test.txt pattern
  *
+ * TODO:
+ *    Optionally restore command line options -x and -n.
  */
+
 
 #include <stdio.h>
 #include <string.h>
@@ -23,8 +30,8 @@
 
 int ch7_getline(char s[], int lim, FILE *fp);
 
-char gfiles[8][80];
-FILE *gfp[8];
+char gfiles[32][80];
+FILE *gfp[32];
 
 /* find: print lines that match pattern from an argument */
 int main(int argc, char *argv[]) {
