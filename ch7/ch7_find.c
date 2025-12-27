@@ -12,7 +12,7 @@
  *      $ gcc -o ch7-find ch7_getline.c ch7_find.c
  *
  * Run:
- *      $ ./ch7-find ch7_test2.txt ch7_test.txt pattern
+ *      $ ./ch7-find ex7_test2.txt ex7_test.txt pattern
  *
  */
 
