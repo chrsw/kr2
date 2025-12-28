@@ -16,10 +16,10 @@
  *      $ gcc -o ex7-find ch7_getline.c ex7_find.c
  *
  * Run:
+ *      $ ./ex7-find -x -n ex7_test2.txt ex7_test.txt pattern
+ *      $ ./ex7-find -xn ex7_test2.txt ex7_test.txt pattern
  *      $ ./ex7-find ex7_test2.txt ex7_test.txt pattern
  *
- * TODO:
- *    Optionally restore command line options -x and -n.
  */
 
 
@@ -42,8 +42,33 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     int i = 0;
     int c, found = 0;
+    int except = 0; // for -x option
+    int number = 0; // for -n option
 
-    ++argv;
+    // look for -x and -n options to be used later
+    while (argc > 1 && (*++argv)[0] == '-') {
+        while (c = *++argv[0]) {
+            switch (c) {
+                case 'x':
+                    except = 1;
+                    break;
+                case 'n':
+                    number = 1;
+                    break;
+                default:
+                    printf("ex7_find: illegal option %c\n", c);
+                    argc = 0;
+                    found = -1;
+                    break;
+            }
+        }
+        argc--;
+    }
+
+    if (found == -1)
+        return found;
+
+    i = 0;
     /* get list of file names to open */
     while (--argc > 1) {
         gfp[i++] = fopen(*argv++, "r");
@@ -52,8 +77,7 @@ int main(int argc, char *argv[]) {
         }
     }
     if (argc != 1) {
-        printf("Usage: ex7_find -x -n pattern\n");
-        printf("File name to open: %s\n", filename); 
+        printf("Usage: ex7_find [-x -n] pattern\n");
     }
     else {
         while (i-- > 0) {
@@ -61,9 +85,17 @@ int main(int argc, char *argv[]) {
                 continue;
             while (ch7_getline(line, MAXLINE, gfp[i]) > 0) {
                 lineno++;
-                if ((strstr(line, *argv) != NULL) != 0) {
-                    printf("%s", line);
+                if (strstr(line, *argv) != NULL) {
+                    if (!except) {
+                        if (number)
+                            printf("%ld: ", lineno);
+                        printf("%s", line);
+                    }
                     found++;
+                } else if (except) {
+                        if (number)
+                            printf("%ld: ", lineno);
+                        printf("%s", line);
                 }
             }
         }
