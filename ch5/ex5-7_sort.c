@@ -15,7 +15,7 @@
  *      $ gcc -o ex5-7_sort ex5-7_sort.c
  *
  * Test:
- *      $ ./ex5-7_sort < ex5-7_test_input.txt > ex5-7_test_output.txt
+ *      $ zcat ex5-7_test_input.txt.gz | ./ex5-7_sort > ex5-7_output.txt
  *
  * Time test:
  *      $ ./ex5-7_loop.sh
