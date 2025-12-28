@@ -1,5 +1,51 @@
+Problem:
 Modify the pattern matching program of Chapter 5 to take its input from a set
 of named files or, if no files are named as arguments, from standard input.
 Should the file name be printed when a matching line is found?
 
 Chapter 5 pattern matching program is called 'find' and its listing is in section 5.10 on page 117.
+
+Design notes/thoughts:
+Typical command with no command line options (switches):
+$ ./ex7-find ex7_test.txt ex7_test2.txt pattern
+
+Example with command line arguments:
+$ ./ex7-find -x -n ex7_test.txt ex7_test2.txt pattern
+
+argv[0] = "./ex7_find"
+argv[1] = "-x"
+argv[2] = "-n"
+argv[3] = "ex7_test.txt"
+argv[4] = "ex7_test2.txt"
+argv[5] = "pattern"
+
+argc = 6
+
+argv starts at argv[0]
+argv++ goes to argv[1]
+
+Commond options or switches have to start with "-"
+
+Skip argv[0]
+Loop through the argument list for every argument item that starts with "-"
+Use the rest of the argumets as normal, assuming the rest of the arguments
+are all either file names to use or patterns to use.
+The last argument is the pattern.
+
+For solution, see ex7_find.c
+
+Running examples:
+$ ./ex7-find ex7_test2.txt missing.txt ex7_test.txt pattern
+ex7_find: can't open missing.txt
+Modify the pattern matching program of Chapter 5 to take its input from a set
+Chapter 5 pattern matching program is called 'find' and its listing is in section 5.10 on page 117.
+Modify the pattern matching program of Chapter 5 to take its input from a set
+Chapter 5 pattern matching program is called 'find' and its listing is in section 5.10 on page 117.
+$ ./ex7-find -xn ex7_test.txt ex7_test2.txt pattern
+2: of named files or, if no files are named as arguments, from standard input.
+3: Should the file name be printed when a matching line is found?
+4: 
+7: of named files or, if no files are named as arguments, from standard input.
+8: Should the file name be printed when a matching line is found?
+9: 
+11: Studying syscalls is a good way to learn system programming.
