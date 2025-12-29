@@ -12,8 +12,8 @@ The following table is a list of exercises and solutions.
 |5-5    | strncat.c, strncmp.c     ||
 |5-6    | ex5-6_getline.c, ch5_match.c, ch5_atoi.c, ch5_itoa.c, ch5_reverse.c     ||
 |5-7    | ex5-7_sort.c, ex5-7_loop.sh     		|ex5-7_test_input.txt.gz|
-|5-8    |      		||
-|5-9    |      		||
+|5-8    |      		|ch5_date.c|
+|5-9    |      		|ch5_date.c|
 |5-10  	| expr.c     	||
 |5-11   | entab2.c, detab2.c     	|tab_test.txt|
 |5-12  	|      		||
