@@ -1,5 +1,7 @@
 /* 
- * table.c Code for table lookup package from Section 6.6 Table Lookup
+ * table.c Code for table lookup internals from Section 6.6 Table Lookup
+ * This code can be used for simple applications that need to replace
+ * strings.
  *
  * Build:
  *   gcc -c table.c
@@ -7,28 +9,26 @@
 
 #include <string.h>
 #include <stdlib.h>
-
-struct nlist {                /* table entry */
-    struct nlist *next;   /* next entry in chain */
-    char *name;          /* defined name */
-    char *defn;          /* replacement text */
-};
+#include <stdio.h>
+#include "table.h"
 
 #define HASHSIZE 101
 
 static struct nlist *hashtab[HASHSIZE]; /* pointer table */
 
 
-/* hash: form hash value for string s */
+/* hash:  form hash value for string s */
 unsigned hash(char *s) {
+
     unsigned hashval;
+
     for (hashval = 0; *s != '\0'; s++)
         hashval = *s + 31 * hashval;
     return hashval % HASHSIZE;
 }
 
 
-/* lookup: look for s in hashtab */
+/* lookup:  look for s in hashtab */
 struct nlist *lookup(char *s) {
     struct nlist *np;
 
@@ -40,7 +40,7 @@ struct nlist *lookup(char *s) {
 }
 
 
-/* install: install (name, defn) in hashtab */
+/* install:  install (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn) {
     struct nlist *np;
     unsigned hashval;
@@ -52,6 +52,7 @@ struct nlist *install(char *name, char *defn) {
         hashval = hash(name);
         np->next = hashtab[hashval];
         hashtab[hashval] = np;
+        printf("install: added %s to hashtab\n", name);
     } else { /* already there */
         free((void *) np->defn); /* free previous definition */
     }

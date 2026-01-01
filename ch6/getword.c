@@ -84,3 +84,25 @@ int getwordb(char *word, int lim)
     *w = '\0';
     return word[0];
 }
+
+/* dgetword:  get next word or character from input. Handles hash marks. */
+int dgetword(char *word, int lim)
+{
+    int c;
+    char *w = word;
+    while (isspace(c = getch()))
+        ;
+    if (c != EOF)
+        *w++ = c;
+    if (!isalpha(c) && c != '#') {
+        *w = '\0';
+        return c;
+    }
+    for ( ; --lim > 0; w++)
+        if (!isalnum(*w = getch())) {
+            ungetch(*w);
+            break;
+    }
+    *w = '\0';
+    return word[0];
+}

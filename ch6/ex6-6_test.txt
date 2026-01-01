@@ -1,0 +1,7 @@
+test input
+#define IN
+for exercise six
+#define TEST
+to test the functionality
+of the define processor
+#define OUT

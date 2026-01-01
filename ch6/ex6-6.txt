@@ -1,0 +1,24 @@
+Exercise 6-6. Implement a simple version of the #define processor (i.e., no arguments) suitable for
+use with C programs, based on the routines of this section. You may also find getch() and ungetch()
+helpful.
+
+
+Goal:
+Read standard input, find lines that begin with
+#define
+Add an entry to the global lookup table that includes the #define'd string.
+e.g.
+#define IN 1
+Then in the global lookup table "IN" is a new name and the definition is "1" (string, not number).
+
+Routines provided
+install()
+lookup() (public?)
+
+Routines needed
+TBD
+
+Files:
+table.c
+getch.c
+getword.c
