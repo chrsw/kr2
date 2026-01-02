@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * exCH-#.c
  *      A brief description of the file.
  *

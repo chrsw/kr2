@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*      
  * ch8_fseek.c
  *      Naive fseek() for Solution 8-4.
  *

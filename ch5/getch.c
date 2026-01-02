@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * getch.c
  *      getch() and ungetch().
  *

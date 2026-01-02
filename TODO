@@ -9,4 +9,3 @@ Add script for updating vim modeline.
 Create Makefile template.
 Clean up code in Solution 5-7.
 Time different solutions for Solution 5-7.
-Clean up the comment about "*      Vim modeline for consistent editor settings across files." in the headers of some files.

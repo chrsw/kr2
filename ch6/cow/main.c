@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * main.c
  *      main() driver for cow - Count Occurance of Words. Count each time a
  *      word appears on input.

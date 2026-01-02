@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*      
  * swap.c
  *      Swap two elements in an array.
  *

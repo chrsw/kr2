@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * ch8_copy.c
  *      Copy input to output. Chapter 8 version.
  *

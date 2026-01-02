@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/* 
  * gensar.c
  *      Generate a sorted array of random numbers.
  *

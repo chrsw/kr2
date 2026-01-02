@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  *  find.c
  *      find utility. From section 5.10.
  *

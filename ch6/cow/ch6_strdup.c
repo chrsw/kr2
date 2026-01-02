@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * ch6_strdup.c
  *      Copy the string given by the argument to a "safe" space.
  *

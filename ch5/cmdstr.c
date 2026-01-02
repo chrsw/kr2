@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  *  cmd_arg_str.c
  *      Build a string from command line arguments. Practice for chapter 5
  *      exercises.

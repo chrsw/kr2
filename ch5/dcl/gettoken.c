@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/*
  * gettoken.c
  *      Find the next token. From Chapter 5, Section 5.12 Complicated
  *      Declarations.

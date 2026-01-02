@@ -1,5 +1,4 @@
-/*      Vim modeline for consistent editor settings across files.
- *
+/* 
  * binstest.c
  *      Test driver for binsearch.c.
  *
