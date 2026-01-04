@@ -1,34 +1,25 @@
 /*
  * ch8_malloc.c
  *      malloc() and related code from K&R2 Chapter 8.
+ *      Related to exercises 8-7 and 8-8.
  *
  * Description:
- *      Template for code and solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
- *      This file defines the functions malloc(), free() and morecore() as
- *      written in the text, except modified to build and link into a real
- *      application on a modern Linux system (2023-24 time frame).
+ *      Excerpt from K&R2, Chapter 8, Section 7.
+ *      Minor name changes to avoid conflicts with the
+ *      system malloc() and free(). 
+ *      ch8_malloc(), ch8_free() and morecore() implement a
+ *      simple storage allocator using a linked list to keep
+ *      track of memory blocks.
  *
- * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
- * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
- * 
- * Implementation:
- *      Details on how the code you're reading implements the design.
- *
- * Build:
+ * Build example(s):
  *      $ gcc -Wall -Wextra -Wpedantic -c ch8_malloc.c
  *
  */
 
 #include <unistd.h>
 #include "ch8_malloc.h"
+
+#define NALLOC 1024
 
 typedef long Align;                     /* for alignment to long boundary */
 
@@ -44,11 +35,11 @@ typedef union header Header;
 
 static Header *morecore(unsigned);
 
-
 static Header base;                     /* empty list to get started */
 static Header *freep = NULL;            /* start of free list */
 
-/* malloc:  general-purpose storage allocator */
+
+/* ch8_malloc:  general-purpose storage allocator */
 void *ch8_malloc(unsigned nbytes)
 {
     Header *p, *prevp;
@@ -79,7 +70,7 @@ void *ch8_malloc(unsigned nbytes)
 
 }
 
-#define NALLOC 1024
+
 
 /* morecore:  ask system for more memory */
 static Header *morecore(unsigned nu)
@@ -99,7 +90,7 @@ static Header *morecore(unsigned nu)
 }
 
 
-/* free:  put block ap in free list */
+/* ch8_free:  put block ap in free list */
 void ch8_free(void *ap)
 {
     Header *bp, *p;
