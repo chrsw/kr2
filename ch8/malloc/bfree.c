@@ -50,6 +50,13 @@ static Header *freep = NULL;            /* start of free list */
 
 char gca_bf_data[104108];                 /* for adding to the free list with bfree() */ 
 
+
+/* These symbols are provided by the linker */
+extern char etext; // End of text (code)
+extern char edata; // End of initialized data
+extern char end;   // End of uninitialized data (BSS)
+
+
 /* ch8_malloc:  general-purpose storage allocator */
 void *ch8_malloc(unsigned nbytes)
 {
@@ -153,10 +160,16 @@ int main(int argc, char *argv[]) {
 
     heap_data1024 = ch8_malloc(1024);
     heap_data2048 = ch8_malloc(2048);
-    
+
+    // Show address info from the linker and runtime to show where data is stored
+    printf("End of Text (.text):      \t\t%p\n", &etext);
+    printf("End of Data (.data):      \t\t%p\n", &edata);
+    printf("End of BSS  (.bss):       \t\t%p\n", &end); 
+
     printf("A memory address in heap_data1024:\t%p\n", heap_data1024+4);
     printf("A memory address in heap_data2048:\t%p\n", heap_data2048+4);
     printf("A memory address in gca_bf_data:\t%p\n", gca_bf_data+4);
+
     char *heap_data_huge = ch8_malloc(16*16*256);
     bfree(gca_bf_data, 4096);
     sp = ch8_malloc(4000); 
