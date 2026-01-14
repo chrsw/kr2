@@ -8,6 +8,12 @@
  *      equivalent integer value. The allowable digits are 0 through
  *      9, a through f, and A through F.
  *
+ * Build:
+ *      $ gcc -o ex2-3 ex2-3.c
+ * 
+ * Run:
+ *      $ ./ex2-3
+ * 
  * Returns:
  *      Integer representation of ASCII hex string.
  *
