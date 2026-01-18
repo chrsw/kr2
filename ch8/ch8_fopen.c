@@ -1,6 +1,6 @@
 /*
  * ch8_fopen.c
- *      Chapter 8 version of fopen() using chapter 8 stdio.h.
+ *      Chapter 8 version of fopen() using Chapter 8 stdio.h.
  *
  * Description:
  *      This file can't link into an executable because ch8_stdio.h will
@@ -8,8 +8,6 @@
  *
  * Build:
  *      $ gcc -c ch8_fopen.c
- *
- * Notes:
  *
  */
 

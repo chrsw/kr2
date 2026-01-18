@@ -3,18 +3,18 @@
  *      Solution for Exercise 8-2.
  *
  * Description:
- *      Rewrite fope() and _fillbuf() with fields instead of explicit bit
+ *      Rewrite fopen() and _fillbuf() with fields instead of explicit bit
  *      operations. Compare code size and execution speed.
  *
- * Input:
- *      Describe the expected input.
- *
- * Output:
- *      What output does this program generate? stdout, stderr, files, etc.
- *
  * Design:
- *      Details about the design, theory and options taken for the
- *      implemented solution.
+ *      ch8_fopen() and _fillbuf() use a definition of FILE that has a 
+ *      'flags' field where file status is in encoded in an 'int'.
+ *      See ch8_stdio.h for how this is done, based on the text.
+ *      The exercise needs to implement the FILE definition with bit fields
+ *      instead of an enum. In theory, this should be slower than the
+ *      enum implementation because of the extra operations needed to
+ *      extract values from bit fields.
+ *
  * 
  * Implementation:
  *      Details on how the code you're reading implements the design.
