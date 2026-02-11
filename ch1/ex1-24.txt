@@ -1,0 +1,13 @@
+Exercise 1-24.
+
+Write a general, basic C program checker.
+
+Some hints:
+Keep it simple, this is still chapter 1 of the book, the entire language
+hasn't been introduced yet.
+Parentheses, brackets, curly braces have to be balanced.
+Comments have to be accounted for, only block comments: /* */. Don't track
+anything inside comments except the block comment markers as well,
+those have to match.
+Can test on existing C sources in this project and some modified
+bad files.
