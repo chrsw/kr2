@@ -12,11 +12,14 @@
  *      A C source file.
  *
  * Output:
+ *      Returns 0 or 1 to the OS based on if the C source input file
+ *      was valid or not. 0 for valid. 1 for invalid.
  *
  * Design:
  * 
  * Implementation:
- *      Details on how the code you're reading implements the design.
+ *      Checks to see ['s, {'s and ('s are balanced outside of comments.
+ *      Checks to see ''s, "'s and \'s are even outside of comments.
  *
  * Build:
  *      $ gcc -o 1-24 1-24.c
