@@ -1,16 +1,16 @@
 /*
  * ex1-23.c
+ *
+ * Description:
  *      Write a program to remove all comments from a C program. Don't
  *      forget to handle quoted strings and character constants properly.
  *      C comments do not nest.
  *
- * Description:
- *
  * Input:
- *      A C source file.
+ *      A C source file on standard input.
  *
  * Output:
- *      The same C source file but without block comments.
+ *      The same C source file but without block comments, on standard output.
  *
  * Design:
  *      Thoughts about this design. Read in characters from standard input.
@@ -48,10 +48,9 @@
 
 int main(void) {
 
-    int c, nl, nw, nc, state;
+    int c, state;
     int pc = 0; 
     state = NORMAL;
-    nl = nw = nc = 0;
     
     while ((c = getchar()) != EOF ) {
         if (state == NORMAL) {
