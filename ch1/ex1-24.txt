@@ -1,8 +1,7 @@
 Exercise 1-24.  Write a program to check a C program for rudimenatary syntax
 errors like unbalanced parentheses, brackets and braces. Don't forget about quotes, both single and double, escape sequences and comments.
 
-Write a general, basic C program checker.
-
+Solution 1-24.
 Some hints:
 Keep it simple, this is still chapter 1 of the book, the entire language
 hasn't been introduced yet.
@@ -14,3 +13,6 @@ Can test on existing C sources in this project and some modified
 bad files.
 
 Quotes have to be balanced as well.
+
+Start with the comment stripping program of Exercise 1-23 and adapt it to this
+problem.
