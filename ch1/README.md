@@ -28,4 +28,4 @@ The following table is a list of exercises and solutions.
 |1-21    | entab.c     |entab_test.txt, entab_test2.txt|
 |1-22    | fold.c     ||
 |1-23    | 1-23.c     ||
-|1-24    |      ||
+|1-24    | 1-24.c     ||
