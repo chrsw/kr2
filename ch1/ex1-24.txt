@@ -16,3 +16,6 @@ Quotes have to be balanced as well.
 
 Start with the comment stripping program of Exercise 1-23 and adapt it to this
 problem.
+
+Started with ex1-23.c and added code to check for balanced symbols and
+operators.
