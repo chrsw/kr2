@@ -4,7 +4,7 @@
  *
  * Description:
  *      Excerpt from section 3.6. itoa() takes a signed integer value
- *      and converts each integer digit in base 10 and converts the
+ *      and takes each integer digit in base 10 and converts the
  *      digit to its ASCII character. e.e. 0 -> 0x30 (decimal 48),
  *      1 -> 0x31 (decimal 49), etc.
  *      This version is revised from the text version.
