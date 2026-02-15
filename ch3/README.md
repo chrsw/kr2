@@ -9,5 +9,5 @@ The following table is a list of exercises and solutions.
 |3-2  	 | ex3-2.c, ex3-2b.c | escape() and unescape() |
 |3-3     | ex3-3.c|expand.c|
 |3-4     | ex3-4.c, reverse.c||
-|3-5     | ||
+|3-5     | ex3-5.c ||
 |3-6     | ex3-6.c||
