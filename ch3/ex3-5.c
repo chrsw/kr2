@@ -8,12 +8,11 @@
  *      itob(n,s,16) formats n as a hexadecimal integer in s.
  * 
  * Build:
+ *      Build a main driver or a standalone function object:
  *      $ gcc -DEX5_2_MAIN -o ex5-2 reverse.c ex3-5.c
  *      $ gcc -c ex3-5.c
  *
  * Notes:
- *      For this exercise, n will be assumed to be in base 10 and the choices
- *      for b as the base will be 10 or 16.
  */
 
 #include <string.h>
