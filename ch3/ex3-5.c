@@ -9,7 +9,7 @@
  * 
  * Build:
  *      Build a main driver or a standalone function object:
- *      $ gcc -DEX5_2_MAIN -o ex5-2 reverse.c ex3-5.c
+ *      $ gcc -DEX3_5_MAIN -o ex5-2 reverse.c ex3-5.c
  *      $ gcc -c ex3-5.c
  *
  * Notes:
@@ -22,7 +22,7 @@
 void reverse(char s[]);
 void itob(int n, char s[], int b);
 
-#ifdef EX5_2_MAIN
+#ifdef EX3_5_MAIN
 int main(int argc, char *argv[]) {
 
     int n = 123;                /* simple test case */ 
