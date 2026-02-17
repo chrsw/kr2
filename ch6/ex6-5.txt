@@ -3,3 +3,12 @@ from the table maintained by lookup() and install().
 
 Solution 6-5.
 See ex6-5_table.c
+
+$ gcc -o rmdef rmdef.c getword.c getch.c ex6-5_table.c
+$ ./rmdef < ex6-6_test.txt
+install: added IN to hashtab
+install: added TEST to hashtab
+install: added OUT to hashtab
+rmdef: removing TEST
+rmdef: MISSING: not found
+rmdef: TEST: not found
