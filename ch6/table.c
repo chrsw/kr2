@@ -60,3 +60,14 @@ struct nlist *install(char *name, char *defn) {
         return NULL;
     return np;
 }
+
+
+/* remove name from definition list */
+void rmdef(char *name) {
+
+    struct nlist *np;
+    if ((np = lookup(name)) == NULL)
+        printf("rmdef: %s: not found\n", name);
+    else                /* found definition, remove */
+        return;
+}

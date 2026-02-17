@@ -6,6 +6,9 @@
  * Input:
  *      Plain text. Specifically with #define statements.
  *
+ * Output:
+ *      Prints all defined names and their vales.
+ *
  * Build:
  *      $ gcc -o define define.c getword.c getch.c table.c
  *
@@ -22,7 +25,7 @@
 #include "getch.h"
 #include "getword.h"
 
-/* words is an array of 10 words, each word can be 99 letters */
+/* words is an array of 40 words, each word can be 99 letters */
 /* one element is used by the '\0' (NULL) character */
 char words[40][100];
 
