@@ -8,4 +8,3 @@ struct nlist {                  /* table entry */
 
 struct nlist *install(char *name, char *defn);
 struct nlist *lookup(char *s);
-void rmdef(char *s);
