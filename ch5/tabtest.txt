@@ -1,0 +1,4 @@
+The words on the line below are all separated by tabs.
+one	two	three	four	five	seventeen
+The words on the line below are all separated by spaces.
+one     two     three   four    five    seventeen
