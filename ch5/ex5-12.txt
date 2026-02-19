@@ -7,3 +7,5 @@ to mean tab stops every n columns starting at column m. Choose convenient
 
 
 Solution 5-12.
+Copied the entab.c and detab.c programs from Chapter 1, added command line
+options for tab stop and tab starting column. Needs testing.

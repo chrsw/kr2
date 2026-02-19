@@ -1,17 +1,9 @@
 /*
- * entab.c
- *      Solution to Chapter 1, Exercise 21.
+ * ex5-12_entab.c
+ *      Solution to Chapter 5, Exercise 12. See ex5-12.txt.
  *
- * Description:
- *      Write a program entab that replaces strings of blanks in the input
- *      with the proper number of blanks to space to the next tab stop.
- *      Assume a fixed set of tab stops, say every n columns.
- *      
- * Input:
- *      Text input with line breaks. Lines can't be too long.
- *
- * Returns:
- *      Total chars read.
+ * Run example:
+ *      $ ./ex5-12_entab -4 +6
  *
  */
 
