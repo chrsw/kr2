@@ -74,7 +74,7 @@ void *ch8_malloc(unsigned nbytes)
 #define NALLOC 1024                         /* minimum #units to request */
 
 /* morecore:  ask system for more memory */
-static Header *morecore(unsigned nu)
+Header *morecore(unsigned nu)
 {
     char *cp;
     Header *up;
