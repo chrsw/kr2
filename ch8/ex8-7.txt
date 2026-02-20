@@ -1,0 +1,9 @@
+Exercise 8-7.  malloc() accepts a size request without checking its
+plausibility; free() believes that the block it is asked to free contains a
+valid size field. Improve these routines so they take more pains with
+error checking.
+
+
+Solution 8-7.
+According to the malloc() and free() man pages, when malloc() gets a bad
+size it returns NULL. When free() gets a bad block, it does nothing.
