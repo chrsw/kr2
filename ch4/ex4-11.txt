@@ -1,0 +1,6 @@
+Exercise 4-11.  Modify getop() so that it doesn't nee dto use ungetch().
+Hint: use an internal static variable.
+
+
+Solution 4-11.
+See ex4-11_calc/, particularly ex4-11_calc/getop.c.
