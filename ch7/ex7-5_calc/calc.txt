@@ -1,0 +1,8 @@
+This directory contains the RPN calculator implementation from Sections 4.3 -
+4.5 split into multiple source and header files.
+
+main.c main driver and main code
+getop.c get next operator or operand
+stack.c stack operations push/pop
+getch.c buffered character I/0
+
