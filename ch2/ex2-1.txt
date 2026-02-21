@@ -1,0 +1,22 @@
+Exercise 2-1.  Write a program to determine the ranges of char, short, int
+and long variables, both signed and unsigned by printing appropriate values
+and by direct computation. Harder if you compute them: determine the ranges
+of various floating point types.
+
+Solution 2-1.
+On test system (see main project README), the ranges are defined in limits.h and float.h
+
+Finding float.h on the host system:
+$ cat float.c 
+#include <float.h>
+$ gcc -E -Wp,-v -xc float.c
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/9/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+
