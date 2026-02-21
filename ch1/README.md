@@ -5,8 +5,8 @@ The following table is a list of exercises and solutions.
 
 |Exercise|Solution|Comments|
 |--------|--------|--------|
-|1-1 	 | ||
-|1-2  	 |     ||
+|1-1 	 |ex1-1a.c, ex1-1b.c, ex1-1c.c, ex1-1.txt ||
+|1-2  	 |ex1-2.c     ||
 |1-3     | ex1-3.c  ||
 |1-4     | ex1-4.c||
 |1-5     | ex1-5.c ||
