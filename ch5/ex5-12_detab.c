@@ -20,12 +20,14 @@ int main(int argc, char *argv[])
     int sc = 0;                 /* starting column, from user */
     int ui[2];                  /* user input */
 
+    /* get the command line args, if any */
     while (--argc > 0 && ((*++argv)[0] == '-' || (*argv)[0] == '+')) {
         printf("detab: %s\n", *argv);
         ui[i++] = atoi((*argv));
         //++argv;
     }
 
+    /* set the values for tab stops and starting column */
     if (i != 0) {
         i = 0;
         if (ui[0] < 0) ui[0] = -ui[0];
@@ -50,8 +52,9 @@ int main(int argc, char *argv[])
         // until the next tab column
         if (c == '\t') {
             // by default tab columns are every eight chars 
-            // and 1st column is 1
-            j = ui[1] - (i % ui[0]);
+            // and 1st column is 0. user can move starting column
+            // to the right by "-m".
+            j = ui[1] + (i % ui[0]);
 
             for (j; j > 0; j--) {
                 printf(" ");

@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
         if (c == '\n') i = 0;
         // any time a space char is found, start or keep counting
         if (c == ' ') {
-            if (++space == ui[1]) {
+            if (++space == ui[1] + ui[0]) {
                 // found enough spaces in a row
                 printf("\t");
                 // the tab char will stop at the next tabstop
