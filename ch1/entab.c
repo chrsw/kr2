@@ -4,8 +4,8 @@
  *
  * Description:
  *      Write a program entab that replaces strings of blanks in the input
- *      with the proper number of blanks to space to the next tab stop.
- *      Assume a fixed set of tab stops, say every n columns.
+ *      with the minimum number of tabs and blanks to space to the next tab
+ *      stop. Assume a fixed set of tab stops, say every n columns.
  *      
  * Input:
  *      Text input with line breaks. Lines can't be too long.
