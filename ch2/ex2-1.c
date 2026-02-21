@@ -55,8 +55,6 @@ int main(int argc, char *argv[])
     */ 
 
     /* unsigned types */
-    //for (uch = 0; uch + 1 > 0; uch++)
-    //    ;
     printf("min unsigned char = %hhu\n", uch = 0);  
     printf("max unsigned char = %hhu\n\n", --uch);  
     printf("min unsigned short = %hu\n", ush = 0);  
@@ -65,9 +63,8 @@ int main(int argc, char *argv[])
     printf("max unsigned int = %u\n\n", --ui);  
     printf("min unsigned long = %lu\n", ul = 0UL);  
     printf("max unsigned long = %lu\n\n", --ul);  
-
     
-    /* show ranges by header defines */
+    /* show ranges by header defines, from limits.h */
     printf("min char = %hhd\n", SCHAR_MIN);  
     printf("max char = %hhd\n\n", SCHAR_MAX);  
     printf("min char = %hhd\n", SCHAR_MIN);  
@@ -77,9 +74,9 @@ int main(int argc, char *argv[])
     printf("min char = %hhd\n", SCHAR_MIN);  
     printf("max char = %hhd\n\n", SCHAR_MAX);  
     
-    /* float */
-    printf("min float = %g\n",-FLT_MAX); 
-    printf("max float = %g\n",FLT_MAX); 
+    /* float, from float.h */
+    printf("min float = %g\n", -FLT_MAX); 
+    printf("max float = %g\n", FLT_MAX); 
 
     return 0;
 }
