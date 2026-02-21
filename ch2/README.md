@@ -5,7 +5,7 @@ The following table is a list of exercises and solutions.
 
 |Exercise|Solution|Comments|
 |--------|--------|--------|
-|2-1 	 | ||
+|2-1 	 |ex2-1.c, ex2-1.txt ||
 |2-2  	 | htoi-try1.c    ||
 |2-3     | ex2-3.c  |Related: ex2-3a.c|
 |2-4     | ex2-4.c|Related: squeeze.c, squeeze2.c|
