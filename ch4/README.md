@@ -1,7 +1,7 @@
 # About this directory 
 Code for _The C Programming Language 2nd Ed._ (K&R2) Kernighan & Ritchie, 1988, Prentice Hall, Chapter 4: Functions and Program Structure
 
-RPN calculator example from Sections 4.3-4.5 in calc/ subdirectory.
+RPN calculator example from Sections 4.3-4.5 is in the calc/ subdirectory.
 The following table is a list of exercises and solutions.
 
 |Exercise|Solution|Comments|
