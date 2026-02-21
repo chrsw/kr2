@@ -1,0 +1,19 @@
+Experiments with leaving out part of the "hello, world" program.
+
+$ gcc -o ex1-1a ex1-1a.c
+$ ./ex1-1a
+hello, world$ 
+
+$ gcc -o ex1-1b ex1-1b.c
+ex1-1b.c: In function ‘main’:
+ex1-1b.c:15:13: error: expected ‘;’ before ‘}’ token
+   15 |     return 0
+      |             ^
+      |             ;
+   16 | }
+      | ~            
+
+$ gcc -o ex1-1c ex1-1c.c
+$ ./ex1-1c
+$ 
+
