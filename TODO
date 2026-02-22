@@ -1,11 +1,8 @@
-Finish the exercises in the text. 
 Write Makefiles for the more complicated solutions.
 Add comments to existing Makefiles.
 Add more helpful comments for each exercise, solution and sample.
 Finish TODOs throughout the code.
-Update all Vim modelines to match the latest.
-Convert Vim modelines into project level .vimrc
-Add script for updating vim modeline.
-Create Makefile template.
 Clean up code in Solution 5-7.
 Time different solutions for Solution 5-7.
+Write tests for more complicated solutions.
+Capture solution text in different formats: plain text, Markdown and roff.
