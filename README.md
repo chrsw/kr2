@@ -13,6 +13,8 @@ Most code uses Standard C 89 like the text, Standard C Library (default GCC and 
 
 This code isn't designed to be completely correct in all cases, only meant to fulfill the spirit of the exercise. With few exceptions, safety and portability are not a consideration. That is, these code snippets are mainly for pedagogical purposes, not for production or expert reference.
 
+Do to subtle differences between environments over the years, some examples won't run from the text as-is.
+
 ### Future
 
 The plan is to eventually add more helpful comments and test code.
