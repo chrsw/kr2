@@ -17,3 +17,19 @@ $ gcc -o ex1-1c ex1-1c.c
 $ ./ex1-1c
 $ 
 
+$ gcc -o ex1-1d ex1-1d.c
+$ ./ex1-1d
+$
+
+
+$ gcc -o ex1-1d ex1-1d.c
+ex1-1d.c: In function ‘main’:
+ex1-1d.c:12:5: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+   12 |     printf("hellow, world\n");
+      |     ^~~~~~
+ex1-1d.c:12:5: warning: incompatible implicit declaration of built-in function ‘printf’
+ex1-1d.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+  +++ |+#include <stdio.h>
+    1 | /*
+$ ./ex1-1d 
+hello, world
