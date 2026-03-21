@@ -1,5 +1,5 @@
 /*
- * ex1-1c.c	
+ * ex1-1a.c	
  *      Run the "hello, world" program on your system. Experiment with
  *      leaving out parts of the program, to see what error messages you
  *      get.
